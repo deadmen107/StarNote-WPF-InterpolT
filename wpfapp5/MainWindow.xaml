@@ -1,0 +1,266 @@
+﻿<dx:ThemedWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:view="clr-namespace:StarNote.View"
+        xmlns:dxwuii="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/internal"
+        xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
+        xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking" 
+        x:Class="StarNote.MainWindow"  
+        WindowStyle="SingleBorderWindow" 
+        Title="Star Note Veri Takip Uygulaması"  
+        WindowState="Maximized"                   
+        WindowKind="Ribbon"
+        Background="#FF53606C"
+        Height="768" Width="1366"     
+        Icon="/Content/Starnote.png" Closing="ThemedWindow_Closing"
+        xmlns:language="clr-namespace:StarNote.Properties"
+    >
+
+
+
+    <Window.Resources>
+        <Style TargetType="dxwuii:HamburgerSubMenuPane">
+            <Setter Property="Background" Value="#FF638EEE" />
+        </Style>
+    </Window.Resources>
+
+    <dxwui:HamburgerMenu  ViewState="Closed"   >
+        <dxwui:HamburgerMenu.PaneBackground>
+            <SolidColorBrush Color="#8A638EEE"/>
+        </dxwui:HamburgerMenu.PaneBackground>
+        <dxwui:HamburgerMenu.HorizontalHeaderBackground>
+            <SolidColorBrush  Opacity="0.84"/>
+        </dxwui:HamburgerMenu.HorizontalHeaderBackground>
+     
+        <dxwui:HamburgerSubMenu FontSize="16"  Glyph="/Content/home.png" Content="ANA MENÜ" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"  >
+            <dxwui:HamburgerSubMenu.Items >
+                <dxwui:HamburgerSubMenuNavigationButton Tag="1" Content="Genel Takip Ekranı" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="20" Content="Dosya Yönetim Ekranı" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="8" Content="Dil Takip Ekranı" Click="HamburgerSubMenuNavigationButton_Click" />
+            </dxwui:HamburgerSubMenu.Items>
+        </dxwui:HamburgerSubMenu>
+        <dxwui:HamburgerMenuItemSeparator/>
+        <dxwui:HamburgerSubMenu FontSize="16"  Glyph="/Content/add.png" Content="KAYIT EKRANI" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"  >
+            <dxwui:HamburgerSubMenu.Items >
+                <dxwui:HamburgerSubMenuNavigationButton Tag="2" Content="Özel Müşteri Tercümesi" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="26" Content="Şirket Tercümesi" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="27" Content="Mahkeme Tercümesi" Click="HamburgerSubMenuNavigationButton_Click"   />
+               
+            </dxwui:HamburgerSubMenu.Items>
+        </dxwui:HamburgerSubMenu>
+        <dxwui:HamburgerMenuItemSeparator/>
+        <dxwui:HamburgerSubMenu  FontSize="16" Glyph="/Content/alarm.png" Content="HATIRLATMA" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"  >
+            <dxwui:HamburgerSubMenu.Items >
+                <dxwui:HamburgerSubMenuNavigationButton Tag="4" Content="Hatırlatmar" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="5" Content="Eski Hatırlatmar" Click="HamburgerSubMenuNavigationButton_Click"/>
+            </dxwui:HamburgerSubMenu.Items>
+        </dxwui:HamburgerSubMenu>
+        <dxwui:HamburgerMenuItemSeparator/>
+        <dxwui:HamburgerSubMenu FontSize="16" Glyph="/Content/accounting.png" Content="MUHASEBE" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"  >
+            <dxwui:HamburgerSubMenu.Items >
+
+                <dxwui:HamburgerSubMenuNavigationButton Tag="6" Content="Günlük Gider Tablosu" Click="HamburgerSubMenuNavigationButton_Click"  />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="7" Content="Günlük Gelir Tablosu" Click="HamburgerSubMenuNavigationButton_Click"  />                
+                <dxwui:HamburgerSubMenuNavigationButton Tag="9" Content="Aylık Gelir" Click="HamburgerSubMenuNavigationButton_Click"/>
+                <dxwui:HamburgerSubMenuNavigationButton Tag="10" Content="Aylık Gider" Click="HamburgerSubMenuNavigationButton_Click"/>
+
+            </dxwui:HamburgerSubMenu.Items>
+        </dxwui:HamburgerSubMenu>
+        <dxwui:HamburgerMenuItemSeparator/>
+        <dxwui:HamburgerSubMenu FontSize="16" Glyph="/Content/dashboard.png"  Content="ANALİZ" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"   >
+            <dxwui:HamburgerSubMenu.Items >
+
+                <dxwui:HamburgerSubMenuNavigationButton Tag="11" Content="Aylık İş Analizi"  Click="HamburgerSubMenuNavigationButton_Click" />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="12" Content="Yıllık İş Analizi"  Click="HamburgerSubMenuNavigationButton_Click"/>
+                <dxwui:HamburgerSubMenuNavigationButton Content="Potansiyel İş Analizi (x)"  />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="14" Content="Tercüman İş Analizi "  Click="HamburgerSubMenuNavigationButton_Click"/>
+            </dxwui:HamburgerSubMenu.Items>
+        </dxwui:HamburgerSubMenu>
+        <dxwui:HamburgerMenuItemSeparator/>
+        <dxwui:HamburgerSubMenu FontSize="16" Glyph="/Content/mainsettings.png" Content="AYARLAR" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"   >
+            <dxwui:HamburgerSubMenu.Items >
+                <dxwui:HamburgerSubMenuNavigationButton Tag="3" Content="Tercümanlar" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="19" Content="Müşteri Türleri" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="25" Content="Mahkemeler" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="21" Content="Şirketler" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="22" Content="Özel Müşteriler" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="24" Content="Belgeler" Click="HamburgerSubMenuNavigationButton_Click"   />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="17" Content="Kullanıcılar" Click="HamburgerSubMenuNavigationButton_Click"/>
+                <dxwui:HamburgerSubMenuNavigationButton Tag="15" Content="Dosya Kayıt Ayarları"    Click="HamburgerSubMenuNavigationButton_Click" />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="18" Content="Hedefler" Click="HamburgerSubMenuNavigationButton_Click" />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="16" Content="İşlem Kayıtları"  Click="HamburgerSubMenuNavigationButton_Click" SelectOnClick="False"/>
+                <dxwui:HamburgerSubMenuNavigationButton Tag="28" Content="Lisanslarım"  Click="HamburgerSubMenuNavigationButton_Click" SelectOnClick="False"/>
+                <dxwui:HamburgerSubMenuNavigationButton Tag="23" Content="Parola Değiştirme" Click="HamburgerSubMenuNavigationButton_Click" />
+
+            </dxwui:HamburgerSubMenu.Items>
+        </dxwui:HamburgerSubMenu>
+        <dxwui:HamburgerMenuItemSeparator/>
+       
+
+        <dxwui:HamburgerMenuNavigationButton Glyph="/Content/Logout.png" Content="ÇIKIŞ" FontSize="14" Click="HamburgerMenuNavigationButton_Click_1"  Tag="3"/>
+        <dxwui:HamburgerMenuItemSeparator/>
+       
+          
+           
+       
+        <dxwui:HamburgerMenu.Content>
+
+           
+            <Grid x:Name="grid1" Background="#8A638EEE"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="72"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition  Width="*"/>
+                            <ColumnDefinition  Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="120" Margin="0,0,0,0" Source="/Content/Starnote.png"/>
+                        
+                        <TextBlock Grid.Column="1"  Text="STAR NOTE VERİ TAKİP UYGULAMASI" FontSize="28" FontWeight="SemiBold" Foreground="White" Margin="10,0,0,0" VerticalAlignment="Center"></TextBlock>
+                        <Border Grid.Column="2">
+                            <Border.Background>
+                                <ImageBrush ImageSource="Content/sagpencere.png"/>
+                            </Border.Background>
+                            <Border Width="220" Height="120" CornerRadius="10,10,10,10" Margin="51,-35,150,0">
+                                <StackPanel Orientation="Horizontal">                                   
+                                    <StackPanel VerticalAlignment="Center" >
+                                        <Canvas>
+                                        <TextBlock x:Name="menü" Grid.Column="2"  Text="ANA MENÜ" FontStyle="Italic" FontSize="23" FontWeight="SemiBold" Foreground="White" Margin="0,0,70,0" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                                        </Canvas>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                        </Border>
+                      
+                    </Grid>
+                      </Grid>
+
+                <dxdo:DockLayoutManager Background="#FF4949F4" x:Name="dockLayoutManager" Grid.Row="1" BorderThickness="0" >
+                    <dxdo:LayoutGroup Background="#FF4949F4" >
+                        <dxdo:DocumentGroup Margin="-3,-5" ShowTabHeaders="False">
+                            <dxdo:DocumentPanel  x:Name="documentPanelANAMENU" AllowClose="False">
+                                <view:MainGridUC/>
+                            </dxdo:DocumentPanel>                           
+                            <dxdo:DocumentPanel x:Name="documentPanelMUHASEBEALIS" AllowClose="False">
+                                <view:DailyPurchaseUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentPanelMUHASEBESATIS" AllowClose="False">
+                                <view:DailySalesUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentPanelSTOK" AllowClose="False">                              
+                                <view:StokUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentPanelGİDER"  AllowClose="False" IsActive="false">
+                                <view:MontlySalesUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentPanelGELİR"  AllowClose="False" IsActive="false">
+                                <view:MontlyPurchaseUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentPanelAylıkANALIZ" AllowClose="False">
+                                <view:AnalysisMontlyUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentPanelYıllıkANALIZ" AllowClose="False">                              
+                                <view:AnalysisYearlyUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentPanelPERSONEL" AllowClose="False">
+                                <view:SalesmanUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentPanelHEDEFLER" AllowClose="False">
+                                <view:HedeflerUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentPanelUSERS" AllowClose="False">                               
+                                <view:UsersUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentPanelPrint" AllowClose="False">
+                                <view:PrintingUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentAddSalesman" AllowClose="False">                              
+                                    <view:SalesmanAdd/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentAddTür" AllowClose="False">
+                                <view:TypeAddUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentlog" AllowClose="False">
+                                <view:LogUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentdosyatakip" AllowClose="False">
+                                <view:FilemanagementUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentfirmaekleme" AllowClose="False">
+                                <view:CompanyUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentmüsteriekle" AllowClose="False">
+                                <view:CostumerUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentürünekle" AllowClose="False">                               
+                                <view:ProductUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentşifre" AllowClose="False">                               
+                                <view:PasswordUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documenthatırlatma" AllowClose="False">                                
+                                <view:RemindingUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentürdetay" AllowClose="False">
+                                <view:TypeDetailUC/>
+                            </dxdo:DocumentPanel>
+                        </dxdo:DocumentGroup>
+                    </dxdo:LayoutGroup>
+                </dxdo:DockLayoutManager>
+
+
+
+                <Grid Grid.Row="2" Height="24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock  x:Name="txtLokasyon" Text="Versiyon 1.0.0.9" Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="White"></TextBlock>
+                    <!--<TextBlock x:Name="txtHava" HorizontalAlignment="Center" Text="HAVA DURUMU" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"></TextBlock>-->
+                    <Border x:Name="havadurumu" MouseEnter="Havadurumu_MouseEnter" MouseLeave="Havadurumu_MouseLeave" BorderBrush="Black"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            CornerRadius="5" Grid.Column="2">
+                        <StackPanel Margin="5"
+                                    Orientation="Horizontal">
+                            <Image x:Name="imgHava"  
+                                   Height="15"/>
+                            <TextBlock x:Name="txtHava" Text="" Foreground="White" FontWeight="Bold"
+                                       Margin="3 0 0 0"/>
+                            
+                        </StackPanel>
+                    </Border>
+                    <TextBlock x:Name="txtUserName" Text="Kullanıcı Adı" Grid.Column="3" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"></TextBlock>
+                   
+
+
+                </Grid>
+            </Grid>
+
+        </dxwui:HamburgerMenu.Content>
+
+
+    </dxwui:HamburgerMenu>
+
+
+
+
+
+</dx:ThemedWindow>

@@ -1,0 +1,1100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DDBDB518-25A4-40F9-9567-6ACEC2580FF2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StarNote</RootNamespace>
+    <AssemblyName>StarNote</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://api.armsteknoloji.com/ProjeDosyaları/InterpolT/</InstallUrl>
+    <UpdateUrl>https://api.armsteknoloji.com/ProjeDosyaları/InterpolT/</UpdateUrl>
+    <TargetCulture>tr</TargetCulture>
+    <ProductName>Star Note Veri Takip Uygulaması</ProductName>
+    <PublisherName>ARMS Teknoloji Admin</PublisherName>
+    <SuiteName>ARMS Teknoloji</SuiteName>
+    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>014BCEAC2CF11876A6F488A2C1614C4AEACCD2B8</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>StarNote_2_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>amblem.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.BonusSkins.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Charts.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.CodeParser.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Dashboard.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v18.1.Wpf, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Dashboard.v18.1.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.DataAccess.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v18.1.UI, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.DataAccess.v18.1.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Diagram.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Diagram.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Images.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Map.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Map.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Mvvm.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Office.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Pdf.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.PivotGrid.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Printing.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.RichEdit.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.RichEdit.v18.1.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Sparkline.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.TreeMap.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.TreeMap.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1.UI, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Utils.v18.1.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxThemes.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Web.ASPxThemes.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.Resources.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Web.Resources.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Web.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Charts.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Charts.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Controls.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Controls.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Core.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Dashboard.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Dashboard.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Docking.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.DocumentViewer.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.DocumentViewer.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.ExpressionEditor.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.ExpressionEditor.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Gauges.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Gauges.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Grid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Grid.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Layout.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.LayoutControl.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Map.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Map.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.PivotGrid.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.PivotGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Printing.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.PropertyGrid.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.PropertyGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Ribbon.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.RichEdit.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.RichEdit.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.DXStyle.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.DXStyle.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.HybridApp.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.HybridApp.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.LightGray.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.LightGray.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.MetropolisDark.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.MetropolisLight.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Black.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2007Black.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Blue.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2007Blue.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Silver.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2007Silver.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Black.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2010Black.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Blue.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2010Blue.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Silver.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2010Silver.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2013.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013DarkGray.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2013DarkGray.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013LightGray.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2013LightGray.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016Black.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2016Black.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016BlackSE.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2016BlackSE.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016Colorful.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2016Colorful.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016ColorfulSE.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2016ColorfulSE.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016DarkGraySE.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2016DarkGraySE.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2016White.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016WhiteSE.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Office2016WhiteSE.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Seven.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.Seven.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.TouchlineDark.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.TouchlineDark.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2010.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.VS2010.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2017Blue.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.VS2017Blue.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2017Dark.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.VS2017Dark.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2017Light.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.Themes.VS2017Light.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.TreeMap.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpf.TreeMap.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.Xpo.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraBars.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraCharts.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.1.Extensions, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraCharts.v18.1.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.1.UI, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraCharts.v18.1.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.1.Web, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraCharts.v18.1.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.1.Wizard, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraCharts.v18.1.Wizard.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraDiagram.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraDiagram.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraGauges.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v18.1.Presets, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraGauges.v18.1.Presets.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v18.1.Win, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraGauges.v18.1.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraLayout.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraMap.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraMap.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraNavBar.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraPivotGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraPrinting.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraReports.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.1.Extensions, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraReports.v18.1.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraRichEdit.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v18.1.Extensions, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraRichEdit.v18.1.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraTreeList.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeMap.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraTreeMap.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mehmetyildiz\Desktop\dll yeni\DevExpress.XtraVerticalGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=3.0.7.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.3.0.7\lib\net452\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="ToastNotifications, Version=2.5.1.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
+      <HintPath>..\packages\ToastNotifications.2.5.1\lib\net40\ToastNotifications.dll</HintPath>
+    </Reference>
+    <Reference Include="ToastNotifications.Messages, Version=2.5.1.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
+      <HintPath>..\packages\ToastNotifications.Messages.2.5.1\lib\net40\ToastNotifications.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="DataAccess\AnalysisMontlyDA.cs" />
+    <Compile Include="DataAccess\AnalysisYearlyDA.cs" />
+    <Compile Include="DataAccess\CompanyDA.cs" />
+    <Compile Include="DataAccess\CostumerDA.cs" />
+    <Compile Include="DataAccess\DailyAccountingDA.cs" />
+    <Compile Include="DataAccess\FilemanagementDA.cs" />
+    <Compile Include="DataAccess\MontlyAccountingDA.cs" />
+    <Compile Include="DataAccess\ProductDA.cs" />
+    <Compile Include="DataAccess\RemindingDA.cs" />
+    <Compile Include="DataAccess\TypeAddDA.cs" />
+    <Compile Include="DataAccess\SalesmanAddDA.cs" />
+    <Compile Include="DataAccess\SalesmanAnalysisDA.cs" />
+    <Compile Include="DataAccess\StokDA.cs" />
+    <Compile Include="DataAccess\TypeDetailDA.cs" />
+    <Compile Include="DataAccess\UsersDA.cs" />
+    <Compile Include="DXSplashScreen\SplashScreenView.xaml.cs">
+      <DependentUpon>SplashScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Jobs\ApiJobs.cs" />
+    <Compile Include="Jobs\MyScheduler.cs" />
+    <Compile Include="Model\AnalysisMontlyModel.cs" />
+    <Compile Include="Model\AnalysisYearlyModel.cs" />
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\CompanyModel.cs" />
+    <Compile Include="Model\CostumerModel.cs" />
+    <Compile Include="Model\DailyAccountingModel.cs" />
+    <Compile Include="Model\DataPoint.cs" />
+    <Compile Include="Model\DetayModel.cs" />
+    <Compile Include="Model\FilemanagementModel.cs" />
+    <Compile Include="Model\GaugeModel.cs" />
+    <Compile Include="Model\HedefModel.cs" />
+    <Compile Include="Model\LisanceModel.cs" />
+    <Compile Include="Model\LocalfileModel.cs" />
+    <Compile Include="Model\LogModel.cs" />
+    <Compile Include="Model\MainModel.cs" />
+    <Compile Include="Model\MontlyAccountingModel.cs" />
+    <Compile Include="Model\PrintingModel.cs" />
+    <Compile Include="Model\ProductModel.cs" />
+    <Compile Include="Model\RemindingModel.cs" />
+    <Compile Include="Model\RemindingpropertyModel.cs" />
+    <Compile Include="Model\SalesmanAddModel.cs" />
+    <Compile Include="Model\SalesmanAnalysisModel.cs" />
+    <Compile Include="Model\SettingModel.cs" />
+    <Compile Include="Model\SourceModel.cs" />
+    <Compile Include="DataAccess\MainDA.cs" />
+    <Compile Include="Model\StokModel.cs" />
+    <Compile Include="Model\TokenModel.cs" />
+    <Compile Include="Model\UsersModel.cs" />
+    <Compile Include="Model\WeatherModel.cs" />
+    <Compile Include="Properties\LangTR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LangTR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\RefreshViews.cs" />
+    <Compile Include="Service\VisualTreeHelperExt.cs" />
+    <Compile Include="Settings\DailyPurchaseUI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>DailyPurchaseUI.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\DailySalesUI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>DailySalesUI.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Filemanagement.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Filemanagement.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\MainGrid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>MainGrid.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\MainGrid2.Designer.cs">
+      <DependentUpon>MainGrid2.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Settings\MainGrid1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>MainGrid1.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\MontlyPurchaseUI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>MontlyPurchaseUI.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\MontlySalesUI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>MontlySalesUI.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SalesmanPurchase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>SalesmanPurchase.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SalesmanSales.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>SalesmanSales.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\StokGridUI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>StokGridUI.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\WeatherSetting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>WeatherSetting.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\Hedefler.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Hedefler.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\LisanceUtils.cs" />
+    <Compile Include="Utils\PrintingRoute.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>PrintingRoute.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Report1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\Report1.Designer.cs">
+      <DependentUpon>Report1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\UserUtils.cs" />
+    <Compile Include="Utils\WebapiUtils.cs" />
+    <Compile Include="Utils\Report2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\Report2.Designer.cs">
+      <DependentUpon>Report2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AnalysisMontlyVM.cs" />
+    <Compile Include="ViewModel\AnalysisYearlyVM.cs" />
+    <Compile Include="ViewModel\CompanyVM.cs" />
+    <Compile Include="ViewModel\CostumerVM.cs" />
+    <Compile Include="ViewModel\DailySalesVM.cs" />
+    <Compile Include="ViewModel\DailyPurchaseVM.cs" />
+    <Compile Include="ViewModel\FilemanagementVM.cs" />
+    <Compile Include="ViewModel\HedefVM.cs" />
+    <Compile Include="ViewModel\LisanceVM.cs" />
+    <Compile Include="ViewModel\LogVM.cs" />
+    <Compile Include="ViewModel\MainVM.cs" />
+    <Compile Include="ViewModel\MontlyPurchaseVM.cs" />
+    <Compile Include="ViewModel\MontlySalesVM.cs" />
+    <Compile Include="ViewModel\PrintingVM.cs" />
+    <Compile Include="ViewModel\ProductVM.cs" />
+    <Compile Include="ViewModel\RemindingVM.cs" />
+    <Compile Include="ViewModel\TypeAddVM.cs" />
+    <Compile Include="ViewModel\SalesmanAddVM.cs" />
+    <Compile Include="ViewModel\SalesmanAnalysisVM.cs" />
+    <Compile Include="ViewModel\StokVM.cs" />
+    <Compile Include="ViewModel\TypeDetailVM.cs" />
+    <Compile Include="ViewModel\UsersVM.cs" />
+    <Compile Include="View\AnalysisMontlyUC.xaml.cs">
+      <DependentUpon>AnalysisMontlyUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AnalysisYearlyUC.xaml.cs">
+      <DependentUpon>AnalysisYearlyUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CompanyUC.xaml.cs">
+      <DependentUpon>CompanyUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CostumerUC.xaml.cs">
+      <DependentUpon>CostumerUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DailyPurchaseUC.xaml.cs">
+      <DependentUpon>DailyPurchaseUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DailySalesUC.xaml.cs">
+      <DependentUpon>DailySalesUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FilemanagementUC.xaml.cs">
+      <DependentUpon>FilemanagementUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GridUISettingUC.xaml.cs">
+      <DependentUpon>GridUISettingUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LisanceWindow.xaml.cs">
+      <DependentUpon>LisanceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogUC.xaml.cs">
+      <DependentUpon>LogUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PasswordUC.xaml.cs">
+      <DependentUpon>PasswordUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductUC.xaml.cs">
+      <DependentUpon>ProductUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RemindingUC.xaml.cs">
+      <DependentUpon>RemindingUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportUC.xaml.cs">
+      <DependentUpon>ReportUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TypeAddUC.xaml.cs">
+      <DependentUpon>TypeAddUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesmanAdd.xaml.cs">
+      <DependentUpon>SalesmanAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HedeflerUC.xaml.cs">
+      <DependentUpon>HedeflerUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoadingScreen.xaml.cs">
+      <DependentUpon>LoadingScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainGridUC.xaml.cs">
+      <DependentUpon>MainGridUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MontlyPurchaseUC.xaml.cs">
+      <DependentUpon>MontlyPurchaseUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MontlySalesUC.xaml.cs">
+      <DependentUpon>MontlySalesUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintingUC.xaml.cs">
+      <DependentUpon>PrintingUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SalesmanUC.xaml.cs">
+      <DependentUpon>SalesmanUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StokUC.xaml.cs">
+      <DependentUpon>StokUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TypeDetailUC.xaml.cs">
+      <DependentUpon>TypeDetailUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UsersUC.xaml.cs">
+      <DependentUpon>UsersUC.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DXSplashScreen\SplashScreenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\ButtonResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AnalysisMontlyUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AnalysisYearlyUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CompanyUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CostumerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DailyPurchaseUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DailySalesUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FilemanagementUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GridUISettingUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LisanceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LogUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PasswordUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProductUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RemindingUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReportUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TypeAddUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SalesmanAdd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\HedeflerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoadingScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainGridUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MontlyPurchaseUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MontlySalesUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintingUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SalesmanUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StokUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TypeDetailUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UsersUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\LangTR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LangTR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Report1.resx">
+      <DependentUpon>Report1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\Report2.resx">
+      <DependentUpon>Report2.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\DailyPurchaseUI.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>DailyPurchaseUI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\DailySalesUI.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>DailySalesUI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\Filemanagement.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Filemanagement.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\MainGrid.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>MainGrid.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\MainGrid2.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>MainGrid2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\MainGrid1.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>MainGrid1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\MontlyPurchaseUI.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>MontlyPurchaseUI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\MontlySalesUI.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>MontlySalesUI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\SalesmanPurchase.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>SalesmanPurchase.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\SalesmanSales.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>SalesmanSales.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\StokGridUI.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>StokGridUI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\WeatherSetting.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>WeatherSetting.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StarNote_1_TemporaryKey.pfx" />
+    <None Include="StarNote_2_TemporaryKey.pfx" />
+    <None Include="StarNote_TemporaryKey.pfx" />
+    <None Include="Utils\Hedefler.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Hedefler.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Utils\PrintingRoute.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>PrintingRoute.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="wpfapp5_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Ayarlar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\PersonelAnaliz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Hatırlatma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Analiz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Anamenü.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\KayıtEkranı.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\checklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\document %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\settings mini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\right-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\imageedit_6_2504178243.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DXSplashScreen\Image__.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\StarNote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\alarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\accounting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\mainsettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DXSplashScreen\Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DXSplashScreen\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="amblem.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\altpencere.png" />
+    <Resource Include="Content\altpencere2.png" />
+    <Resource Include="Content\pencere_cizgi.png" />
+    <Resource Include="Content\sagpencere.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

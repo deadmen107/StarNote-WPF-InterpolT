@@ -1,0 +1,9 @@
+DevExpress.Patch.InMemoryPatch, DevExpress.Patch.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7fc7bfca2443de66
+DevExpress.Xpf.Docking.DockLayoutManager, DevExpress.Xpf.Docking.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.WindowsUI.HamburgerMenu, DevExpress.Xpf.Controls.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Printing.DocumentPreviewControl, DevExpress.Xpf.Printing.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.DashboardWpf.DashboardControl, DevExpress.Dashboard.v18.1.Wpf, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Gauges.CircularGaugeControl, DevExpress.Xpf.Gauges.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Charts.ChartControl, DevExpress.Xpf.Charts.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Charts.RangeControlClient.DateTimeChartRangeControlClient, DevExpress.Xpf.Charts.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a

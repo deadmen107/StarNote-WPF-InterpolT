@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="wpfapp5.Utils" GeneratedClassName="Hedefler">
+  <Profiles />
+  <Settings>
+    <Setting Name="DailyPurchaseKREDİ_KARTI" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="DailyPurchaseÇEK" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="DailyPurchaseSENET" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="DailyPurchaseNAKİT" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="DailySalesKREDİ_KARTI" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="DailySalesÇEK" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="DailySalesSENET" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="DailySalesNAKİT" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="MonthlyAnalysisNET_DEĞER" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">25000</Value>
+    </Setting>
+    <Setting Name="MonthlyAnalysisKAZANÇ" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">25000</Value>
+    </Setting>
+    <Setting Name="MonthlyAnalysisHARCAMA" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">25000</Value>
+    </Setting>
+    <Setting Name="YearlyAnalysisNET_DEĞER" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">25000</Value>
+    </Setting>
+    <Setting Name="YearlyAnalysisKAZANÇ" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">25000</Value>
+    </Setting>
+    <Setting Name="YearlyAnalysisHARCAMA" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">25000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
