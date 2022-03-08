@@ -61,7 +61,7 @@ namespace StarNote.ViewModel
                 Datapurchasepie = new List<DataPoint>(salesmanAnalysisDA.loadpiepurchase(datefilter));
                 Salesmansaleslist = new List<SalesmanAnalysisModel>(salesmanAnalysisDA.fillsalesmansales(datefilter));
                 Salesmanpurchaselist = new List<SalesmanAnalysisModel>(salesmanAnalysisDA.fillsalesmanpurchase(datefilter));
-                //RefreshViews.pagecount = 0;
+                RefreshViews.pagecount = 0;
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Satış Görevli Analiz Tablo Doldurma Tamamlandı", "");
             }
             catch (Exception ex)

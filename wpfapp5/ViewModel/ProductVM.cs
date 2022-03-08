@@ -16,21 +16,21 @@ namespace StarNote.ViewModel
         public ProductVM()
         {
             productDA = new ProductDA();           
-            currentdata = new ProductModel();
+            currentdata = new ParameterModel();
             if (RefreshViews.appstatus)
                 Loaddata();
         }
 
         #region Defines
-        private List<ProductModel> productlist;
-        public List<ProductModel> Productlist
+        private List<ParameterModel> productlist;
+        public List<ParameterModel> Productlist
         {
             get { return productlist; }
             set { productlist = value; RaisePropertyChanged("Productlist"); }
         }
 
-        private ProductModel currentdata;
-        public ProductModel Currentdata
+        private ParameterModel currentdata;
+        public ParameterModel Currentdata
         {
             get { return currentdata; }
             set { currentdata = value; RaisePropertyChanged("Currentdata"); }
@@ -42,7 +42,7 @@ namespace StarNote.ViewModel
         {
             try
             {
-                Productlist = new List<ProductModel>(productDA.GetAll());
+                Productlist = new List<ParameterModel>(productDA.GetAll().OrderBy(x=>x.Parameter).ToList());
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Tür Tablo Doldurma Tamamlandı", "");
             }
             catch (Exception ex)

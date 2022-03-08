@@ -30,19 +30,19 @@ namespace StarNote.Model
             set { urun = value; RaisePropertyChanged("Urun"); }
         }
 
-        private int miktar;
-        public int Miktar
-        {
-            get { return miktar; }
-            set { miktar = value; RaisePropertyChanged("Miktar"); }
-        }
+        //private int miktar;
+        //public int Miktar
+        //{
+        //    get { return miktar; }
+        //    set { miktar = value; RaisePropertyChanged("Miktar"); }
+        //}
 
-        private string birim;
-        public string Birim
-        {
-            get { return birim; }
-            set { birim = value; RaisePropertyChanged("Birim"); }
-        }
+        //private string birim;
+        //public string Birim
+        //{
+        //    get { return birim; }
+        //    set { birim = value; RaisePropertyChanged("Birim"); }
+        //}
 
         private string randevutarihi;
         public string Randevutarihi

@@ -14,7 +14,7 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" Margin="0" Padding="0"    
           
-             Background="#c8d6e5"  LostFocus="UserControl_LostFocus"  GotFocus="UserControl_GotFocus"
+             Background="#FE9590AD"  LostFocus="UserControl_LostFocus"  GotFocus="UserControl_GotFocus"
              >
 
     <UserControl.Resources>
@@ -70,7 +70,7 @@
         </dx:DXTabItem>
         <dx:DXTabItem Header="güncelle" x:Name="tabgüncelleme">
         
-            <ScrollViewer Margin="-12" Background="#c8d6e5"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
+            <ScrollViewer Margin="-12" Background="#FE9590AD"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
                 <ScrollViewer.Resources>
                     <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                         <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
@@ -149,9 +149,9 @@
                                     <ColumnDefinition Width="140"/>
                                     <ColumnDefinition Width="140"/>
                                 </Grid.ColumnDefinitions>
-                                <dx:SimpleButton x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Left" Margin="0,0,0,0"  Click="Btngüncelle_Click">Güncelle</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" >Vazgeç</dx:SimpleButton>
-                                <Button x:Name="dosyayolusec" Click="Dosyayolusec_Click" Margin="0,0,10,0" Grid.Column="2"  Grid.ColumnSpan="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="25" Width="120" >Yeni Dizin</Button>
+                                <dx:SimpleButton Style="{StaticResource btnupdate}"  x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Left" Margin="0,0,0,0"  Click="Btngüncelle_Click"></dx:SimpleButton>
+                                <dx:SimpleButton Style="{StaticResource btngoback}"  x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" ></dx:SimpleButton>
+                                <Button Style="{StaticResource FlatButtonStyle}"  x:Name="dosyayolusec" Click="Dosyayolusec_Click" Margin="0,0,10,0" Grid.Column="2"  Grid.ColumnSpan="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="25" Width="120" >Yeni Dizin Seç</Button>
                             </Grid>
                         </Border>
 

@@ -15,7 +15,7 @@
              xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
              mc:Ignorable="d" Margin="0" Padding="0"    
-             Background="#c8d6e5"
+             Background="#FE9590AD"
              LostFocus="UserControl_LostFocus" GotFocus="UserControl_GotFocus">
 
     <UserControl.Resources>
@@ -23,444 +23,250 @@
 
         </ResourceDictionary>
     </UserControl.Resources>
-    <dx:DXTabControl x:Name="tabcontrol" Background="#c8d6e5" SelectedIndex="0">
-        <dx:DXTabControl.View>
-            <dx:TabControlMultiLineView HeaderLocation="None"/>
-        </dx:DXTabControl.View>
-        <dx:DXTabItem   Header="takip" x:Name="tabtakip" Background="#c8d6e5">
-            <Border Margin="-22">
-                <Grid Margin="10,10" Background="#c8d6e5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="120"/>
-                    </Grid.RowDefinitions>
+    <Grid Margin="10,10" Background="#FE9590AD" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="70"/>
-                            <ColumnDefinition Width="70"/>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition Width="130"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Popup  x:Name="popup" Width="240"    
-                           StaysOpen="true"
-                           Placement="AbsolutePoint"              
-                           AllowsTransparency="True"  
-                           PopupAnimation="Slide"  
-                           HorizontalOffset="150"  
-                           VerticalOffset="100"                           
-                           >
-                            <Border  BorderThickness="2" BorderBrush="Black" CornerRadius="0" Padding="0">
-                                <Grid Background="White" x:Name="gridpopup">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="120"/>
-                                        <ColumnDefinition Width="120"/>
-                                    </Grid.ColumnDefinitions>
-                                </Grid>
-                            </Border>
-                        </Popup>
-                        <Button  Content="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Row="1" Grid.Column="3" Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
-                            <dxb:BarManager.DXContextMenu>
-                                <dxb:PopupMenu Width="150">
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="130"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button  Style="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Row="1" Grid.Column="4" Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
+                <dxb:BarManager.DXContextMenu>
+                    <dxb:PopupMenu Width="150">
 
-                                    <dxb:PopupMenu.Items>
+                        <dxb:PopupMenu.Items>
 
-                                        <dxb:BarButtonItem
+                            <dxb:BarButtonItem
                                         x:Name="btnpdf"
                                 Content="PDF ÇIKTI"
                                         
                                 Glyph="/Content/pdf.png"
                                 ItemClick="Btnpdf_ItemClick" />
-                                        <dxb:BarButtonItem
+                            <dxb:BarButtonItem
                                 x:Name="btnxcel"
                                 Content="Excel ÇIKTI"
                                 Glyph="/Content/excel.png"
                                 ItemClick="Btnxcel_ItemClick" />
-                                        <dxb:BarButtonItem
+                            <dxb:BarButtonItem
                                 x:Name="btnayar"
-                                Content="Kolon ayar ekranı"
+                                 Content="Görünümü Kaydet"
                                 Glyph="/Content/settings mini.png"
-                                ItemClick="Btnayar_ItemClick" />
-                                    </dxb:PopupMenu.Items>
-                                </dxb:PopupMenu>
-                            </dxb:BarManager.DXContextMenu>
+                                ItemClick="Btnlayoutsave_ItemClick"
+                               />
+                        </dxb:PopupMenu.Items>
+                    </dxb:PopupMenu>
+                </dxb:BarManager.DXContextMenu>
 
-                        </Button>
-                        <Button HorizontalAlignment="Right" Grid.Column="4" Grid.Row="1" Margin="0,0,5,0" x:Name="buttonyenikayıt" Height="25" Width="120"  Click="Buttonyenikayıt_Click">Harcama Ekle</Button>
-                    </Grid>
-                    <dxg:GridControl   x:Name="grdsatınalma"   Grid.Row="1" ItemsSource="{Binding Dailysaleslistpurchase, Mode=TwoWay}"  MaxHeight="2000" MaxWidth="2000" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" >
-
-                        <dxg:GridControl.View>
-                            <dxg:TableView x:Name="tablesatınalma"  AllowPerPixelScrolling="True"  BestFitMode="AllRows" AutoWidth="True"  ShowSearchPanelMode="Always" AllowEditing="False" ShowGroupPanel="False"  ShowTotalSummary="True"/>
-                        </dxg:GridControl.View>
-
-                        <dxg:GridColumn x:Name="Id" Header="ID"                    Width="50"    FieldName="ID"                    Binding="{Binding Id}" />
-                        <dxg:GridColumn x:Name="Satisgorevli" Header="TERCÜMAN"       Width="auto"  FieldName="SATIŞ GÖREVLİSİ"       Binding="{Binding Satisgorevli}"/>
-                        <dxg:GridColumn x:Name="Urun" Header="ÜRÜN"                  Width="auto"  FieldName="ÜRÜN"                  Binding="{Binding Urun}"/>
-                        <dxg:GridColumn x:Name="Miktar" Header="MİKTAR"                Width="auto"  FieldName="MİKTAR"                Binding="{Binding Miktar}"/>
-                        <dxg:GridColumn x:Name="Birim" Header="BİRİM"                 Width="auto"  FieldName="BİRİM"                 Binding="{Binding Birim}"/>
-                        <dxg:GridColumn x:Name="Randevutarihi" Header="TESLİM TARİHİ"        Width="auto"  FieldName="RANDEVU TARİHİ"        Binding="{Binding Randevutarihi}"/>
-                        <dxg:GridColumn x:Name="Fiyat" Header="FİYAT"                 Width="auto"  FieldName="FİYAT"                 Binding="{Binding Fiyat}"/>
-                        <dxg:GridColumn x:Name="Ödemeyöntemi" Header="ÖDEME YÖNTEMİ"         Width="auto"  FieldName="ÖDEME YÖNTEMİ"         Binding="{Binding Ödemeyöntemi}"/>
-                    </dxg:GridControl>
-
-
-                    <Grid x:Name="gridModelsatınalma" Grid.Row="2" IsEnabled ="True" Background="#c8d6e5">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="20"/>
-
-                        </Grid.RowDefinitions>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-
-                        </Grid.ColumnDefinitions>
-
-                        <dxga:CircularGaugeControl Grid.Row="0" Grid.Column="0"  Name="circularGaugeControlkredikart" >
-                            <dxga:CircularGaugeControl.Scales>
-                                <dxga:ArcScale 
-                        StartValue="0" EndValue="100" 
-                                       StartAngle="0" EndAngle="360"
-                                       MajorIntervalCount="1" MinorIntervalCount="1" 
-                                       ShowLabels="false" ShowLine="false" 
-                                       ShowMajorTickmarks="true" 
-                                       ShowMinorTickmarks="false" 
-                                       ShowSpindleCap="False"  
-                                   >
-                                    <dxga:ArcScale.Layers>
-                                        <dxga:ArcScaleLayer>
-                                            <dxga:ArcScaleLayer.Options>
-                                                <dxga:LayerOptions/>
-                                            </dxga:ArcScaleLayer.Options>
-                                        </dxga:ArcScaleLayer>
-                                    </dxga:ArcScale.Layers>
-                                    <dxga:ArcScale.Ranges>
-                                        <dxga:ArcScaleRange EndValue="{Binding Path=Gaugekredikart,Mode=TwoWay}">
-                                            <dxga:ArcScaleRange.Options>
-                                                <dxga:RangeOptions Offset="-10" Thickness="10"/>
-                                            </dxga:ArcScaleRange.Options>
-                                            <dxga:ArcScaleRange.Presentation>
-                                                <dxga:DefaultArcScaleRangePresentation Fill="#FF0D2A93"/>
-                                            </dxga:ArcScaleRange.Presentation>
-                                        </dxga:ArcScaleRange>
-                                    </dxga:ArcScale.Ranges>
-                                    <dxga:ArcScale.SpindleCapOptions>
-                                        <dxga:SpindleCapOptions ZIndex="100"/>
-                                    </dxga:ArcScale.SpindleCapOptions>
-                                </dxga:ArcScale>
-                            </dxga:CircularGaugeControl.Scales>
-                        </dxga:CircularGaugeControl>
-                        <Label Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center">Kredi Kartı</Label>
-
-                        <dxga:CircularGaugeControl Grid.Row="0" Grid.Column="1"    Name="circularGaugeControlçek" >
-                            <dxga:CircularGaugeControl.Scales>
-                                <dxga:ArcScale 
-                        StartValue="0" EndValue="100" 
-                                       StartAngle="0" EndAngle="360"
-                                       MajorIntervalCount="1" MinorIntervalCount="1" 
-                                       ShowLabels="false" ShowLine="false" 
-                                       ShowMajorTickmarks="true" 
-                                       ShowMinorTickmarks="false" 
-                                       ShowSpindleCap="False"  
-                                   >
-                                    <dxga:ArcScale.Layers>
-                                        <dxga:ArcScaleLayer>
-                                            <dxga:ArcScaleLayer.Options>
-                                                <dxga:LayerOptions/>
-                                            </dxga:ArcScaleLayer.Options>
-                                        </dxga:ArcScaleLayer>
-                                    </dxga:ArcScale.Layers>
-                                    <dxga:ArcScale.Ranges>
-                                        <dxga:ArcScaleRange EndValue="{Binding Path=Gaugeçek,Mode=TwoWay}">
-                                            <dxga:ArcScaleRange.Options>
-                                                <dxga:RangeOptions Offset="-10" Thickness="10"/>
-                                            </dxga:ArcScaleRange.Options>
-                                            <dxga:ArcScaleRange.Presentation>
-                                                <dxga:DefaultArcScaleRangePresentation Fill="#FF0D2A93"/>
-                                            </dxga:ArcScaleRange.Presentation>
-                                        </dxga:ArcScaleRange>
-                                    </dxga:ArcScale.Ranges>
-                                    <dxga:ArcScale.SpindleCapOptions>
-                                        <dxga:SpindleCapOptions ZIndex="100"/>
-                                    </dxga:ArcScale.SpindleCapOptions>
-                                </dxga:ArcScale>
-                            </dxga:CircularGaugeControl.Scales>
-                        </dxga:CircularGaugeControl>
-                        <Label Grid.Row="1" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Center">Çek</Label>
-                        <dxga:CircularGaugeControl Grid.Row="0" Grid.Column="2"   Name="circularGaugeControlsenet" >
-                            <dxga:CircularGaugeControl.Scales>
-                                <dxga:ArcScale 
-                        StartValue="0" EndValue="100" 
-                                       StartAngle="0" EndAngle="360"
-                                       MajorIntervalCount="1" MinorIntervalCount="1" 
-                                       ShowLabels="false" ShowLine="false" 
-                                       ShowMajorTickmarks="true" 
-                                       ShowMinorTickmarks="false" 
-                                       ShowSpindleCap="False"  
-                                   >
-                                    <dxga:ArcScale.Layers>
-                                        <dxga:ArcScaleLayer>
-                                            <dxga:ArcScaleLayer.Options>
-                                                <dxga:LayerOptions/>
-                                            </dxga:ArcScaleLayer.Options>
-                                        </dxga:ArcScaleLayer>
-                                    </dxga:ArcScale.Layers>
-                                    <dxga:ArcScale.Ranges>
-                                        <dxga:ArcScaleRange EndValue="{Binding Path=Gaugesenet,Mode=TwoWay}">
-                                            <dxga:ArcScaleRange.Options>
-                                                <dxga:RangeOptions Offset="-10" Thickness="10"/>
-                                            </dxga:ArcScaleRange.Options>
-                                            <dxga:ArcScaleRange.Presentation>
-                                                <dxga:DefaultArcScaleRangePresentation Fill="#FF0D2A93"/>
-                                            </dxga:ArcScaleRange.Presentation>
-                                        </dxga:ArcScaleRange>
-                                    </dxga:ArcScale.Ranges>
-                                    <dxga:ArcScale.SpindleCapOptions>
-                                        <dxga:SpindleCapOptions ZIndex="100"/>
-                                    </dxga:ArcScale.SpindleCapOptions>
-                                </dxga:ArcScale>
-                            </dxga:CircularGaugeControl.Scales>
-                        </dxga:CircularGaugeControl>
-                        <Label Grid.Row="1" Grid.Column="2"  HorizontalAlignment="Center">Senet</Label>
-
-                        <dxga:CircularGaugeControl Grid.Row="0" Grid.Column="3"   Name="circularGaugeControlnakit" >
-                            <dxga:CircularGaugeControl.Scales>
-                                <dxga:ArcScale 
-                        StartValue="0" EndValue="100" 
-                                       StartAngle="0" EndAngle="360"
-                                       MajorIntervalCount="1" MinorIntervalCount="1" 
-                                       ShowLabels="false" ShowLine="false" 
-                                       ShowMajorTickmarks="true" 
-                                       ShowMinorTickmarks="false" 
-                                       ShowSpindleCap="False"  
-                                   >
-                                    <dxga:ArcScale.Layers>
-                                        <dxga:ArcScaleLayer>
-                                            <dxga:ArcScaleLayer.Options>
-                                                <dxga:LayerOptions/>
-                                            </dxga:ArcScaleLayer.Options>
-                                        </dxga:ArcScaleLayer>
-                                    </dxga:ArcScale.Layers>
-                                    <dxga:ArcScale.Ranges>
-                                        <dxga:ArcScaleRange EndValue="{Binding Path=Gaugenakit,Mode=TwoWay}">
-                                            <dxga:ArcScaleRange.Options>
-                                                <dxga:RangeOptions Offset="-10" Thickness="10"/>
-                                            </dxga:ArcScaleRange.Options>
-                                            <dxga:ArcScaleRange.Presentation>
-                                                <dxga:DefaultArcScaleRangePresentation Fill="#FF0D2A93"/>
-                                            </dxga:ArcScaleRange.Presentation>
-                                        </dxga:ArcScaleRange>
-                                    </dxga:ArcScale.Ranges>
-                                    <dxga:ArcScale.SpindleCapOptions>
-                                        <dxga:SpindleCapOptions ZIndex="100"/>
-                                    </dxga:ArcScale.SpindleCapOptions>
-                                </dxga:ArcScale>
-                            </dxga:CircularGaugeControl.Scales>
-                        </dxga:CircularGaugeControl>
-                        <Label Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center">Nakit</Label>
-
-                        <Grid Grid.Row="0" Grid.Column="4" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="150"/>
-
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="1" Grid.Row="0">Gösterilen Gün</Label>
-                            <DatePicker x:Name="filtregünü" Grid.Column="1" Grid.Row="1"   VerticalAlignment="Center"  SelectedDateChanged="Filtregünü_SelectedDateChanged" />
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Border>
+            </Button>
            
-        </dx:DXTabItem>
-        <dx:DXTabItem Header="güncelle" x:Name="tabgüncelleme">
+        </Grid>
+        <dxg:GridControl   x:Name="grdsatınalma"   Grid.Row="1" ItemsSource="{Binding Dailysaleslistpurchase, Mode=TwoWay}"  MaxHeight="2000" MaxWidth="2000" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" >
 
-            <ScrollViewer Margin="-12" Background="#c8d6e5"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
-                <ScrollViewer.Resources>
-                    <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
-                        <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
-                        <Style.Triggers>
-                            <Trigger Property="Orientation" Value="Horizontal">
-                                <Setter Property="Height" Value="7" />
-                                <Setter Property="MinHeight" Value="7" />
-                            </Trigger>
-                            <Trigger Property="Orientation" Value="Vertical">
-                                <Setter Property="Width" Value="12" />
-                                <Setter Property="MinWidth" Value="12" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </ScrollViewer.Resources>
-                <Grid   VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="20"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition  Width="300"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="300"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox x:Name="kayıtekrantext" Background="Transparent" BorderBrush="Transparent" Text="Yeni Harcama Ekleme"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
-                    </Grid>
-                    <Grid Grid.Row="1" Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="200"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="30"/>
+            <dxg:GridControl.View>
+                <dxg:TableView x:Name="tablesatınalma"  AllowPerPixelScrolling="True"  BestFitMode="AllRows" AutoWidth="True"  ShowSearchPanelMode="Always" AllowEditing="False" ShowGroupPanel="False"  ShowTotalSummary="True"/>
+            </dxg:GridControl.View>
+
+            <dxg:GridColumn x:Name="Id" Header="ID"                    Width="50"    FieldName="ID"                    Binding="{Binding Id}" />
+            <dxg:GridColumn x:Name="Satisgorevli" Header="TERCÜMAN"       Width="auto"  FieldName="SATIŞ GÖREVLİSİ"       Binding="{Binding Satisgorevli}"/>
+            <dxg:GridColumn x:Name="Urun" Header="ÜRÜN"                  Width="auto"  FieldName="ÜRÜN"                  Binding="{Binding Urun}">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:TextEditSettings TextWrapping="Wrap" />
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
+            <dxg:GridColumn x:Name="Randevutarihi" Header="TESLİM TARİHİ"        Width="auto"  FieldName="RANDEVU TARİHİ"        Binding="{Binding Randevutarihi}"/>
+            <dxg:GridColumn x:Name="Fiyat" Header="FİYAT"                 Width="auto"  FieldName="FİYAT"                 Binding="{Binding Fiyat}"/>
+            <dxg:GridColumn x:Name="Ödemeyöntemi" Header="ÖDEME YÖNTEMİ"         Width="auto"  FieldName="ÖDEME YÖNTEMİ"         Binding="{Binding Ödemeyöntemi}"/>
+        </dxg:GridControl>
 
 
+        <Grid x:Name="gridModelsatınalma" Grid.Row="2" IsEnabled ="True" Background="#FE9590AD">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
 
-                        </Grid.RowDefinitions>
-                        <Border Background="#FFFAFAFA" Grid.Row="0"   CornerRadius="19" Padding="0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
+            </Grid.RowDefinitions>
 
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="47"/>
-                                    <RowDefinition  Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Label VerticalAlignment="Top" Margin="10,0,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Ürün Tanım Bilgileri</Label>
-                                <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,25,10,10" ></Separator>
-                                <Label VerticalAlignment="Bottom" Margin="10,0,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="0">TERCÜMAN</Label>
-                                <Label VerticalAlignment="Bottom" Margin="10,0,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="1" Grid.Row="0">ÜRÜN ADI</Label>
-                                <Border  Grid.Column="0" Grid.Row="1" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                    <dxe:ComboBoxEdit Name="cmbsales" IsTextEditable="False" ShowBorder="False" NullText="Tercüman" ItemsSource="{Binding Path=Salesmansourcelist}" Text="{Binding Path=Currentdata.Satıselemanı}"></dxe:ComboBoxEdit>
-                                </Border>
-                                <Border  Grid.Column="1" Grid.Row="1" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                    <dxe:TextEdit NullText="Ürün" ShowBorder="False" Name="txtstokadı"    Text="{Binding Path=Currentdata.Ürün}"></dxe:TextEdit>
-                                </Border>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
 
-                            </Grid>
-                        </Border>
-                        <Border Background="#FFFAFAFA" Grid.Row="2"  CornerRadius="19" Padding="0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="47"/>
-                                    <RowDefinition  Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Label VerticalAlignment="Top" Margin="10,0,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Ürün Adet Bilgileri</Label>
-                                <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,25,10,10" ></Separator>
+            <dxga:CircularGaugeControl Grid.Row="0" Grid.Column="0"  Name="circularGaugeControlkredikart" >
+                <dxga:CircularGaugeControl.Scales>
+                    <dxga:ArcScale 
+                        StartValue="0" EndValue="100" 
+                                       StartAngle="0" EndAngle="360"
+                                       MajorIntervalCount="1" MinorIntervalCount="1" 
+                                       ShowLabels="false" ShowLine="false" 
+                                       ShowMajorTickmarks="true" 
+                                       ShowMinorTickmarks="false" 
+                                       ShowSpindleCap="False"  
+                                   >
+                        <dxga:ArcScale.Layers>
+                            <dxga:ArcScaleLayer>
+                                <dxga:ArcScaleLayer.Options>
+                                    <dxga:LayerOptions/>
+                                </dxga:ArcScaleLayer.Options>
+                            </dxga:ArcScaleLayer>
+                        </dxga:ArcScale.Layers>
+                        <dxga:ArcScale.Ranges>
+                            <dxga:ArcScaleRange EndValue="{Binding Path=Gaugekredikart,Mode=TwoWay}">
+                                <dxga:ArcScaleRange.Options>
+                                    <dxga:RangeOptions Offset="-10" Thickness="10"/>
+                                </dxga:ArcScaleRange.Options>
+                                <dxga:ArcScaleRange.Presentation>
+                                    <dxga:DefaultArcScaleRangePresentation Fill="#FF0D2A93"/>
+                                </dxga:ArcScaleRange.Presentation>
+                            </dxga:ArcScaleRange>
+                        </dxga:ArcScale.Ranges>
+                        <dxga:ArcScale.SpindleCapOptions>
+                            <dxga:SpindleCapOptions ZIndex="100"/>
+                        </dxga:ArcScale.SpindleCapOptions>
+                    </dxga:ArcScale>
+                </dxga:CircularGaugeControl.Scales>
+            </dxga:CircularGaugeControl>
+            <Label Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center">Kredi Kartı</Label>
 
+            <dxga:CircularGaugeControl Grid.Row="0" Grid.Column="1"    Name="circularGaugeControlçek" >
+                <dxga:CircularGaugeControl.Scales>
+                    <dxga:ArcScale 
+                        StartValue="0" EndValue="100" 
+                                       StartAngle="0" EndAngle="360"
+                                       MajorIntervalCount="1" MinorIntervalCount="1" 
+                                       ShowLabels="false" ShowLine="false" 
+                                       ShowMajorTickmarks="true" 
+                                       ShowMinorTickmarks="false" 
+                                       ShowSpindleCap="False"  
+                                   >
+                        <dxga:ArcScale.Layers>
+                            <dxga:ArcScaleLayer>
+                                <dxga:ArcScaleLayer.Options>
+                                    <dxga:LayerOptions/>
+                                </dxga:ArcScaleLayer.Options>
+                            </dxga:ArcScaleLayer>
+                        </dxga:ArcScale.Layers>
+                        <dxga:ArcScale.Ranges>
+                            <dxga:ArcScaleRange EndValue="{Binding Path=Gaugeçek,Mode=TwoWay}">
+                                <dxga:ArcScaleRange.Options>
+                                    <dxga:RangeOptions Offset="-10" Thickness="10"/>
+                                </dxga:ArcScaleRange.Options>
+                                <dxga:ArcScaleRange.Presentation>
+                                    <dxga:DefaultArcScaleRangePresentation Fill="#FF0D2A93"/>
+                                </dxga:ArcScaleRange.Presentation>
+                            </dxga:ArcScaleRange>
+                        </dxga:ArcScale.Ranges>
+                        <dxga:ArcScale.SpindleCapOptions>
+                            <dxga:SpindleCapOptions ZIndex="100"/>
+                        </dxga:ArcScale.SpindleCapOptions>
+                    </dxga:ArcScale>
+                </dxga:CircularGaugeControl.Scales>
+            </dxga:CircularGaugeControl>
+            <Label Grid.Row="1" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Center">Çek</Label>
+            <dxga:CircularGaugeControl Grid.Row="0" Grid.Column="2"   Name="circularGaugeControlsenet" >
+                <dxga:CircularGaugeControl.Scales>
+                    <dxga:ArcScale 
+                        StartValue="0" EndValue="100" 
+                                       StartAngle="0" EndAngle="360"
+                                       MajorIntervalCount="1" MinorIntervalCount="1" 
+                                       ShowLabels="false" ShowLine="false" 
+                                       ShowMajorTickmarks="true" 
+                                       ShowMinorTickmarks="false" 
+                                       ShowSpindleCap="False"  
+                                   >
+                        <dxga:ArcScale.Layers>
+                            <dxga:ArcScaleLayer>
+                                <dxga:ArcScaleLayer.Options>
+                                    <dxga:LayerOptions/>
+                                </dxga:ArcScaleLayer.Options>
+                            </dxga:ArcScaleLayer>
+                        </dxga:ArcScale.Layers>
+                        <dxga:ArcScale.Ranges>
+                            <dxga:ArcScaleRange EndValue="{Binding Path=Gaugesenet,Mode=TwoWay}">
+                                <dxga:ArcScaleRange.Options>
+                                    <dxga:RangeOptions Offset="-10" Thickness="10"/>
+                                </dxga:ArcScaleRange.Options>
+                                <dxga:ArcScaleRange.Presentation>
+                                    <dxga:DefaultArcScaleRangePresentation Fill="#FF0D2A93"/>
+                                </dxga:ArcScaleRange.Presentation>
+                            </dxga:ArcScaleRange>
+                        </dxga:ArcScale.Ranges>
+                        <dxga:ArcScale.SpindleCapOptions>
+                            <dxga:SpindleCapOptions ZIndex="100"/>
+                        </dxga:ArcScale.SpindleCapOptions>
+                    </dxga:ArcScale>
+                </dxga:CircularGaugeControl.Scales>
+            </dxga:CircularGaugeControl>
+            <Label Grid.Row="1" Grid.Column="2"  HorizontalAlignment="Center">Senet</Label>
 
+            <dxga:CircularGaugeControl Grid.Row="0" Grid.Column="3"   Name="circularGaugeControlnakit" >
+                <dxga:CircularGaugeControl.Scales>
+                    <dxga:ArcScale 
+                        StartValue="0" EndValue="100" 
+                                       StartAngle="0" EndAngle="360"
+                                       MajorIntervalCount="1" MinorIntervalCount="1" 
+                                       ShowLabels="false" ShowLine="false" 
+                                       ShowMajorTickmarks="true" 
+                                       ShowMinorTickmarks="false" 
+                                       ShowSpindleCap="False"  
+                                   >
+                        <dxga:ArcScale.Layers>
+                            <dxga:ArcScaleLayer>
+                                <dxga:ArcScaleLayer.Options>
+                                    <dxga:LayerOptions/>
+                                </dxga:ArcScaleLayer.Options>
+                            </dxga:ArcScaleLayer>
+                        </dxga:ArcScale.Layers>
+                        <dxga:ArcScale.Ranges>
+                            <dxga:ArcScaleRange EndValue="{Binding Path=Gaugenakit,Mode=TwoWay}">
+                                <dxga:ArcScaleRange.Options>
+                                    <dxga:RangeOptions Offset="-10" Thickness="10"/>
+                                </dxga:ArcScaleRange.Options>
+                                <dxga:ArcScaleRange.Presentation>
+                                    <dxga:DefaultArcScaleRangePresentation Fill="#FF0D2A93"/>
+                                </dxga:ArcScaleRange.Presentation>
+                            </dxga:ArcScaleRange>
+                        </dxga:ArcScale.Ranges>
+                        <dxga:ArcScale.SpindleCapOptions>
+                            <dxga:SpindleCapOptions ZIndex="100"/>
+                        </dxga:ArcScale.SpindleCapOptions>
+                    </dxga:ArcScale>
+                </dxga:CircularGaugeControl.Scales>
+            </dxga:CircularGaugeControl>
+            <Label Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center">Nakit</Label>
 
+            <Grid Grid.Row="0" Grid.Column="4" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-                                <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="0">MİKTAR</Label>
-                                <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="1" Grid.Row="0">BİRİM</Label>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
 
-                                <Border   Grid.Column="0" Grid.Row="1" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                    <dxe:TextEdit NullText="Miktar" Name="txtstokmiktar"  ShowBorder="False" Text="{Binding Path=Currentdata.Miktar}"></dxe:TextEdit>
-                                </Border>
-                                <Border    Grid.Column="1" Grid.Row="1" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                    <dxe:ComboBoxEdit NullText="Birim"  Name="cmbbirim"   ShowBorder="False"       Text="{Binding Path=Currentdata.Birim}"  ItemsSource="{Binding Path=Birimsourcelist}" ></dxe:ComboBoxEdit>
-                                </Border>
-
-                            </Grid>
-                        </Border>
-
-
-                        <Border Background="#FFFAFAFA" Grid.Row="4" CornerRadius="19" Padding="0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="47"/>
-                                    <RowDefinition Height="53"/>
-                                    <RowDefinition Height="47"/>
-                                    <RowDefinition  Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Label VerticalAlignment="Top" Margin="10,0,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Ürün Satın Alma Bilgileri</Label>
-                                <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,25,10,10" ></Separator>
-
-
-
-
-
-                                <Label VerticalAlignment="Bottom" Margin="10,10,10,-4"  FontSize="11" HorizontalAlignment="left" Grid.Column="0" Grid.Row="0">FİYAT</Label>
-                                <Label VerticalAlignment="Bottom" Margin="10,10,10,-4"  FontSize="11" HorizontalAlignment="left" Grid.Column="0" Grid.Row="2">TARİH</Label>
-                                <Label VerticalAlignment="Bottom" Margin="10,10,10,-4"  FontSize="11" HorizontalAlignment="left" Grid.Column="1" Grid.Row="0">ÖDEME YÖNTEMİ</Label>
-                                <Border  Grid.Column="0" Grid.Row="1" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                    <dxe:TextEdit NullText="Fiyat" Name="txtstokalısfiyat" ShowBorder="False" Text="{Binding Path=Currentdata.Ücret}"></dxe:TextEdit>
-                                </Border>
-                                <Border  Grid.Column="1" Grid.Row="1" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                    <dxe:ComboBoxEdit Name="cmbyöntem" IsTextEditable="False" ShowBorder="False"  ItemsSource="{Binding Path=Ödemesourcelist}"  Text="{Binding Path=Currentdata.Ödemeyöntemi}"></dxe:ComboBoxEdit>
-                                </Border>
-                                <Border  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                    <dxe:DateEdit x:Name="datepickerran" ShowBorder="False"  EditValue="{Binding Path = Currentdata.Randevutarihi}" Mask="dd.MM.yyyy HH:mm" MaskType="DateTimeAdvancingCaret"  >
-                                        <dxe:DateEdit.StyleSettings>
-                                            <dxe:DateEditPickerStyleSettings />
-                                        </dxe:DateEdit.StyleSettings>
-
-                                    </dxe:DateEdit>
-                                </Border>
-
-                
-
-                            </Grid>
-                        </Border>
-
-
-
-                        <Border Background="#FFFAFAFA"  Grid.Row="6"  CornerRadius="19" Padding="0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <dx:SimpleButton x:Name="btnkayıt" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Btnkayıt_Click">Kaydet</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btngüncelle_Click">Güncelle</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" >Vazgeç</dx:SimpleButton>
-
-                            </Grid>
-                        </Border>
-
-                    </Grid>
-                </Grid>
-            </ScrollViewer>
-        </dx:DXTabItem>
-    </dx:DXTabControl>
-
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1" Grid.Row="0">Gösterilen Gün</Label>
+                <DatePicker x:Name="filtregünü" Grid.Column="1" Grid.Row="1"   VerticalAlignment="Center"  SelectedDateChanged="Filtregünü_SelectedDateChanged" />
+            </Grid>
+        </Grid>
+    </Grid>
 </UserControl>

@@ -74,6 +74,14 @@ namespace StarNote.ViewModel
             get { return textpurchase; }
             set { textpurchase = value; RaisePropertyChanged("Textpurchase"); }
         }
+
+        private string textpotansial;
+        public string Textpotansial
+        {
+            get { return textpotansial; }
+            set { textpotansial = value; RaisePropertyChanged("Textpotansial"); }
+        }
+
         #endregion
 
         #region method
@@ -91,6 +99,7 @@ namespace StarNote.ViewModel
                 Textsales = sales + " TL";
                 Textpurchase = purchase + " TL";
                 Textnet = analysisMontlyDA.Fillmontlygaugenet(date) + " TL ";
+                Textpotansial = analysisMontlyDA.Fillmontlypotansial(date) + " TL ";
 
                 double yüzdedegersales = Math.Round(((100 * Convert.ToDouble(sales, System.Globalization.CultureInfo.InvariantCulture)) / hedefler.MonthlyAnalysisKAZANÇ), 0);
                 if (yüzdedegersales > 100.0)

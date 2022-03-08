@@ -10,6 +10,7 @@
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     mc:Ignorable="d"
     d:DataContext="{x:Static dx:SplashScreenViewModel.DesignTimeData}"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
     
     >
     <Grid x:Name="LayoutRoot">
@@ -27,6 +28,8 @@
                 </Grid.RowDefinitions>
                  <Image x:Name="Image" Source="Image.png" Width="420" Height="200" Stretch="None"/>
                 <TextBlock x:Name="Info" TextWrapping="Wrap" Text="Yükleniyor..." Grid.Row="1" Margin="12,12,12,0" Foreground="#FF2D2D2D"/>
+                <!--<fa:ImageAwesome Grid.Row="2" Icon="Spinner"  Spin="True" SpinDuration="1.8" Foreground="IndianRed" Height="48" Width="48" />-->
+
                 <ProgressBar x:Name="progressBar"
                              Height="12"
                              Grid.Row="2"

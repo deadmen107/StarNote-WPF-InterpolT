@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:StarNote.View"
         xmlns:dxrud="http://schemas.devexpress.com/winfx/2008/xaml/reports/userdesigner"
         mc:Ignorable="d"
-        Title="ReportUC" Height="450" Width="800">
-    
+        Title="Star Note Raporlama Ekranı" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary Source="/StarNote;component/Resources/ButtonResources.xaml">
+
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid Background="#DDFAFAFA"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -21,7 +25,7 @@
                 <ColumnDefinition Width="140"/>
             </Grid.ColumnDefinitions>
             <TextBox Background="Transparent" BorderBrush="Transparent" Text="Dosya Oluşturma Ekranı"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
-            <Button HorizontalAlignment="Right" Click="Buttonyenikayıt_Click" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt" Height="25" Width="120"  >Kaydet</Button>
+            <Button Style="{StaticResource btnyenikayıt}" HorizontalAlignment="Right" Click="Buttonyenikayıt_Click" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt" Height="25" Width="120"  ></Button>
         </Grid>
         <Border  Grid.Row="1" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
             <dxp:DocumentPreviewControl  x:Name="documentview" CommandBarStyle="None" AutoShowDocumentMap="False"   Grid.Row="1" />

@@ -40,6 +40,11 @@ namespace StarNote.ViewModel
 
         #region Method
 
+        public void fillcurrentdata(int ID)
+        {
+            Currentdata = Filelist.Find(u => u.Id == ID);
+        }
+
         public void Loaddata()
         {
             try

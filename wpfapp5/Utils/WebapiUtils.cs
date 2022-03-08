@@ -57,6 +57,76 @@ namespace StarNote.Utils
                 LogVM.Addlog("WebapiUtils", System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Token Çekme Hatası", ex.Message);
             }
             return obj;
-        }           
+        }
+
+        public static bool apitest()
+        {
+            try
+            {
+                ServicePointManager
+                .ServerCertificateValidationCallback +=
+                (sender, cert, chain, sslPolicyErrors) => true;
+                HttpClient client;
+                string controller = "Home/";
+                client = new HttpClient();
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
+                TokenModel tk = new TokenModel();
+                tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + tk.access_token);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                HttpResponseMessage response = client.GetAsync("Test").Result;
+                var result = response.Content.ReadAsStringAsync().Result;
+                if (result.ToString() == "\"OK\"")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+        }
+
+        public static bool Dbtest()
+        {
+            try
+            {
+                ServicePointManager
+                .ServerCertificateValidationCallback +=
+                (sender, cert, chain, sslPolicyErrors) => true;
+                HttpClient client;
+                string controller = "Home/";
+                client = new HttpClient();
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
+                TokenModel tk = new TokenModel();
+                tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + tk.access_token);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                HttpResponseMessage response = client.GetAsync("DBTest").Result;
+                var result = response.Content.ReadAsStringAsync().Result;
+                if (result.ToString() == "\"OK\"")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+        }
     }
 }

@@ -42,8 +42,8 @@
                         <ColumnDefinition Width="140"/>
                     </Grid.ColumnDefinitions>
                     <TextBox Background="Transparent" BorderBrush="Transparent" Text="ŞİRKETLER"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
-                    <Button HorizontalAlignment="Right" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt" Height="25" Width="120"  Click="Buttonyenikayıt_Click">Yeni Kayıt</Button>
-                    <Button  Content="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Column="2"  Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
+                    <Button Style="{StaticResource btnyenikayıt}"  HorizontalAlignment="Right" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt" Height="25" Width="120"  Click="Buttonyenikayıt_Click"></Button>
+                    <Button  Style="{StaticResource btnsettings}"  x:Name="buttonoutput" Grid.Column="2"  Width="140" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
                         <dxb:BarManager.DXContextMenu>
                             <dxb:PopupMenu>
                                 <dxb:PopupMenu.Items>
@@ -83,7 +83,7 @@
         </dx:DXTabItem>
         
         <dx:DXTabItem  Header="güncelle" x:Name="tabgüncelleme">
-            <ScrollViewer Margin="-12" Background="#c8d6e5"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
+            <ScrollViewer Margin="-12" Background="#FE9590AD"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
                 <ScrollViewer.Resources>
                     <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                         <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
@@ -190,9 +190,9 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <dx:SimpleButton x:Name="btnkayıt" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btnkayıt_Click">Kaydet</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btngüncelle_Click">Güncelle</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" >Vazgeç</dx:SimpleButton>
+                                <dx:SimpleButton  Style="{StaticResource btnsave}"  x:Name="btnkayıt" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btnkayıt_Click"></dx:SimpleButton>
+                                <dx:SimpleButton  Style="{StaticResource btnupdate}"  x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btngüncelle_Click"></dx:SimpleButton>
+                                <dx:SimpleButton  Style="{StaticResource btngoback}"  x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" ></dx:SimpleButton>
 
                             </Grid>
                         </Border>

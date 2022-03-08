@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StarNoteEntitiesStoreContainer" CdmEntityContainer="u0001492_stardb4Entities">
+    <EntitySetMapping Name="tbl_durumsource">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_durumsource">
+        <MappingFragment StoreEntitySet="tbl_durumsource">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Durumsource" ColumnName="Durumsource" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_lisance">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_lisance">
+        <MappingFragment StoreEntitySet="tbl_lisance">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_note">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_note">
+        <MappingFragment StoreEntitySet="tbl_note">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+          <ScalarProperty Name="NoteName" ColumnName="NoteName" />
+          <ScalarProperty Name="Notetxt" ColumnName="Notetxt" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="RegisterHour" ColumnName="RegisterHour" />
+          <ScalarProperty Name="Rememberstatus" ColumnName="Rememberstatus" />
+          <ScalarProperty Name="RememberDate" ColumnName="RememberDate" />
+          <ScalarProperty Name="RememberHour" ColumnName="RememberHour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ödemeyöntemsource">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_ödemeyöntemsource">
+        <MappingFragment StoreEntitySet="tbl_ödemeyöntemsource">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ödemeyöntemsource" ColumnName="Ödemeyöntemsource" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_remember">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_remember">
+        <MappingFragment StoreEntitySet="tbl_remember">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="mainID" ColumnName="mainID" />
+          <ScalarProperty Name="RAN_DATE" ColumnName="RAN_DATE" />
+          <ScalarProperty Name="RAN_HOUR" ColumnName="RAN_HOUR" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_salesman">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_salesman">
+        <MappingFragment StoreEntitySet="tbl_salesman">
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_methodsource">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_methodsource">
+        <MappingFragment StoreEntitySet="tbl_methodsource">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Methodsource" ColumnName="Methodsource" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_birimsource">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_birimsource">
+        <MappingFragment StoreEntitySet="tbl_birimsource">
+          <ScalarProperty Name="birimsource" ColumnName="birimsource" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_kdvsource">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_kdvsource">
+        <MappingFragment StoreEntitySet="tbl_kdvsource">
+          <ScalarProperty Name="KDVsource" ColumnName="KDVsource" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_stok">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_stok">
+        <MappingFragment StoreEntitySet="tbl_stok">
+          <ScalarProperty Name="STOKDISCOUNT" ColumnName="STOKDISCOUNT" />
+          <ScalarProperty Name="STOKKDV" ColumnName="STOKKDV" />
+          <ScalarProperty Name="STOKOUTCOMEPRICE" ColumnName="STOKOUTCOMEPRICE" />
+          <ScalarProperty Name="STOKINCOMEPRICE" ColumnName="STOKINCOMEPRICE" />
+          <ScalarProperty Name="STOKPCS" ColumnName="STOKPCS" />
+          <ScalarProperty Name="STOKUNIT" ColumnName="STOKUNIT" />
+          <ScalarProperty Name="STOKNAME" ColumnName="STOKNAME" />
+          <ScalarProperty Name="STOKKOD" ColumnName="STOKKOD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="partial_saleschart">
+      <EntityTypeMapping TypeName="StarNoteEntities.partial_saleschart">
+        <MappingFragment StoreEntitySet="partial_saleschart">
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="RAN_DATE" ColumnName="RAN_DATE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="partial_salespie">
+      <EntityTypeMapping TypeName="StarNoteEntities.partial_salespie">
+        <MappingFragment StoreEntitySet="partial_salespie">
+          <ScalarProperty Name="COUNT" ColumnName="COUNT" />
+          <ScalarProperty Name="PAYMENT" ColumnName="PAYMENT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mainview">
+      <EntityTypeMapping TypeName="StarNoteEntities.tbl_mainview">
+        <MappingFragment StoreEntitySet="tbl_mainview">
+          <ScalarProperty Name="RememberID" ColumnName="RememberID" />
+          <ScalarProperty Name="COMPANY_ADRESS" ColumnName="COMPANY_ADRESS" />
+          <ScalarProperty Name="COMPANY_NAME" ColumnName="COMPANY_NAME" />
+          <ScalarProperty Name="BUDGET" ColumnName="BUDGET" />
+          <ScalarProperty Name="SALESMAN" ColumnName="SALESMAN" />
+          <ScalarProperty Name="SALES" ColumnName="SALES" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="TOWN" ColumnName="TOWN" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="ADRESS" ColumnName="ADRESS" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="TAX_ADRESS" ColumnName="TAX_ADRESS" />
+          <ScalarProperty Name="TAX_NO" ColumnName="TAX_NO" />
+          <ScalarProperty Name="INFO" ColumnName="INFO" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="RAN_HOUR" ColumnName="RAN_HOUR" />
+          <ScalarProperty Name="RAN_DATE" ColumnName="RAN_DATE" />
+          <ScalarProperty Name="PAYMENT" ColumnName="PAYMENT" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="PCSTYPE" ColumnName="PCSTYPE" />
+          <ScalarProperty Name="PCS" ColumnName="PCS" />
+          <ScalarProperty Name="PRODUCT" ColumnName="PRODUCT" />
+          <ScalarProperty Name="REG_HOUR" ColumnName="REG_HOUR" />
+          <ScalarProperty Name="REG_DATE" ColumnName="REG_DATE" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -119,7 +119,7 @@ namespace StarNote.Utils
 
         public bool readlisans()
         {
-            bool isok = false;
+            bool isok = false;            
             List<LisanceModel> lisancelist = new List<LisanceModel>();
             List<string> tempmaclist = new List<string>();
             tempmaclist = createmaclist();

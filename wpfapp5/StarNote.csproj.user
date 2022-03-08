@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>publish\|ftp://armsteknoloji.com/Projectfiles/Interpol/|E:\c#\Star Note Veri takip Uygulamaso\StarNote\|E:\c#\Star Note Veri takip Uygulamaso\Versiyon 2\|E:\c#\Star Note Veri takip Uygulamaso\</PublishUrlHistory>
+    <InstallUrlHistory>https://api.armsteknoloji.com/ProjeDosyaları/InterpolT/|https://armsteknoloji.com/Projectfiles/Interpol/|https:\\armsteknoloji.com/Projectfiles/Interpol/</InstallUrlHistory>
+    <SupportUrlHistory />
+    <UpdateUrlHistory>https://api.armsteknoloji.com/ProjeDosyaları/InterpolT/|https://armsteknoloji.com/Projectfiles/Interpol/|https:\\armsteknoloji.com/Projectfiles/Interpol/</UpdateUrlHistory>
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+  </PropertyGroup>
+</Project>

@@ -14,7 +14,7 @@
              xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"    
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
              mc:Ignorable="d" Margin="0" Padding="0"    
-              Background="#c8d6e5"   
+              Background="#FE9590AD"   
              d:DesignHeight="450" d:DesignWidth="800" LostFocus="UserControl_LostFocus" GotFocus="UserControl_GotFocus">
     
     <UserControl.Resources>
@@ -50,7 +50,7 @@
             </Grid.RowDefinitions>
             <DatePicker x:Name="filtregünü" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1"   VerticalAlignment="Center"  SelectedDateChanged="Filtregünü_SelectedDateChanged" />
 
-            <Button  Content="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Row="1" Grid.Column="4" Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
+            <Button  Style="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Row="1" Grid.Column="4" Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
                 <dxb:BarManager.DXContextMenu>
                     <dxb:PopupMenu Width="150">
 
@@ -59,14 +59,21 @@
                             <dxb:BarButtonItem
                                         x:Name="btnpdf"
                                 Content="PDF ÇIKTI"
-                                        
+                                        Tag="0"
                                 Glyph="/Content/pdf.png"
                                 ItemClick="Btnpdf_ItemClick" />
                             <dxb:BarButtonItem
+                                Tag="0"
                                 x:Name="btnxcel"
                                 Content="Excel ÇIKTI"
                                 Glyph="/Content/excel.png"
                                 ItemClick="Btnxcel_ItemClick" />
+                            <dxb:BarButtonItem
+                                x:Name="btnayar"
+                                Content="Görünümü Kaydet"
+                                Glyph="/Content/settings mini.png"
+                                ItemClick="Btnlayoutsave_ItemClick"
+                                />
                         </dxb:PopupMenu.Items>
                     </dxb:PopupMenu>
                 </dxb:BarManager.DXContextMenu>
@@ -121,7 +128,7 @@
                         <dxc:PieTotalLabel TextPattern=" "/>
                     </dxc:PieSeries2D.TotalLabel>
                     <dxc:PieSeries2D.Label>
-                        <dxc:SeriesLabel TextPattern="{}{VP:P}" 
+                        <dxc:SeriesLabel TextPattern="{}{A}" 
                                          dxc:PieSeries.LabelPosition="TwoColumns"/>
                     </dxc:PieSeries2D.Label>
                     <dxc:PieSeries2D.Titles>
@@ -140,7 +147,7 @@
                        ArgumentDataMember="Argument" 
                                  ValueDataMember="Value"
                                  LabelsVisibility="True" 
-                                 LegendTextPattern="{}{A}: {V}"
+                                 LegendTextPattern="{}{A}:{V}"
                                  HoleRadiusPercent="50">
                         <!--region #Model-->
                         <dxc:PieSeries2D.Model>
@@ -151,7 +158,7 @@
                             <dxc:PieTotalLabel TextPattern=" "/>
                         </dxc:PieSeries2D.TotalLabel>
                         <dxc:PieSeries2D.Label>
-                            <dxc:SeriesLabel TextPattern="{}{VP:P}" 
+                            <dxc:SeriesLabel TextPattern="{}{A}" 
                                          dxc:PieSeries.LabelPosition="TwoColumns"/>
                         </dxc:PieSeries2D.Label>
                         <dxc:PieSeries2D.Titles>

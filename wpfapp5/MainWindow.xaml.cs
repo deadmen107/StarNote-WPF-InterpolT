@@ -28,6 +28,8 @@ using ToastNotifications.Position;
 using ToastNotifications.Lifetime;
 using ToastNotifications.Messages;
 using System.Configuration;
+using System.IO;
+using System.Diagnostics;
 
 namespace StarNote
 {
@@ -40,16 +42,46 @@ namespace StarNote
     
         public MainWindow()
         {
-            
+
             InitializeComponent();
             GridControlLocalizer.Active = new TurkishFiltersLocalizer();
             RefreshViews.pagecount = 1;
             WeatherStatus();
+            createxmlfolder();
             //notifier.ShowInformation("Star Note Veri Takip Uygulaması Versiyon 2.0");
+            txtversiyon.Text = "Version V" + GetPublishedVersion();
         }
         public static bool pagechanged;
 
-       public static Notifier notifier = new Notifier(cfg =>
+        public static string GetPublishedVersion()
+        {
+            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+            {
+                return System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+            }
+            else
+            {
+                return "1.0.0.1";
+            }
+        }
+
+        private void createxmlfolder()
+        {
+
+            DirectoryInfo fi1 = new DirectoryInfo("C:\\StarNote");
+            if (!fi1.Exists)
+            {                  
+                fi1.Create();
+            }
+
+            DirectoryInfo fi2 = new DirectoryInfo("C:\\StarNote\\Templates");
+            if (!fi2.Exists)
+            {
+                fi2.Create();
+            }
+        }
+
+        public static Notifier notifier = new Notifier(cfg =>
         {
             cfg.PositionProvider = new WindowPositionProvider(
                 parentWindow: Application.Current.MainWindow,
@@ -71,7 +103,7 @@ namespace StarNote
 
         private void HamburgerSubMenuNavigationButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            RefreshViews.screenchanged = true;
             HamburgerSubMenuNavigationButton menu = sender as HamburgerSubMenuNavigationButton;
             DocumentPanel panel = null;           
             if (menu != null)
@@ -82,10 +114,10 @@ namespace StarNote
                     panel = documentPanelANAMENU;
                     menü.Text = "Genel Takip Ekranı";
                 }
-                else if (menu.Tag.ToString() == "2" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
+                else if (menu.Tag.ToString() == "26" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
                 {
-                    panel = documentPanelANAMENU;
-                    menü.Text = "Özel Müşteri Tercümesi Ekleme";
+                    panel = documentPanelANAMENU;                   
+                    menü.Text = "Şirket Tercümesi Ekleme";
 
                 }
                 else if (menu.Tag.ToString() == "3" && UserUtils.Authority.Contains(UserUtils.Satış_görevli_görüntüle))
@@ -203,10 +235,10 @@ namespace StarNote
                     panel = documentürdetay;
                     menü.Text = "Tür Detay Ekleme ";
                 }
-                else if (menu.Tag.ToString() == "26" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
+                else if (menu.Tag.ToString() == "2" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
                 {
-                    panel = documentPanelANAMENU;
-                    menü.Text = "Şirket Tercümesi Ekleme";
+                    panel = documentPanelANAMENU;                    
+                    menü.Text = "Özel Müşteri Tercümesi Ekleme";
                 }
                 else if (menu.Tag.ToString() == "27" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
                 {
@@ -214,11 +246,42 @@ namespace StarNote
                     menü.Text = "Mahkeme Tercümesi Ekleme";
                 }
                 else if (menu.Tag.ToString() == "28" )
-                {
-                    LisanceWindow lisanceWindow = new LisanceWindow();
-                    lisanceWindow.Show();
-                    panel = documentPanelANAMENU;
+                {                    
+                    panel = documentlisans;
+                    menü.Text = "Lisans takip ekranı";
+
                 }
+                else if (menu.Tag.ToString() == "29" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
+                {
+                    panel = documentPanelANAMENU;
+                    menü.Text = "Harcama Ekleme";
+                }
+                else if (menu.Tag.ToString() == "30" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
+                {
+                    panel = documentPanelANAMENU;
+                    menü.Text = "Harici Gelir Ekleme";
+                }
+                else if ((menu.Tag.ToString() == "101" 
+                       || menu.Tag.ToString() == "102"
+                        || menu.Tag.ToString() == "103"
+                         || menu.Tag.ToString() == "104"
+                          || menu.Tag.ToString() == "105"  )                        
+                    && UserUtils.Authority.Contains(UserUtils.Aylık_Analiz))
+                {
+                    panel = documentPanelAylıkANALIZ;
+                    menü.Text = menu.Content.ToString();
+                }
+                else if ((menu.Tag.ToString() == "201"
+                        || menu.Tag.ToString() == "202"
+                         || menu.Tag.ToString() == "203"
+                          || menu.Tag.ToString() == "204"
+                           || menu.Tag.ToString() == "205")
+                     && UserUtils.Authority.Contains(UserUtils.Yıllık_Analiz))
+                {
+                    panel = documentPanelYıllıkANALIZ;
+                    menü.Text = menu.Content.ToString();
+                }
+
                 else
                 {
                     MessageBox.Show("Kullanıcının bu sayfaya yetkisi yok");
@@ -227,13 +290,15 @@ namespace StarNote
                 }
 
             }
-
-            if (panel.IsClosed)
+            if (panel != null)
             {
-                dockLayoutManager.DockController.Restore(panel);
+                if (panel.IsClosed)
+                {
+                    dockLayoutManager.DockController.Restore(panel);
+                }
+                panel.Visibility = Visibility.Visible;
+                dockLayoutManager.DockController.Activate(panel);
             }
-            panel.Visibility = Visibility.Visible;
-            dockLayoutManager.DockController.Activate(panel);
         }
 
         private async void WeatherStatus()
@@ -300,7 +365,14 @@ namespace StarNote
         {
 
         }
+
+        private void Txtversiyon_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            VersionUC versionUC = new VersionUC();
+            versionUC.Show();
+        }
     }
+
     public class TurkishFiltersLocalizer : GridControlLocalizer
     {
         protected override void PopulateStringTable()
@@ -332,7 +404,9 @@ namespace StarNote
             AddString(GridControlStringId.FilterEditorTitle, "Kolon Filtreleme");
         
             AddString(GridControlStringId.MenuGroupPanelFullExpand, "Hepsini genişlet");
-            AddString(GridControlStringId.MenuGroupPanelFullCollapse,"Hepsini gizle");            
+            AddString(GridControlStringId.MenuGroupPanelFullCollapse,"Hepsini gizle");
+            AddString(GridControlStringId.ColumnChooserCaption, "Kolon Seçimi");
+            AddString(GridControlStringId.ExtendedColumnChooserSearchColumns, "Kolon arama");
         }
     }    
 }

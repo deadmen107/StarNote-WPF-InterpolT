@@ -39,36 +39,8 @@ namespace StarNote.View
         {
             if (UserUtils.Authority.Contains(UserUtils.Firma_yazdırma))
             {
-                try
-                {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Firmalar Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.Firmalar;
-                    if (printingRoute.Firmalar == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine Yıllık Analiz raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)gridhedef.View) { Landscape = true });
-                            links[0].ExportToPdf(printingRoute.Firmalar + "\\Firmalar Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".pdf");
-                            LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Firmalar Rapor alındı ", "");
-                            MessageBox.Show("Dosya Oluşturuldu", "PDF Rapor", MessageBoxButton.OK, MessageBoxImage.Information);
-                            //tablesatıs.ExportToPdf(printingRoute.MainGrid + "\\Genel Takip Raporu" + ".pdf");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Firmalar Rapor hatası ", ex.Message);
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                }
+                PrintingRoute printingRoute = new PrintingRoute();
+                PrintUtils.Print(printingRoute.tanımlısirketler, "Tanımlı Firmalar", PrintUtils.PDF, gridhedef);
             }
             else
             {
@@ -80,36 +52,8 @@ namespace StarNote.View
         {
             if (UserUtils.Authority.Contains(UserUtils.Firma_yazdırma))
             {
-                string RaporAdı = "Firmalar";
-                try
-                {
-
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", RaporAdı + "Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.Firmalar;
-                    if (printingRoute.Firmalar == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine " + RaporAdı + " Raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)gridhedef.View) { Landscape = true });
-                            links[0].ExportToXlsx(printingRoute.Firmalar + "\\" + RaporAdı + " Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".xlsx");
-                            MessageBox.Show("Dosya Oluşturuldu", "Excel Rapor", MessageBoxButton.OK, MessageBoxImage.Information);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", RaporAdı + "Rapor hatası ", ex.Message);
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                }
+                PrintingRoute printingRoute = new PrintingRoute();
+                PrintUtils.Print(printingRoute.tanımlısirketler, "Tanımlı Firmalar", PrintUtils.Excel, gridhedef);
             }
             else
             {

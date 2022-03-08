@@ -28,7 +28,11 @@ namespace StarNote.ViewModel
         {
             try
             {
-                //Lisancelist = new List<LisanceModel>(lisanceutil.GetAll().Where(u=>u.LisansAdı==));
+                Lisancelist = new List<LisanceModel>(lisanceutil.GetAll().Where(u => u.LisansAdı != "Admin"));
+                foreach (var item in lisancelist)
+                {
+                    item.Ürünanahtarı = item.Ürünanahtarı.Substring(0, 20);
+                }
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Lisance Tablo dolduruldu", "");
             }
             catch (Exception ex)

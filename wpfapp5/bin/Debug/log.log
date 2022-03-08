@@ -1,0 +1,654 @@
+2021-12-25 15:00:37,689 INFO    1      --  App                        --  OnStartup                       --  INFO        --   --- PROGRAM AÇILIYOR ----                                    --                                
+2021-12-25 15:00:38,292 INFO  Quartz.Impl.StdSchedulerFactory Default Quartz.NET properties loaded from embedded resource file
+2021-12-25 15:00:38,974 DEBUG Quartz.Simpl.TaskSchedulingThreadPool TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+2021-12-25 15:00:39,007 INFO  Quartz.Core.SchedulerSignalerImpl Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-12-25 15:00:39,013 INFO  Quartz.Core.QuartzScheduler Quartz Scheduler v.3.0.7.0 created.
+2021-12-25 15:00:39,027 INFO  Quartz.Simpl.RAMJobStore RAMJobStore initialized.
+2021-12-25 15:00:39,040 INFO  Quartz.Core.QuartzScheduler Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-12-25 15:00:39,052 INFO  Quartz.Impl.StdSchedulerFactory Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-12-25 15:00:39,055 INFO  Quartz.Impl.StdSchedulerFactory Quartz scheduler version: 3.0.7.0
+2021-12-25 15:00:39,070 INFO  Quartz.Core.QuartzScheduler Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-12-25 15:00:39,075 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:00:39,101 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 15:00:39,123 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 15:00:39,136 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:00:39,213 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 15:00:39,246 INFO    2      --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 15:00:41,748 INFO    3      --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 15:00:41,756 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 15:00:43,931 INFO    4      --  LoadingScreen              --  .ctor                           --  INFO        --   --- LOGÝN SCREEN AÇILDI  ----                                --                                
+2021-12-25 15:00:57,167 INFO    5      --  LisanceUtils               --  createmaclist                   --  INFO        --  Uygulama lisans verileri toplandý                             --                                
+2021-12-25 15:00:57,341 INFO    6      --  LisanceUtils               --  GetAll                          --  INFO        --  Lisans Tablo Api verisi alýndý                                --                                
+2021-12-25 15:00:57,344 INFO    7      --  LisanceUtils               --  readlisans                      --  INFO        --  3 adet lisans bulundu                                         --                                
+2021-12-25 15:00:57,348 INFO    8      --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:00:58,045 INFO    9      --  LisanceUtils               --  readlisans                      --  INFO        --  0 adet eþleþme bulundu                                        --                                
+2021-12-25 15:00:58,047 INFO    10     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:00:58,467 INFO    11     --  LisanceUtils               --  readlisans                      --  INFO        --  0 adet eþleþme bulundu                                        --                                
+2021-12-25 15:00:58,469 INFO    12     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:00:58,828 INFO    13     --  LisanceUtils               --  readlisans                      --  INFO        --  4 adet eþleþme bulundu                                        --                                
+2021-12-25 15:00:58,830 INFO    14     --  LisanceUtils               --  readlisans                      --  INFO        --  doðru eþleþme bulundu Lisans kontrol baþarýlý                 --  lisans adý = Admin            
+2021-12-25 15:00:59,522 INFO    15     --  UserUtils                  --  CheckUserfromApi                --  INFO        --  Aktif Kullanýcý Api Verisi Alýndý                             --                                
+2021-12-25 15:00:59,524 INFO    16     --  LoadingScreen              --  <login>b__1                     --  INFO        --   --- UYGULAMA AÇILIYOR  ----                                  --  kullanýcý adý=sys             
+2021-12-25 15:01:02,927 INFO    17     --  StokDA                     --  GetAll                          --  INFO        --  Stok Tablo Api Verisi Alýndý                                  --                                
+2021-12-25 15:01:02,930 INFO    18     --  StokVM                     --  loaddata                        --  INFO        --  Stok Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:01:03,212 INFO    19     --  StokDA                     --  Sourcelistfill                  --  INFO        --  Stok Combobox Api Verisi Alýndý                               --                                
+2021-12-25 15:01:03,215 INFO    20     --  StokVM                     --  Loadsources                     --  INFO        --  Stok Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:01:04,255 INFO    21     --  MainService                --  GetAll                          --  INFO        --  Main Tablo Api verisi alýndý                                  --                                
+2021-12-25 15:01:04,394 INFO    22     --  MainService                --  GetcompanySource                --  INFO        --  Main Firma Api verisi alýndý                                  --                                
+2021-12-25 15:01:04,551 INFO    23     --  MainService                --  GetcostumerSource               --  INFO        --  Main müþteri Api verisi alýndý                                --                                
+2021-12-25 15:01:04,781 INFO    24     --  MainService                --  methodsource                    --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:01:04,978 INFO    25     --  MainService                --  ödemeyöntemsource               --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:01:05,100 INFO    26     --  MainService                --  durumsource                     --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:01:05,366 INFO    27     --  MainService                --  birimsource                     --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:01:05,926 INFO    28     --  MainService                --  kdvsource                       --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:01:06,059 INFO    29     --  MainService                --  ürünsource                      --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:01:06,194 INFO    30     --  MainService                --  salesmansource                  --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:01:06,387 INFO    31     --  MainService                --  ürün2source                     --  INFO        --  Main Combobox ürün detay verisi alýndý                        --                                
+2021-12-25 15:01:06,555 INFO    32     --  MainService                --  türsource                       --  INFO        --  Main Combobox Tür Api verisi alýndý                           --                                
+2021-12-25 15:01:06,688 INFO    33     --  MainService                --  typedetailsource                --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:01:07,118 INFO    34     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 15:01:07,119 INFO    35     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 15:01:07,121 INFO    36     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:01:07,123 INFO    37     --  MainVM                     --  LoadData                        --  INFO        --  Main Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:01:07,897 INFO    38     --  StokDA                     --  GetAll                          --  INFO        --  Stok Tablo Api Verisi Alýndý                                  --                                
+2021-12-25 15:01:07,899 INFO    39     --  StokVM                     --  loaddata                        --  INFO        --  Stok Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:01:08,225 INFO    40     --  StokDA                     --  Sourcelistfill                  --  INFO        --  Stok Combobox Api Verisi Alýndý                               --                                
+2021-12-25 15:01:08,227 INFO    41     --  StokVM                     --  Loadsources                     --  INFO        --  Stok Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:01:08,687 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:01:10,062 INFO    42     --  SalesmanAnalysisDA         --  loadpiessales                   --  INFO        --  Personel Satýþ Pie Api verisi alýndý                          --                                
+2021-12-25 15:01:10,246 INFO    43     --  SalesmanAnalysisDA         --  loadpiepurchase                 --  INFO        --  Personel Satýn Alma Pie Api  verisi alýndý                    --                                
+2021-12-25 15:01:10,481 INFO    44     --  SalesmanAnalysisDA         --  fillsalesmansales               --  INFO        --  Satýþ Görevli Analiz Satýþ Tablo Api Verisi Alýndý            --                                
+2021-12-25 15:01:10,604 INFO    45     --  SalesmanAnalysisDA         --  fillsalesmanpurchase            --  INFO        --  Satýþ Görevli Analiz Satýn Alma Tablo Api Verisi Alýndý       --                                
+2021-12-25 15:01:10,606 INFO    46     --  SalesmanAnalysisVM         --  Loaddata                        --  INFO        --  Satýþ Görevli Analiz Tablo Doldurma Tamamlandý                --                                
+2021-12-25 15:01:10,764 INFO    47     --  UsersDA                    --  GetAll                          --  INFO        --  Kullanýcýlar Tablosu Api Verisi Alýndý                        --                                
+2021-12-25 15:01:10,766 INFO    48     --  UsersVM                    --  Loaddata                        --  INFO        --  Kullanýcý Tablo Doldurma Tamamlandý                           --                                
+2021-12-25 15:01:11,947 INFO    49     --  LisanceUtils               --  GetAll                          --  INFO        --  Lisans Tablo Api verisi alýndý                                --                                
+2021-12-25 15:01:11,949 INFO    50     --  LisanceVM                  --  loaddata                        --  INFO        --  Lisance Tablo dolduruldu                                      --                                
+2021-12-25 15:01:17,139 INFO    51     --  MainGridUC                 --  MainWindow_Loaded               --  INFO        --   --- PROGRAM AÇILIDI  ----                                    --                                
+2021-12-25 15:01:21,730 INFO    52     --  MainService                --  GetAll                          --  INFO        --  Main Tablo Api verisi alýndý                                  --                                
+2021-12-25 15:01:22,614 INFO    53     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 15:01:22,616 INFO    54     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 15:01:22,619 INFO    55     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:01:22,620 INFO    56     --  MainVM                     --  LoadData                        --  INFO        --  Main Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:01:28,369 INFO    57     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 15:01:28,371 INFO    58     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 15:01:28,375 INFO    59     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:01:35,920 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:06:10,928 INFO    1      --  App                        --  OnStartup                       --  INFO        --   --- PROGRAM AÇILIYOR ----                                    --                                
+2021-12-25 15:06:11,240 INFO  Quartz.Impl.StdSchedulerFactory Default Quartz.NET properties loaded from embedded resource file
+2021-12-25 15:06:11,322 DEBUG Quartz.Simpl.TaskSchedulingThreadPool TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+2021-12-25 15:06:11,349 INFO  Quartz.Core.SchedulerSignalerImpl Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-12-25 15:06:11,355 INFO  Quartz.Core.QuartzScheduler Quartz Scheduler v.3.0.7.0 created.
+2021-12-25 15:06:11,359 INFO  Quartz.Simpl.RAMJobStore RAMJobStore initialized.
+2021-12-25 15:06:11,373 INFO  Quartz.Core.QuartzScheduler Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-12-25 15:06:11,376 INFO  Quartz.Impl.StdSchedulerFactory Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-12-25 15:06:11,378 INFO  Quartz.Impl.StdSchedulerFactory Quartz scheduler version: 3.0.7.0
+2021-12-25 15:06:11,401 INFO  Quartz.Core.QuartzScheduler Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-12-25 15:06:11,422 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:06:11,439 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 15:06:11,469 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 15:06:11,481 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:06:11,512 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 15:06:11,521 INFO    2      --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 15:06:13,501 INFO    3      --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 15:06:13,508 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 15:06:14,334 INFO    4      --  LoadingScreen              --  .ctor                           --  INFO        --   --- LOGÝN SCREEN AÇILDI  ----                                --                                
+2021-12-25 15:06:41,218 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:07:11,189 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:07:33,776 INFO    5      --  LisanceUtils               --  createmaclist                   --  INFO        --  Uygulama lisans verileri toplandý                             --                                
+2021-12-25 15:07:33,936 INFO    6      --  LisanceUtils               --  GetAll                          --  INFO        --  Lisans Tablo Api verisi alýndý                                --                                
+2021-12-25 15:07:33,939 INFO    7      --  LisanceUtils               --  readlisans                      --  INFO        --  3 adet lisans bulundu                                         --                                
+2021-12-25 15:07:33,941 INFO    8      --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:07:34,534 INFO    9      --  LisanceUtils               --  readlisans                      --  INFO        --  0 adet eþleþme bulundu                                        --                                
+2021-12-25 15:07:34,537 INFO    10     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:07:34,964 INFO    11     --  LisanceUtils               --  readlisans                      --  INFO        --  0 adet eþleþme bulundu                                        --                                
+2021-12-25 15:07:34,966 INFO    12     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:07:35,311 INFO    13     --  LisanceUtils               --  readlisans                      --  INFO        --  4 adet eþleþme bulundu                                        --                                
+2021-12-25 15:07:35,313 INFO    14     --  LisanceUtils               --  readlisans                      --  INFO        --  doðru eþleþme bulundu Lisans kontrol baþarýlý                 --  lisans adý = Admin            
+2021-12-25 15:07:36,024 INFO    15     --  UserUtils                  --  CheckUserfromApi                --  INFO        --  Aktif Kullanýcý Api Verisi Alýndý                             --                                
+2021-12-25 15:07:36,115 INFO    16     --  LoadingScreen              --  <login>b__1                     --  ERROR       --   --- KULLANICI ADI VEYA ÞÝFRE HATALI  ----                    --  kullanýcý adý=sys             
+2021-12-25 15:07:37,012 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:07:42,556 INFO    17     --  LisanceUtils               --  createmaclist                   --  INFO        --  Uygulama lisans verileri toplandý                             --                                
+2021-12-25 15:07:42,726 INFO    18     --  LisanceUtils               --  GetAll                          --  INFO        --  Lisans Tablo Api verisi alýndý                                --                                
+2021-12-25 15:07:42,728 INFO    19     --  LisanceUtils               --  readlisans                      --  INFO        --  3 adet lisans bulundu                                         --                                
+2021-12-25 15:07:42,730 INFO    20     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:07:43,156 INFO    21     --  LisanceUtils               --  readlisans                      --  INFO        --  0 adet eþleþme bulundu                                        --                                
+2021-12-25 15:07:43,158 INFO    22     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:07:43,570 INFO    23     --  LisanceUtils               --  readlisans                      --  INFO        --  0 adet eþleþme bulundu                                        --                                
+2021-12-25 15:07:43,572 INFO    24     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:07:43,931 INFO    25     --  LisanceUtils               --  readlisans                      --  INFO        --  4 adet eþleþme bulundu                                        --                                
+2021-12-25 15:07:43,933 INFO    26     --  LisanceUtils               --  readlisans                      --  INFO        --  doðru eþleþme bulundu Lisans kontrol baþarýlý                 --  lisans adý = Admin            
+2021-12-25 15:07:44,175 INFO    27     --  UserUtils                  --  CheckUserfromApi                --  INFO        --  Aktif Kullanýcý Api Verisi Alýndý                             --                                
+2021-12-25 15:07:44,177 INFO    28     --  LoadingScreen              --  <login>b__1                     --  INFO        --   --- UYGULAMA AÇILIYOR  ----                                  --  kullanýcý adý=sys             
+2021-12-25 15:07:48,937 INFO    29     --  StokDA                     --  GetAll                          --  INFO        --  Stok Tablo Api Verisi Alýndý                                  --                                
+2021-12-25 15:07:48,940 INFO    30     --  StokVM                     --  loaddata                        --  INFO        --  Stok Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:07:49,127 INFO    31     --  StokDA                     --  Sourcelistfill                  --  INFO        --  Stok Combobox Api Verisi Alýndý                               --                                
+2021-12-25 15:07:49,151 INFO    32     --  StokVM                     --  Loadsources                     --  INFO        --  Stok Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:07:50,127 INFO    33     --  MainService                --  GetAll                          --  INFO        --  Main Tablo Api verisi alýndý                                  --                                
+2021-12-25 15:07:50,271 INFO    34     --  MainService                --  GetcompanySource                --  INFO        --  Main Firma Api verisi alýndý                                  --                                
+2021-12-25 15:07:50,505 INFO    35     --  MainService                --  GetcostumerSource               --  INFO        --  Main müþteri Api verisi alýndý                                --                                
+2021-12-25 15:07:50,649 INFO    36     --  MainService                --  methodsource                    --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:07:50,766 INFO    37     --  MainService                --  ödemeyöntemsource               --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:07:50,899 INFO    38     --  MainService                --  durumsource                     --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:07:51,027 INFO    39     --  MainService                --  birimsource                     --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:07:51,174 INFO    40     --  MainService                --  kdvsource                       --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:07:51,304 INFO    41     --  MainService                --  ürünsource                      --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:07:51,422 INFO    42     --  MainService                --  salesmansource                  --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:07:51,543 INFO    43     --  MainService                --  ürün2source                     --  INFO        --  Main Combobox ürün detay verisi alýndý                        --                                
+2021-12-25 15:07:51,660 INFO    44     --  MainService                --  türsource                       --  INFO        --  Main Combobox Tür Api verisi alýndý                           --                                
+2021-12-25 15:07:51,782 INFO    45     --  MainService                --  typedetailsource                --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:07:52,220 INFO    46     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 15:07:52,223 INFO    47     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 15:07:52,225 INFO    48     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:07:52,227 INFO    49     --  MainVM                     --  LoadData                        --  INFO        --  Main Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:07:53,095 INFO    50     --  StokDA                     --  GetAll                          --  INFO        --  Stok Tablo Api Verisi Alýndý                                  --                                
+2021-12-25 15:07:53,097 INFO    51     --  StokVM                     --  loaddata                        --  INFO        --  Stok Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:07:53,261 INFO    52     --  StokDA                     --  Sourcelistfill                  --  INFO        --  Stok Combobox Api Verisi Alýndý                               --                                
+2021-12-25 15:07:53,263 INFO    53     --  StokVM                     --  Loadsources                     --  INFO        --  Stok Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:07:54,675 INFO    54     --  SalesmanAnalysisDA         --  loadpiessales                   --  INFO        --  Personel Satýþ Pie Api verisi alýndý                          --                                
+2021-12-25 15:07:54,829 INFO    55     --  SalesmanAnalysisDA         --  loadpiepurchase                 --  INFO        --  Personel Satýn Alma Pie Api  verisi alýndý                    --                                
+2021-12-25 15:07:54,953 INFO    56     --  SalesmanAnalysisDA         --  fillsalesmansales               --  INFO        --  Satýþ Görevli Analiz Satýþ Tablo Api Verisi Alýndý            --                                
+2021-12-25 15:07:55,070 INFO    57     --  SalesmanAnalysisDA         --  fillsalesmanpurchase            --  INFO        --  Satýþ Görevli Analiz Satýn Alma Tablo Api Verisi Alýndý       --                                
+2021-12-25 15:07:55,072 INFO    58     --  SalesmanAnalysisVM         --  Loaddata                        --  INFO        --  Satýþ Görevli Analiz Tablo Doldurma Tamamlandý                --                                
+2021-12-25 15:07:55,287 INFO    59     --  UsersDA                    --  GetAll                          --  INFO        --  Kullanýcýlar Tablosu Api Verisi Alýndý                        --                                
+2021-12-25 15:07:55,290 INFO    60     --  UsersVM                    --  Loaddata                        --  INFO        --  Kullanýcý Tablo Doldurma Tamamlandý                           --                                
+2021-12-25 15:07:56,015 INFO    61     --  LisanceUtils               --  GetAll                          --  INFO        --  Lisans Tablo Api verisi alýndý                                --                                
+2021-12-25 15:07:56,018 INFO    62     --  LisanceVM                  --  loaddata                        --  INFO        --  Lisance Tablo dolduruldu                                      --                                
+2021-12-25 15:08:00,601 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:08:02,213 INFO    63     --  MainGridUC                 --  MainWindow_Loaded               --  INFO        --   --- PROGRAM AÇILIDI  ----                                    --                                
+2021-12-25 15:08:09,387 INFO    64     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 15:08:09,389 INFO    65     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 15:08:09,392 INFO    66     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:08:52,267 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:09:31,829 INFO    1      --  App                        --  OnStartup                       --  INFO        --   --- PROGRAM AÇILIYOR ----                                    --                                
+2021-12-25 15:09:32,328 INFO  Quartz.Impl.StdSchedulerFactory Default Quartz.NET properties loaded from embedded resource file
+2021-12-25 15:09:32,437 DEBUG Quartz.Simpl.TaskSchedulingThreadPool TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+2021-12-25 15:09:32,463 INFO  Quartz.Core.SchedulerSignalerImpl Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-12-25 15:09:32,480 INFO  Quartz.Core.QuartzScheduler Quartz Scheduler v.3.0.7.0 created.
+2021-12-25 15:09:32,493 INFO  Quartz.Simpl.RAMJobStore RAMJobStore initialized.
+2021-12-25 15:09:32,514 INFO  Quartz.Core.QuartzScheduler Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-12-25 15:09:32,517 INFO  Quartz.Impl.StdSchedulerFactory Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-12-25 15:09:32,527 INFO  Quartz.Impl.StdSchedulerFactory Quartz scheduler version: 3.0.7.0
+2021-12-25 15:09:32,620 INFO  Quartz.Core.QuartzScheduler Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-12-25 15:09:32,631 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:09:32,657 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 15:09:32,676 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 15:09:32,688 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:09:32,746 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 15:09:32,751 INFO    2      --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 15:09:35,773 INFO    3      --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 15:09:35,785 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 15:09:37,634 INFO    4      --  LoadingScreen              --  .ctor                           --  INFO        --   --- LOGÝN SCREEN AÇILDI  ----                                --                                
+2021-12-25 15:09:56,653 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:10:09,458 INFO    5      --  LisanceUtils               --  createmaclist                   --  INFO        --  Uygulama lisans verileri toplandý                             --                                
+2021-12-25 15:10:09,738 INFO    6      --  LisanceUtils               --  GetAll                          --  INFO        --  Lisans Tablo Api verisi alýndý                                --                                
+2021-12-25 15:10:09,740 INFO    7      --  LisanceUtils               --  readlisans                      --  INFO        --  3 adet lisans bulundu                                         --                                
+2021-12-25 15:10:09,769 INFO    8      --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:10:10,592 INFO    9      --  LisanceUtils               --  readlisans                      --  INFO        --  0 adet eþleþme bulundu                                        --                                
+2021-12-25 15:10:10,594 INFO    10     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:10:11,011 INFO    11     --  LisanceUtils               --  readlisans                      --  INFO        --  0 adet eþleþme bulundu                                        --                                
+2021-12-25 15:10:11,012 INFO    12     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 15:10:11,370 INFO    13     --  LisanceUtils               --  readlisans                      --  INFO        --  4 adet eþleþme bulundu                                        --                                
+2021-12-25 15:10:11,372 INFO    14     --  LisanceUtils               --  readlisans                      --  INFO        --  doðru eþleþme bulundu Lisans kontrol baþarýlý                 --  lisans adý = Admin            
+2021-12-25 15:10:13,099 INFO    15     --  UserUtils                  --  CheckUserfromApi                --  INFO        --  Aktif Kullanýcý Api Verisi Alýndý                             --                                
+2021-12-25 15:10:13,104 INFO    16     --  LoadingScreen              --  <login>b__1                     --  INFO        --   --- UYGULAMA AÇILIYOR  ----                                  --  kullanýcý adý=sys             
+2021-12-25 15:10:19,508 INFO    17     --  StokDA                     --  GetAll                          --  INFO        --  Stok Tablo Api Verisi Alýndý                                  --                                
+2021-12-25 15:10:19,510 INFO    18     --  StokVM                     --  loaddata                        --  INFO        --  Stok Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:10:19,761 INFO    19     --  StokDA                     --  Sourcelistfill                  --  INFO        --  Stok Combobox Api Verisi Alýndý                               --                                
+2021-12-25 15:10:19,763 INFO    20     --  StokVM                     --  Loadsources                     --  INFO        --  Stok Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:10:20,735 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:10:21,137 INFO    21     --  MainService                --  GetAll                          --  INFO        --  Main Tablo Api verisi alýndý                                  --                                
+2021-12-25 15:10:21,329 INFO    22     --  MainService                --  GetcompanySource                --  INFO        --  Main Firma Api verisi alýndý                                  --                                
+2021-12-25 15:10:21,467 INFO    23     --  MainService                --  GetcostumerSource               --  INFO        --  Main müþteri Api verisi alýndý                                --                                
+2021-12-25 15:10:21,615 INFO    24     --  MainService                --  methodsource                    --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:10:21,735 INFO    25     --  MainService                --  ödemeyöntemsource               --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:10:21,868 INFO    26     --  MainService                --  durumsource                     --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:10:22,044 INFO    27     --  MainService                --  birimsource                     --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:10:22,182 INFO    28     --  MainService                --  kdvsource                       --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:10:22,330 INFO    29     --  MainService                --  ürünsource                      --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:10:22,550 INFO    30     --  MainService                --  salesmansource                  --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:10:22,689 INFO    31     --  MainService                --  ürün2source                     --  INFO        --  Main Combobox ürün detay verisi alýndý                        --                                
+2021-12-25 15:10:22,814 INFO    32     --  MainService                --  türsource                       --  INFO        --  Main Combobox Tür Api verisi alýndý                           --                                
+2021-12-25 15:10:22,966 INFO    33     --  MainService                --  typedetailsource                --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 15:10:23,499 INFO    34     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 15:10:23,501 INFO    35     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 15:10:23,503 INFO    36     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:10:23,516 INFO    37     --  MainVM                     --  LoadData                        --  INFO        --  Main Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:10:24,825 INFO    38     --  StokDA                     --  GetAll                          --  INFO        --  Stok Tablo Api Verisi Alýndý                                  --                                
+2021-12-25 15:10:24,827 INFO    39     --  StokVM                     --  loaddata                        --  INFO        --  Stok Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:10:25,021 INFO    40     --  StokDA                     --  Sourcelistfill                  --  INFO        --  Stok Combobox Api Verisi Alýndý                               --                                
+2021-12-25 15:10:25,023 INFO    41     --  StokVM                     --  Loadsources                     --  INFO        --  Stok Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:10:28,022 INFO    42     --  SalesmanAnalysisDA         --  loadpiessales                   --  INFO        --  Personel Satýþ Pie Api verisi alýndý                          --                                
+2021-12-25 15:10:28,504 INFO    43     --  SalesmanAnalysisDA         --  loadpiepurchase                 --  INFO        --  Personel Satýn Alma Pie Api  verisi alýndý                    --                                
+2021-12-25 15:10:28,933 INFO    44     --  SalesmanAnalysisDA         --  fillsalesmansales               --  INFO        --  Satýþ Görevli Analiz Satýþ Tablo Api Verisi Alýndý            --                                
+2021-12-25 15:10:29,366 INFO    45     --  SalesmanAnalysisDA         --  fillsalesmanpurchase            --  INFO        --  Satýþ Görevli Analiz Satýn Alma Tablo Api Verisi Alýndý       --                                
+2021-12-25 15:10:29,368 INFO    46     --  SalesmanAnalysisVM         --  Loaddata                        --  INFO        --  Satýþ Görevli Analiz Tablo Doldurma Tamamlandý                --                                
+2021-12-25 15:10:29,874 INFO    47     --  UsersDA                    --  GetAll                          --  INFO        --  Kullanýcýlar Tablosu Api Verisi Alýndý                        --                                
+2021-12-25 15:10:29,876 INFO    48     --  UsersVM                    --  Loaddata                        --  INFO        --  Kullanýcý Tablo Doldurma Tamamlandý                           --                                
+2021-12-25 15:10:31,859 INFO    49     --  LisanceUtils               --  GetAll                          --  INFO        --  Lisans Tablo Api verisi alýndý                                --                                
+2021-12-25 15:10:31,876 INFO    50     --  LisanceVM                  --  loaddata                        --  INFO        --  Lisance Tablo dolduruldu                                      --                                
+2021-12-25 15:10:38,961 INFO    51     --  MainGridUC                 --  MainWindow_Loaded               --  INFO        --   --- PROGRAM AÇILIDI  ----                                    --                                
+2021-12-25 15:10:43,894 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:10:44,480 INFO    52     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 15:10:44,482 INFO    53     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 15:10:44,487 INFO    54     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:11:10,213 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:11:38,951 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:12:02,654 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:12:27,141 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:12:54,685 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:13:18,299 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:13:41,983 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:14:05,085 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 15:14:32,736 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 15:14:32,752 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:14:32,882 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 15:14:32,906 INFO    55     --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 15:14:33,309 INFO    56     --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 15:14:33,368 INFO    57     --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 15:14:33,662 INFO    58     --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 15:14:33,797 INFO    59     --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 15:14:33,944 INFO    60     --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 15:14:34,151 INFO    61     --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 15:14:34,297 INFO    62     --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 15:14:34,299 INFO    63     --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 15:14:34,588 INFO    64     --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 15:14:34,590 INFO    65     --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 15:14:34,592 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 15:15:02,380 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:15:29,935 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:15:59,240 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:16:27,758 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:16:52,432 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:17:20,045 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:17:43,706 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:18:10,124 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:18:37,600 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:19:06,812 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 15:19:32,634 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 15:19:32,636 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 15:19:32,636 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:19:32,639 INFO    66     --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 15:19:32,819 INFO    67     --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 15:19:32,820 INFO    68     --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 15:19:33,099 INFO    69     --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 15:19:33,225 INFO    70     --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 15:19:33,408 INFO    71     --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 15:19:33,553 INFO    72     --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 15:19:33,682 INFO    73     --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 15:19:33,684 INFO    74     --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 15:19:33,801 INFO    75     --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 15:19:33,803 INFO    76     --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 15:19:33,805 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 15:19:56,138 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:20:21,250 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:20:46,208 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:21:11,476 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:21:39,287 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:22:03,004 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:22:27,060 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 15:22:50,227 INFO    77     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 15:22:50,229 INFO    78     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 15:22:50,231 INFO    79     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:22:52,966 INFO    80     --  MainService                --  GetAll                          --  INFO        --  Main Tablo Api verisi alýndý                                  --                                
+2021-12-25 15:22:53,531 INFO    81     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 15:22:53,533 INFO    82     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 15:22:53,535 INFO    83     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 15:22:53,536 INFO    84     --  MainVM                     --  LoadData                        --  INFO        --  Main Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 15:22:53,580 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:33:00,779 INFO    1      --  App                        --  OnStartup                       --  INFO        --   --- PROGRAM AÇILIYOR ----                                    --                                
+2021-12-25 16:33:01,365 INFO  Quartz.Impl.StdSchedulerFactory Default Quartz.NET properties loaded from embedded resource file
+2021-12-25 16:33:01,456 DEBUG Quartz.Simpl.TaskSchedulingThreadPool TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+2021-12-25 16:33:01,493 INFO  Quartz.Core.SchedulerSignalerImpl Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-12-25 16:33:01,538 INFO  Quartz.Core.QuartzScheduler Quartz Scheduler v.3.0.7.0 created.
+2021-12-25 16:33:01,613 INFO  Quartz.Simpl.RAMJobStore RAMJobStore initialized.
+2021-12-25 16:33:01,634 INFO  Quartz.Core.QuartzScheduler Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-12-25 16:33:01,636 INFO  Quartz.Impl.StdSchedulerFactory Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-12-25 16:33:01,657 INFO  Quartz.Impl.StdSchedulerFactory Quartz scheduler version: 3.0.7.0
+2021-12-25 16:33:01,687 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:33:01,693 INFO  Quartz.Core.QuartzScheduler Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-12-25 16:33:01,732 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 16:33:01,756 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 16:33:01,785 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:33:01,869 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 16:33:01,874 INFO    2      --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 16:33:04,218 INFO    3      --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 16:33:04,225 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 16:33:05,558 INFO    4      --  LoadingScreen              --  .ctor                           --  INFO        --   --- LOGÝN SCREEN AÇILDI  ----                                --                                
+2021-12-25 16:33:15,744 INFO    5      --  LisanceUtils               --  createmaclist                   --  INFO        --  Uygulama lisans verileri toplandý                             --                                
+2021-12-25 16:33:16,014 INFO    6      --  LisanceUtils               --  GetAll                          --  INFO        --  Lisans Tablo Api verisi alýndý                                --                                
+2021-12-25 16:33:16,016 INFO    7      --  LisanceUtils               --  readlisans                      --  INFO        --  3 adet lisans bulundu                                         --                                
+2021-12-25 16:33:16,019 INFO    8      --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 16:33:16,676 INFO    9      --  LisanceUtils               --  readlisans                      --  INFO        --  0 adet eþleþme bulundu                                        --                                
+2021-12-25 16:33:16,678 INFO    10     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 16:33:17,096 INFO    11     --  LisanceUtils               --  readlisans                      --  INFO        --  0 adet eþleþme bulundu                                        --                                
+2021-12-25 16:33:17,097 INFO    12     --  LisanceUtils               --  readlisans                      --  INFO        --  lisans kontrol baþlýyor                                       --                                
+2021-12-25 16:33:17,460 INFO    13     --  LisanceUtils               --  readlisans                      --  INFO        --  4 adet eþleþme bulundu                                        --                                
+2021-12-25 16:33:17,462 INFO    14     --  LisanceUtils               --  readlisans                      --  INFO        --  doðru eþleþme bulundu Lisans kontrol baþarýlý                 --  lisans adý = Admin            
+2021-12-25 16:33:18,128 INFO    15     --  UserUtils                  --  CheckUserfromApi                --  INFO        --  Aktif Kullanýcý Api Verisi Alýndý                             --                                
+2021-12-25 16:33:18,129 INFO    16     --  LoadingScreen              --  <login>b__1                     --  INFO        --   --- UYGULAMA AÇILIYOR  ----                                  --  kullanýcý adý=sys             
+2021-12-25 16:33:21,708 INFO    17     --  StokDA                     --  GetAll                          --  INFO        --  Stok Tablo Api Verisi Alýndý                                  --                                
+2021-12-25 16:33:21,711 INFO    18     --  StokVM                     --  loaddata                        --  INFO        --  Stok Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 16:33:21,903 INFO    19     --  StokDA                     --  Sourcelistfill                  --  INFO        --  Stok Combobox Api Verisi Alýndý                               --                                
+2021-12-25 16:33:21,906 INFO    20     --  StokVM                     --  Loadsources                     --  INFO        --  Stok Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 16:33:22,935 INFO    21     --  MainService                --  GetAll                          --  INFO        --  Main Tablo Api verisi alýndý                                  --                                
+2021-12-25 16:33:23,116 INFO    22     --  MainService                --  GetcompanySource                --  INFO        --  Main Firma Api verisi alýndý                                  --                                
+2021-12-25 16:33:23,239 INFO    23     --  MainService                --  GetcostumerSource               --  INFO        --  Main müþteri Api verisi alýndý                                --                                
+2021-12-25 16:33:23,370 INFO    24     --  MainService                --  methodsource                    --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 16:33:23,536 INFO    25     --  MainService                --  ödemeyöntemsource               --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 16:33:23,687 INFO    26     --  MainService                --  durumsource                     --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 16:33:23,852 INFO    27     --  MainService                --  birimsource                     --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 16:33:24,032 INFO    28     --  MainService                --  kdvsource                       --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 16:33:24,180 INFO    29     --  MainService                --  ürünsource                      --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 16:33:24,325 INFO    30     --  MainService                --  salesmansource                  --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 16:33:24,446 INFO    31     --  MainService                --  ürün2source                     --  INFO        --  Main Combobox ürün detay verisi alýndý                        --                                
+2021-12-25 16:33:24,585 INFO    32     --  MainService                --  türsource                       --  INFO        --  Main Combobox Tür Api verisi alýndý                           --                                
+2021-12-25 16:33:24,745 INFO    33     --  MainService                --  typedetailsource                --  INFO        --  Main api verisi alýndý                                        --                                
+2021-12-25 16:33:25,212 INFO    34     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 16:33:25,214 INFO    35     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 16:33:25,217 INFO    36     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 16:33:25,219 INFO    37     --  MainVM                     --  LoadData                        --  INFO        --  Main Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 16:33:26,144 INFO    38     --  StokDA                     --  GetAll                          --  INFO        --  Stok Tablo Api Verisi Alýndý                                  --                                
+2021-12-25 16:33:26,146 INFO    39     --  StokVM                     --  loaddata                        --  INFO        --  Stok Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 16:33:26,414 INFO    40     --  StokDA                     --  Sourcelistfill                  --  INFO        --  Stok Combobox Api Verisi Alýndý                               --                                
+2021-12-25 16:33:26,416 INFO    41     --  StokVM                     --  Loadsources                     --  INFO        --  Stok Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 16:33:28,044 INFO    42     --  SalesmanAnalysisDA         --  loadpiessales                   --  INFO        --  Personel Satýþ Pie Api verisi alýndý                          --                                
+2021-12-25 16:33:28,181 INFO    43     --  SalesmanAnalysisDA         --  loadpiepurchase                 --  INFO        --  Personel Satýn Alma Pie Api  verisi alýndý                    --                                
+2021-12-25 16:33:28,310 INFO    44     --  SalesmanAnalysisDA         --  fillsalesmansales               --  INFO        --  Satýþ Görevli Analiz Satýþ Tablo Api Verisi Alýndý            --                                
+2021-12-25 16:33:28,446 INFO    45     --  SalesmanAnalysisDA         --  fillsalesmanpurchase            --  INFO        --  Satýþ Görevli Analiz Satýn Alma Tablo Api Verisi Alýndý       --                                
+2021-12-25 16:33:28,448 INFO    46     --  SalesmanAnalysisVM         --  Loaddata                        --  INFO        --  Satýþ Görevli Analiz Tablo Doldurma Tamamlandý                --                                
+2021-12-25 16:33:28,650 INFO    47     --  UsersDA                    --  GetAll                          --  INFO        --  Kullanýcýlar Tablosu Api Verisi Alýndý                        --                                
+2021-12-25 16:33:28,655 INFO    48     --  UsersVM                    --  Loaddata                        --  INFO        --  Kullanýcý Tablo Doldurma Tamamlandý                           --                                
+2021-12-25 16:33:29,744 INFO    49     --  LisanceUtils               --  GetAll                          --  INFO        --  Lisans Tablo Api verisi alýndý                                --                                
+2021-12-25 16:33:29,746 INFO    50     --  LisanceVM                  --  loaddata                        --  INFO        --  Lisance Tablo dolduruldu                                      --                                
+2021-12-25 16:33:31,696 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:33:35,643 INFO    51     --  MainGridUC                 --  MainWindow_Loaded               --  INFO        --   --- PROGRAM AÇILIDI  ----                                    --                                
+2021-12-25 16:33:44,684 INFO    52     --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:33:44,852 INFO    53     --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:33:44,983 INFO    54     --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 16:33:45,137 INFO    55     --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 16:33:45,263 INFO    56     --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 16:33:45,266 INFO    57     --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 16:33:59,454 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:34:22,735 INFO    58     --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:34:22,912 INFO    59     --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:34:23,049 INFO    60     --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 16:34:23,175 INFO    61     --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 16:34:23,322 INFO    62     --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 16:34:23,324 INFO    63     --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 16:34:27,768 INFO    64     --  AnalysisMontlyDA           --  FillMontlyAnalysis              --  INFO        --  Aylýk Analiz Tablo Api verisi alýndý                          --                                
+2021-12-25 16:34:28,160 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:34:28,215 INFO    65     --  AnalysisMontlyDA           --  Fillmontlygaugesales            --  INFO        --  Aylýk Analiz Satýþ Gauge Api verisi alýndý                    --                                
+2021-12-25 16:34:28,418 INFO    66     --  AnalysisMontlyDA           --  Fillmontlygaugepurchase         --  INFO        --  Aylýk Analiz Satýn Alma Gauge Api verisi alýndý               --                                
+2021-12-25 16:34:28,566 INFO    67     --  AnalysisMontlyDA           --  Fillmontlygaugenet              --  INFO        --  Aylýk Analiz Net Gauge Api verisi alýndý                      --                                
+2021-12-25 16:34:28,586 INFO    68     --  AnalysisMontlyVM           --  loaddata                        --  INFO        --  Aylýk Analiz Tablo dolduruldu                                 --                                
+2021-12-25 16:34:57,262 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:35:23,587 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:35:50,484 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:36:13,844 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:36:40,051 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:37:03,174 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:37:17,980 INFO    69     --  MainService                --  GetAll                          --  INFO        --  Main Tablo Api verisi alýndý                                  --                                
+2021-12-25 16:37:18,558 INFO    70     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 16:37:18,561 INFO    71     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 16:37:18,566 INFO    72     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 16:37:18,570 INFO    73     --  MainVM                     --  LoadData                        --  INFO        --  Main Tablo Doldurma Tamamlandý                                --                                
+2021-12-25 16:37:28,405 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:37:53,977 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 16:38:01,705 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 16:38:01,707 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 16:38:01,707 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:38:01,710 INFO    74     --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 16:38:01,869 INFO    75     --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 16:38:01,872 INFO    76     --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 16:38:02,166 INFO    77     --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:38:02,289 INFO    78     --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:38:02,415 INFO    79     --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 16:38:02,546 INFO    80     --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 16:38:02,663 INFO    81     --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 16:38:02,665 INFO    82     --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 16:38:02,781 INFO    83     --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:38:02,783 INFO    84     --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 16:38:02,785 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 16:38:25,599 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:38:48,977 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:39:13,151 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:39:16,304 INFO    85     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  Error reading JArray from JsonReader. Current JsonReader item is not an array: StartObject. Path '', line 1, position 1.
+2021-12-25 16:39:16,307 INFO    86     --  MainService                --  Getjoborderlist                 --  ERROR       --  Main Dosyano Api verisi alýndý                                --  {"Message":"An error has occurred."}
+2021-12-25 16:39:16,311 INFO    87     --  MainVM                     --  Loadsources                     --  INFO        --  Main Combobox Doldurma Tamamlandý                             --                                
+2021-12-25 16:39:39,124 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:40:06,201 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:40:35,739 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:41:01,014 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:41:27,508 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:41:55,716 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:42:19,666 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:42:47,846 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 16:43:01,716 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 16:43:01,719 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 16:43:01,719 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:43:01,721 INFO    88     --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 16:43:02,170 INFO    89     --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 16:43:02,172 INFO    90     --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 16:43:02,610 INFO    91     --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:43:02,800 INFO    92     --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:43:02,964 INFO    93     --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 16:43:03,103 INFO    94     --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 16:43:03,484 INFO    95     --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 16:43:03,485 INFO    96     --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 16:43:03,730 INFO    97     --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:43:03,732 INFO    98     --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 16:43:03,763 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 16:43:26,748 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:43:53,518 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:44:23,111 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:44:48,081 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:45:12,503 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:45:35,572 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:46:05,050 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:46:30,506 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:46:54,175 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:47:17,560 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:47:45,963 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 16:48:01,705 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 16:48:01,708 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 16:48:01,711 INFO    99     --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 16:48:01,708 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:48:01,931 INFO    100    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 16:48:01,933 INFO    101    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 16:48:02,295 INFO    102    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:48:02,447 INFO    103    --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:48:02,634 INFO    104    --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 16:48:02,859 INFO    105    --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 16:48:03,148 INFO    106    --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 16:48:03,151 INFO    107    --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 16:48:03,431 INFO    108    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:48:03,433 INFO    109    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 16:48:03,445 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 16:48:30,145 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:48:57,240 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:49:24,088 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:49:51,421 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:50:19,277 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:50:42,346 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:51:07,752 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:51:35,289 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:52:03,323 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:52:30,076 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:52:59,870 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 16:53:01,705 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 16:53:01,707 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:53:01,707 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 16:53:01,714 INFO    110    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 16:53:01,936 INFO    111    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 16:53:01,938 INFO    112    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 16:53:02,230 INFO    113    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:53:02,372 INFO    114    --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:53:02,495 INFO    115    --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 16:53:02,632 INFO    116    --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 16:53:02,764 INFO    117    --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 16:53:02,766 INFO    118    --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 16:53:02,883 INFO    119    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:53:02,885 INFO    120    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 16:53:02,887 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 16:53:24,768 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:53:48,178 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:54:11,474 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:54:36,465 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:55:03,256 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:55:27,710 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:55:52,868 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:56:21,447 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:56:46,208 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:57:12,187 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:57:39,843 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 16:58:01,704 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 16:58:01,706 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:58:01,706 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 16:58:01,726 INFO    121    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 16:58:01,920 INFO    122    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 16:58:01,921 INFO    123    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 16:58:02,204 INFO    124    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:58:02,320 INFO    125    --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:58:02,448 INFO    126    --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 16:58:02,818 INFO    127    --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 16:58:03,082 INFO    128    --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 16:58:03,085 INFO    129    --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 16:58:03,277 INFO    130    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 16:58:03,279 INFO    131    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 16:58:03,281 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 16:58:26,586 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:58:52,597 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:59:18,034 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 16:59:42,646 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:00:12,160 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:00:37,046 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:01:01,806 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:01:29,188 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:01:56,865 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:02:22,689 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:02:47,690 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 17:03:01,706 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 17:03:01,708 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:03:01,714 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 17:03:01,721 INFO    132    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 17:03:01,912 INFO    133    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 17:03:01,914 INFO    134    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 17:03:02,197 INFO    135    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:03:02,337 INFO    136    --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:03:02,470 INFO    137    --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 17:03:02,602 INFO    138    --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 17:03:02,730 INFO    139    --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 17:03:02,731 INFO    140    --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 17:03:02,850 INFO    141    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:03:02,851 INFO    142    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 17:03:02,853 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 17:03:31,152 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:03:59,057 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:04:25,263 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:04:54,507 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:05:23,471 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:05:49,273 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:06:17,603 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:06:41,587 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:07:10,011 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:07:36,262 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 17:08:01,705 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 17:08:01,710 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:08:01,717 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 17:08:01,744 INFO    143    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 17:08:01,912 INFO    144    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 17:08:01,914 INFO    145    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 17:08:02,178 INFO    146    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:08:02,316 INFO    147    --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:08:02,448 INFO    148    --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 17:08:02,579 INFO    149    --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 17:08:02,702 INFO    150    --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 17:08:02,704 INFO    151    --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 17:08:02,824 INFO    152    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:08:02,827 INFO    153    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 17:08:02,828 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 17:08:27,449 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:08:53,851 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:09:21,935 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:09:47,371 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:10:16,949 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:10:42,108 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:11:05,457 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:11:29,152 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:11:52,758 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:12:18,469 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:12:42,666 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 17:13:01,704 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 17:13:01,707 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:13:01,713 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 17:13:01,715 INFO    154    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 17:13:02,114 INFO    155    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 17:13:02,115 INFO    156    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 17:13:02,506 INFO    157    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:13:02,635 INFO    158    --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:13:02,760 INFO    159    --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 17:13:03,094 INFO    160    --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 17:13:03,267 INFO    161    --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 17:13:03,269 INFO    162    --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 17:13:03,393 INFO    163    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:13:03,395 INFO    164    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 17:13:03,397 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 17:13:25,722 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:13:49,284 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:14:13,432 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:14:36,520 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:15:03,330 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:15:29,751 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:15:58,643 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:16:27,270 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:16:53,298 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:17:19,191 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:17:47,482 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 1 triggers
+2021-12-25 17:18:01,705 DEBUG Quartz.Simpl.SimpleJobFactory Producing instance of Job 'DEFAULT.ApiJobs', class=StarNote.Jobs.ApiJobs
+2021-12-25 17:18:01,707 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:18:01,714 DEBUG Quartz.Core.JobRunShell Calling Execute on job DEFAULT.ApiJobs
+2021-12-25 17:18:01,717 INFO    165    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB BAÞLADI                                                   --                                
+2021-12-25 17:18:01,914 INFO    166    --  IJOBS                      --  MoveNext                        --  INFO        --  JOB TAMAMLANDI                                                --                                
+2021-12-25 17:18:01,915 INFO    167    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL BAÞLADI                                    --                                
+2021-12-25 17:18:02,218 INFO    168    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:18:02,366 INFO    169    --  RemindingDA                --  GetOldRemindings                --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:18:02,494 INFO    170    --  RemindingDA                --  Getrecordlist                   --  INFO        --  Hatýrlatma Eski Kayýt Api verisi alýndý                       --                                
+2021-12-25 17:18:02,620 INFO    171    --  RemindingDA                --  Gettypesource                   --  INFO        --  Hatýrlatma type Api verisi alýndý                             --                                
+2021-12-25 17:18:02,736 INFO    172    --  RemindingDA                --  Getstatussource                 --  INFO        --  Hatýrlatma status Api verisi alýndý                           --                                
+2021-12-25 17:18:02,738 INFO    173    --  RemindingVM                --  Loaddata                        --  INFO        --  Hatýrlatma Tablo Doldurma Tamamlandý                          --                                
+2021-12-25 17:18:02,862 INFO    174    --  RemindingDA                --  GetAll                          --  INFO        --  Hatýrlatma Tablo Api verisi alýndý                            --                                
+2021-12-25 17:18:02,864 INFO    175    --  IJOBS                      --  MoveNext                        --  INFO        --  HATIRLATMA KONTROL TAMAMLANDI                                 --                                
+2021-12-25 17:18:02,866 DEBUG Quartz.Core.JobRunShell Trigger instruction : NoInstruction
+2021-12-25 17:18:25,438 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:18:51,984 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:19:15,363 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers
+2021-12-25 17:19:43,413 DEBUG Quartz.Core.QuartzSchedulerThread Batch acquisition of 0 triggers

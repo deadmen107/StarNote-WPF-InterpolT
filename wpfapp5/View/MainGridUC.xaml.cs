@@ -30,6 +30,7 @@ using StarNote.Model;
 using StarNote.Settings;
 using DevExpress.Xpf.Core.Serialization;
 using DevExpress.Utils;
+using System.IO;
 
 namespace StarNote.View
 {
@@ -45,7 +46,7 @@ namespace StarNote.View
         private bool userControlHasFocus;
         private int pagestatus = 0;
         private bool isshowed = false;
-        private List<SettingModel> list = new List<SettingModel>();
+        private bool cancalc = true;
         public MainGridUC()
         {
             
@@ -56,22 +57,13 @@ namespace StarNote.View
             Thread.CurrentThread.CurrentCulture = cd;
             ViewModel = new MainVM();
             this.DataContext = ViewModel;         
-            this.Loaded += new RoutedEventHandler(MainWindow_Loaded);
-            gridcolumnsettings();
-            gridcolumnsettings1();
-            gridcolumnsettings2();
-            //try
-            //{
-            //    grdmain.RestoreLayoutFromXml(System.Environment.CurrentDirectory + "\\grdmain1.xml");
-            //}
-            //catch (Exception ex)
-            //{
-            //    LogVM.displaypopup("ERROR", ex.Message);
-            //}            
+            this.Loaded += new RoutedEventHandler(MainWindow_Loaded);           
+            sourcetransform();
+            restoreviews();
         }
-
+        
         #region UI Control 
-
+        
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             if (!RefreshViews.appstatus)
@@ -91,12 +83,7 @@ namespace StarNote.View
            }
 
         }
-
-        private void Btnekle_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
+        
         private void UserControl_GotFocus(object sender, RoutedEventArgs e)
         {
             if (!isshowed)
@@ -105,88 +92,17 @@ namespace StarNote.View
                 isshowed = true;
             }
             if (userControlHasFocus == true) { e.Handled = true; }
-            else { userControlHasFocus = true;
+            else
+            {
+                userControlHasFocus = true;
 
-                if (RefreshViews.pagecount==1)    // Genel takip ekranı
+                if (RefreshViews.screenchanged)
                 {
-                    tabcontrol.SelectedItem = grid;
-                    ViewModel.LoadData(1000);                                   
+                    Render();
+                    RefreshViews.screenchanged = false;
                 }
-                if (RefreshViews.pagecount == 2)   // Özel Müşteri Ekleme Ekranı
-                {
-                    tabcontrol.SelectedItem = addözel;
-                    özelbtnguncelle.Visibility = Visibility.Hidden;
-                    özelbtnkayıt.Visibility = Visibility.Visible;
-                    ViewModel.Currentdata = new Model.MainModel();
-                    ViewModel.Currentdata.Birim = "SAYFA";
-                    ViewModel.Currentdata.Metod = "GELIR";
-                    ViewModel.Currentdata.Tür = "ÖZEL MÜŞTERİLER";
-                    ViewModel.Currentdata.Birim = "ŞAHIS";
-                    ViewModel.Currentdata.Joborder = ViewModel.filljoborder();
-                    try
-                    {
-                        ViewModel.Currentdata.Kayıttarihi = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
-                        ViewModel.Currentdata.Randevutarihi = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
-                    }
-                    catch (Exception)
-                    {
 
-                    }                   
-                    ViewModel.Localfilelist = new List<LocalfileModel>();
-                    ViewModel.Localfile = new LocalfileModel();
-                    
-                    ViewModel.Loadsources();                  
-                }               
-                if (RefreshViews.pagecount == 26)    // Şirket Ekleme Ekranı
-                {
-                    tabcontrol.SelectedItem = addfirma;
-                    firmabtnguncelle.Visibility = Visibility.Hidden;
-                    firmabtnkayıt.Visibility = Visibility.Visible;
-                    ViewModel.Currentdata = new Model.MainModel();
-                    ViewModel.Currentdata.Joborder = ViewModel.filljoborder();
-                    ViewModel.Currentdata.Birim = "SAYFA";
-                    ViewModel.Currentdata.Metod = "GELIR";
-                    ViewModel.Currentdata.Tür = "ŞİRKETLER";
-                    
-                    try
-                    {
-                        ViewModel.Currentdata.Kayıttarihi = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
-                        ViewModel.Currentdata.Randevutarihi = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
-                    }
-                    catch (Exception)
-                    {
-                    }
-                    ViewModel.Localfilelist = new List<LocalfileModel>();
-                    ViewModel.Localfile = new LocalfileModel();
-                    
-                    ViewModel.Loadsources();
-                }
-                if (RefreshViews.pagecount == 27)
-                {
-                    tabcontrol.SelectedItem = adddava;
-                    btnguncelle.Visibility = Visibility.Hidden;
-                    btnkayıt.Visibility = Visibility.Visible;
-                    ViewModel.Currentdata = new Model.MainModel();
-                    ViewModel.Currentdata.Birim = "SAYFA";
-                    ViewModel.Currentdata.Metod = "GELIR";
-                    ViewModel.Currentdata.Ödemeyöntemi = "NAKIT";
-                    ViewModel.Currentdata.Ürün2 = "DAVA BELGELERİ";
-                    ViewModel.Currentdata.Joborder = " ";
-
-                    try
-                    {
-                        ViewModel.Currentdata.Kayıttarihi = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
-                        ViewModel.Currentdata.Randevutarihi = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
-                    }
-                    catch (Exception)
-                    {                      
-                    }
-                    ViewModel.Localfilelist = new List<LocalfileModel>();
-                    ViewModel.Localfile = new LocalfileModel();
-                   
-                    ViewModel.Loadsources();
-                }
-            }           
+            }
         }
 
         private void UserControl_LostFocus(object sender, RoutedEventArgs e)
@@ -204,554 +120,346 @@ namespace StarNote.View
             }
            
         }
-
-        private void Grdmain_CustomColumnDisplayText(object sender, DevExpress.Xpf.Grid.CustomColumnDisplayTextEventArgs e)
-        {
-
-        }
-
-        private void Btnpdf_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            if (UserUtils.Authority.Contains(UserUtils.Geneltakip_yazdırma))
-            {
-                try
-                {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Genel Takip Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.MainGrid;
-                    if (printingRoute.MainGrid == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine Genel Takip Rapor çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)grdmain.View) { Landscape = true });
-                            links[0].ExportToPdf(printingRoute.MainGrid + "\\Genel Takip " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".pdf");
-                            LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Genel Takip Rapor alındı ", "");
-                            MessageBox.Show("Dosya Oluşturuldu", "PDF Rapor", MessageBoxButton.OK, MessageBoxImage.Information);
-                            //tablesatıs.ExportToPdf(printingRoute.MainGrid + "\\Genel Takip Raporu" + ".pdf");
-                        }
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Genel Takip Rapor hatası ", ex.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Geneltakip_yazdırma, MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-        }
-
-        private void Btnxcel_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            if (UserUtils.Authority.Contains(UserUtils.Geneltakip_yazdırma))
-            {
-                string RaporAdı = "Genel Takip";
-                try
-                {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", RaporAdı + "Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.MainGrid;
-                    if (printingRoute.MainGrid == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine " + RaporAdı + " Raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)grdmain.View) { Landscape = true });
-                            links[0].ExportToXlsx(printingRoute.MainGrid + "\\" + RaporAdı + " Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".xlsx");
-                            MessageBox.Show("Dosya Oluşturuldu", "Excel Rapor", MessageBoxButton.OK, MessageBoxImage.Information);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", RaporAdı + "Rapor hatası ", ex.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Geneltakip_yazdırma, MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-        }
         
-        private void Bntgeneltakip_Click(object sender, RoutedEventArgs e)
+        private void restoreviews()
         {
-            tabcontrol.SelectedItem = grid;
+            FileInfo fi = new FileInfo("C:\\StarNote\\Templates\\grddava.xml");
+            if (fi.Exists)
+            {
+                grdmain.RestoreLayoutFromXml("C:\\StarNote\\Templates\\grddava.xml");
+            }
+            fi = new FileInfo("C:\\StarNote\\Templates\\grdözel.xml");
+            if (fi.Exists)
+            {
+                grdmain1.RestoreLayoutFromXml("C:\\StarNote\\Templates\\grdözel.xml");
+            }
+            fi = new FileInfo("C:\\StarNote\\Templates\\grdfirma.xml");
+            if (fi.Exists)
+            {
+                grdmain2.RestoreLayoutFromXml("C:\\StarNote\\Templates\\grdfirma.xml");
+            }
+
         }
-        
-        private void Bntvazgec_Click(object sender, RoutedEventArgs e)
+
+        private void sourcetransform()
         {
-            tabcontrol.SelectedItem = grid;
+            Ürün2sourcelist = ViewModel.Ürün2sourcelist;
+            Ürünsourcelist = ViewModel.Ürünsourcelist;
+            Durumsourcelist = ViewModel.Durumsourcelist;
+            Birimsourcelist = ViewModel.Birimsourcelist;
         }
 
         #endregion
 
-        #region güncelleme yeni kayıt
-        
-        private List<MainModel> fillselectedrows(string tag)
-        {
-            List<MainModel> list = new List<MainModel>();
-            GridControl grd = new GridControl();
-            if (tag == "0")
-            {
-                grd = grdmain;
-            }
-            else if (tag == "1")
-            {
-                grd = grdmain1;
-            }
-            else if (tag == "2")
-            {
-                grd = grdmain2;
-            }
-            int[] selectedRows = grd.GetSelectedRowHandles();
-            foreach (int rowHandle in selectedRows)
-            {            
-                MainModel model = new MainModel();
-                model.Id = Convert.ToInt32(grd.GetCellDisplayText(rowHandle, "1"));
-                model.Joborder = grd.GetCellDisplayText(rowHandle, "2");
-                model.Tür = grd.GetCellDisplayText(rowHandle, "3");
-                model.İsim = grd.GetCellDisplayText(rowHandle, "4");
-                model.Kayıttarihi = grd.GetCellDisplayText(rowHandle, "5");
-                model.Randevutarihi = grd.GetCellDisplayText(rowHandle, "6");
-                model.Satıselemanı = grd.GetCellDisplayText(rowHandle, "7");
-                model.Ürün = grd.GetCellDisplayText(rowHandle, "8");
-                model.Ürün2 = grd.GetCellDisplayText(rowHandle, "33");
-                model.Miktar = Convert.ToInt32(grd.GetCellDisplayText(rowHandle, "9"));
-                model.Birim = grd.GetCellDisplayText(rowHandle, "10");
-                model.Ücret = Convert.ToDouble(grd.GetCellDisplayText(rowHandle, "11"));
-                model.Karaktersayı = Convert.ToInt32(grd.GetCellDisplayText(rowHandle, "12"));
-                model.Satırsayı = Convert.ToInt32(grd.GetCellDisplayText(rowHandle, "13"));
-                model.Kelimesayı = Convert.ToInt32(grd.GetCellDisplayText(rowHandle, "14"));
-                model.Tavsiyeedilentutar = grd.GetCellDisplayText(rowHandle, "15");
-                model.Önerilenbirim = grd.GetCellDisplayText(rowHandle, "16");
-                model.Önerilentutar = grd.GetCellDisplayText(rowHandle, "17");
-                model.Kdvoran = grd.GetCellDisplayText(rowHandle, "18");
-                model.Metod = grd.GetCellDisplayText(rowHandle, "19");
-                model.Ödemeyöntemi = grd.GetCellDisplayText(rowHandle, "20");
-                model.Durum = grd.GetCellDisplayText(rowHandle, "21");
-                model.Acıklama = grd.GetCellDisplayText(rowHandle, "22");
-                model.Telefon = grd.GetCellDisplayText(rowHandle, "23");
-                model.Tckimlik = grd.GetCellDisplayText(rowHandle, "24");
-                model.Eposta = grd.GetCellDisplayText(rowHandle, "25");
-                model.Şehir = grd.GetCellDisplayText(rowHandle, "26");
-                model.İlçe = grd.GetCellDisplayText(rowHandle, "27");
-                model.Adres = grd.GetCellDisplayText(rowHandle, "28");
-                model.Vergidairesi = grd.GetCellDisplayText(rowHandle, "29");
-                model.Vergino = grd.GetCellDisplayText(rowHandle, "30");
-                model.Firmaadı = grd.GetCellDisplayText(rowHandle, "31");
-                model.Firmaadresi = grd.GetCellDisplayText(rowHandle, "32");
-                model.Türdetay = grd.GetCellDisplayText(rowHandle, "34");
-                model.Kayıtdetay = grd.GetCellDisplayText(rowHandle, "35");
-                model.Ürün2detay = grd.GetCellDisplayText(rowHandle, "36");
+        #region save and update button olayları      
 
-                list.Add(model);
-            }
-            return list;
-        }
-
-        private void fillfilelist(int id)
-        {
-            ViewModel.getselectedfilelist(id);
-        }
-
-        private void fillcurrentdata(string tag)
+        private async Task Render()
         {
             try
             {
-                GridControl grd = new GridControl();
-                if (tag=="0")
+                bool isok = false;
+                if (!DXSplashScreen.IsActive)
+                    DXSplashScreen.Show<LoadingSplashScreen>();
+                await Task.Run(async () =>
                 {
-                    grd = grdmain;
-                }
-                else if (tag=="1")
+                    if (RefreshViews.pagecount == 1)    // Genel takip ekranı
+                    {
+                        //tabcontrol.SelectedItem = grid;
+                        ViewModel.LoadData(1000);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            //ViewModel.Currentdata = new OrderModel();
+                            ViewModel.Currentdata.Costumerorder = new CostumerOrderModel();
+                            ViewModel.Currentdata.Joborder = new List<JobOrderModel>();
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                        ViewModel.Localfilelist = new List<LocalfileModel>();
+                        ViewModel.Localfile = new LocalfileModel();
+                        ViewModel.Loadsources();
+                        sourcetransform();
+                        ViewModel.Currentdata.Costumerorder.Kayıttarihi = DateTime.Now.ToString();
+                        ViewModel.Currentdata.Costumerorder.Randevutarihi = DateTime.Now.AddMinutes(1).ToString();
+                        ViewModel.Currentdata.Costumerorder.Durum = "YAPILIYOR";
+                        ViewModel.Currentdata.Costumerorder.Satıselemanı = "MUSTAFA ŞAN";
+                        ViewModel.Currentdata.Costumerorder.Ödemeyöntemi = "NAKIT";
+                        ViewModel.Currentdata.Costumerorder.Kdv = "%40";
+                    }
+                    isok = true;
+                });
+                if (isok)
                 {
-                    grd = grdmain1;
+                    if (RefreshViews.pagecount == 1)
+                        tabcontrol.SelectedItem = grid;
+                    if (RefreshViews.pagecount == 2)   // Özel Müşteri Ekleme Ekranı
+                    {
+                        filljoborders(true);
+                        pagestatus = 1;
+                        özelscrollbar.ScrollToVerticalOffset(0);                        
+                        özelbtnguncelle.Visibility = Visibility.Hidden;
+                        özelbtnkayıt.Visibility = Visibility.Visible;
+                        ViewModel.Currentdata.Costumerorder.Satışyöntemi = "GELIR";
+                        ViewModel.Currentdata.Costumerorder.Tür = "ÖZEL MÜŞTERİLER";
+                        ViewModel.Currentdata.Costumerorder.Firmaadı = "ŞAHIS";
+                        tabcontrol.SelectedItem = addözel;
+                    }
+                    if (RefreshViews.pagecount == 26)    // Şirket Ekleme Ekranı
+                    {
+                        filljoborders(true);
+                        firmascrollbar.ScrollToVerticalOffset(0);
+                        pagestatus = 2;                        
+                        firmabtnguncelle.Visibility = Visibility.Hidden;
+                        firmabtnkayıt.Visibility = Visibility.Visible;
+                        ViewModel.Currentdata.Costumerorder.Satışyöntemi = "GELIR";
+                        ViewModel.Currentdata.Costumerorder.Tür = "ŞİRKETLER";
+                        ViewModel.Currentdata.Costumerorder.Firmaadı = "ŞAHIS";
+                        tabcontrol.SelectedItem = addfirma;
+                    }
+                    if (RefreshViews.pagecount == 27)
+                    {
+                        filljoborders(true);
+                        davascrollbar.ScrollToVerticalOffset(0);
+                        pagestatus = 0;                        
+                        btnguncelle.Visibility = Visibility.Hidden;
+                        btnkayıt.Visibility = Visibility.Visible;
+                        ViewModel.Currentdata.Costumerorder.Satışyöntemi = "GELIR";
+                        ViewModel.Currentdata.Costumerorder.Ödemeyöntemi = "NAKIT";
+                        tabcontrol.SelectedItem = adddava;
+                    }
+                    if (RefreshViews.pagecount == 29)
+                    {
+                        filljoborders(true);
+                        pagestatus = 3;                        
+                        harcamabtnguncelle.Visibility = Visibility.Hidden;
+                        harcamabtnkayıt.Visibility = Visibility.Visible;
+                        ViewModel.Currentdata.Costumerorder.Durum = "TAMAMLANDI";
+                        ViewModel.Currentdata.Costumerorder.Kullanıcı = UserUtils.ActiveUser;
+                        ViewModel.Currentdata.Costumerorder.Satışyöntemi = "GIDER";
+                        //ViewModel.Currentdata.Costumerorder.Kayıttarihi = DateTime.Now.ToString();                   
+                        ViewModel.Currentdata.Costumerorder.Ödemeyöntemi = "NAKIT";
+                        ViewModel.Currentdata.Costumerorder.Savetype = 1;
+                        tabcontrol.SelectedItem = addharcama;
+                    }
+                    if (RefreshViews.pagecount == 30)
+                    {
+                        filljoborders(true);
+                        pagestatus = 4;
+                        othersbtnguncelle.Visibility = Visibility.Hidden;
+                        othersbtnkayıt.Visibility = Visibility.Visible;
+                        ViewModel.Currentdata.Costumerorder.Satışyöntemi = "GELIR";
+                        ViewModel.Currentdata.Costumerorder.Durum = "TAMAMLANDI";
+                        ViewModel.Currentdata.Costumerorder.Kullanıcı = UserUtils.ActiveUser;
+                        ViewModel.Currentdata.Costumerorder.Satışyöntemi = "GELIR";
+                        //ViewModel.Currentdata.Costumerorder.Kayıttarihi = DateTime.Now.ToString();                   
+                        ViewModel.Currentdata.Costumerorder.Ödemeyöntemi = "NAKIT";
+                        ViewModel.Currentdata.Costumerorder.Savetype = 1;
+                        tabcontrol.SelectedItem = addharcama;
+                    }
+                    if (DXSplashScreen.IsActive)
+                        DXSplashScreen.Close();
                 }
-                else if (tag == "2")
-                {
-                    grd = grdmain2;
-                }
-                ViewModel.Currentdata.Id = Convert.ToInt32(grd.GetFocusedRowCellDisplayText("1"));
-                ViewModel.Currentdata.Joborder = grd.GetFocusedRowCellDisplayText("2");
-                ViewModel.Currentdata.Tür = grd.GetFocusedRowCellDisplayText("3").ToString();
-                ViewModel.Currentdata.İsim = grd.GetFocusedRowCellDisplayText("4").ToString();
-                ViewModel.Currentdata.Tckimlik = grd.GetFocusedRowCellDisplayText("24");
-                ViewModel.Currentdata.Telefon = grd.GetFocusedRowCellDisplayText("23").ToString();
-                ViewModel.Currentdata.Eposta = grd.GetFocusedRowCellDisplayText("25").ToString();
-                ViewModel.Currentdata.Şehir = grd.GetFocusedRowCellDisplayText("26").ToString();
-                ViewModel.Currentdata.İlçe = grd.GetFocusedRowCellDisplayText("27").ToString();
-                ViewModel.Currentdata.Adres = grd.GetFocusedRowCellDisplayText("28").ToString();
-                ViewModel.Currentdata.Kayıttarihi = grd.GetFocusedRowCellValue("5").ToString();             
-                ViewModel.Currentdata.Randevutarihi = grd.GetFocusedRowCellValue("6").ToString();              
-                ViewModel.Currentdata.Satıselemanı = grd.GetFocusedRowCellDisplayText("7").ToString();
-                ViewModel.Currentdata.Ürün = grd.GetFocusedRowCellDisplayText("8").ToString();
-                ViewModel.Currentdata.Ürün2 = grd.GetFocusedRowCellDisplayText("33").ToString();
-                ViewModel.Currentdata.Miktar = Convert.ToInt32(grd.GetFocusedRowCellDisplayText("9"));
-                ViewModel.Currentdata.Birim = grd.GetFocusedRowCellDisplayText("10").ToString();
-                ViewModel.Currentdata.Ücret = Convert.ToDouble(grd.GetFocusedRowCellDisplayText("11"));
-                ViewModel.Currentdata.Kdvoran = grd.GetFocusedRowCellDisplayText("18").ToString();
-                ViewModel.Currentdata.Vergidairesi = grd.GetFocusedRowCellDisplayText("29").ToString();
-                ViewModel.Currentdata.Vergino = grd.GetFocusedRowCellDisplayText("30").ToString();
-                ViewModel.Currentdata.Firmaadı = grd.GetFocusedRowCellDisplayText("31").ToString();
-                ViewModel.Currentdata.Firmaadresi = grd.GetFocusedRowCellDisplayText("32").ToString();
-                ViewModel.Currentdata.Metod = grd.GetFocusedRowCellDisplayText("19").ToString();
-                ViewModel.Currentdata.Ödemeyöntemi = grd.GetFocusedRowCellDisplayText("20").ToString();
-                ViewModel.Currentdata.Durum = grd.GetFocusedRowCellDisplayText("21").ToString();
-                ViewModel.Currentdata.Acıklama = grd.GetFocusedRowCellDisplayText("22").ToString();
-                ViewModel.Currentdata.Karaktersayı = Convert.ToInt32(grd.GetFocusedRowCellDisplayText("12").ToString());
-                ViewModel.Currentdata.Kelimesayı = Convert.ToInt32(grd.GetFocusedRowCellDisplayText("14").ToString());
-                ViewModel.Currentdata.Satırsayı = Convert.ToInt32(grd.GetFocusedRowCellDisplayText("13").ToString());
-                ViewModel.Currentdata.Önerilentutar = grd.GetFocusedRowCellDisplayText("17").ToString();
-                ViewModel.Currentdata.Önerilenbirim = grd.GetFocusedRowCellDisplayText("16").ToString();
-                ViewModel.Currentdata.Tavsiyeedilentutar = grd.GetFocusedRowCellDisplayText("15").ToString();
-                ViewModel.Currentdata.Türdetay = grd.GetFocusedRowCellDisplayText("34").ToString();
-                ViewModel.Currentdata.Kayıtdetay = grd.GetFocusedRowCellDisplayText("35").ToString();
-                fillfilelist(Convert.ToInt32(grd.GetFocusedRowCellDisplayText("1")));
             }
             catch (Exception ex)
             {
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Main update veri alma hatası", ex.Message);
-            }           
+                if (DXSplashScreen.IsActive)
+                    DXSplashScreen.Close();
+            }
+         
         }
 
-        private void Cmbfirma_SelectedIndexChanged(object sender, RoutedEventArgs e)
-        {
-            if (pagestatus==1)
-            {
-                ViewModel.Getselectedcompany(özelcmbfirma.Text);
-            }
-            if (pagestatus == 2)
-            {
-                ViewModel.Getselectedcompany(özelcmbfirma.Text);
-            }
-
-        }
-
-        private void Cmbisimsoyisim_SelectedIndexChanged(object sender, RoutedEventArgs e)
-        {
-           
-            if (pagestatus == 1)
-            {
-                ViewModel.Getselectedcostumer(özelcmbisimsoyisim.Text);
-            }
-            if (pagestatus == 2)
-            {
-                ViewModel.Getselectedcostumer(firmacmbisimsoyisim.Text);
-            }
-        }
-        
-      
-
-        private void calcprice(string value)
+        private async Task Save()
         {
             try
             {
-                if (pagestatus==0)
+                bool issaved = false;
+                bool isok = false;
+                DXSplashScreen.Show<LoadingSplashScreen>();
+                await Task.Run(async () =>
                 {
-                    ViewModel.Currentdata.Önerilentutar = (90 * Convert.ToInt32(value)).ToString();
-                }
-                else
+                    if (ViewModel.Save())
+                    {
+                        //MessageBox.Show("Kaydetme Tamamlandı", "Kayıt Ekleme", MessageBoxButton.OK, MessageBoxImage.Information);
+                        issaved = true;
+                        LogVM.displaypopup("INFO", "Kaydetme Tamamlandı");
+
+                    }
+                    else
+                    {
+                        LogVM.displaypopup("ERROR", "Kaydetme Başarısız");
+                    }
+                    isok = true;
+                });
+
+                if (isok)
                 {
-                    ViewModel.Currentdata.Önerilentutar = (ViewModel.Currentstok.Satışfiyat * Convert.ToInt32(value)).ToString();
+                    if (issaved)
+                        tabcontrol.SelectedItem = grid;
+                    DXSplashScreen.Close();
                 }
-                    
-                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                
+                if (DXSplashScreen.IsActive)
+                    DXSplashScreen.Close();
             }
         }
-        
-        private void Cmbürün_SelectedIndexChanged(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        
-        private void Özelcmbsalescmbürün2_EditValueChanged(object sender, EditValueChangedEventArgs e)
+
+        private async Task Update()
         {
             try
             {
-                ViewModel.fillstok(e.NewValue.ToString());
-                ViewModel.Currentdata.Birim = ViewModel.Currentstok.Birim;
-                calcprice(ViewModel.Currentdata.Miktar.ToString());
-                ürün = ViewModel.Currentdata.Ürün;
+                bool issaved = false;
+                bool isok = false;
+                DXSplashScreen.Show<LoadingSplashScreen>();
+                await Task.Run(async () =>
+                {
+                    if (ViewModel.Update())
+                    {
+                        issaved = true;
+                        LogVM.displaypopup("INFO", "Güncelleme Tamamlandı");
+                    }
+                    else
+                    {
+                        LogVM.displaypopup("ERROR", "Güncelleme Başarısız");
+                    }
+                    isok = true;
+
+                });
+
+                if (isok)
+                {
+                    if (issaved)
+                        tabcontrol.SelectedItem = grid;
+                    DXSplashScreen.Close();
+                }
             }
             catch (Exception ex)
             {
+                if (DXSplashScreen.IsActive)
+                    DXSplashScreen.Close();
             }
 
         }
 
-        private void Txtmiktar_EditValueChanged(object sender, EditValueChangedEventArgs e)
+        private async Task Goback()
         {
             try
             {
-                ViewModel.fillstok(ViewModel.Currentdata.Ürün);
-                ViewModel.Currentdata.Birim = ViewModel.Currentstok.Birim;
-                calcprice(e.NewValue.ToString());
+                DXSplashScreen.Show<LoadingSplashScreen>();
+                bool isok = false;
+                await Task.Run(async () =>
+                {
+                    ViewModel.LoadData(1000);
+                    isok = true;
+                });
+                if (isok)
+                {
+                    tabcontrol.SelectedItem = grid;
+                    if (DXSplashScreen.IsActive)
+                        DXSplashScreen.Close();
+                }
             }
             catch (Exception ex)
             {
-            }           
+
+                if (DXSplashScreen.IsActive)
+                    DXSplashScreen.Close();
+            }
+
         }
 
-        private void Cmbürün_PopupClosed(object sender, ClosePopupEventArgs e)
+        private async Task GetUpdateRecord(string tag)
         {
-            ViewModel.fillstok(ViewModel.Currentdata.Ürün);
-            ViewModel.Currentdata.Birim = ViewModel.Currentstok.Birim;
-            calcprice(ViewModel.Currentdata.Miktar.ToString());
-        }
-
-        private void Txtkelime_EditValueChanged(object sender, EditValueChangedEventArgs e)
-        {
-            if (txtkelime.Text.Trim() != string.Empty && txtsayfa.Text.Trim() != string.Empty && txtkarakter.Text.Trim() != string.Empty)
+            try
             {
-                string kelime = txtkelime.Text;
-                string satır = txtsayfa.Text;
-                string karakter = txtkarakter.Text;
-                int value;
-                int value1;
-                int vlaue2;
-                if (int.TryParse(kelime, out value) && int.TryParse(satır, out value1) && int.TryParse(karakter, out vlaue2))
+                bool isok = false;
+                DXSplashScreen.Show<LoadingSplashScreen>();
+                await Task.Run(async () =>
                 {
-                    double kelimesayfa, satırsayfa, karaktersayfa;
-                    kelimesayfa = Convert.ToDouble(kelime) / 180;
-                    satırsayfa = Convert.ToDouble(satır) / 20;
-                    karaktersayfa = Convert.ToDouble(karakter) / 1000;
+                    ViewModel.Currentdata.Costumerorder = new CostumerOrderModel();
+                    ViewModel.Currentdata.Joborder = new List<JobOrderModel>();
+                    filljoborders(true);
+                    ViewModel.Localfilelist = new List<LocalfileModel>();
+                    ViewModel.Localfile = new LocalfileModel();
+                    ViewModel.Loadsources();
+                    sourcetransform();
+                    isok = true;
+                });
 
-                    if (kelimesayfa > satırsayfa && kelimesayfa > karaktersayfa)
+                if (isok)
+                {
+                    fillcurrentdata(tag.ToString());
+                    btnguncelle.Visibility = Visibility.Visible;
+                    btnkayıt.Visibility = Visibility.Hidden;
+                    özelbtnguncelle.Visibility = Visibility.Visible;
+                    özelbtnkayıt.Visibility = Visibility.Hidden;
+                    firmabtnguncelle.Visibility = Visibility.Visible;
+                    firmabtnkayıt.Visibility = Visibility.Hidden;
+                    harcamabtnguncelle.Visibility = Visibility.Visible;
+                    harcamabtnkayıt.Visibility = Visibility.Hidden;
+                    othersbtnguncelle.Visibility = Visibility.Visible;
+                    othersbtnkayıt.Visibility = Visibility.Hidden;
+                    if (tag == "0")
                     {
-                        //kelime out
-                        ViewModel.Currentdata.Tavsiyeedilentutar = (Math.Ceiling(kelimesayfa) * ViewModel.Currentstok.Satışfiyat).ToString();
-                        //ViewModel.Currentdata.Önerilenbirim = "Kelime" + " ("+ Math.Ceiling(kelimesayfa) + " sayfa)";
-                        ViewModel.Currentdata.Önerilenbirim = Math.Ceiling(kelimesayfa) + " Sayfa";
+                        davascrollbar.ScrollToVerticalOffset(0);
+                        tabcontrol.SelectedItem = adddava;
                     }
-                    else if (satırsayfa > kelimesayfa && satırsayfa > karaktersayfa)
+                    else if (tag == "1")
                     {
-                        //satır out
-                        ViewModel.Currentdata.Tavsiyeedilentutar = (Math.Ceiling(satırsayfa) * ViewModel.Currentstok.Satışfiyat).ToString();
-                        //ViewModel.Currentdata.Önerilenbirim = "Satır" + " (" + Math.Ceiling(satırsayfa) + " sayfa)";
-                        ViewModel.Currentdata.Önerilenbirim = Math.Ceiling(satırsayfa) + " Sayfa";
+                        özelscrollbar.ScrollToVerticalOffset(0);
+                        tabcontrol.SelectedItem = addözel;
                     }
-                    else if (karaktersayfa > kelimesayfa && karaktersayfa > satırsayfa)
+                    else if (tag == "2")
                     {
-                        //karakter out
-                        ViewModel.Currentdata.Tavsiyeedilentutar = (Math.Ceiling(karaktersayfa) * ViewModel.Currentstok.Satışfiyat).ToString();
-                        //ViewModel.Currentdata.Önerilenbirim = "Karakter" + " (" + Math.Ceiling(karaktersayfa) + " sayfa)";
-                        ViewModel.Currentdata.Önerilenbirim = Math.Ceiling(karaktersayfa) + " Sayfa";
+                        firmascrollbar.ScrollToVerticalOffset(0);
+                        tabcontrol.SelectedItem = addfirma;
                     }
-                    else
+                    else if (tag == "3")
                     {
-                        //satır out
-                        ViewModel.Currentdata.Tavsiyeedilentutar = (Math.Ceiling(satırsayfa) * ViewModel.Currentstok.Satışfiyat).ToString();
-                        ViewModel.Currentdata.Önerilenbirim = "";
+                        tabcontrol.SelectedItem = addharcama;
                     }
-
+                    filljoborders(false);
+                    ViewModel.getselectedfilelist(ViewModel.Currentdata.Costumerorder.Id);
+                    if (DXSplashScreen.IsActive)
+                        DXSplashScreen.Close();
                 }
             }
-        }
-
-        #endregion
-
-        #region save and update click eventler 
-        
-        private bool checkvalues()
-        {
-            if (pagestatus==0)
+            catch (Exception ex)
             {
-                if
-               (
-                 txttür.Text != null &&
-                 cmbisimsoyisim.Text != null &&                
-                 cmbürün.Text != null &&
-                 txtmiktar.Text != null &&
-                 cmbkdv.Text != null &&
-                 cmbsales.Text != null &&
-                 txtfiyat.Text != null &&              
-                 cmbdurum.Text != null
-                
-               )
-                {
-                    if
-                  (
-                    txttür.Text.Trim() != string.Empty &&
-                    cmbisimsoyisim.Text.Trim() != string.Empty &&                 
-                    cmbürün.Text.Trim() != string.Empty &&
-                    txtmiktar.Text.ToString().Trim() != string.Empty &&
-                    cmbkdv.Text.Trim() != string.Empty &&
-                    cmbsales.Text.Trim() != string.Empty &&
-                    txtfiyat.Text.ToString().Trim() != string.Empty &&                   
-                    cmbdurum.Text.Trim() != string.Empty
-                   
-                  )
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lütfen Gerekli alanları doldurunuz", "Kayıt Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Lütfen Gerekli alanları doldurunuz", "Kayıt Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
+                if (DXSplashScreen.IsActive)
+                    DXSplashScreen.Close();
+            }
 
-            }
-            else if (pagestatus==1)
-            {
-                if
-              (
-              
-                özelcmbisimsoyisim.Text != null &&
-                özelcmbfirma.Text != null &&
-                özelcmbsalescmbürün.Text != null &&
-                özelcmbsalestxtmiktar.Text != null &&
-                özelcmbsalescmbkdv.Text != null &&
-                özelcmbsales.Text != null &&
-                özelcmbsalestxtfiyat.Text != null &&
-                özelcmbfirma.Text != null &&
-                özelcmbyöntem.Text != null &&
-                özelcmbdurum.Text != null &&
-                özeltxttelefon.Text != null
-              )
-                {
-                    if
-                  (
-                   
-                    özelcmbisimsoyisim.Text.Trim() != string.Empty &&
-                    özelcmbfirma.Text.Trim() != string.Empty &&
-                    özelcmbsalestxtmiktar.Text.Trim() != string.Empty &&
-                    özelcmbsalestxtmiktar.Text.ToString().Trim() != string.Empty &&
-                    özelcmbsalestxtmiktar.Text.Trim() != string.Empty &&
-                    özelcmbsales.Text.Trim() != string.Empty &&
-                    özelcmbsalestxtfiyat.Text.ToString().Trim() != string.Empty &&
-                    
-                    özelcmbyöntem.Text.Trim() != string.Empty &&
-                    özelcmbdurum.Text.Trim() != string.Empty &&
-                    özeltxttelefon.Text.Trim() != string.Empty
-                  )
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lütfen Gerekli alanları doldurunuz", "Kayıt Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Lütfen Gerekli alanları doldurunuz", "Kayıt Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-            }
-            else if (pagestatus == 2)
-            {
-                if
-              (
-                firmacmbisimsoyisim.Text != null &&
-                firmacmbisimsoyisim.Text != null &&
-                firmacmbfirma.Text != null &&
-                firmacmbürün.Text != null &&
-                firmatxtmiktar.Text != null &&
-                firmacmbkdv.Text != null &&
-                firmacmbsales.Text != null &&
-                firmatxtfiyat.Text != null &&                
-                firmacmbyöntem.Text != null &&
-                firmacmbdurum.Text != null &&
-                firmatxttelefon.Text != null
-              )
-                {
-                    if
-                  (
-                    
-                    firmacmbisimsoyisim.Text.Trim() != string.Empty &&
-                    firmacmbfirma.Text.Trim() != string.Empty &&
-                    firmacmbürün.Text.Trim() != string.Empty &&
-                    firmatxtmiktar.Text.ToString().Trim() != string.Empty &&
-                    firmacmbkdv.Text.Trim() != string.Empty &&
-                    firmacmbsales.Text.Trim() != string.Empty &&
-                    firmatxtfiyat.Text.ToString().Trim() != string.Empty &&
-                    firmacmbyöntem.Text.Trim() != string.Empty &&
-                    firmacmbyöntem.Text.Trim() != string.Empty &&
-                    firmacmbdurum.Text.Trim() != string.Empty &&
-                    firmatxttelefon.Text.Trim() != string.Empty
-                  )
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lütfen Gerekli alanları doldurunuz", "Kayıt Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Lütfen Gerekli alanları doldurunuz", "Kayıt Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-            }
-            return false;
         }
 
         private void Btnkayıt_Click(object sender, RoutedEventArgs e)
         {
             if (UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
             {
-                if (ViewModel.Currentdata.Randevutarihi != string.Empty && ViewModel.Currentdata.Kayıttarihi != string.Empty)
+                if (ViewModel.Currentdata.Costumerorder.Randevutarihi != string.Empty && ViewModel.Currentdata.Costumerorder.Kayıttarihi != string.Empty)
                 {
-                    if (checkvalues())
+                    if (true)
                     {
-                        if (Convert.ToDateTime(ViewModel.Currentdata.Kayıttarihi) < Convert.ToDateTime(ViewModel.Currentdata.Randevutarihi))
+                        if (Convert.ToDateTime(ViewModel.Currentdata.Costumerorder.Kayıttarihi) < Convert.ToDateTime(ViewModel.Currentdata.Costumerorder.Randevutarihi))
                         {
-                            if (ViewModel.Save())
-                            {
-                                //MessageBox.Show("Kaydetme Tamamlandı", "Kayıt Ekleme", MessageBoxButton.OK, MessageBoxImage.Information);
-                                LogVM.displaypopup("INFO", "Kaydetme Tamamlandı");
-                                tabcontrol.SelectedItem = grid;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Kaydetme Başarısız", "Kayıt Ekleme", MessageBoxButton.OK, MessageBoxImage.Error);
-                            }                          
+                            Save();
                         }
                         else
                         {
-                            MessageBox.Show("Randevu tarihi Kayıt tarihinden önce olamaz", UserUtils.Yeni_Kayıt_Ekleme, MessageBoxButton.OK, MessageBoxImage.Error);
+                            LogVM.displaypopup("ERROR", "Randevu tarihi Kayıt tarihinden önce olamaz");                            
                         }
                     }
 
-                }                            
+                }
             }
             else
             {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Yeni_Kayıt_Ekleme, MessageBoxButton.OK, MessageBoxImage.Error);
+                LogVM.displaypopup("ERROR", "Kullanıcının bu işleme yetkisi yok");               
             }
 
         }
@@ -760,91 +468,153 @@ namespace StarNote.View
         {
             if (UserUtils.Authority.Contains(UserUtils.Kayıt_Düzenleme))
             {
-                if (ViewModel.Currentdata.Randevutarihi != string.Empty && ViewModel.Currentdata.Kayıttarihi != string.Empty)
+                if (ViewModel.Currentdata.Costumerorder.Randevutarihi != string.Empty && ViewModel.Currentdata.Costumerorder.Kayıttarihi != string.Empty)
                 {
-                    if (checkvalues())
+                    if (Convert.ToDateTime(ViewModel.Currentdata.Costumerorder.Kayıttarihi) < Convert.ToDateTime(ViewModel.Currentdata.Costumerorder.Randevutarihi))
                     {
-                        if (Convert.ToDateTime(ViewModel.Currentdata.Kayıttarihi) < Convert.ToDateTime(ViewModel.Currentdata.Randevutarihi))
-                        {
-                            if (ViewModel.Update())
-                            {
-                                tabcontrol.SelectedItem = grid;
-                                //MessageBox.Show("Güncelleme Tamamlandı", "Kayıt Güncelleme", MessageBoxButton.OK, MessageBoxImage.Information);    
-                                LogVM.displaypopup("INFO", "Güncelleme Tamamlandı");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Güncelleme Başarısız", "Kayıt Güncelleme", MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Randevu tarihi Kayıt tarihinden önce olamaz", UserUtils.Yeni_Kayıt_Ekleme, MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
+                        Update();
+                    }
+                    else
+                    {
+                        LogVM.displaypopup("ERROR", "Randevu tarihi Kayıt tarihinden önce olamaz");                        
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Kayıt_Düzenleme, MessageBoxButton.OK, MessageBoxImage.Error);
+                LogVM.displaypopup("ERROR", "Kullanıcının bu işleme yetkisi yok");                
             }
 
         }
 
-        private void Btngüncelle_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        private void Bntvazgec_Click(object sender, RoutedEventArgs e)
         {
-            if (UserUtils.Authority.Contains(UserUtils.Kayıt_Düzenleme))
-            {
-                DevExpress.Xpf.Bars.BarButtonItem barButton = sender as DevExpress.Xpf.Bars.BarButtonItem;
-                fillcurrentdata(barButton.Tag.ToString());
-                btnguncelle.Visibility = Visibility.Visible;
-                btnkayıt.Visibility = Visibility.Hidden;
-                //tabcontrol.SelectedItem = add;
-            }
-            else
-            {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Kayıt_Düzenleme, MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
+            Goback();
         }
 
         private void TableAcik_RowDoubleClick(object sender, DevExpress.Xpf.Grid.RowDoubleClickEventArgs e)
         {
+           
+            //ViewModel.Currentdata = new OrderModel();
+            TableView tableView = sender as TableView;
             if (UserUtils.Authority.Contains(UserUtils.Kayıt_Düzenleme))
             {
-                TableView tableView = sender as TableView;
-
-                fillcurrentdata(tableView.Tag.ToString());
-
-                btnguncelle.Visibility = Visibility.Visible;
-                btnkayıt.Visibility = Visibility.Hidden;
-                özelbtnguncelle.Visibility = Visibility.Visible;
-                özelbtnkayıt.Visibility = Visibility.Hidden;
-                firmabtnguncelle.Visibility = Visibility.Visible;
-                firmabtnkayıt.Visibility = Visibility.Hidden;
-                if (tableView.Tag.ToString()=="0")
-                {
-                    tabcontrol.SelectedItem = adddava;
-                }
-                else if (tableView.Tag.ToString() == "1")
-                {
-                    tabcontrol.SelectedItem = addözel;
-                }
-                else if (tableView.Tag.ToString() == "2")
-                {
-                    tabcontrol.SelectedItem = addfirma;
-                }
-
+                GetUpdateRecord(tableView.Tag.ToString());
             }
             else
             {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Kayıt_Düzenleme, MessageBoxButton.OK, MessageBoxImage.Error);
+                LogVM.displaypopup("ERROR", "Kullanıcının bu işleme yetkisi yok");
             }
+        }
+        
+        private void fillcurrentdata(string tag)
+        {
+            try
+            {
+                GridControl grd = new GridControl();
+                if (tag == "0")
+                {
+                    grd = grdmain;
+                }
+                else if (tag == "1")
+                {
+                    grd = grdmain1;
+                }
+                else if (tag == "2")
+                {
+                    grd = grdmain2;
+                }
+                else if (tag == "3")
+                {
+                    grd = grdmain3;
+                }
+                ViewModel.fillcurrentdata(Convert.ToInt32(grd.GetFocusedRowCellDisplayText("1")));
+                //fillfilelist(Convert.ToInt32(grd.GetFocusedRowCellDisplayText("1")));
+            }
+            catch (Exception ex)
+            {
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Main update veri alma hatası", ex.Message);
+            }
+        }
 
+        private void Img_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Image btn = sender as Image;
+            if (btn.Tag != null)
+            {
+                JobOrderModel model = ViewModel.Currentdata.Joborder.Find(u => u.Id == (int)btn.Tag);
+                if (model.Üstid == 0)
+                {
+                    ViewModel.Currentdata.Joborder.Remove(model);
+                    filljoborders(false);
+                    ViewModel.getmainprice();
+                }
+                else
+                {
+                    LogVM.displaypopup("ERROR", "Kayıtlı Sipariş Değiştirilemez");
+                }
+            }
+        }
+
+        private void filljoborders(bool createnew)
+        {
+            try
+            {
+                cancalc = false;
+                int newid = 1;
+                if (ViewModel.Currentdata.Joborder.Count != 0)
+                    newid = ViewModel.Currentdata.Joborder.Max(u => u.Id);
+                if (createnew)
+                {
+                    if (RefreshViews.pagecount != 29 && RefreshViews.pagecount!=30)
+                        ViewModel.Currentdata.Joborder.Add(new JobOrderModel()
+                        {
+                            Id = newid + 1,
+                            Ücret = 0.0,
+                            Birim = "SAYFA",
+                            Durum = "YAPILIYOR",
+                            Ürün2 = "TÜRKÇE",
+                            Ürün = "TÜRKÇE"
+                        });
+                    else
+                        ViewModel.Currentdata.Joborder.Add(new JobOrderModel()
+                        {
+                            Id = newid + 1,
+                            Ücret = 0.0,
+                            Birim = "",
+                            Durum = "YAPILIYOR",
+                            Ürün2 = "",
+                            Ürün = ""
+                        });
+                }
+                subitems.Height = subitems1.Height = subitems2.Height = subitems3.Height = new GridLength(100);
+                for (int i = 0; i < ViewModel.Currentdata.Joborder.Count; i++)
+                {
+                    GridLength newlen = new GridLength(53);
+                    subitems.Height = new GridLength(subitems.Height.Value + newlen.Value);
+                    subitems1.Height = new GridLength(subitems1.Height.Value + newlen.Value);
+                    subitems2.Height = new GridLength(subitems2.Height.Value + newlen.Value);
+                    subitems3.Height = new GridLength(subitems3.Height.Value + newlen.Value);
+                }
+                davaIC.ItemsSource = özelIC.ItemsSource = firmaIC.ItemsSource = harcamaIC.ItemsSource = OthersIC.ItemsSource = null;
+                davaIC.ItemsSource = özelIC.ItemsSource = firmaIC.ItemsSource = harcamaIC.ItemsSource = OthersIC.ItemsSource =ViewModel.Currentdata.Joborder;
+                cancalc = true;
+
+
+            }
+            catch (Exception ex)
+            {
+                cancalc = true;
+            }
+        }
+
+        private void Addsubitem_Click(object sender, RoutedEventArgs e)
+        {
+            filljoborders(true);
         }
 
         #endregion
-        
+
         #region raporlama seçenecekleri
 
         private void Btnbildiriücret_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -854,7 +624,7 @@ namespace StarNote.View
                 
                 DevExpress.Xpf.Bars.BarButtonItem barButton = sender as DevExpress.Xpf.Bars.BarButtonItem;
                 fillcurrentdata(barButton.Tag.ToString());
-                if (ViewModel.Createfile(fillselectedrows(barButton.Tag.ToString()), 1))
+                if (ViewModel.Createfile(ViewModel.Currentdata, 1))
                 {
                     tabcontrol.SelectedItem = grid;
                     LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Dosya Oluşturma Tamamlandı", "");
@@ -863,12 +633,13 @@ namespace StarNote.View
                 else
                 {
                     LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Dosya Yükleme Başarısız", "");
+                    LogVM.displaypopup("ERROR", "Kullanıcının bu işleme yetkisi yok");
                     MessageBox.Show("Dosya Yükleme Başarısız", "Dosya Ekleme", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Dosya_Kayıt_Oluşturma, MessageBoxButton.OK, MessageBoxImage.Error);
+                LogVM.displaypopup("ERROR", "Kullanıcının bu işleme yetkisi yok");                
             }
         }
 
@@ -878,7 +649,7 @@ namespace StarNote.View
             {
                 DevExpress.Xpf.Bars.BarButtonItem barButton = sender as DevExpress.Xpf.Bars.BarButtonItem;
                 fillcurrentdata(barButton.Tag.ToString());
-                if (ViewModel.Createfile(fillselectedrows(barButton.Tag.ToString()), 0))
+                if (ViewModel.Createfile(ViewModel.Currentdata, 0))
                 {
                     tabcontrol.SelectedItem = grid;
                     LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Dosya Oluşturma Tamamlandı", "");
@@ -887,12 +658,12 @@ namespace StarNote.View
                 else
                 {
                     LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Dosya Yükleme Başarısız", "");
-                    MessageBox.Show("Dosya Yükleme Başarısız", "Dosya Ekleme", MessageBoxButton.OK, MessageBoxImage.Error);
+                    LogVM.displaypopup("ERROR", "Dosya Yükleme Başarısız");                    
                 }
             }
             else
             {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Dosya_Kayıt_Oluşturma, MessageBoxButton.OK, MessageBoxImage.Error);
+                LogVM.displaypopup("ERROR", "Kullanıcının bu işleme yetkisi yok");
             }
         }
 
@@ -908,6 +679,7 @@ namespace StarNote.View
                 {
                     Id = ViewModel.Localfilelist.Count + 1,
                     Dosya = oDlg.FileName,
+                    Klasöradı = ViewModel.Klasöradıtxt,
                     Durum = FileUtils.hazır,
                     Mainid = 0
                 };
@@ -929,8 +701,9 @@ namespace StarNote.View
                     LocalfileModel localfile = new LocalfileModel()
                     {
                         Id = ViewModel.Localfilelist.Count + 1,
-                        Dosya = file,
+                        Dosya = file,                        
                         Durum = FileUtils.hazır,
+                        Klasöradı= ViewModel.Klasöradıtxt,
                         Mainid = 0
                     };
                     ViewModel.Localfilelist.Add(localfile);
@@ -959,9 +732,7 @@ namespace StarNote.View
             if (tableView.Tag.ToString() == "2")
             {
                 grd = firmagrdlocalfile;
-            }
-           
-
+            }          
             try
             {
                 int ID = Convert.ToInt32(grd.GetFocusedRowCellDisplayText("1"));
@@ -977,532 +748,72 @@ namespace StarNote.View
             }
            
         }
-
-        private void Btnfaturaçıktı_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        
+        private void Btnpdf_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+            DevExpress.Xpf.Bars.BarButtonItem btn = sender as DevExpress.Xpf.Bars.BarButtonItem;
+            string tag = btn.Tag.ToString();
+            if (UserUtils.Authority.Contains(UserUtils.Geneltakip_yazdırma))
+            {
+                PrintingRoute printingRoute = new PrintingRoute();
+                if (tag == "0")
+                {
+                    PrintUtils.Print(printingRoute.Adliye, "Adliye Kayıtları", PrintUtils.PDF, grdmain);
+                }
+                else if (tag == "1")
+                {
+                    PrintUtils.Print(printingRoute.Özel, "Özel Müşteri Kayıtları", PrintUtils.PDF, grdmain1);
+                }
+                else if (tag == "2")
+                {
+                    PrintUtils.Print(printingRoute.Firma, "Firma Kayıtları", PrintUtils.PDF, grdmain2);
+                }
+                else if (tag == "3")
+                {
+                    PrintUtils.Print(printingRoute.Harcama, "Harcama Kayıtları", PrintUtils.PDF, grdmain3);
+                }
+            }
+            else
+            {
+                LogVM.displaypopup("ERROR", "Kullanıcının bu işleme yetkisi yok");
+            }
 
+        }
+
+        private void Btnxcel_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            DevExpress.Xpf.Bars.BarButtonItem btn = sender as DevExpress.Xpf.Bars.BarButtonItem;
+            string tag = btn.Tag.ToString();
+            if (UserUtils.Authority.Contains(UserUtils.Geneltakip_yazdırma))
+            {
+                PrintingRoute printingRoute = new PrintingRoute();
+                if (tag=="0")
+                {
+                    PrintUtils.Print(printingRoute.Adliye, "Adliye Kayıtları", PrintUtils.Excel, grdmain);
+                }
+                else if (tag=="1")
+                {
+                    PrintUtils.Print(printingRoute.Özel, "Özel Müşteri Kayıtları", PrintUtils.Excel, grdmain1);
+                }
+                else if (tag == "2")
+                {
+                    PrintUtils.Print(printingRoute.Firma, "Firma Kayıtları", PrintUtils.Excel, grdmain2);
+                }
+                else if (tag == "3")
+                {
+                    PrintUtils.Print(printingRoute.Harcama, "Harcama Kayıtları", PrintUtils.Excel, grdmain3);
+                }
+            }
+            else
+            {
+                LogVM.displaypopup("ERROR", "Kullanıcının bu işleme yetkisi yok");
+            }
 
         }
 
         #endregion
 
-        #region kolon ayarlama
-
-        private void Btnayar_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            if (!popup.IsOpen)
-            {
-                
-                gridpopup.Children.Clear();
-                gridpopup.RowDefinitions.Clear();
-                list = createsettinglist();
-                RowDefinition rowDefn = new RowDefinition();
-                rowDefn.Height = new GridLength(30);
-                int newRow = gridpopup.RowDefinitions.Count;
-                gridpopup.RowDefinitions.Add(rowDefn);
-                var button = new System.Windows.Controls.Button
-                {
-                    Content = "Kapat",
-                    Width = 80,
-                    Height = 25,
-                    Background = new SolidColorBrush(Colors.White),
-                    VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Center
-
-                };
-                button.Click += new RoutedEventHandler(popupclose);
-                Grid.SetRow(button, newRow);
-                Grid.SetColumn(button, 1);
-                gridpopup.Children.Add(button);
-                double count = 0.0;
-                int count1 = 0;
-                bool fourcolumnopen = false;
-                foreach (var objDomain in list)
-                {
-                    count++;
-                    if(!fourcolumnopen)
-                    count1++;
-                    if (count<= grdmain.Columns.Count/2)
-                    {
-                        var credentialsUserNameLabel = new System.Windows.Controls.Label
-                        {
-                            Content = objDomain.Xname,
-                            //Foreground = new SolidColorBrush(Colors.Red),
-                            VerticalAlignment = VerticalAlignment.Center,
-                            HorizontalAlignment = HorizontalAlignment.Center
-                        };
-                        var credentialsUserNameTextbox = new DevExpress.Xpf.Editors.ToggleSwitchEdit
-                        {
-                            Name = objDomain.Name,
-                            VerticalAlignment = VerticalAlignment.Center,
-                            HorizontalAlignment = HorizontalAlignment.Center,
-                            IsChecked = objDomain.Status
-                        };
-                        credentialsUserNameTextbox.Checked += new RoutedEventHandler(columnvisiblechange);
-                        credentialsUserNameTextbox.Unchecked += new RoutedEventHandler(columnvisiblechange);
-                        rowDefn = new RowDefinition();
-                        rowDefn.Height = new GridLength(30);
-                        newRow = gridpopup.RowDefinitions.Count;
-                        gridpopup.RowDefinitions.Add(rowDefn);
-                        Grid.SetRow(credentialsUserNameLabel, newRow);
-                        Grid.SetColumn(credentialsUserNameLabel, 0);
-                        Grid.SetRow(credentialsUserNameTextbox, newRow);
-                        Grid.SetColumn(credentialsUserNameTextbox, 1);
-                        gridpopup.Children.Add(credentialsUserNameLabel);
-                        gridpopup.Children.Add(credentialsUserNameTextbox);
-                    }
-                    else
-                    {
-                        
-                        if (!fourcolumnopen)
-                        {
-                            fourcolumnopen = true;
-                            popupcolumn1.Width = new GridLength(200);
-                            popupcolumn2.Width = new GridLength(120);
-                        }
-                        var credentialsUserNameLabel = new System.Windows.Controls.Label
-                        {
-                            Content = objDomain.Xname,
-                            //Foreground = new SolidColorBrush(Colors.Red),
-                            VerticalAlignment = VerticalAlignment.Center,
-                            HorizontalAlignment = HorizontalAlignment.Center
-                        };
-                        var credentialsUserNameTextbox = new DevExpress.Xpf.Editors.ToggleSwitchEdit
-                        {
-                            Name = objDomain.Name,
-                            VerticalAlignment = VerticalAlignment.Center,
-                            HorizontalAlignment = HorizontalAlignment.Center,
-                            IsChecked = objDomain.Status
-                        };
-                        credentialsUserNameTextbox.Checked += new RoutedEventHandler(columnvisiblechange);
-                        credentialsUserNameTextbox.Unchecked += new RoutedEventHandler(columnvisiblechange);
-                        rowDefn = new RowDefinition();
-                        rowDefn.Height = new GridLength(30);
-                        newRow = gridpopup.RowDefinitions.Count - count1+1;
-                        gridpopup.RowDefinitions.Add(rowDefn);
-                        Grid.SetRow(credentialsUserNameLabel, newRow);
-                        Grid.SetColumn(credentialsUserNameLabel, 2);
-                        Grid.SetRow(credentialsUserNameTextbox, newRow);
-                        Grid.SetColumn(credentialsUserNameTextbox, 3);
-                        gridpopup.Children.Add(credentialsUserNameLabel);
-                        gridpopup.Children.Add(credentialsUserNameTextbox);
-                    }
-                    
-                }
-                popup.IsOpen = true;
-            }
-
-        }
-
-        private void popupclose(object sender, RoutedEventArgs e)
-        {
-            popup.IsOpen = false;
-        }
-
-        private void columnvisiblechange(object sender, RoutedEventArgs e)
-        {
-            var s = sender as DevExpress.Xpf.Editors.ToggleSwitchEdit;
-            if (pagestatus==0)
-            {
-                MainGrid settings = new MainGrid();
-                if (s.Name.ToString() == kolonId.Name) settings.Id = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonJoborder.Name) settings.Joborder = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonKayıtdetay.Name) settings.Kayıtdetay = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonKayıtdetay1.Name) settings.Kayıtdetay1 = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonKayıtdetay2.Name) settings.Kayıtdetay2 = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonTür.Name) settings.Tür = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonTürdetay.Name) settings.Türdetay = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonİsim.Name) settings.İsim = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonTckimlik.Name) settings.Tckimlik = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonTelefon.Name) settings.Telefon = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonEposta.Name) settings.Eposta = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonŞehir.Name) settings.Şehir = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonİlçe.Name) settings.İlçe = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonAdres.Name) settings.Adres = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonKayıttarihi.Name) settings.Kayıttarihi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonRandevutarihi.Name) settings.Randevutarihi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonSatıselemanı.Name) settings.Satıselemanı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonÜrün.Name) settings.Ürün = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonÜrün2.Name) settings.Ürün2 = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonMiktar.Name) settings.Miktar = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonBirim.Name) settings.Birim = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonÜcret.Name) settings.Ücret = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonKdvoran.Name) settings.Kdvoran = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonVergidairesi.Name) settings.Vergidairesi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonVergino.Name) settings.Vergino = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonFirmaadı.Name) settings.Firmaadı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonFirmaadresi.Name) settings.Firmaadresi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonMetod.Name) settings.Metod = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonÖdemeyöntemi.Name) settings.Ödemeyöntemi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonDurum.Name) settings.Durum = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonAcıklama.Name) settings.Acıklama = (bool)s.IsChecked;
-                //if (s.Name.ToString() == kolonKullanıcı.Name) settings.Kullanıcı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonTavsiyeedilentutar.Name) settings.Tavsiyeedilentutar = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonÖnerilentutar.Name) settings.Önerilentutar = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonÖnerilenbirim.Name) settings.Önerilenbirim = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonKelimesayı.Name) settings.Kelimesayı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonSatırsayı.Name) settings.Satırsayı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonKaraktersayı.Name) settings.Karaktersayı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolonBeklenentutar.Name) settings.Beklenentutar = (bool)s.IsChecked;
-                settings.Save();
-                gridcolumnsettings();
-            }
-            else if (pagestatus == 1)
-            {
-                MainGrid1 settings = new MainGrid1();
-                if (s.Name.ToString() == kolon1Id.Name) settings.Id = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Joborder.Name) settings.Joborder = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Kayıtdetay.Name) settings.Kayıtdetay = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Kayıtdetay1.Name) settings.Kayıtdetay1 = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Kayıtdetay2.Name) settings.Kayıtdetay2 = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Tür.Name) settings.Tür = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Türdetay.Name) settings.Türdetay = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1İsim.Name) settings.İsim = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Tckimlik.Name) settings.Tckimlik = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Telefon.Name) settings.Telefon = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Eposta.Name) settings.Eposta = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Şehir.Name) settings.Şehir = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1İlçe.Name) settings.İlçe = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Adres.Name) settings.Adres = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Kayıttarihi.Name) settings.Kayıttarihi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Randevutarih.Name) settings.Randevutarihi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Satıselemanı.Name) settings.Satıselemanı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Ürün.Name) settings.Ürün = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Ürün2.Name) settings.Ürün2 = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Miktar.Name) settings.Miktar = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Birim.Name) settings.Birim = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Ücret.Name) settings.Ücret = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Kdvoran.Name) settings.Kdvoran = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Vergidairesi.Name) settings.Vergidairesi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Vergino.Name) settings.Vergino = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Firmaadı.Name) settings.Firmaadı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Firmaadresi.Name) settings.Firmaadresi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Metod.Name) settings.Metod = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Ödemeyöntemi.Name) settings.Ödemeyöntemi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Durum.Name) settings.Durum = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Acıklama.Name) settings.Acıklama = (bool)s.IsChecked;
-                //if (s.Name.ToString() == kol1onKullanıcı.Name) settings.Kullanıcı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Tavsiyeedilentutar.Name) settings.Tavsiyeedilentutar = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Önerilentutar.Name) settings.Önerilentutar = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Önerilenbirim.Name) settings.Önerilenbirim = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Kelimesayı.Name) settings.Kelimesayı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Satırsayı.Name) settings.Satırsayı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Karaktersayı.Name) settings.Karaktersayı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon1Beklenentutar.Name) settings.Beklenentutar = (bool)s.IsChecked;
-                settings.Save();
-                gridcolumnsettings1();
-            }
-            else if (pagestatus == 2)
-            {
-                MainGrid2 settings = new MainGrid2();
-                if (s.Name.ToString() == kolon2Id.Name) settings.Id = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Joborder.Name) settings.Joborder = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Kayıtdetay.Name) settings.Kayıtdetay = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Kayıtdetay1.Name) settings.Kayıtdetay1 = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Kayıtdetay2.Name) settings.Kayıtdetay2 = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Tür.Name) settings.Tür = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Türdetay.Name) settings.Türdetay = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2İsim.Name) settings.İsim = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Tckimlik.Name) settings.Tckimlik = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Telefon.Name) settings.Telefon = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Eposta.Name) settings.Eposta = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Şehir.Name) settings.Şehir = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2İlçe.Name) settings.İlçe = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Adres.Name) settings.Adres = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Kayıttarihi.Name) settings.Kayıttarihi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Randevutarih.Name) settings.Randevutarihi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Satıselemanı.Name) settings.Satıselemanı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Ürün.Name) settings.Ürün = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Ürün2.Name) settings.Ürün2 = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Miktar.Name) settings.Miktar = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Birim.Name) settings.Birim = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Ücret.Name) settings.Ücret = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Kdvoran.Name) settings.Kdvoran = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Vergidairesi.Name) settings.Vergidairesi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Vergino.Name) settings.Vergino = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Firmaadı.Name) settings.Firmaadı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Firmaadresi.Name) settings.Firmaadresi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Metod.Name) settings.Metod = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Ödemeyöntemi.Name) settings.Ödemeyöntemi = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Durum.Name) settings.Durum = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Acıklama.Name) settings.Acıklama = (bool)s.IsChecked;
-                //if (s.Name.ToString() == kol2onKullanıcı.Name) settings.Kullanıcı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Tavsiyeedilentutar.Name) settings.Tavsiyeedilentutar = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Önerilentutar.Name) settings.Önerilentutar = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Önerilenbirim.Name) settings.Önerilenbirim = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Kelimesayı.Name) settings.Kelimesayı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Satırsayı.Name) settings.Satırsayı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Karaktersayı.Name) settings.Karaktersayı = (bool)s.IsChecked;
-                if (s.Name.ToString() == kolon2Beklenentutar.Name) settings.Beklenentutar = (bool)s.IsChecked;
-                settings.Save();
-                gridcolumnsettings2();
-            }
-        }
-
-        private List<SettingModel> createsettinglist()
-        {
-            List<SettingModel> list = new List<SettingModel>();
-            if (pagestatus==0)
-            {
-                MainGrid settings = new MainGrid();
-                list.Add(new SettingModel { Xname = kolonId.Header.ToString(), Name = kolonId.Name, Status = settings.Id });
-                list.Add(new SettingModel { Xname = kolonJoborder.Header.ToString(), Name = kolonJoborder.Name, Status = settings.Joborder });
-                list.Add(new SettingModel { Xname = kolonTür.Header.ToString(), Name = kolonTür.Name, Status = settings.Tür });
-                list.Add(new SettingModel { Xname = kolonTürdetay.Header.ToString(), Name = kolonTürdetay.Name, Status = settings.Türdetay });
-                list.Add(new SettingModel { Xname = kolonKayıtdetay.Header.ToString(), Name = kolonKayıtdetay.Name, Status = settings.Kayıtdetay });
-                list.Add(new SettingModel { Xname = kolonKayıtdetay1.Header.ToString(), Name = kolonKayıtdetay1.Name, Status = settings.Kayıtdetay1 });
-                list.Add(new SettingModel { Xname = kolonKayıtdetay2.Header.ToString(), Name = kolonKayıtdetay2.Name, Status = settings.Kayıtdetay2 });
-                list.Add(new SettingModel { Xname = kolonİsim.Header.ToString(), Name = kolonİsim.Name, Status = settings.İsim });
-                list.Add(new SettingModel { Xname = kolonKayıttarihi.Header.ToString(), Name = kolonKayıttarihi.Name, Status = settings.Kayıttarihi });
-                list.Add(new SettingModel { Xname = kolonRandevutarihi.Header.ToString(), Name = kolonRandevutarihi.Name, Status = settings.Randevutarihi });
-                list.Add(new SettingModel { Xname = kolonSatıselemanı.Header.ToString(), Name = kolonSatıselemanı.Name, Status = settings.Satıselemanı });
-                list.Add(new SettingModel { Xname = kolonÜrün.Header.ToString(), Name = kolonÜrün.Name, Status = settings.Ürün });
-                list.Add(new SettingModel { Xname = kolonÜrün2.Header.ToString(), Name = kolonÜrün2.Name, Status = settings.Ürün2 });
-                list.Add(new SettingModel { Xname = kolonMiktar.Header.ToString(), Name = kolonMiktar.Name, Status = settings.Miktar });
-                list.Add(new SettingModel { Xname = kolonBirim.Header.ToString(), Name = kolonBirim.Name, Status = settings.Birim });
-                list.Add(new SettingModel { Xname = kolonÜcret.Header.ToString(), Name = kolonÜcret.Name, Status = settings.Ücret });
-                list.Add(new SettingModel { Xname = kolonKaraktersayı.Header.ToString(), Name = kolonKaraktersayı.Name, Status = settings.Karaktersayı });
-                list.Add(new SettingModel { Xname = kolonSatırsayı.Header.ToString(), Name = kolonSatırsayı.Name, Status = settings.Satırsayı });
-                list.Add(new SettingModel { Xname = kolonKelimesayı.Header.ToString(), Name = kolonKelimesayı.Name, Status = settings.Kelimesayı });
-                list.Add(new SettingModel { Xname = kolonTavsiyeedilentutar.Header.ToString(), Name = kolonTavsiyeedilentutar.Name, Status = settings.Tavsiyeedilentutar });
-                list.Add(new SettingModel { Xname = kolonÖnerilenbirim.Header.ToString(), Name = kolonÖnerilenbirim.Name, Status = settings.Önerilenbirim });
-                list.Add(new SettingModel { Xname = kolonÖnerilentutar.Header.ToString(), Name = kolonÖnerilentutar.Name, Status = settings.Önerilentutar });
-                list.Add(new SettingModel { Xname = kolonKdvoran.Header.ToString(), Name = kolonKdvoran.Name, Status = settings.Kdvoran });
-                list.Add(new SettingModel { Xname = kolonMetod.Header.ToString(), Name = kolonMetod.Name, Status = settings.Metod });
-                list.Add(new SettingModel { Xname = kolonÖdemeyöntemi.Header.ToString(), Name = kolonÖdemeyöntemi.Name, Status = settings.Ödemeyöntemi });
-                list.Add(new SettingModel { Xname = kolonDurum.Header.ToString(), Name = kolonDurum.Name, Status = settings.Durum });
-                list.Add(new SettingModel { Xname = kolonAcıklama.Header.ToString(), Name = kolonAcıklama.Name, Status = settings.Acıklama });
-                list.Add(new SettingModel { Xname = kolonTelefon.Header.ToString(), Name = kolonTelefon.Name, Status = settings.Telefon });
-                list.Add(new SettingModel { Xname = kolonTckimlik.Header.ToString(), Name = kolonTckimlik.Name, Status = settings.Tckimlik });
-                list.Add(new SettingModel { Xname = kolonEposta.Header.ToString(), Name = kolonEposta.Name, Status = settings.Eposta });
-                list.Add(new SettingModel { Xname = kolonŞehir.Header.ToString(), Name = kolonŞehir.Name, Status = settings.Şehir });
-                list.Add(new SettingModel { Xname = kolonİlçe.Header.ToString(), Name = kolonİlçe.Name, Status = settings.İlçe });
-                list.Add(new SettingModel { Xname = kolonAdres.Header.ToString(), Name = kolonAdres.Name, Status = settings.Adres });
-                list.Add(new SettingModel { Xname = kolonVergidairesi.Header.ToString(), Name = kolonVergidairesi.Name, Status = settings.Vergidairesi });
-                list.Add(new SettingModel { Xname = kolonVergino.Header.ToString(), Name = kolonVergino.Name, Status = settings.Vergino });
-                list.Add(new SettingModel { Xname = kolonFirmaadı.Header.ToString(), Name = kolonFirmaadı.Name, Status = settings.Firmaadı });
-                list.Add(new SettingModel { Xname = kolonFirmaadresi.Header.ToString(), Name = kolonFirmaadresi.Name, Status = settings.Firmaadresi });
-                list.Add(new SettingModel { Xname = kolonBeklenentutar.Header.ToString(), Name = kolonBeklenentutar.Name, Status = settings.Beklenentutar });
-            }
-            else if (pagestatus==1)
-            {
-                MainGrid1 settings = new MainGrid1();
-                list.Add(new SettingModel { Xname = kolon1Id.Header.ToString(),                 Name = kolon1Id.Name, Status = settings.Id });
-                list.Add(new SettingModel { Xname = kolon1Joborder.Header.ToString(),           Name = kolon1Joborder.Name, Status = settings.Joborder });
-                list.Add(new SettingModel { Xname = kolon1Tür.Header.ToString(),                Name = kolon1Tür.Name, Status = settings.Tür });
-                list.Add(new SettingModel { Xname = kolon1Türdetay.Header.ToString(),           Name = kolon1Türdetay.Name, Status = settings.Türdetay });
-                list.Add(new SettingModel { Xname = kolon1Kayıtdetay.Header.ToString(),         Name = kolon1Kayıtdetay.Name, Status = settings.Kayıtdetay });
-                list.Add(new SettingModel { Xname = kolon1Kayıtdetay1.Header.ToString(),        Name = kolon1Kayıtdetay1.Name, Status = settings.Kayıtdetay1 });
-                list.Add(new SettingModel { Xname = kolon1Kayıtdetay2.Header.ToString(),        Name = kolon1Kayıtdetay2.Name, Status = settings.Kayıtdetay2 });
-                list.Add(new SettingModel { Xname = kolon1İsim.Header.ToString(),               Name = kolon1İsim.Name, Status = settings.İsim });
-                list.Add(new SettingModel { Xname = kolon1Kayıttarihi.Header.ToString(),        Name = kolon1Kayıttarihi.Name, Status = settings.Kayıttarihi });
-                list.Add(new SettingModel { Xname = kolon1Randevutarih.Header.ToString(),       Name = kolon1Randevutarih.Name, Status = settings.Randevutarihi });
-                list.Add(new SettingModel { Xname = kolon1Satıselemanı.Header.ToString(),       Name = kolon1Satıselemanı.Name, Status = settings.Satıselemanı });
-                list.Add(new SettingModel { Xname = kolon1Ürün.Header.ToString(),               Name = kolon1Ürün.Name, Status = settings.Ürün });
-                list.Add(new SettingModel { Xname = kolon1Ürün2.Header.ToString(),              Name = kolon1Ürün2.Name, Status = settings.Ürün2 });
-                list.Add(new SettingModel { Xname = kolon1Miktar.Header.ToString(),             Name = kolon1Miktar.Name, Status = settings.Miktar });
-                list.Add(new SettingModel { Xname = kolon1Birim.Header.ToString(),              Name = kolon1Birim.Name, Status = settings.Birim });
-                list.Add(new SettingModel { Xname = kolon1Ücret.Header.ToString(),              Name = kolon1Ücret.Name, Status = settings.Ücret });
-                list.Add(new SettingModel { Xname = kolon1Karaktersayı.Header.ToString(),       Name = kolon1Karaktersayı.Name, Status = settings.Karaktersayı });
-                list.Add(new SettingModel { Xname = kolon1Satırsayı.Header.ToString(),          Name = kolon1Satırsayı.Name, Status = settings.Satırsayı });
-                list.Add(new SettingModel { Xname = kolon1Kelimesayı.Header.ToString(),         Name = kolon1Kelimesayı.Name, Status = settings.Kelimesayı });
-                list.Add(new SettingModel { Xname = kolon1Tavsiyeedilentutar.Header.ToString(), Name = kolon1Tavsiyeedilentutar.Name, Status = settings.Tavsiyeedilentutar });
-                list.Add(new SettingModel { Xname = kolon1Önerilenbirim.Header.ToString(),      Name = kolon1Önerilenbirim.Name, Status = settings.Önerilenbirim });
-                list.Add(new SettingModel { Xname = kolon1Önerilentutar.Header.ToString(),      Name = kolon1Önerilentutar.Name, Status = settings.Önerilentutar });
-                list.Add(new SettingModel { Xname = kolon1Kdvoran.Header.ToString(),            Name = kolon1Kdvoran.Name, Status = settings.Kdvoran });
-                list.Add(new SettingModel { Xname = kolon1Metod.Header.ToString(),              Name = kolon1Metod.Name, Status = settings.Metod });
-                list.Add(new SettingModel { Xname = kolon1Ödemeyöntemi.Header.ToString(),       Name = kolon1Ödemeyöntemi.Name, Status = settings.Ödemeyöntemi });
-                list.Add(new SettingModel { Xname = kolon1Durum.Header.ToString(),              Name = kolon1Durum.Name, Status = settings.Durum });
-                list.Add(new SettingModel { Xname = kolon1Acıklama.Header.ToString(),           Name = kolon1Acıklama.Name, Status = settings.Acıklama });
-                list.Add(new SettingModel { Xname = kolon1Telefon.Header.ToString(),            Name = kolon1Telefon.Name, Status = settings.Telefon });
-                list.Add(new SettingModel { Xname = kolon1Tckimlik.Header.ToString(),           Name = kolon1Tckimlik.Name, Status = settings.Tckimlik });
-                list.Add(new SettingModel { Xname = kolon1Eposta.Header.ToString(),             Name = kolon1Eposta.Name, Status = settings.Eposta });
-                list.Add(new SettingModel { Xname = kolon1Şehir.Header.ToString(),              Name = kolon1Şehir.Name, Status = settings.Şehir });
-                list.Add(new SettingModel { Xname = kolon1İlçe.Header.ToString(),               Name = kolon1İlçe.Name, Status = settings.İlçe });
-                list.Add(new SettingModel { Xname = kolon1Adres.Header.ToString(),              Name = kolon1Adres.Name, Status = settings.Adres });
-                list.Add(new SettingModel { Xname = kolon1Vergidairesi.Header.ToString(),       Name = kolon1Vergidairesi.Name, Status = settings.Vergidairesi });
-                list.Add(new SettingModel { Xname = kolon1Vergino.Header.ToString(),            Name = kolon1Vergino.Name, Status = settings.Vergino });
-                list.Add(new SettingModel { Xname = kolon1Firmaadı.Header.ToString(),           Name = kolon1Firmaadı.Name, Status = settings.Firmaadı });
-                list.Add(new SettingModel { Xname = kolon1Firmaadresi.Header.ToString(),        Name = kolon1Firmaadresi.Name, Status = settings.Firmaadresi });
-                list.Add(new SettingModel { Xname = kolon1Beklenentutar.Header.ToString(),      Name = kolon1Beklenentutar.Name, Status = settings.Beklenentutar });
-            }
-            else if (pagestatus == 2)
-            {
-                MainGrid2 settings = new MainGrid2();
-                list.Add(new SettingModel { Xname = kolon2Id.Header.ToString(), Name = kolon2Id.Name, Status = settings.Id });
-                list.Add(new SettingModel { Xname = kolon2Joborder.Header.ToString(), Name = kolon2Joborder.Name, Status = settings.Joborder });
-                list.Add(new SettingModel { Xname = kolon2Tür.Header.ToString(), Name = kolon2Tür.Name, Status = settings.Tür });
-                list.Add(new SettingModel { Xname = kolon2Türdetay.Header.ToString(), Name = kolon2Türdetay.Name, Status = settings.Türdetay });
-                list.Add(new SettingModel { Xname = kolon2Kayıtdetay.Header.ToString(), Name = kolon2Kayıtdetay.Name, Status = settings.Kayıtdetay });
-                list.Add(new SettingModel { Xname = kolon2Kayıtdetay1.Header.ToString(), Name = kolon2Kayıtdetay1.Name, Status = settings.Kayıtdetay1 });
-                list.Add(new SettingModel { Xname = kolon2Kayıtdetay2.Header.ToString(), Name = kolon2Kayıtdetay2.Name, Status = settings.Kayıtdetay2 });
-                list.Add(new SettingModel { Xname = kolon2İsim.Header.ToString(), Name = kolon2İsim.Name, Status = settings.İsim });
-                list.Add(new SettingModel { Xname = kolon2Kayıttarihi.Header.ToString(), Name = kolon2Kayıttarihi.Name, Status = settings.Kayıttarihi });
-                list.Add(new SettingModel { Xname = kolon2Randevutarih.Header.ToString(), Name = kolon2Randevutarih.Name, Status = settings.Randevutarihi });
-                list.Add(new SettingModel { Xname = kolon2Satıselemanı.Header.ToString(), Name = kolon2Satıselemanı.Name, Status = settings.Satıselemanı });
-                list.Add(new SettingModel { Xname = kolon2Ürün.Header.ToString(), Name = kolon2Ürün.Name, Status = settings.Ürün });
-                list.Add(new SettingModel { Xname = kolon2Ürün2.Header.ToString(), Name = kolon2Ürün2.Name, Status = settings.Ürün2 });
-                list.Add(new SettingModel { Xname = kolon2Miktar.Header.ToString(), Name = kolon2Miktar.Name, Status = settings.Miktar });
-                list.Add(new SettingModel { Xname = kolon2Birim.Header.ToString(), Name = kolon2Birim.Name, Status = settings.Birim });
-                list.Add(new SettingModel { Xname = kolon2Ücret.Header.ToString(), Name = kolon2Ücret.Name, Status = settings.Ücret });
-                list.Add(new SettingModel { Xname = kolon2Karaktersayı.Header.ToString(), Name = kolon2Karaktersayı.Name, Status = settings.Karaktersayı });
-                list.Add(new SettingModel { Xname = kolon2Satırsayı.Header.ToString(), Name = kolon2Satırsayı.Name, Status = settings.Satırsayı });
-                list.Add(new SettingModel { Xname = kolon2Kelimesayı.Header.ToString(), Name = kolon2Kelimesayı.Name, Status = settings.Kelimesayı });
-                list.Add(new SettingModel { Xname = kolon2Tavsiyeedilentutar.Header.ToString(), Name = kolon2Tavsiyeedilentutar.Name, Status = settings.Tavsiyeedilentutar });
-                list.Add(new SettingModel { Xname = kolon2Önerilenbirim.Header.ToString(), Name = kolon2Önerilenbirim.Name, Status = settings.Önerilenbirim });
-                list.Add(new SettingModel { Xname = kolon2Önerilentutar.Header.ToString(), Name = kolon2Önerilentutar.Name, Status = settings.Önerilentutar });
-                list.Add(new SettingModel { Xname = kolon2Kdvoran.Header.ToString(), Name = kolon2Kdvoran.Name, Status = settings.Kdvoran });
-                list.Add(new SettingModel { Xname = kolon2Metod.Header.ToString(), Name = kolon2Metod.Name, Status = settings.Metod });
-                list.Add(new SettingModel { Xname = kolon2Ödemeyöntemi.Header.ToString(), Name = kolon2Ödemeyöntemi.Name, Status = settings.Ödemeyöntemi });
-                list.Add(new SettingModel { Xname = kolon2Durum.Header.ToString(), Name = kolon2Durum.Name, Status = settings.Durum });
-                list.Add(new SettingModel { Xname = kolon2Acıklama.Header.ToString(), Name = kolon2Acıklama.Name, Status = settings.Acıklama });
-                list.Add(new SettingModel { Xname = kolon2Telefon.Header.ToString(), Name = kolon2Telefon.Name, Status = settings.Telefon });
-                list.Add(new SettingModel { Xname = kolon2Tckimlik.Header.ToString(), Name = kolon2Tckimlik.Name, Status = settings.Tckimlik });
-                list.Add(new SettingModel { Xname = kolon2Eposta.Header.ToString(), Name = kolon2Eposta.Name, Status = settings.Eposta });
-                list.Add(new SettingModel { Xname = kolon2Şehir.Header.ToString(), Name = kolon2Şehir.Name, Status = settings.Şehir });
-                list.Add(new SettingModel { Xname = kolon2İlçe.Header.ToString(), Name = kolon2İlçe.Name, Status = settings.İlçe });
-                list.Add(new SettingModel { Xname = kolon2Adres.Header.ToString(), Name = kolon2Adres.Name, Status = settings.Adres });
-                list.Add(new SettingModel { Xname = kolon2Vergidairesi.Header.ToString(), Name = kolon2Vergidairesi.Name, Status = settings.Vergidairesi });
-                list.Add(new SettingModel { Xname = kolon2Vergino.Header.ToString(), Name = kolon2Vergino.Name, Status = settings.Vergino });
-                list.Add(new SettingModel { Xname = kolon2Firmaadı.Header.ToString(), Name = kolon2Firmaadı.Name, Status = settings.Firmaadı });
-                list.Add(new SettingModel { Xname = kolon2Firmaadresi.Header.ToString(), Name = kolon2Firmaadresi.Name, Status = settings.Firmaadresi });
-                list.Add(new SettingModel { Xname = kolon2Beklenentutar.Header.ToString(), Name = kolon2Beklenentutar.Name, Status = settings.Beklenentutar });
-            }
-
-            return list;
-        }
-
-        private void gridcolumnsettings()
-        {
-            MainGrid settings = new MainGrid();
-            kolonId.Visible=settings.Id;
-            kolonJoborder.Visible=settings.Joborder;
-            kolonTür.Visible=settings.Tür;
-            kolonTürdetay.Visible=settings.Türdetay;
-            kolonKayıtdetay.Visible=settings.Kayıtdetay;
-            kolonKayıtdetay1.Visible = settings.Kayıtdetay1;
-            kolonKayıtdetay2.Visible = settings.Kayıtdetay2;
-            kolonİsim.Visible=settings.İsim;
-            kolonKayıttarihi.Visible=settings.Kayıttarihi;
-            kolonRandevutarihi.Visible=settings.Randevutarihi;
-            kolonSatıselemanı.Visible=settings.Satıselemanı;
-            kolonÜrün.Visible=settings.Ürün;
-            kolonÜrün2.Visible=settings.Ürün2;
-            kolonMiktar.Visible=settings.Miktar;
-            kolonBirim.Visible=settings.Birim;
-            kolonÜcret.Visible=settings.Ücret;
-            kolonKaraktersayı.Visible=settings.Karaktersayı;
-            kolonSatırsayı.Visible=settings.Satırsayı;
-            kolonKelimesayı.Visible=settings.Kelimesayı;
-            kolonTavsiyeedilentutar.Visible = settings.Tavsiyeedilentutar;
-            kolonÖnerilenbirim.Visible=settings.Önerilenbirim;
-            kolonÖnerilentutar.Visible=settings.Önerilentutar;
-            kolonKdvoran.Visible=settings.Kdvoran;
-            kolonMetod.Visible=settings.Metod;
-            kolonÖdemeyöntemi.Visible=settings.Ödemeyöntemi;
-            kolonDurum.Visible=settings.Durum;
-            kolonAcıklama.Visible=settings.Acıklama;
-            kolonTelefon.Visible=settings.Telefon;
-            kolonTckimlik.Visible=settings.Tckimlik;
-            kolonEposta.Visible=settings.Eposta;
-            kolonŞehir.Visible=settings.Şehir;
-            kolonİlçe.Visible=settings.İlçe;
-            kolonAdres.Visible=settings.Adres;
-            kolonVergidairesi.Visible=settings.Vergidairesi;
-            kolonVergino.Visible=settings.Vergino;
-            kolonFirmaadı.Visible=settings.Firmaadı;
-            kolonFirmaadresi.Visible = settings.Firmaadresi;
-            kolonBeklenentutar.Visible = settings.Beklenentutar;           
-
-        }
-
-        private void gridcolumnsettings1()
-        {
-            MainGrid1 settings = new MainGrid1();
-            kolon1Id.Visible = settings.Id;
-            kolon1Joborder.Visible = settings.Joborder;
-            kolon1Tür.Visible = settings.Tür;
-            kolon1Türdetay.Visible = settings.Türdetay;
-            kolon1Kayıtdetay.Visible = settings.Kayıtdetay;
-            kolon1Kayıtdetay1.Visible = settings.Kayıtdetay1;
-            kolon1Kayıtdetay2.Visible = settings.Kayıtdetay2;
-            kolon1İsim.Visible = settings.İsim;
-            kolon1Kayıttarihi.Visible = settings.Kayıttarihi;
-            kolon1Randevutarih.Visible = settings.Randevutarihi;
-            kolon1Satıselemanı.Visible = settings.Satıselemanı;
-            kolon1Ürün.Visible = settings.Ürün;
-            kolon1Ürün2.Visible = settings.Ürün2;
-            kolon1Miktar.Visible = settings.Miktar;
-            kolon1Birim.Visible = settings.Birim;
-            kolon1Ücret.Visible = settings.Ücret;
-            kolon1Karaktersayı.Visible = settings.Karaktersayı;
-            kolon1Satırsayı.Visible = settings.Satırsayı;
-            kolon1Kelimesayı.Visible = settings.Kelimesayı;
-            kolon1Tavsiyeedilentutar.Visible = settings.Tavsiyeedilentutar;
-            kolon1Önerilenbirim.Visible = settings.Önerilenbirim;
-            kolon1Önerilentutar.Visible = settings.Önerilentutar;
-            kolon1Kdvoran.Visible = settings.Kdvoran;
-            kolon1Metod.Visible = settings.Metod;
-            kolon1Ödemeyöntemi.Visible = settings.Ödemeyöntemi;
-            kolon1Durum.Visible = settings.Durum;
-            kolon1Acıklama.Visible = settings.Acıklama;
-            kolon1Telefon.Visible = settings.Telefon;
-            kolon1Tckimlik.Visible = settings.Tckimlik;
-            kolon1Eposta.Visible = settings.Eposta;
-            kolon1Şehir.Visible = settings.Şehir;
-            kolon1İlçe.Visible = settings.İlçe;
-            kolon1Adres.Visible = settings.Adres;
-            kolon1Vergidairesi.Visible = settings.Vergidairesi;
-            kolon1Vergino.Visible = settings.Vergino;
-            kolon1Firmaadı.Visible = settings.Firmaadı;
-            kolon1Firmaadresi.Visible = settings.Firmaadresi;
-            kolon1Beklenentutar.Visible = settings.Beklenentutar;
-
-        }
-
-        private void gridcolumnsettings2()
-        {
-            MainGrid2 settings = new MainGrid2();
-            kolon2Id.Visible = settings.Id;
-            kolon2Joborder.Visible = settings.Joborder;
-            kolon2Tür.Visible = settings.Tür;
-            kolon2Türdetay.Visible = settings.Türdetay;
-            kolon2Kayıtdetay.Visible = settings.Kayıtdetay;
-            kolon2Kayıtdetay1.Visible = settings.Kayıtdetay1;
-            kolon2Kayıtdetay2.Visible = settings.Kayıtdetay2;
-            kolon2İsim.Visible = settings.İsim;
-            kolon2Kayıttarihi.Visible = settings.Kayıttarihi;
-            kolon2Randevutarih.Visible = settings.Randevutarihi;
-            kolon2Satıselemanı.Visible = settings.Satıselemanı;
-            kolon2Ürün.Visible = settings.Ürün;
-            kolon2Ürün2.Visible = settings.Ürün2;
-            kolon2Miktar.Visible = settings.Miktar;
-            kolon2Birim.Visible = settings.Birim;
-            kolon2Ücret.Visible = settings.Ücret;
-            kolon2Karaktersayı.Visible = settings.Karaktersayı;
-            kolon2Satırsayı.Visible = settings.Satırsayı;
-            kolon2Kelimesayı.Visible = settings.Kelimesayı;
-            kolon2Tavsiyeedilentutar.Visible = settings.Tavsiyeedilentutar;
-            kolon2Önerilenbirim.Visible = settings.Önerilenbirim;
-            kolon2Önerilentutar.Visible = settings.Önerilentutar;
-            kolon2Kdvoran.Visible = settings.Kdvoran;
-            kolon2Metod.Visible = settings.Metod;
-            kolon2Ödemeyöntemi.Visible = settings.Ödemeyöntemi;
-            kolon2Durum.Visible = settings.Durum;
-            kolon2Acıklama.Visible = settings.Acıklama;
-            kolon2Telefon.Visible = settings.Telefon;
-            kolon2Tckimlik.Visible = settings.Tckimlik;
-            kolon2Eposta.Visible = settings.Eposta;
-            kolon2Şehir.Visible = settings.Şehir;
-            kolon2İlçe.Visible = settings.İlçe;
-            kolon2Adres.Visible = settings.Adres;
-            kolon2Vergidairesi.Visible = settings.Vergidairesi;
-            kolon2Vergino.Visible = settings.Vergino;
-            kolon2Firmaadı.Visible = settings.Firmaadı;
-            kolon2Firmaadresi.Visible = settings.Firmaadresi;
-            kolon2Beklenentutar.Visible = settings.Beklenentutar;
-
-        }
+        #region Utils
 
         private void Özelfirmasecim_SelectionChanged(object sender, TabControlSelectionChangedEventArgs e)
         {
@@ -1510,23 +821,34 @@ namespace StarNote.View
             pagestatus = Convert.ToInt16(item.SelectedIndex);
         }
 
-
-
-        #endregion
-
-        private bool save()
+        private bool savetemplate(string templatename)
         {
             bool isok = false;
             try
             {
-                foreach (GridColumn column in grdmain.Columns)
-                    column.AddHandler(DXSerializer.AllowPropertyEvent, new AllowPropertyEventHandler(column_AllowProperty));
-                
               
-                grdmain.SaveLayoutToXml(System.Environment.CurrentDirectory + "\\grdmain1.xml");
+                if (templatename=="0")
+                {
+                    foreach (GridColumn column in grdmain.Columns)
+                        column.AddHandler(DXSerializer.AllowPropertyEvent, new AllowPropertyEventHandler(column_AllowProperty));
+                    grdmain.SaveLayoutToXml("C:\\StarNote\\Templates\\grddava.xml");
+                }
+                else if (templatename == "1")
+                {
+                    foreach (GridColumn column in grdmain1.Columns)
+                        column.AddHandler(DXSerializer.AllowPropertyEvent, new AllowPropertyEventHandler(column_AllowProperty));
+                    grdmain1.SaveLayoutToXml("C:\\StarNote\\Templates\\grdözel.xml");
+                }
+                else if (templatename == "2")
+                {
+                    foreach (GridColumn column in grdmain2.Columns)
+                        column.AddHandler(DXSerializer.AllowPropertyEvent, new AllowPropertyEventHandler(column_AllowProperty));
+                    grdmain2.SaveLayoutToXml("C:\\StarNote\\Templates\\grdfirma.xml");
+                }
+               
                 LogVM.displaypopup("INFO", "Ayarlar Kayıt Edildi");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 LogVM.displaypopup("ERROR", "Hatalı Kayıt");
 
@@ -1534,20 +856,216 @@ namespace StarNote.View
             return isok;
         }
 
-        void column_AllowProperty(object sender, AllowPropertyEventArgs e)
+        private void column_AllowProperty(object sender, AllowPropertyEventArgs e)
         {
             e.Allow = e.DependencyProperty == GridColumn.ActualWidthProperty ||
                       e.DependencyProperty == GridColumn.FieldNameProperty ||
                       e.DependencyProperty == GridColumn.VisibleProperty ||
-                      e.DependencyProperty== GridColumn.AllowBestFitProperty||
-                      e.DependencyProperty == GridColumn.AllowGroupingProperty;
+                      e.DependencyProperty == GridColumn.AllowBestFitProperty ||
+                      e.DependencyProperty == GridColumn.VisibleIndexProperty ||
+                      e.DependencyProperty == GridColumn.ActualAdditionalRowDataWidthProperty ||
+                      e.DependencyProperty == GridColumn.AllowGroupingProperty ||
+                      e.DependencyProperty == GridColumn.FixedWidthProperty ||
+                      e.DependencyProperty == GridColumn.IsSmartProperty ||
+                      e.DependencyProperty == GridColumnBase.HeaderProperty||
+                      e.DependencyProperty == GridColumn.BindingGroupProperty                     
+                      ;
+
         }
 
         private void Btnlayoutsave_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            save();
+        {           
+            DevExpress.Xpf.Bars.BarButtonItem btn = sender as DevExpress.Xpf.Bars.BarButtonItem;
+            savetemplate(btn.Tag.ToString());           
         }
+
+        private void Klasorname_EditValueChanged(object sender, EditValueChangedEventArgs e)
+        {
+            ComboBoxEdit txt = sender as ComboBoxEdit;
+            ViewModel.Klasöradıtxt = txt.Text;
+        }
+
+        #endregion
+
+        #region hesaplama
+
+        private void Hesaplama_EditValueChanged(object sender, EditValueChangedEventArgs e)
+        {
+            try
+            {
+                if (cancalc)
+                {
+                    TextEdit txt = sender as TextEdit;
+                    if (txt.Tag != null)
+                    {
+                        if (txt.NullText=="Kelime Sayısı")                        
+                            ViewModel.Currentdata.Joborder.Find(u => u.Id == (int)txt.Tag).Kelimesayı = Convert.ToInt16(e.NewValue);
+                        if (txt.NullText == "Satır Sayısı")
+                            ViewModel.Currentdata.Joborder.Find(u => u.Id == (int)txt.Tag).Satırsayı = Convert.ToInt16(e.NewValue);
+                        if (txt.NullText == "Karakter Sayısı")
+                            ViewModel.Currentdata.Joborder.Find(u => u.Id == (int)txt.Tag).Karaktersayı = Convert.ToInt16(e.NewValue);
+                        ViewModel.sayfahesaplama((int)txt.Tag);
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                LogVM.displaypopup("ERROR", "Hesaplama hatası");
+            }
+
+        }
+
+        private void Sayfasayısı_EditValueChanged(object sender, EditValueChangedEventArgs e)
+        {
+            try
+            {
+                if (cancalc)
+                {
+                    TextEdit curretval = sender as TextEdit;
+                    int output;
+                    if (int.TryParse(e.NewValue.ToString(), out output))
+                    {
+                        ViewModel.Currentdata.Joborder.Find(u => u.Id == (int)curretval.Tag).Miktar = Convert.ToInt16(e.NewValue);
+                        if (pagestatus==0)
+                        {
+                            ViewModel.ürünfiyathesaplama((int)curretval.Tag,true);
+                        }
+                        else
+                        {
+                            ViewModel.ürünfiyathesaplama((int)curretval.Tag);
+                        }
+                        
+
+                    }
+                }
+               
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+        }
+
+        private void Hedefdilcmb_EditValueChanged(object sender, EditValueChangedEventArgs e)
+        {
+            try
+            {
+                ComboBoxEdit curretval = sender as ComboBoxEdit;
+                ViewModel.Currentdata.Joborder.Find(u => u.Id == (int)curretval.Tag).Ürün = e.NewValue.ToString();
+                ViewModel.ürünfiyathesaplama((int)curretval.Tag);
+                
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void Anasiparişdurum_EditValueChanged(object sender, EditValueChangedEventArgs e)
+        {
+            if (RefreshViews.pagecount == 30 || RefreshViews.pagecount==29)
+                return;
+            if (e.NewValue == null)
+                return;
+            try
+            {
+                if (pagestatus!=3)
+                {
+                    if (e.NewValue.ToString() == "TAMAMLANDI")
+                    {
+                        if (!ViewModel.anasiparişdurumuhesaplama())
+                        {
+                            ViewModel.Currentdata.Costumerorder.Durum = e.OldValue.ToString();
+                            LogVM.displaypopup("ERROR", "Sipariş tamamlanamaz, açık alt işler var");
+                        }
+                    }
+                }
+               
+            }
+            catch (Exception ex)
+            {
+
+              
+            }
+         
+        }
+
+        private void Subprice_EditValueChanged(object sender, EditValueChangedEventArgs e)
+        {
+            if (cancalc)
+            {
+                TextEdit txt = sender as TextEdit;
+                if (txt.Text!="")
+                {
+                    ViewModel.getmainprice();
+                    if (pagestatus == 3 || pagestatus == 4)
+                    {
+                        ViewModel.Currentdata.Costumerorder.Ücret = ViewModel.Currentdata.Costumerorder.Beklenentutar;
+                    }
+                }
+               
+               
+            }
+           
+        }
+
+        private void Cmbfirma_SelectedIndexChanged(object sender, RoutedEventArgs e)
+        {
+            ComboBoxEdit cmb = sender as ComboBoxEdit;
+            ViewModel.Getselectedcompany(cmb.Text);
+        }
+
+        private void Cmbisimsoyisim_SelectedIndexChanged(object sender, RoutedEventArgs e)
+        {
+            ComboBoxEdit cmb = sender as ComboBoxEdit;
+            ViewModel.Getselectedcostumer(cmb.Text);
+        }
+
+        #endregion
+
+        #region Defines
+
+        private List<string> ürün2sourcelist;
+        public List<string> Ürün2sourcelist
+        {
+            get { return ürün2sourcelist; }
+            set { ürün2sourcelist = value; }
+        }
+
+        private List<string> ürün2sourcelistall;
+        public List<string> Ürün2sourcelistall
+        {
+            get { return ürün2sourcelistall; }
+            set { ürün2sourcelistall = value; }
+        }
+        
+        private List<string> durumsourcelist;
+        public List<string> Durumsourcelist
+        {
+            get { return durumsourcelist; }
+            set { durumsourcelist = value; }
+        }
+        
+        private List<string> birimsourcelist;
+        public List<string> Birimsourcelist
+        {
+            get { return birimsourcelist; }
+            set { birimsourcelist = value;  }
+        }
+        
+        private List<string> ürünsourcelist;
+        public List<string> Ürünsourcelist
+        {
+            get { return ürünsourcelist; }
+            set { ürünsourcelist = value;  }
+        }
+
+        #endregion
     }
+
 }
 
 

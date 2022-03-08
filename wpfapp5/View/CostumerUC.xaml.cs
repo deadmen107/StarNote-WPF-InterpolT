@@ -49,42 +49,14 @@ namespace StarNote.View
 
         private void Btnpdf_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            if (UserUtils.Authority.Contains(UserUtils.Firma_yazdırma))
+            if (UserUtils.Authority.Contains(UserUtils.Müşteri_yazdırma))
             {
-                try
-                {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Müşteriler Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.Müşteriler;
-                    if (printingRoute.Müşteriler == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine Yıllık Analiz raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)gridhedef.View) { Landscape = true });
-                            links[0].ExportToPdf(printingRoute.Müşteriler + "\\Müşteriler Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".pdf");
-                            LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Müşteriler Rapor alındı ", "");
-                            MessageBox.Show("Dosya Oluşturuldu", "PDF Rapor", MessageBoxButton.OK, MessageBoxImage.Information);
-                            //tablesatıs.ExportToPdf(printingRoute.MainGrid + "\\Genel Takip Raporu" + ".pdf");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Müşteriler Rapor hatası ", ex.Message);
-                }
+                PrintingRoute printingRoute = new PrintingRoute();
+                PrintUtils.Print(printingRoute.tanımlımüsteriter, "Tanımlı Müşteriler", PrintUtils.PDF, gridhedef);
             }
             else
             {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Firma_yazdırma, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Müşteri_yazdırma, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -92,36 +64,8 @@ namespace StarNote.View
         {
             if (UserUtils.Authority.Contains(UserUtils.Müşteri_yazdırma))
             {
-                string RaporAdı = "Müşteriler";
-                try
-                {
-
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", RaporAdı + "Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.Müşteriler;
-                    if (printingRoute.Müşteriler == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine " + RaporAdı + " Raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)gridhedef.View) { Landscape = true });
-                            links[0].ExportToXlsx(printingRoute.Firmalar + "\\" + RaporAdı + " Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".xlsx");
-                            MessageBox.Show("Dosya Oluşturuldu", "Excel Rapor", MessageBoxButton.OK, MessageBoxImage.Information);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", RaporAdı + "Rapor hatası ", ex.Message);
-                }
+                PrintingRoute printingRoute = new PrintingRoute();
+                PrintUtils.Print(printingRoute.tanımlımüsteriter, "Tanımlı Müşteriler", PrintUtils.Excel, gridhedef);
             }
             else
             {

@@ -1,0 +1,530 @@
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.csprojAssemblyReference.cache
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\MainWindow.g.cs
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\App.g.cs
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5_MarkupCompile.cache
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\wpfapp5.exe.config
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\wpfapp5.exe
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\wpfapp5.pdb
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Dashboard.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Dashboard.v18.1.Wpf.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Data.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.DataAccess.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Map.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Mvvm.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.PivotGrid.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Charts.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Core.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Dashboard.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Docking.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.DocumentViewer.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Grid.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Grid.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Layout.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.LayoutControl.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Map.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.PivotGrid.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Printing.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.PropertyGrid.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Ribbon.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.RichEdit.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.TreeMap.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Utils.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraReports.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraMap.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraCharts.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraTreeMap.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Win.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpo.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Office.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.TreeMap.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Charts.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Presets.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.CodeParser.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Images.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraEditors.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraLayout.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraBars.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraTreeList.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Dashboard.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Dashboard.v18.1.Wpf.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Data.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.DataAccess.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Map.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Mvvm.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.PivotGrid.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Printing.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.RichEdit.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Charts.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Core.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Dashboard.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Docking.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.DocumentViewer.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Grid.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Grid.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Layout.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.LayoutControl.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Map.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.PivotGrid.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Printing.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.PropertyGrid.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Ribbon.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.RichEdit.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.TreeMap.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Utils.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraReports.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraMap.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraCharts.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraTreeMap.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Win.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpo.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Office.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.TreeMap.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Presets.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraEditors.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraPrinting.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraLayout.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraBars.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraTreeList.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Dashboard.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Dashboard.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Dashboard.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Dashboard.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.DataAccess.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.DataAccess.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.DataAccess.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.DataAccess.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Map.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Map.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Map.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Map.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Charts.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Charts.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Charts.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Charts.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Core.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Core.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Core.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Core.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Docking.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Docking.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Docking.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Docking.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.DocumentViewer.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.DocumentViewer.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.DocumentViewer.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.DocumentViewer.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Grid.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Grid.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Grid.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Grid.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.LayoutControl.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.LayoutControl.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.LayoutControl.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.LayoutControl.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Printing.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Printing.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Printing.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Printing.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.PropertyGrid.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.PropertyGrid.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.PropertyGrid.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.PropertyGrid.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Ribbon.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Ribbon.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Ribbon.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Ribbon.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.RichEdit.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.RichEdit.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.RichEdit.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.RichEdit.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Utils.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Utils.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Utils.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Utils.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraReports.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraReports.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraReports.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraReports.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraCharts.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraCharts.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraCharts.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraCharts.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpo.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpo.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpo.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpo.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraGauges.v18.1.Presets.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraGauges.v18.1.Presets.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraGauges.v18.1.Presets.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraGauges.v18.1.Presets.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\MainWindow.baml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.g.resources
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.Properties.Resources.resources
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.csproj.GenerateResource.cache
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.exe.licenses
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.csproj.CoreCompileInputs.cache
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.csproj.CopyComplete
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.exe
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.pdb
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Controls.v18.1.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Controls.v18.1.xml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Controls.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Controls.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Controls.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Controls.v18.1.resources.dll
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\View\SatisUC.g.cs
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5_MarkupCompile.lref
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\View\SatisUC.baml
+C:\Users\mehmetyildiz\source\repos\wpfapp5\wpfapp5\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\wpfapp5.exe.config
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\wpfapp5.exe.manifest
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\wpfapp5.application
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\wpfapp5.exe
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\wpfapp5.pdb
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Charts.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Dashboard.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Dashboard.v18.1.Wpf.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Data.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.DataAccess.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Map.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Mvvm.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Office.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.PivotGrid.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.RichEdit.v18.1.Export.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Charts.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Controls.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Core.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Dashboard.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Docking.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.DocumentViewer.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Gauges.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Grid.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Grid.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Layout.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.LayoutControl.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Map.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.PivotGrid.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Printing.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.PropertyGrid.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Ribbon.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.RichEdit.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.TreeMap.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpo.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraCharts.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraReports.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\EntityFramework.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\Newtonsoft.Json.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Utils.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraMap.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraTreeMap.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Win.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.TreeMap.v18.1.Core.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Presets.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.CodeParser.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Images.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraEditors.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraLayout.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraBars.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraTreeList.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Dashboard.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Dashboard.v18.1.Wpf.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Data.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.DataAccess.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Map.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Mvvm.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Office.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.PivotGrid.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Printing.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.RichEdit.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Charts.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Controls.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Core.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Dashboard.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Docking.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.DocumentViewer.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Gauges.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Grid.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Grid.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Layout.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.LayoutControl.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Map.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.PivotGrid.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Printing.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.PropertyGrid.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Ribbon.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.RichEdit.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.TreeMap.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpo.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraCharts.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraReports.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\EntityFramework.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\Newtonsoft.Json.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Utils.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraMap.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraTreeMap.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Win.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.TreeMap.v18.1.Core.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraGauges.v18.1.Presets.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraEditors.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraPrinting.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraLayout.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraBars.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.XtraTreeList.v18.1.xml
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Dashboard.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Dashboard.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Dashboard.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Dashboard.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.DataAccess.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.DataAccess.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.DataAccess.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.DataAccess.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Map.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Map.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Map.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Map.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Office.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Office.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Office.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Office.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.PivotGrid.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.PivotGrid.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.PivotGrid.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.PivotGrid.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Printing.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Printing.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Printing.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Printing.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.RichEdit.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.RichEdit.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.RichEdit.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.RichEdit.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Sparkline.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Sparkline.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Sparkline.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Sparkline.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Charts.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Charts.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Charts.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Charts.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Controls.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Controls.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Controls.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Controls.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Core.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Core.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Core.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Core.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Docking.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Docking.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Docking.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Docking.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.DocumentViewer.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.DocumentViewer.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.DocumentViewer.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.DocumentViewer.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Gauges.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Gauges.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Gauges.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Gauges.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Grid.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Grid.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Grid.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Grid.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.LayoutControl.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.LayoutControl.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.LayoutControl.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.LayoutControl.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Printing.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Printing.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Printing.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Printing.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.PropertyGrid.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.PropertyGrid.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.PropertyGrid.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.PropertyGrid.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.Ribbon.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.Ribbon.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.Ribbon.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.Ribbon.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpf.RichEdit.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpf.RichEdit.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpf.RichEdit.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpf.RichEdit.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Xpo.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Xpo.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Xpo.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Xpo.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraCharts.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraCharts.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraCharts.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraCharts.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraGauges.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraGauges.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraGauges.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraGauges.v18.1.Core.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraReports.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraReports.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraReports.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraReports.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.Utils.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.Utils.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.Utils.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.Utils.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraGauges.v18.1.Presets.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraGauges.v18.1.Presets.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraGauges.v18.1.Presets.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraGauges.v18.1.Presets.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraEditors.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraEditors.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraEditors.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraEditors.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraPrinting.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraPrinting.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraPrinting.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraPrinting.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraLayout.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraLayout.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraLayout.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraLayout.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraBars.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraBars.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraBars.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraBars.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\de\DevExpress.XtraTreeList.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\es\DevExpress.XtraTreeList.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ja\DevExpress.XtraTreeList.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\ru\DevExpress.XtraTreeList.v18.1.resources.dll
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\LoadingScreen.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\MainWindow.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\AnalysisMontlyUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\AnalysisYearlyUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\DailyPurchaseUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\DailySalesUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\HedeflerUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\LoadingScreen.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\MainGridUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\MontlyPurchaseUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\MontlySalesUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\PrintingUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\SalesmanUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\StokUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\UsersUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\App.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5_MarkupCompile.cache
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5_MarkupCompile.lref
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\App.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\MainWindow.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\Resources\ButtonResources.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\AnalysisMontlyUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\AnalysisYearlyUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\DailyPurchaseUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\DailySalesUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\HedeflerUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\MainGridUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\MontlyPurchaseUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\MontlySalesUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\PrintingUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\SalesmanUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\StokUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\UsersUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.g.resources
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.Properties.Resources.resources
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.Utils.Report1.resources
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.csproj.GenerateResource.cache
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.exe.licenses
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.csproj.CoreCompileInputs.cache
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.exe.manifest
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.application
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.csproj.CopyComplete
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.exe
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.pdb
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\wpfapp5.csprojAssemblyReference.cache
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Themes.LightGray.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\bin\Debug\DevExpress.Xpf.Themes.Office2016White.v18.1.dll
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\SalesmanAdd.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\SalesmanAdd.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\TypeAddUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\TypeAddUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\LogUC.g.cs
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\View\LogUC.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\DXSplashScreen\SplashScreenView.baml
+E:\c# repos\wpfapp5\wpfapp5\obj\Debug\DXSplashScreen\SplashScreenView.g.cs

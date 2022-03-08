@@ -76,8 +76,8 @@ namespace StarNote.ViewModel
             set { birimsourcelist = value; RaisePropertyChanged("Birimsourcelist"); }
         }
 
-        private MainModel currentdata;
-        public MainModel Currentdata
+        private OrderModel currentdata;
+        public OrderModel Currentdata
         {
             get { return currentdata; }
             set { currentdata = value; RaisePropertyChanged("Currentdata"); }
@@ -98,12 +98,16 @@ namespace StarNote.ViewModel
 
         }
 
+        public void fillcurrentdata(int ID)
+        {
+            Currentdata = dailysalesDA.Getselectedrecord(ID);
+        }
+
         public void loaddata(string date)
         {
             try
             {
-                hedefler = new Hedefler();
-                Loadsources();
+                hedefler = new Hedefler();                
                 Dailysaleslistpurchase = new List<DailyAccountingModel>(dailysalesDA.dailypurchasefill(date));
                 List<GaugeModel> gaugelist = new List<GaugeModel>();
                 gaugelist = new List<GaugeModel>(dailysalesDA.dailygaugepurchasefill(date));
@@ -155,82 +159,7 @@ namespace StarNote.ViewModel
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Günlük Satın Alma Tablo doldurma Hatası", ex.Message);
             }       
         }
-
-        public bool Save()
-        {
-            bool isok = false;
-            try
-            {
-                currentdata.Acıklama = "";
-                currentdata.Adres = "";
-                currentdata.Durum = "TAMAMLANDI";
-                currentdata.Eposta = "";
-                currentdata.Firmaadresi = "";
-                currentdata.Joborder = "";
-                currentdata.Karaktersayı = 0;
-                currentdata.Kdvoran = "";
-                currentdata.Kelimesayı = 0;
-                currentdata.Kullanıcı = UserUtils.ActiveUser;
-                currentdata.Metod = "GIDER";
-                currentdata.Satırsayı = 0;
-                currentdata.Tavsiyeedilentutar = "";
-                currentdata.Tckimlik = "";
-                currentdata.Telefon = "";
-                currentdata.Tür = "";
-                currentdata.Vergidairesi = "";
-                currentdata.Vergino = "";
-                currentdata.Önerilenbirim = "";
-                currentdata.Önerilentutar = "";
-                currentdata.Ürün2 = "";
-                currentdata.İlçe = "";
-                currentdata.İsim = "";
-                currentdata.Şehir = "";
-                currentdata.Kayıttarihi = DateTime.Now.ToString();
-                currentdata.Kdvoran = "";
-                currentdata.Firmaadı = "";
-                isok = mainda.Addsoft(currentdata);
-                loaddata(DateTime.Now.ToShortDateString());
-                RefreshViews.Ürünsource = true;
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Stok Kaydetme Tamamlandı", "");
-            }
-            catch (Exception ex)
-            {
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Stok Kaydetme Hatası", ex.Message);
-            }
-            return isok;
-        }
-
-        public bool Update()
-        {
-            bool isok = false;
-            try
-            {
-                isok = mainda.Update(currentdata);
-                loaddata(DateTime.Now.ToShortDateString());
-                RefreshViews.Ürünsource = true;
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Stok Güncelleme Tamamlandı", "");
-            }
-            catch (Exception ex)
-            {
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Stok Güncelleme Hatası", ex.Message);
-            }
-            return isok;
-        }
-
-        public void Loadsources()
-        {
-            try
-            {              
-                Birimsourcelist = new List<string>(mainda.birimsource());
-                Salesmansourcelist = new List<string>(mainda.salesmansource());
-                Ödemesourcelist = new List<string>(mainda.ödemeyöntemsource());
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Stok Combobox Doldurma Tamamlandı", "");
-            }
-            catch (Exception ex)
-            {
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Stok Combobox Doldurma Hatası", ex.Message);
-            }
-        }
+        
         #endregion
     }
 }

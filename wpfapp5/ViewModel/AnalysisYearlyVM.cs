@@ -72,6 +72,13 @@ namespace StarNote.ViewModel
             get { return textpurchase; }
             set { textpurchase = value; RaisePropertyChanged("Textpurchase"); }
         }
+
+        private string textpotansial;
+        public string Textpotansial
+        {
+            get { return textpotansial; }
+            set { textpotansial = value; RaisePropertyChanged("Textpotansial"); }
+        }
         #endregion
         #region method
         public void loaddata(string date)
@@ -88,6 +95,7 @@ namespace StarNote.ViewModel
                 Textsales = sales + " TL";
                 Textpurchase = purchase + " TL";
                 Textnet = analysisYearlyDA.Fillyearlygaugenet(date) + " TL ";
+                Textpotansial = analysisYearlyDA.Fillyearlypotansial(date) + " TL";
                 double yüzdedegersales = Math.Round(((100 * Convert.ToDouble(sales, System.Globalization.CultureInfo.InvariantCulture)) / hedefler.YearlyAnalysisKAZANÇ), 0);
                 if (yüzdedegersales > 100.0)
                     Gaugesales = "100";

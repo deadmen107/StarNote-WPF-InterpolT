@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StarNoteEntities.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="partial_saleschart">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="RAN_DATE" Type="text" Nullable="false" />
+    <Property Name="PRICE" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="partial_salespie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="PAYMENT" Type="text" Nullable="false" />
+    <Property Name="COUNT" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_birimsource">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="birimsource" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_durumsource">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Durumsource" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_kdvsource">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KDVsource" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_lisance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="200" />
+    <Property Name="PRODUCTID" Type="varchar" MaxLength="10000" />
+    <Property Name="END_DATE" Type="varchar" MaxLength="1000" />
+    <Property Name="STATUS" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbl_mainview">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TYPE" Type="text" />
+    <Property Name="Name" Type="text" />
+    <Property Name="PHONE" Type="text" />
+    <Property Name="REG_DATE" Type="text" />
+    <Property Name="REG_HOUR" Type="text" />
+    <Property Name="PRODUCT" Type="text" />
+    <Property Name="PCS" Type="text" />
+    <Property Name="PCSTYPE" Type="text" />
+    <Property Name="PRICE" Type="text" />
+    <Property Name="PAYMENT" Type="text" />
+    <Property Name="RAN_DATE" Type="text" />
+    <Property Name="RAN_HOUR" Type="text" />
+    <Property Name="STATE" Type="text" />
+    <Property Name="INFO" Type="text" />
+    <Property Name="TAX_NO" Type="text" />
+    <Property Name="TAX_ADRESS" Type="text" />
+    <Property Name="TC" Type="text" />
+    <Property Name="ADRESS" Type="text" />
+    <Property Name="CITY" Type="text" />
+    <Property Name="TOWN" Type="text" />
+    <Property Name="EMAIL" Type="text" />
+    <Property Name="SALES" Type="text" />
+    <Property Name="SALESMAN" Type="text" />
+    <Property Name="BUDGET" Type="text" />
+    <Property Name="COMPANY_NAME" Type="text" />
+    <Property Name="COMPANY_ADRESS" Type="text" />
+    <Property Name="RememberID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.u0001492_stardb4.tbl_methodsource' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_methodsource">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Methodsource" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Methodsource" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_note">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NoteID" Type="int" Nullable="false" />
+    <Property Name="NoteName" Type="text" Nullable="false" />
+    <Property Name="Notetxt" Type="text" Nullable="false" />
+    <Property Name="RegisterDate" Type="text" Nullable="false" />
+    <Property Name="RegisterHour" Type="text" Nullable="false" />
+    <Property Name="Rememberstatus" Type="text" Nullable="false" />
+    <Property Name="RememberDate" Type="text" Nullable="false" />
+    <Property Name="RememberHour" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ödemeyöntemsource">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ödemeyöntemsource" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_remember">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="mainID" Type="int" Nullable="false" />
+    <Property Name="RAN_DATE" Type="text" />
+    <Property Name="RAN_HOUR" Type="text" />
+    <Property Name="STATE" Type="text" />
+  </EntityType>
+  <EntityType Name="tbl_salesman">
+    <Key>
+      <PropertyRef Name="PersonelID" />
+    </Key>
+    <Property Name="PersonelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_stok">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STOKKOD" Type="text" />
+    <Property Name="STOKNAME" Type="text" />
+    <Property Name="STOKUNIT" Type="text" />
+    <Property Name="STOKPCS" Type="int" />
+    <Property Name="STOKINCOMEPRICE" Type="double" />
+    <Property Name="STOKOUTCOMEPRICE" Type="double" />
+    <Property Name="STOKKDV" Type="text" />
+    <Property Name="STOKDISCOUNT" Type="double" />
+  </EntityType>
+  <EntityContainer Name="StarNoteEntitiesStoreContainer">
+    <EntitySet Name="partial_saleschart" EntityType="Self.partial_saleschart" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="partial_salespie" EntityType="Self.partial_salespie" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_birimsource" EntityType="Self.tbl_birimsource" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_durumsource" EntityType="Self.tbl_durumsource" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_kdvsource" EntityType="Self.tbl_kdvsource" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_lisance" EntityType="Self.tbl_lisance" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_mainview" EntityType="Self.tbl_mainview" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_note" EntityType="Self.tbl_note" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_ödemeyöntemsource" EntityType="Self.tbl_ödemeyöntemsource" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_remember" EntityType="Self.tbl_remember" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_salesman" EntityType="Self.tbl_salesman" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_stok" EntityType="Self.tbl_stok" Schema="u0001492_stardb4" store:Type="Tables" />
+    <EntitySet Name="tbl_methodsource" EntityType="Self.tbl_methodsource" store:Type="Tables" store:Schema="u0001492_stardb4">
+      <DefiningQuery>SELECT
+`tbl_methodsource`.`ID`, 
+`tbl_methodsource`.`Methodsource`
+FROM `tbl_methodsource` AS `tbl_methodsource`</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

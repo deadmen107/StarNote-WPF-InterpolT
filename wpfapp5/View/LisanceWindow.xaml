@@ -14,7 +14,7 @@
         xmlns:dxcn="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
          Margin="0" Padding="0"    
-        Background="#c8d6e5"   Icon="/Content/Starnote.png" >
+        Background="#FE9590AD"   Icon="/Content/Starnote.png" >
 
 
     <Window.Resources>
@@ -69,7 +69,7 @@
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                    
-                        <dxg:GridColumn Header="Ürün Anahtarı"   Binding="{Binding Path=Sonaermetarihi}"   FieldName="HMA"  >
+                        <dxg:GridColumn Header="Sona Erme Tarihi"   Binding="{Binding Path=Sonaermetarihi}"   FieldName="HMA"  >
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings HorizontalContentAlignment="Left"/>
                             </dxg:GridColumn.EditSettings>
@@ -91,12 +91,12 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <dx:SimpleButton Click="Btnlisansolustur_Click" x:Name="btnlisansolustur" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Left" Margin="10,0,0,0" >Aktivasyon oluştur</dx:SimpleButton>
+                        <dx:SimpleButton Style="{StaticResource FlatButtonStyle}" Click="Btnlisansolustur_Click" x:Name="btnlisansolustur" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Left" Margin="10,0,0,0" >Aktivasyon oluştur</dx:SimpleButton>
 
-                        <dx:SimpleButton Click="Btnmail_Click" x:Name="btnmail" Grid.Column="2" Height="25" Width="160" HorizontalAlignment="Left" Margin="10,0,0,0" >Aktivasyon Maili Gönder</dx:SimpleButton>
+                        <dx:SimpleButton Style="{StaticResource FlatButtonStyle}" Click="Btnmail_Click" x:Name="btnmail" Grid.Column="2" Height="25" Width="160" HorizontalAlignment="Left" Margin="10,0,0,0" >Aktivasyon Maili Gönder</dx:SimpleButton>
 
-                        <dx:SimpleButton x:Name="buttongeridon"  Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Right" Height="25" Width="120" >Giriş Sayfasına Dön</dx:SimpleButton>
-                        <dx:SimpleButton x:Name="Uygulamayı_Kapat" Click="Uygulamayı_Kapat_Click"  Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Right" Height="25" Width="120" >Uygulamayı Kapat</dx:SimpleButton>
+                        <dx:SimpleButton Style="{StaticResource FlatButtonStyle}" x:Name="buttongeridon"  Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Right" Height="25" Width="120" >Giriş Sayfasına Dön</dx:SimpleButton>
+                        <dx:SimpleButton Style="{StaticResource FlatButtonStyle}" x:Name="Uygulamayı_Kapat" Click="Uygulamayı_Kapat_Click"  Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Right" Height="25" Width="120" >Uygulamayı Kapat</dx:SimpleButton>
 
                     </Grid>
                 </Border>

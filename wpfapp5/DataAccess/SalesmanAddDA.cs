@@ -28,7 +28,7 @@ namespace StarNote.DataAccess
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
         }
 
-        public List<SalesmanAddModel> GetAll()
+        public List<ParameterModel> GetAll()
         {
             //    tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
             client = new HttpClient();
@@ -36,14 +36,14 @@ namespace StarNote.DataAccess
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + WebapiUtils.access_token);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = null;
-            List<SalesmanAddModel> objMainList = new List<SalesmanAddModel>();
+            List<ParameterModel> objMainList = new List<ParameterModel>();
             try
             {
                 response = client.GetAsync("GetSalesmanList").Result;
                 var result = JArray.Parse(response.Content.ReadAsStringAsync().Result);
                 foreach (var item in result)
                 {
-                    objMainList.Add(item.ToObject<SalesmanAddModel>());
+                    objMainList.Add(item.ToObject<ParameterModel>());
                 }
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Satış Görevli Tablo Api verisi alındı", "");
             }
@@ -55,7 +55,7 @@ namespace StarNote.DataAccess
             return objMainList;
         }
 
-        public bool Update(SalesmanAddModel objsalesman)
+        public bool Update(ParameterModel objsalesman)
         {
             //   tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
             bool isUpdated = false;
@@ -89,7 +89,7 @@ namespace StarNote.DataAccess
         }
 
 
-        public bool Add(SalesmanAddModel objnewmain)
+        public bool Add(ParameterModel objnewmain)
         {
             //   tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
             bool isadded = false;
@@ -120,7 +120,7 @@ namespace StarNote.DataAccess
             return isadded;
         }
 
-        public bool Delete(SalesmanAddModel objsalesman)
+        public bool Delete(ParameterModel objsalesman)
         {
             //  tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
             bool isdeleted = false;

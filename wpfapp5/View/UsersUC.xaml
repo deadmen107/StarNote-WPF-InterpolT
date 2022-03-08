@@ -11,7 +11,7 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"            
              mc:Ignorable="d" Margin="0" Padding="0"    
-             Background="#c8d6e5"  GotFocus="UserControl_GotFocus" LostFocus="UserControl_LostFocus"
+             Background="#FE9590AD"  GotFocus="UserControl_GotFocus" LostFocus="UserControl_LostFocus"
              >
 
     <UserControl.Resources>
@@ -37,8 +37,8 @@
                         <ColumnDefinition Width="140"/>
                     </Grid.ColumnDefinitions>
                     <Label Background="Transparent" BorderBrush="Transparent"   VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman">Kullanıcılar</Label>
-                    <Button HorizontalAlignment="Right" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt" Height="25" Width="120"  Click="Buttonyenikayıt_Click">Yeni Kayıt</Button>
-                    <Button  Content="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Column="2"  Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
+                    <Button Style="{StaticResource btnyenikayıt}"  HorizontalAlignment="Right" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt" Height="25" Width="120"  Click="Buttonyenikayıt_Click"></Button>
+                    <Button Style="{StaticResource btnsettings}"  x:Name="buttonoutput" Grid.Column="2"  Width="140" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
                         <dxb:BarManager.DXContextMenu>
                             <dxb:PopupMenu>
                                 <dxb:PopupMenu.Items>
@@ -81,7 +81,7 @@
         </dx:DXTabItem>
         <dx:DXTabItem   Header="güncelle" x:Name="tabgüncelleme">
 
-            <ScrollViewer Margin="-12" Background="#c8d6e5"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
+            <ScrollViewer Margin="-12" Background="#FE9590AD"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
                 <ScrollViewer.Resources>
                     <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                         <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
@@ -524,18 +524,9 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <dx:SimpleButton x:Name="btnkayıt" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btnkayıt_Click">Kaydet</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Btngüncelle_Click">Güncelle</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Content="Vazgeç" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" >
-                                    <dx:SimpleButton.ToolTip>
-                                        <StackPanel>
-                                            <TextBlock>
-                                Genel Takip Ekranını Açar !
-                                            </TextBlock>
-                                            <Border BorderBrush="DodgerBlue" BorderThickness="0,1,0,0" Margin="0,8" />
-                                        </StackPanel>
-                                    </dx:SimpleButton.ToolTip>
-                                </dx:SimpleButton>
+                                <dx:SimpleButton  Style="{StaticResource btnsave}"   x:Name="btnkayıt" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btnkayıt_Click"></dx:SimpleButton>
+                                <dx:SimpleButton  Style="{StaticResource btnupdate}"  x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Btngüncelle_Click"></dx:SimpleButton>
+                                <dx:SimpleButton  Style="{StaticResource btngoback}"  x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0"  Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" ></dx:SimpleButton>
 
                             </Grid>
                         </Border>

@@ -13,7 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using StarNote.Model;
 using StarNote.Service;
+using StarNote.Utils;
 using StarNote.ViewModel;
 namespace StarNote.View
 {
@@ -56,6 +58,17 @@ namespace StarNote.View
 
             if (parent != this) userControlHasFocus = false;
         }
-      
+
+        private void Btnrefresh_Click(object sender, RoutedEventArgs e)
+        {
+            LogVM.Addlog("IJOBS", System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "JOB BAŞLADI", "MANUEL");
+            TokenModel tk = new TokenModel();
+            tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
+            WebapiUtils.access_token = tk.access_token;
+            WebapiUtils.expires_in = tk.expires_in;
+            WebapiUtils.token_type = tk.token_type;
+            LogVM.Addlog("IJOBS", System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "JOB TAMAMLANDI", "MANUEL");
+        }
+
     }
 }

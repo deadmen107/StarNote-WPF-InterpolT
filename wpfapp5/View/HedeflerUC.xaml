@@ -67,7 +67,7 @@
         </dx:DXTabItem>
         <dx:DXTabItem  Header="güncelle" x:Name="tabgüncelleme">
     
-            <ScrollViewer Margin="-12" Background="#c8d6e5"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
+            <ScrollViewer Margin="-12" Background="#FE9590AD"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
                 <ScrollViewer.Resources>
                     <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                         <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
@@ -144,8 +144,8 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <dx:SimpleButton x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Left" Margin="10,0,0,0"  Click="Btngüncelle_Click">Güncelle</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="2" HorizontalAlignment="Right" Height="25" Width="120" >Vazgeç</dx:SimpleButton>
+                                <dx:SimpleButton Style="{StaticResource btnupdate}"  x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="00,0,10,0"  Click="Btngüncelle_Click"></dx:SimpleButton>
+                                <dx:SimpleButton Style="{StaticResource btngoback}"  x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" ></dx:SimpleButton>
 
                             </Grid>
                         </Border>

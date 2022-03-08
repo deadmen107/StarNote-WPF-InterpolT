@@ -62,7 +62,34 @@ namespace StarNote.View
            
         }
 
-       
+        public bool mailsend(string username, string pw, string client, string subject, string msg)
+        {
+            bool issended = false;
+            try
+            {
+                SmtpClient sc = new SmtpClient();
+                sc.Port = 587;
+                sc.Host = "smtp.gmail.com";
+                sc.EnableSsl = true;
+                string konu = subject;
+                string icerik = msg;
+                sc.Credentials = new NetworkCredential("starnoterapor@gmail.com", "123.konZek");
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("starnoterapor@gmail.com", "Star Note");
+                mail.To.Add(client);
+                mail.Subject = konu;
+                mail.IsBodyHtml = true;
+                mail.Body = icerik;
+                sc.Send(mail);
+                issended = true;
+            }
+            catch (Exception)
+            {
+
+
+            }
+            return issended;
+        }
 
         private void Btnmail_Click(object sender, RoutedEventArgs e)
         {
@@ -70,15 +97,17 @@ namespace StarNote.View
             {
                 try
                 {
+                    //mailsend("yildiz655@gmail.com", "123.konZek", "", "lisans test", "");
+
                     SmtpClient sc = new SmtpClient();
                     sc.Port = 587;
                     sc.Host = "smtp.gmail.com";
                     sc.EnableSsl = true;
-                    string konu = System.Environment.MachineName;
+                    string konu = System.Environment.MachineName.ToString()+" Aktivasyon dosyası";
                     string icerik = "Lisans Aktivasyon Dosyası ekte yer almaktadır.";
                     sc.Credentials = new NetworkCredential("starnoterapor@gmail.com", "123.konZek");
                     MailMessage mail = new MailMessage();
-                    mail.From = new MailAddress("starnoterapor@gmail.com", "StarNote");
+                    mail.From = new MailAddress("starnoterapor@gmail.com", "Star Note");
                     mail.To.Add("yildiz655@gmail.com");
                     mail.Subject = konu;
                     string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\ActivationRequest.txt";
@@ -88,6 +117,8 @@ namespace StarNote.View
                     mail.Body = icerik;
                     sc.Send(mail);
                     MessageBox.Show("Mail iletildi");
+
+
                 }
                 catch (Exception ex)
                 {

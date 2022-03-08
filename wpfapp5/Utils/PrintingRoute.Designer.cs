@@ -12,7 +12,7 @@ namespace StarNote.Utils {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class PrintingRoute : global::System.Configuration.ApplicationSettingsBase {
         
         private static PrintingRoute defaultInstance = ((PrintingRoute)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new PrintingRoute())));
@@ -26,192 +26,276 @@ namespace StarNote.Utils {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string MainGrid {
+        public string Adliye {
             get {
-                return ((string)(this["MainGrid"]));
+                return ((string)(this["Adliye"]));
             }
             set {
-                this["MainGrid"] = value;
+                this["Adliye"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DailySales {
+        public string Özel {
             get {
-                return ((string)(this["DailySales"]));
+                return ((string)(this["Özel"]));
             }
             set {
-                this["DailySales"] = value;
+                this["Özel"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DailyPurchase {
+        public string Firma {
             get {
-                return ((string)(this["DailyPurchase"]));
+                return ((string)(this["Firma"]));
             }
             set {
-                this["DailyPurchase"] = value;
+                this["Firma"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string MontlySales {
+        public string Harcama {
             get {
-                return ((string)(this["MontlySales"]));
+                return ((string)(this["Harcama"]));
             }
             set {
-                this["MontlySales"] = value;
+                this["Harcama"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string MontlyPurchase {
+        public string Dosyalar {
             get {
-                return ((string)(this["MontlyPurchase"]));
+                return ((string)(this["Dosyalar"]));
             }
             set {
-                this["MontlyPurchase"] = value;
+                this["Dosyalar"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Stok {
+        public string Diller {
             get {
-                return ((string)(this["Stok"]));
+                return ((string)(this["Diller"]));
             }
             set {
-                this["Stok"] = value;
+                this["Diller"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AnalysisMontly {
+        public string Hatırlatmalar {
             get {
-                return ((string)(this["AnalysisMontly"]));
+                return ((string)(this["Hatırlatmalar"]));
             }
             set {
-                this["AnalysisMontly"] = value;
+                this["Hatırlatmalar"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AnalysisYearly {
+        public string Eskihatırlatmalar {
             get {
-                return ((string)(this["AnalysisYearly"]));
+                return ((string)(this["Eskihatırlatmalar"]));
             }
             set {
-                this["AnalysisYearly"] = value;
+                this["Eskihatırlatmalar"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AnalysisSalesman {
+        public string günlükgider {
             get {
-                return ((string)(this["AnalysisSalesman"]));
+                return ((string)(this["günlükgider"]));
             }
             set {
-                this["AnalysisSalesman"] = value;
+                this["günlükgider"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AnalysisPotansial {
+        public string günlükgelir {
             get {
-                return ((string)(this["AnalysisPotansial"]));
+                return ((string)(this["günlükgelir"]));
             }
             set {
-                this["AnalysisPotansial"] = value;
+                this["günlükgelir"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Tür {
+        public string aylıkgider {
             get {
-                return ((string)(this["Tür"]));
+                return ((string)(this["aylıkgider"]));
             }
             set {
-                this["Tür"] = value;
+                this["aylıkgider"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Satış_Görevli {
+        public string aylıkgelir {
             get {
-                return ((string)(this["Satış_Görevli"]));
+                return ((string)(this["aylıkgelir"]));
             }
             set {
-                this["Satış_Görevli"] = value;
+                this["aylıkgelir"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Kullanıcılar {
+        public string aylıkişanaliz {
             get {
-                return ((string)(this["Kullanıcılar"]));
+                return ((string)(this["aylıkişanaliz"]));
             }
             set {
-                this["Kullanıcılar"] = value;
+                this["aylıkişanaliz"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Firmalar {
+        public string yıllıkizanaliz {
             get {
-                return ((string)(this["Firmalar"]));
+                return ((string)(this["yıllıkizanaliz"]));
             }
             set {
-                this["Firmalar"] = value;
+                this["yıllıkizanaliz"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Müşteriler {
+        public string tercümananaliz {
             get {
-                return ((string)(this["Müşteriler"]));
+                return ((string)(this["tercümananaliz"]));
             }
             set {
-                this["Müşteriler"] = value;
+                this["tercümananaliz"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Dosya_Takip {
+        public string tercümanlar {
             get {
-                return ((string)(this["Dosya_Takip"]));
+                return ((string)(this["tercümanlar"]));
             }
             set {
-                this["Dosya_Takip"] = value;
+                this["tercümanlar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string adliyeler {
+            get {
+                return ((string)(this["adliyeler"]));
+            }
+            set {
+                this["adliyeler"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string mahkemeler {
+            get {
+                return ((string)(this["mahkemeler"]));
+            }
+            set {
+                this["mahkemeler"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string tanımlısirketler {
+            get {
+                return ((string)(this["tanımlısirketler"]));
+            }
+            set {
+                this["tanımlısirketler"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string tanımlımüsteriter {
+            get {
+                return ((string)(this["tanımlımüsteriter"]));
+            }
+            set {
+                this["tanımlımüsteriter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string belgeler {
+            get {
+                return ((string)(this["belgeler"]));
+            }
+            set {
+                this["belgeler"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string kullanıcılar {
+            get {
+                return ((string)(this["kullanıcılar"]));
+            }
+            set {
+                this["kullanıcılar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Filemanagement {
+            get {
+                return ((string)(this["Filemanagement"]));
+            }
+            set {
+                this["Filemanagement"] = value;
             }
         }
     }

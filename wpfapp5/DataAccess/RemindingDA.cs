@@ -137,19 +137,19 @@ namespace StarNote.DataAccess
             return list;
         }
 
-        public MainModel Getselectedmainmodel(int ID)
+        public OrderModel Getselectedmainmodel(int ID)
         {           
             client = new HttpClient();
             client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + WebapiUtils.access_token);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = null;
-            MainModel obj = new MainModel();
+            OrderModel obj = new OrderModel();
             try
             {
                 response = client.GetAsync("Getselectedrecord?ID=" + ID.ToString()).Result;
                 var result = JObject.Parse(response.Content.ReadAsStringAsync().Result);
-                obj = result.ToObject<MainModel>();
+                obj = result.ToObject<OrderModel>();
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Seçilen Mainmodel Api verisi alındı", "");
             }
             catch (Exception ex)

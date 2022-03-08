@@ -27,6 +27,30 @@ namespace StarNote.DataAccess
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
         }
 
+        public OrderModel Getselectedrecord(int ID)
+        {
+            //tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
+            client = new HttpClient();
+            client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + WebapiUtils.access_token);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = null;
+            OrderModel obj = new OrderModel();
+            try
+            {
+                response = client.GetAsync("Getselectedstok?ID=" + ID).Result;
+                var result = JObject.Parse(response.Content.ReadAsStringAsync().Result);
+                obj = result.ToObject<OrderModel>();
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Seçilen stok Api verisi alındı", "");
+            }
+            catch (Exception ex)
+            {
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Seçilen stok doldurma hatası", ex.Message);
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Seçilen stok doldurma hatası", response.Content.ReadAsStringAsync().Result);
+            }
+            return obj;
+        }
+
         public List<DailyAccountingModel> dailysalesfill(string date)
         {
             // tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;

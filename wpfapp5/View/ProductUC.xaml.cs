@@ -39,42 +39,15 @@ namespace StarNote.View
         private void fillcurrentdata()
         {
             productVM.Currentdata.Id = Convert.ToInt32(gridhedef.GetFocusedRowCellDisplayText("ID"));
-            productVM.Currentdata.Name = gridhedef.GetFocusedRowCellDisplayText("GA").ToString();
+            productVM.Currentdata.Parameter = gridhedef.GetFocusedRowCellDisplayText("GA").ToString();
         }
 
         private void Btnpdf_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             if (UserUtils.Authority.Contains(UserUtils.ÜrünDetay_yazdırma))
             {
-                try
-                {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Tür Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.Tür;
-                    if (printingRoute.Tür == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine Günlük Satın Alma raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)gridhedef.View) { Landscape = true });
-                            links[0].ExportToPdf(printingRoute.Tür + "\\Tür " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".pdf");
-                            LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Tür Rapor alındı ", "");
-                            //tablesatıs.ExportToPdf(printingRoute.MainGrid + "\\Genel Takip Raporu" + ".pdf");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Tür Rapor hatası ", ex.Message);
-                }
+                PrintingRoute printingRoute = new PrintingRoute();
+                PrintUtils.Print(printingRoute.belgeler, "Belgeler", PrintUtils.PDF, gridhedef);
             }
             else
             {
@@ -86,35 +59,8 @@ namespace StarNote.View
         {
             if (UserUtils.Authority.Contains(UserUtils.ÜrünDetay_yazdırma))
             {
-                string RaporAdı = "Tür";
-                try
-                {
-
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", RaporAdı + "Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.Tür;
-                    if (printingRoute.Tür == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine " + RaporAdı + " Raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)gridhedef.View) { Landscape = true });
-                            links[0].ExportToXlsx(printingRoute.Tür + "\\" + RaporAdı + " Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".xlsx");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", RaporAdı + "Rapor hatası ", ex.Message);
-                }
+                PrintingRoute printingRoute = new PrintingRoute();
+                PrintUtils.Print(printingRoute.belgeler, "Belgeler", PrintUtils.Excel, gridhedef);
             }
             else
             {
@@ -128,7 +74,7 @@ namespace StarNote.View
             if (UserUtils.Authority.Contains(UserUtils.ÜrünDetay_Güncelle))
             {
                 productVM.Currentdata.Id = Convert.ToInt32(gridhedef.GetFocusedRowCellDisplayText("ID"));
-                productVM.Currentdata.Name = gridhedef.GetFocusedRowCellDisplayText("GA").ToString();
+                productVM.Currentdata.Parameter = gridhedef.GetFocusedRowCellDisplayText("GA").ToString();
                 kayıtekrantext.Text = "Belgeler > Güncelle";
                 btngüncelle.Visibility = Visibility.Visible;
                 btnkayıt.Visibility = Visibility.Hidden;
@@ -184,7 +130,7 @@ namespace StarNote.View
         {
             if (UserUtils.Authority.Contains(UserUtils.Üründetay_Ekle))
             {
-                productVM.Currentdata = new Model.ProductModel();
+                productVM.Currentdata = new Model.ParameterModel();
                 kayıtekrantext.Text = "Belgeler > Yeni Kayıt";
                 btngüncelle.Visibility = Visibility.Hidden;
                 btnkayıt.Visibility = Visibility.Visible;

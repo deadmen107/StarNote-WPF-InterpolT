@@ -26,8 +26,8 @@ namespace StarNote.ViewModel
         }
 
         #region Defines
-        private MainModel mainModel;
-        public MainModel MainModel
+        private OrderModel mainModel;
+        public OrderModel MainModel
         {
             get { return mainModel; }
             set { mainModel = value; RaisePropertyChanged("MainModel"); }
@@ -108,7 +108,7 @@ namespace StarNote.ViewModel
             list = remindingDA.GetAll();
             foreach (var remindingrecord in list)
             {
-                MainModel model = new MainModel();
+                OrderModel model = new OrderModel();
                 string status = remindingrecord.Hatırlatmatipi;
                 switch (status)
                 {
@@ -133,7 +133,7 @@ namespace StarNote.ViewModel
                     case "Bir defa Mail Gönder":
                         bool issent = false;
                         model = parsemodel(remindingrecord);
-                        issent = mailsend("yildiz655@gmail.com", "123.konZek", model.Eposta, "İnterpol Tercüme Mail Bildirimi", remindingrecord.Hatırlatmamesajı);
+                        issent = mailsend("yildiz655@gmail.com", "123.konZek", model.Costumerorder.Eposta, "İnterpol Tercüme Mail Bildirimi", remindingrecord.Hatırlatmamesajı);
                         if (issent)
                         {
                             remindingrecord.Hatırlatmadurumu = "TAMAMLANDI";
@@ -195,10 +195,10 @@ namespace StarNote.ViewModel
             return issended;
         }
 
-        private MainModel parsemodel(RemindingModel model)
+        private OrderModel parsemodel(RemindingModel model)
         {
-            MainModel mainmodel = new MainModel();
-            mainmodel = remindingDA.Getselectedmainmodel(model.Anakayıtid);
+            OrderModel mainmodel = new OrderModel();
+            //mainmodel = remindingDA.Getselectedmainmodel(model.Anakayıtid);
             return mainmodel;
         }
 

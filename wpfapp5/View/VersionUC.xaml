@@ -1,0 +1,114 @@
+﻿<Window x:Class="StarNote.View.VersionUC"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StarNote.View"
+        mc:Ignorable="d"
+           WindowStyle="SingleBorderWindow" 
+        Title="Star Note Veri Takip Uygulaması Güncelleme Notları"  
+                        
+        
+        Background="WhiteSmoke"
+        Height="400" Width="600"     
+        Icon="/Content/Starnote.png" 
+        xmlns:language="clr-namespace:StarNote.Properties">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="30,0,0,0" FontSize="20" FontFamily="times new roman"> Güncelleme Notları</Label>
+        <ScrollViewer  Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
+            <ScrollViewer.Resources>
+                <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+                    <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
+                    <Style.Triggers>
+                        <Trigger Property="Orientation" Value="Horizontal">
+                            <Setter Property="Height" Value="7" />
+                            <Setter Property="MinHeight" Value="7" />
+                        </Trigger>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="Width" Value="12" />
+                            <Setter Property="MinWidth" Value="12" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ScrollViewer.Resources>
+            <TextBlock >
+                 Versiyon 1.1.0.19 <LineBreak/>
+          * Analiz ekranlarındaki hesaplamalarda düzeltmeler yapıldı.<LineBreak/>
+          * Analiz ekranlarına potansiyel kazanç eklendi. <LineBreak/>
+          * Ana ekrandaki düzenlemeler düzeltildi ve hatalar giderildi.  <LineBreak/>                
+          * Harcama ekranındaki hatalar giderildi  <LineBreak/>              
+          --------------------------------------------------- <LineBreak/>   
+                  Versiyon 1.1.0.18 <LineBreak/>
+          * Belge Kayıt Ekranında A-Z sıralama yapıldı.<LineBreak/>
+          * Talimat ve Esas Mahkemelerin adliye gelme sorunu çözüldü. <LineBreak/>
+          * Raporlamalardaki butonların görüntüsü düzeltildi.  <LineBreak/>                
+         
+          --------------------------------------------------- <LineBreak/>   
+                 Versiyon 1.1.0.17 <LineBreak/>
+          * Program tasarım değişiklikleri yapıldı.<LineBreak/>
+          * Geçişlerde animasyonlar düzetildi. <LineBreak/>
+          * Yeni kayıt ekranının hızlı açılması için güncellemeler yapıldı.  <LineBreak/>                
+          * Excel ve PDF Raporların alınması ile alakalı güncellemeler yapıldı. <LineBreak/>  
+          * Butonlara bilgilendirmeler eklendi. <LineBreak/>  
+          * Versiyonlar otomatik olarak atlattırılacak. <LineBreak/>
+          * Tanımlamalar alfabetik gelecek şekilde düzenlendi.<LineBreak/>
+          * Web servis ile bağlantı kopma durumlarında işlem kayıtlarına otomatk güncelleme eklendi.<LineBreak/>
+          * Adliye kayıt ekranı güncellendi, yeni alanlar eklendi.<LineBreak/>
+          * Dosya kayıt alanları güncellendi. Programdaki bütün gridler istenilen konumlara<LineBreak/> 
+                   çıktı oluşturulabilecek.<LineBreak/>   
+                
+          --------------------------------------------------- <LineBreak/>                
+             Versiyon 1.1.0.14 <LineBreak/>
+          * Ön ödeme alanı bütün tercümelerde kullanılabilir duruma getirildi<LineBreak/>
+          * Grid ekran üzerinde tanımlamalar düzlendi <LineBreak/>
+          * Kayıt ekranlarında tanımlar düzeltildi.  <LineBreak/>                
+          * Hatalı eşlesen alanlar düzeltildi <LineBreak/>
+         
+          --------------------------------------------------- <LineBreak/>
+            Versiyon 1.1.0.13 <LineBreak/>
+          * Star Note Kayıt Sistemi Alt İş Emri Mantığı ile değiştirildi.<LineBreak/>
+          * Alt iş emirlerinin durumları tamamlanmadan ana sipariş durumu tamamlanamaz <LineBreak/>
+          * Alt İş emirlerine ait hesaplanan tutarlar, Ana siparişte toplam hesaplanan  <LineBreak/>
+                tutar olarak hesaplanacaktır.<LineBreak/>
+          * Hesaplanan tutar ile hesaba yatan net tutar artık potansiyel analizlerde kullanılabilecek <LineBreak/>
+         
+          --------------------------------------------------- <LineBreak/>
+            Versiyon 1.0.0.13 <LineBreak/>
+          * Başıklarda ve çeşitli isimlendirmelerde düzenlemeler yapıldı <LineBreak/>
+          * Günlük Gider Ekranı harcamalara çift tıklama ile güncelleme yapılabilecek  <LineBreak/>
+          * Harcamaların genel takip ekranında gözükmesi düzeltildi.Harcamalar sadece günlük gider  <LineBreak/>
+                ekranlarından gözükecek <LineBreak/>
+          * Harcamalara açıklama alanı eklendi <LineBreak/>
+         
+          --------------------------------------------------- <LineBreak/>
+                
+             Versiyon 1.0.0.11 <LineBreak/>
+          * Ödeme seçeneklerine İBAN-BANKA HESABI seçeneği eklendi <LineBreak/>
+          * Genel takip Grid ekran üzerinde seçili kayıtları aşağıdaki boşluğa tıklayarak,  <LineBreak/>
+                menü üzerinden başka bir  ekrana geçerek, özel,dava,firma ekranları arasında geçiş yaparak <LineBreak/>
+             temizleyebilirsiniz.<LineBreak/>
+          * Genel takip ekranı grid ekran üzerinde ücretlendirmede isim değişiklikleri yapıldı <LineBreak/>
+         
+          --------------------------------------------------- <LineBreak/>
+          Versiyon 1.0.0.10 <LineBreak/>
+          * Popup Bildirimlein yaşam süresi 3 saniye yapıldı <LineBreak/>
+          * Yeni Kayıt Eklenirken değerler hafızada tutulacak (Farklı Tür Kayıtlarda öncelikle Temizle <LineBreak/>
+            butonunu kullanın. <LineBreak/>
+          * Müşteri isimleri, şehir ,ilçeler otomatik olarak büyük yazılacak, mail adresleri küçük yazılacak <LineBreak/>
+          * Özel müşteriler ürün fiyatını tanımlı dil fiyatıyla çarpacak, davalarda 90 tl sabit  <LineBreak/>
+               fiyat girilecek (düzeltildi) <LineBreak/>
+          *Belge ekleme popup bildirimi düzeltildi <LineBreak/>
+            </TextBlock>
+        </ScrollViewer>
+    </Grid>
+</Window>

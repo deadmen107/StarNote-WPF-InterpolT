@@ -37,10 +37,25 @@ namespace StarNote.View
         {      
             InitializeComponent();
             
-            System.Threading.Thread.Sleep(100);                
-           
+            System.Threading.Thread.Sleep(100);
+            txtversiyon.Content = "Version V" + GetPublishedVersion();
             LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", " --- LOGİN SCREEN AÇILDI  ----", "");
+            //userName.Text = "sys";
+            //password.Text = "123ARMSteknoloji.";
+            //login();
         }
+        public static string GetPublishedVersion()
+        {
+            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+            {
+                return System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+            }
+            else
+            {
+                return "1.0.0.1";
+            }
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             login();
@@ -49,53 +64,13 @@ namespace StarNote.View
         private void window_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
-            {
-               
-                    //this.DragMove();
-               
-            }
-      
-           
-        }
-
-        private bool apitest()
-        {
-            try
-            {
-                ServicePointManager
-                .ServerCertificateValidationCallback +=
-                (sender, cert, chain, sslPolicyErrors) => true;
-                HttpClient client;
-                string controller = "Home/";
-                client = new HttpClient();
-                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
-                TokenModel tk = new TokenModel();
-                tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
-                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + tk.access_token);
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-                HttpResponseMessage response = client.GetAsync("Test").Result;
-                var result = response.Content.ReadAsStringAsync().Result;
-                if (result.ToString() == "\"OK\"")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-           
+            {               
+                    //this.DragMove();              
+            }                 
         }
 
         private void login()
         {
-
             buttonLogin.IsEnabled = false;
             buttonLogin.Visibility = Visibility.Collapsed;
             progressBar.Visibility = Visibility.Visible;
@@ -107,68 +82,73 @@ namespace StarNote.View
             UserUtils userUtils = new UserUtils();
             LisanceUtils lisanceUtils = new LisanceUtils();
             this.Hide();
-            if (apitest())
+            if (WebapiUtils.apitest())
             {
-                if (!lisanceUtils.readlisans())
+                if (WebapiUtils.Dbtest())
                 {
-                    DXSplashScreen.Close();
-                    MessageBox.Show("Uygulamanız lisanssızdır, lisans sayfasına yönlendirileceksiniz");
-                    LisanceWindow lisancescreen = new LisanceWindow();
-                    App.Current.MainWindow = lisancescreen;                    
-                    lisancescreen.Show();
-                    this.Close();
-                }
-                else
-                {
-                    if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+                    if (!lisanceUtils.readlisans())
                     {
-                        Task.Factory.StartNew(() =>
-                        {
-                            DispatcherOperation op = Application.Current.Dispatcher.BeginInvoke((Action)(() =>
-                            {
-                                
-                                if (userUtils.CheckUserfromApi(userName.Text, password.Text))
-                                {
-                                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", " --- UYGULAMA AÇILIYOR  ----", "kullanıcı adı=" + userName.Text);
-                                    MainWindow main = new MainWindow();
-                                    main.txtUserName.Text = userName.Text;
-                                    App.Current.MainWindow = main;
-                                    main.Show();
-                                    this.Close();
-                                }
-                                else
-                                {
-                                    DXSplashScreen.Close();
-                                    this.Show();                                    
-                                    userName.IsEnabled = true;
-                                    password.IsEnabled = true;
-                                    buttonLogin.IsEnabled = true;
-                                    buttonLogin.Visibility = Visibility.Visible;
-                                    progressBar.Visibility = Visibility.Collapsed;
-                                    message.Visibility = Visibility.Visible;
-                                    message.Content = "Kullanıcı adı veya parola hatalı !";
-                                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", " --- KULLANICI ADI VEYA ŞİFRE HATALI  ----", "kullanıcı adı=" + userName.Text);
-                                }
-                            }));
-                        });
+                        DXSplashScreen.Close();
+                        MessageBox.Show("Uygulamanız lisanssızdır, lisans sayfasına yönlendirileceksiniz");
+                        LisanceWindow lisancescreen = new LisanceWindow();
+                        App.Current.MainWindow = lisancescreen;
+                        lisancescreen.Show();
+                        this.Close();
                     }
                     else
                     {
-                        DXSplashScreen.Close();
-                        this.Show();
-                        message.Content = "İnternet Erişimi bulunmamaktadır. !";
-                       
+                        if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+                        {
+                            Task.Factory.StartNew(() =>
+                            {
+                                DispatcherOperation op = Application.Current.Dispatcher.BeginInvoke((Action)(() =>
+                                {
+                                    if (userUtils.CheckUserfromApi(userName.Text, password.Text))
+                                    {
+                                        LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", " --- UYGULAMA AÇILIYOR  ----", "kullanıcı adı=" + userName.Text);
+                                        MainWindow main = new MainWindow();
+                                        main.txtUserName.Text = userName.Text;
+                                        App.Current.MainWindow = main;
+                                        main.Show();
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        DXSplashScreen.Close();
+                                        this.Show();
+                                        userName.IsEnabled = true;
+                                        password.IsEnabled = true;
+                                        buttonLogin.IsEnabled = true;
+                                        buttonLogin.Visibility = Visibility.Visible;
+                                        progressBar.Visibility = Visibility.Collapsed;
+                                        message.Visibility = Visibility.Visible;
+                                        message.Content = "Kullanıcı adı veya parola hatalı !";
+                                        LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", " --- KULLANICI ADI VEYA ŞİFRE HATALI  ----", "kullanıcı adı=" + userName.Text);
+                                    }
+                                }));
+                            });
+                        }
+                        else
+                        {
+                            DXSplashScreen.Close();
+                            this.Show();
+                            message.Content = "İnternet Erişimi bulunmamaktadır. !";
+                        }
                     }
                 }
+                else
+                {
+                    DXSplashScreen.Close();
+                    this.Show();
+                    MessageBox.Show("Web api Databaseye Erişemiyor");
+                }               
             }
             else
             {
                 DXSplashScreen.Close();
                 this.Show();
-                MessageBox.Show("Web Apiye erişilemiyor");
-               
+                MessageBox.Show("Web Apiye erişilemiyor");                             
             }
-
         }
 
         private void password_KeyUp(object sender, KeyEventArgs e)

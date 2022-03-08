@@ -33,10 +33,10 @@
     <ProductName>Star Note Veri Takip Uygulaması</ProductName>
     <PublisherName>ARMS Teknoloji Admin</PublisherName>
     <SuiteName>ARMS Teknoloji</SuiteName>
-    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.1.0.11</MinimumRequiredVersion>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>10</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>26</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -470,6 +470,9 @@
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
@@ -485,6 +488,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Remoting" />
@@ -515,6 +519,9 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -537,6 +544,9 @@
     <Compile Include="DataAccess\StokDA.cs" />
     <Compile Include="DataAccess\TypeDetailDA.cs" />
     <Compile Include="DataAccess\UsersDA.cs" />
+    <Compile Include="DXSplashScreen\LoadingSplashScreen.xaml.cs">
+      <DependentUpon>LoadingSplashScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DXSplashScreen\SplashScreenView.xaml.cs">
       <DependentUpon>SplashScreenView.xaml</DependentUpon>
     </Compile>
@@ -547,22 +557,23 @@
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\CompanyModel.cs" />
     <Compile Include="Model\CostumerModel.cs" />
+    <Compile Include="Model\CostumerOrderModel.cs" />
     <Compile Include="Model\DailyAccountingModel.cs" />
     <Compile Include="Model\DataPoint.cs" />
     <Compile Include="Model\DetayModel.cs" />
     <Compile Include="Model\FilemanagementModel.cs" />
     <Compile Include="Model\GaugeModel.cs" />
     <Compile Include="Model\HedefModel.cs" />
+    <Compile Include="Model\JobOrderModel.cs" />
     <Compile Include="Model\LisanceModel.cs" />
     <Compile Include="Model\LocalfileModel.cs" />
     <Compile Include="Model\LogModel.cs" />
-    <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\MontlyAccountingModel.cs" />
+    <Compile Include="Model\OrderModel.cs" />
+    <Compile Include="Model\ParameterModel.cs" />
     <Compile Include="Model\PrintingModel.cs" />
-    <Compile Include="Model\ProductModel.cs" />
     <Compile Include="Model\RemindingModel.cs" />
     <Compile Include="Model\RemindingpropertyModel.cs" />
-    <Compile Include="Model\SalesmanAddModel.cs" />
     <Compile Include="Model\SalesmanAnalysisModel.cs" />
     <Compile Include="Model\SettingModel.cs" />
     <Compile Include="Model\SourceModel.cs" />
@@ -578,61 +589,6 @@
     </Compile>
     <Compile Include="Service\RefreshViews.cs" />
     <Compile Include="Service\VisualTreeHelperExt.cs" />
-    <Compile Include="Settings\DailyPurchaseUI.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>DailyPurchaseUI.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\DailySalesUI.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>DailySalesUI.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\Filemanagement.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Filemanagement.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\MainGrid.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>MainGrid.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\MainGrid2.Designer.cs">
-      <DependentUpon>MainGrid2.settings</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Settings\MainGrid1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>MainGrid1.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\MontlyPurchaseUI.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>MontlyPurchaseUI.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\MontlySalesUI.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>MontlySalesUI.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\SalesmanPurchase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>SalesmanPurchase.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\SalesmanSales.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>SalesmanSales.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\StokGridUI.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>StokGridUI.settings</DependentUpon>
-    </Compile>
     <Compile Include="Settings\WeatherSetting.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -650,6 +606,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>PrintingRoute.settings</DependentUpon>
     </Compile>
+    <Compile Include="Utils\PrintUtils.cs" />
     <Compile Include="Utils\Report1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -710,6 +667,9 @@
     <Compile Include="View\GridUISettingUC.xaml.cs">
       <DependentUpon>GridUISettingUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\LisanceUC.xaml.cs">
+      <DependentUpon>LisanceUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LisanceWindow.xaml.cs">
       <DependentUpon>LisanceWindow.xaml</DependentUpon>
     </Compile>
@@ -764,6 +724,13 @@
     <Compile Include="View\UsersUC.xaml.cs">
       <DependentUpon>UsersUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\VersionUC.xaml.cs">
+      <DependentUpon>VersionUC.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DXSplashScreen\LoadingSplashScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DXSplashScreen\SplashScreenView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -783,6 +750,7 @@
     <Page Include="Resources\ButtonResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="View\AnalysisMontlyUC.xaml">
       <SubType>Designer</SubType>
@@ -813,6 +781,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\GridUISettingUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LisanceUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -888,6 +860,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\VersionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -923,50 +899,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\DailyPurchaseUI.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>DailyPurchaseUI.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\DailySalesUI.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>DailySalesUI.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\Filemanagement.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Filemanagement.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\MainGrid.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>MainGrid.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\MainGrid2.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>MainGrid2.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\MainGrid1.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>MainGrid1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\MontlyPurchaseUI.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>MontlyPurchaseUI.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\MontlySalesUI.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>MontlySalesUI.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\SalesmanPurchase.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>SalesmanPurchase.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\SalesmanSales.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>SalesmanSales.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\StokGridUI.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>StokGridUI.Designer.cs</LastGenOutput>
     </None>
     <None Include="Settings\WeatherSetting.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1004,82 +936,127 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\Ayarlar.png" />
+    <Resource Include="Content\Ayarlar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\PersonelAnaliz.png" />
+    <Resource Include="Content\PersonelAnaliz.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\Hatırlatma.png" />
+    <Resource Include="Content\Hatırlatma.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\Analiz.png" />
+    <Resource Include="Content\Analiz.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\Exit.png" />
+    <Resource Include="Content\Exit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\Anamenü.png" />
+    <Resource Include="Content\Anamenü.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\KayıtEkranı.png" />
+    <Resource Include="Content\KayıtEkranı.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\checklist.png" />
+    <Resource Include="Content\checklist.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\document %281%29.png" />
+    <Resource Include="Content\document %281%29.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\document.png" />
+    <Resource Include="Content\document.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\file.png" />
+    <Resource Include="Content\file.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\settings mini.png" />
+    <Resource Include="Content\excel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\excel.png" />
+    <Resource Include="Content\pdf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\pdf.png" />
+    <Resource Include="Content\right-arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\right-arrow.png" />
+    <Resource Include="Content\left-arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\left-arrow.png" />
+    <Resource Include="Content\imageedit_6_2504178243.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\imageedit_6_2504178243.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Content\home.png" />
+    <Resource Include="Content\home.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DXSplashScreen\Image__.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\StarNote.png" />
+    <Resource Include="Content\StarNote.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\add.png" />
+    <Resource Include="Content\add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\alarm.png" />
+    <Resource Include="Content\alarm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\accounting.png" />
+    <Resource Include="Content\accounting.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\dashboard.png" />
+    <Resource Include="Content\dashboard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\mainsettings.png" />
+    <Resource Include="Content\mainsettings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\Logout.png" />
+    <Resource Include="Content\Logout.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DXSplashScreen\Image.png" />
@@ -1091,10 +1068,51 @@
     <Resource Include="amblem.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\altpencere.png" />
-    <Resource Include="Content\altpencere2.png" />
-    <Resource Include="Content\pencere_cizgi.png" />
-    <Resource Include="Content\sagpencere.png" />
+    <Resource Include="Content\altpencere.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Content\altpencere2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Content\pencere_cizgi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Content\sagpencere.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\remove.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\loadinggif.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Content\update.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\brush.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\settings mini.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\settingblack.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

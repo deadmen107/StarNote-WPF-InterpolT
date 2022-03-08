@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DevExpress.Xpf.Core.Serialization;
 using DevExpress.Xpf.Grid;
 using DevExpress.Xpf.Printing;
 using StarNote.Model;
@@ -37,43 +39,24 @@ namespace StarNote.View
             InitializeComponent();
             this.DataContext = filemanagementVM;
             tabcontrol.SelectedItem = tabtakip;
+            restoreviews();
+        }
+
+        private void restoreviews()
+        {
+            FileInfo fi = new FileInfo("C:\\StarNote\\Templates\\griddosyatakip.xml");
+            if (fi.Exists)
+            {
+                griddosyatakip.RestoreLayoutFromXml("C:\\StarNote\\Templates\\griddosyatakip.xml");
+            }           
         }
 
         private void Btnpdf_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             if (UserUtils.Authority.Contains(UserUtils.Dosyatakip_yazdırma))
             {
-                try
-                {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Dosya Takip Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.Dosya_Takip;
-                    if (printingRoute.Dosya_Takip == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine Dosya Takip raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)griddosyatakip.View) { Landscape = true });
-                            links[0].ExportToPdf(printingRoute.Dosya_Takip + "\\Dosya Takip " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".pdf");
-                            LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Dosya Takip Rapor alındı ", "");
-                            MessageBox.Show("Dosya Oluşturuldu", "PDF Rapor", MessageBoxButton.OK, MessageBoxImage.Information);
-                            //tablesatıs.ExportToPdf(printingRoute.MainGrid + "\\Genel Takip Raporu" + ".pdf");
-                        }
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Dosya Takip Rapor hatası ", ex.Message);
-                }
+                PrintingRoute printingRoute = new PrintingRoute();
+                PrintUtils.Print(printingRoute.Dosyalar, "Dosyalar", PrintUtils.PDF, griddosyatakip);
             }
             else
             {
@@ -86,36 +69,8 @@ namespace StarNote.View
         {
             if (UserUtils.Authority.Contains(UserUtils.Dosyatakip_yazdırma))
             {
-                string RaporAdı = "Dosya Takip";
-                try
-                {
-
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", RaporAdı + "Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.Dosya_Takip;
-                    if (printingRoute.Dosya_Takip == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine " + RaporAdı + " Raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)griddosyatakip.View) { Landscape = true });
-                            links[0].ExportToXlsx(printingRoute.Dosya_Takip + "\\" + RaporAdı + " Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".xlsx");
-                            MessageBox.Show("Dosya Oluşturuldu", "Excel Rapor", MessageBoxButton.OK, MessageBoxImage.Information);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", RaporAdı + "Rapor hatası ", ex.Message);
-                }
+                PrintingRoute printingRoute = new PrintingRoute();
+                PrintUtils.Print(printingRoute.Dosyalar, "Dosyalar", PrintUtils.Excel, griddosyatakip);
             }
             else
             {
@@ -161,12 +116,7 @@ namespace StarNote.View
 
         private void fillcurrentdata()
         {
-            filemanagementVM.Currentdata.Id = Convert.ToInt32(griddosyatakip.GetFocusedRowCellDisplayText("ID"));
-            filemanagementVM.Currentdata.Türadı = griddosyatakip.GetFocusedRowCellDisplayText("1");
-            filemanagementVM.Currentdata.Firmadı = griddosyatakip.GetFocusedRowCellDisplayText("2");
-            filemanagementVM.Currentdata.İşemrino = griddosyatakip.GetFocusedRowCellDisplayText("3");
-            filemanagementVM.Currentdata.Müşteriadı = griddosyatakip.GetFocusedRowCellDisplayText("4");
-            filemanagementVM.Currentdata.Dosyaadı = griddosyatakip.GetFocusedRowCellDisplayText("5");
+            filemanagementVM.fillcurrentdata(Convert.ToInt32(griddosyatakip.GetFocusedRowCellDisplayText("ID")));
         }
 
         private void Btnindir_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -259,7 +209,7 @@ namespace StarNote.View
                     model.Firmadı = txtfirmaad.Text;
                     model.Dosyaadı = filename;
                     model.Müşteriadı = "Harici yükleme";
-                    model.İşemrino = "";
+                    //model.İşemrino = "";
                     model.Id = 0;
                     if (filemanagementVM.printirsaliye(model,txtdosyaad.Text))
                     {
@@ -278,113 +228,44 @@ namespace StarNote.View
             }         
         }
 
-        private void Btnayar_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        private bool savetemplate()
         {
-            if (!popup.IsOpen)
+            bool isok = false;
+            try
             {
-                gridpopup.Children.Clear();
-                gridpopup.RowDefinitions.Clear();
-                list = createsettinglist();
-                RowDefinition rowDefn = new RowDefinition();
-                rowDefn.Height = new GridLength(30);
-                int newRow = gridpopup.RowDefinitions.Count;
-                gridpopup.RowDefinitions.Add(rowDefn);
-                var button = new System.Windows.Controls.Button
-                {
-                    Content = "Kapat",
-                    Width = 80,
-                    Height = 25,
-                    Background = new SolidColorBrush(Colors.White),
-                    VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Center
-
-                };
-                button.Click += new RoutedEventHandler(popupclose);
-                Grid.SetRow(button, newRow);
-                Grid.SetColumn(button, 1);
-                gridpopup.Children.Add(button);
-                foreach (var objDomain in list)
-                {
-                    var credentialsUserNameLabel = new System.Windows.Controls.Label
-                    {
-                        Content = objDomain.Xname,
-                        //Foreground = new SolidColorBrush(Colors.Red),
-                        VerticalAlignment = VerticalAlignment.Center,
-                        HorizontalAlignment = HorizontalAlignment.Center
-                    };
-                    var credentialsUserNameTextbox = new DevExpress.Xpf.Editors.ToggleSwitchEdit
-                    {
-                        Name = objDomain.Name,
-                        VerticalAlignment = VerticalAlignment.Center,
-                        HorizontalAlignment = HorizontalAlignment.Center,
-                        IsChecked = objDomain.Status
-                    };
-                    credentialsUserNameTextbox.Checked += new RoutedEventHandler(columnvisiblechange);
-                    credentialsUserNameTextbox.Unchecked += new RoutedEventHandler(columnvisiblechange);
-                    rowDefn = new RowDefinition();
-                    rowDefn.Height = new GridLength(30);
-                    newRow = gridpopup.RowDefinitions.Count;
-                    gridpopup.RowDefinitions.Add(rowDefn);
-                    Grid.SetRow(credentialsUserNameLabel, newRow);
-                    Grid.SetColumn(credentialsUserNameLabel, 0);
-                    Grid.SetRow(credentialsUserNameTextbox, newRow);
-                    Grid.SetColumn(credentialsUserNameTextbox, 1);
-                    gridpopup.Children.Add(credentialsUserNameLabel);
-                    gridpopup.Children.Add(credentialsUserNameTextbox);
-                }
-                popup.IsOpen = true;
+                foreach (GridColumn column in griddosyatakip.Columns)
+                    column.AddHandler(DXSerializer.AllowPropertyEvent, new AllowPropertyEventHandler(column_AllowProperty));
+                griddosyatakip.SaveLayoutToXml("C:\\StarNote\\Templates\\griddosyatakip.xml");
+                LogVM.displaypopup("INFO", "Ayarlar Kayıt Edildi");
             }
+            catch (Exception ex)
+            {
+                LogVM.displaypopup("ERROR", "Hatalı Kayıt");
+
+            }
+            return isok;
+        }
+
+        private void column_AllowProperty(object sender, AllowPropertyEventArgs e)
+        {
+            e.Allow = e.DependencyProperty == GridColumn.ActualWidthProperty ||
+                      e.DependencyProperty == GridColumn.FieldNameProperty ||
+                      e.DependencyProperty == GridColumn.VisibleProperty ||
+                      e.DependencyProperty == GridColumn.AllowBestFitProperty ||
+                      e.DependencyProperty == GridColumn.VisibleIndexProperty ||
+                      e.DependencyProperty == GridColumn.ActualAdditionalRowDataWidthProperty ||
+                      e.DependencyProperty == GridColumn.AllowGroupingProperty ||
+                      e.DependencyProperty == GridColumn.FixedWidthProperty ||
+                      e.DependencyProperty == GridColumn.IsSmartProperty ||
+                      e.DependencyProperty == GridColumnBase.HeaderProperty ||
+                      e.DependencyProperty == GridColumn.BindingGroupProperty
+                      ;
 
         }
 
-        private void popupclose(object sender, RoutedEventArgs e)
-        {
-            popup.IsOpen = false;
-        }
-
-        private void columnvisiblechange(object sender, RoutedEventArgs e)
-        {
-            var s = sender as DevExpress.Xpf.Editors.ToggleSwitchEdit;
-            Filemanagement settings = new Filemanagement();
-            if (s.Name.ToString() == Id.Name) settings.Id = (bool)s.IsChecked;
-            if (s.Name.ToString() == Türadı.Name) settings.Türadı = (bool)s.IsChecked;
-            if (s.Name.ToString() == Türdetay.Name) settings.Türdetay = (bool)s.IsChecked;
-            if (s.Name.ToString() == Kayıtdetay.Name) settings.Kayıtdetay = (bool)s.IsChecked;
-            if (s.Name.ToString() == Firmadı.Name) settings.Firmadı = (bool)s.IsChecked;
-            if (s.Name.ToString() == İşemrino.Name) settings.İşemrino = (bool)s.IsChecked;
-            if (s.Name.ToString() == Müşteriadı.Name) settings.Müşteriadı = (bool)s.IsChecked;
-            if (s.Name.ToString() == Dosyaadı.Name) settings.Dosyaadı = (bool)s.IsChecked;         
-            settings.Save();
-            gridcolumnsettings();
-        }
-
-        private List<SettingModel> createsettinglist()
-        {
-            Filemanagement settings = new Filemanagement();
-            List<SettingModel> list = new List<SettingModel>();
-            list.Add(new SettingModel { Xname = Id.Header.ToString(), Name = Id.Name, Status = settings.Id });
-            list.Add(new SettingModel { Xname = Türadı.Header.ToString(), Name = Türadı.Name, Status = settings.Türadı });
-            list.Add(new SettingModel { Xname = Türdetay.Header.ToString(), Name = Türdetay.Name, Status = settings.Türdetay });
-            list.Add(new SettingModel { Xname = Kayıtdetay.Header.ToString(), Name = Kayıtdetay.Name, Status = settings.Kayıtdetay });
-            list.Add(new SettingModel { Xname = Firmadı.Header.ToString(), Name = Firmadı.Name, Status = settings.Firmadı });
-            list.Add(new SettingModel { Xname = İşemrino.Header.ToString(), Name = İşemrino.Name, Status = settings.İşemrino });
-            list.Add(new SettingModel { Xname = Müşteriadı.Header.ToString(), Name = Müşteriadı.Name, Status = settings.Müşteriadı });
-            list.Add(new SettingModel { Xname = Dosyaadı.Header.ToString(), Name = Dosyaadı.Name, Status = settings.Dosyaadı });
-           
-            return list;
-        }
-
-        private void gridcolumnsettings()
-        {
-            Filemanagement settings = new Filemanagement();
-            Id.Visible = settings.Id;
-            Türadı.Visible = settings.Türadı;
-            Türdetay.Visible = settings.Türdetay;
-            Kayıtdetay.Visible = settings.Kayıtdetay;
-            Firmadı.Visible = settings.Firmadı;
-            İşemrino.Visible = settings.İşemrino;
-            Müşteriadı.Visible = settings.Müşteriadı;
-            Dosyaadı.Visible = settings.Dosyaadı;           
+        private void Btnlayoutsave_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {            
+            savetemplate();
         }
     }
 }

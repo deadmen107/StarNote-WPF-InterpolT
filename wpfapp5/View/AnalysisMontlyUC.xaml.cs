@@ -65,7 +65,12 @@ namespace StarNote.View
             else
             {
                 userControlHasFocus = true;
-                if (RefreshViews.pagecount == 11)
+                if (RefreshViews.pagecount == 11    || 
+                    RefreshViews.pagecount == 101   || 
+                    RefreshViews.pagecount == 102   ||
+                    RefreshViews.pagecount == 103   || 
+                    RefreshViews.pagecount == 104   ||
+                    RefreshViews.pagecount == 105   )
                 {
                     analysisMontlyVM.loaddata(Convert.ToDateTime(filtregünü.Text).ToString("dd.MM.yyyy"));
                 }
@@ -90,94 +95,26 @@ namespace StarNote.View
         {
             if (UserUtils.Authority.Contains(UserUtils.Aylık_Analiz_yazdırma))
             {
-                try
-                {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Aylık Analiz Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.AnalysisMontly;
-                    if (printingRoute.AnalysisMontly == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);                      
-                    }
-                    else
-                    {
-                        msg += " dizinine Aylık Analiz Raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)grdsatıs.View) { Landscape = true });
-                            links[0].ExportToPdf(printingRoute.AnalysisMontly + "\\Aylık Analiz Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".pdf");
-                            //links[0].CreateDocument(false);
-                            //links[0].PageHeaderTemplate = (DataTemplate)Resources["PageHeader"];
-                            //links[0].PageFooterTemplate = (DataTemplate)Resources["PageFooter"];
-                            //DocumentPreviewWindow wnd = new DocumentPreviewWindow();
-                            //wnd.PreviewControl.DocumentSource = links[0];
-                            //links[0].CreateDocument();
-                            //wnd.Show();
-                            //links[0].PrintingSystem.Document.Pages.AddRange(links[1].PrintingSystem.Document.Pages);
-                            //PrintHelper.ShowRibbonPrintPreview(this, links[0]);
-                            //Export the document to the file:
-                            //tablesatıs.ExportToPdf(printingRoute.AnalysisMontly + "\\Aylık Analiz Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".pdf",options);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Aylık Analiz Rapor hatası ", ex.Message);
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                }
-
-            }
+                PrintingRoute printingRoute = new PrintingRoute();
+                PrintUtils.Print(printingRoute.aylıkişanaliz, "Aylık İş Analizi ", PrintUtils.PDF, grdsatıs);
+            }                            
             else
             {
                 MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Aylık_Analiz_yazdırma, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
 
         private void Btnxcel_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             if (UserUtils.Authority.Contains(UserUtils.Aylık_Analiz_yazdırma))
             {
-                string RaporAdı = "Aylık Analiz";
-                try
-                {
-                   
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", RaporAdı+ "Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.AnalysisMontly;
-                    if (printingRoute.AnalysisMontly == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine "+RaporAdı+ " Raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)grdsatıs.View) { Landscape = true });
-                            links[0].ExportToXlsx(printingRoute.AnalysisMontly + "\\"+ RaporAdı + " Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".xlsx");                            
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", RaporAdı+"Rapor hatası ", ex.Message);
-                }
-
+                PrintingRoute printingRoute = new PrintingRoute();
+                PrintUtils.Print(printingRoute.aylıkişanaliz, "Aylık İş Analizi ", PrintUtils.Excel, grdsatıs);
             }
             else
             {
                 MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Aylık_Analiz_yazdırma, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
     }   
 }

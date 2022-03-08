@@ -13,7 +13,7 @@
              xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
              mc:Ignorable="d" Margin="0" Padding="0"    
-             Background="#c8d6e5" 
+             Background="#FE9590AD" 
              d:DesignHeight="450" d:DesignWidth="800" LostFocus="UserControl_LostFocus" GotFocus="UserControl_GotFocus">
     <UserControl.Resources>
         <ResourceDictionary Source="/StarNote;component/Resources/ButtonResources.xaml">
@@ -24,14 +24,15 @@
     <Grid Margin="10,10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             
-            <RowDefinition Height="120"/>
+            <RowDefinition Height="160"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
       
         <Grid  Grid.Row="0" x:Name="gridModel"  IsEnabled ="True" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="5"/>
             </Grid.RowDefinitions>
@@ -45,7 +46,7 @@
                 
             </Grid.ColumnDefinitions>
 
-            <dxga:CircularGaugeControl Grid.Row="1"  Grid.Column="0" Grid.RowSpan="2"  Name="circularGaugeControl1" EnableAnimation="True" >
+            <dxga:CircularGaugeControl Grid.Row="1"  Grid.Column="0" Grid.RowSpan="3"  Name="circularGaugeControl1" EnableAnimation="True" >
                 <dxga:CircularGaugeControl.Scales>
                     <dxga:ArcScale 
                         StartValue="0" EndValue="100" 
@@ -80,7 +81,7 @@
                 </dxga:CircularGaugeControl.Scales>
             </dxga:CircularGaugeControl>
             <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">Aylık Harcamalar</Label>
-            <dxga:CircularGaugeControl Grid.Row="1"  Grid.Column="1" Grid.RowSpan="2" Name="circularGaugeControlKazanc" >
+            <dxga:CircularGaugeControl Grid.Row="1"  Grid.Column="1" Grid.RowSpan="3" Name="circularGaugeControlKazanc" >
                 <dxga:CircularGaugeControl.Scales>
                     <dxga:ArcScale StartValue="0" EndValue="100" 
                                        StartAngle="0" EndAngle="360"
@@ -116,19 +117,23 @@
             </dxga:CircularGaugeControl>
             <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">Aylık Kazançlar</Label>
 
-            <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center">Net Gelir</Label>
-            <Border   Grid.Row="1" Grid.Column="2" Background="White"  Margin="10,5,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+            <Label Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center">Aylık Net Gelir</Label>
+            <Border   Grid.Row="3" Grid.Column="2" Background="White"  Margin="10,5,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                 <dxe:TextEdit IsReadOnly="True" FontSize="17" HorizontalContentAlignment="Center"  FontFamily="times new roman"  ShowBorder="False"  TextWrapping="Wrap" Text="{Binding Path=Textnet}"></dxe:TextEdit>
             </Border>
-            <Label  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center">Aylık Toplam Harcama</Label>
-            <Border   Grid.Row="1" Grid.Column="3" Background="White"  Margin="10,5,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+            <Label  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center">Aylık Toplam Harcama</Label>
+            <Border   Grid.Row="3" Grid.Column="3" Background="White"  Margin="10,5,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                 <dxe:TextEdit IsReadOnly="True" FontSize="17" HorizontalContentAlignment="Center"  FontFamily="times new roman"  ShowBorder="False"  TextWrapping="Wrap" Text="{Binding Path=Textpurchase}"></dxe:TextEdit>
             </Border>
-            <Label Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center">Aylık Toplam Kazanç</Label>
-            <Border    Grid.Row="1" Grid.Column="4" Background="White"  Margin="10,5,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+            <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center">Aylık Gerçek Kazanç</Label>
+            <Border    Grid.Row="1" Grid.Column="3" Background="White"  Margin="10,5,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                 <dxe:TextEdit IsReadOnly="True" FontSize="17" HorizontalContentAlignment="Center"  FontFamily="times new roman" ShowBorder="False"  TextWrapping="Wrap" Text="{Binding Path=Textsales}"></dxe:TextEdit>
             </Border>
-            <Button  Content="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
+            <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center">Aylık Potansiyel Kazanç</Label>
+            <Border    Grid.Row="1" Grid.Column="2" Background="White"  Margin="10,5,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                <dxe:TextEdit IsReadOnly="True" FontSize="17" HorizontalContentAlignment="Center"  FontFamily="times new roman" ShowBorder="False"  TextWrapping="Wrap" Text="{Binding Path=Textpotansial}"></dxe:TextEdit>
+            </Border>
+            <Button  Style="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="4" Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
                 <dxb:BarManager.DXContextMenu>
                     <dxb:PopupMenu Width="150">
 
@@ -150,12 +155,12 @@
                 </dxb:BarManager.DXContextMenu>
 
             </Button>
-            <Grid Grid.Row="2" Grid.Column="4" HorizontalAlignment="Right">
+            <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="4" HorizontalAlignment="Right">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0">Gösterilen Ay</Label>
+                <Label Grid.Row="0" VerticalAlignment="Center" Grid.RowSpan="2">Gösterilen Ay</Label>
                 <DatePicker x:Name="filtregünü"  Grid.Row="1"   VerticalAlignment="Center"  SelectedDateChanged="Filtregünü_SelectedDateChanged" />
             </Grid>
         </Grid>

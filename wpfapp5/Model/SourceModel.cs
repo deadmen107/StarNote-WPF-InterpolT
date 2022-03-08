@@ -8,34 +8,13 @@ namespace StarNote.Model
 {
     public class SourceModel : BaseModel
     {
-        private string metodsource;
-        public string Metodsource
+       
+        private string name;
+        public string Name
         {
-            get { return metodsource; }
-            set { metodsource = value; RaisePropertyChanged("Metodsource"); }
+            get { return name; }
+            set { name = value; RaisePropertyChanged("Name"); }
         }
-
-        private string ödemeyöntemsource;
-        public string Ödemeyöntemsource
-        {
-            get { return ödemeyöntemsource; }
-            set { ödemeyöntemsource = value; RaisePropertyChanged("Ödemeyöntemsource"); }
-        }
-
-        private string durumsource;
-        public string Durumsource
-        {
-            get { return durumsource; }
-            set { durumsource = value; RaisePropertyChanged("Durumsource"); }
-        }
-
-        private string ürünsource;
-        public string Ürünsource
-        {
-            get { return ürünsource; }
-            set { ürünsource = value; RaisePropertyChanged("Ürünsource"); }
-        }
-
 
     }
 }

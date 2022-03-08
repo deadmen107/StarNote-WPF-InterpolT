@@ -20,8 +20,7 @@ namespace StarNote
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
-    {
-       
+    {       
         private Mutex m;
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -32,17 +31,15 @@ namespace StarNote
                 MessageBox.Show("PROGRAM AÇILIYOR. LÜTFEN BEKLEYİNİZ !", "BİLGİ", MessageBoxButton.OK, MessageBoxImage.Warning);
 
                 Environment.Exit(0);
-            }
-
+            }            
             log4net.Config.XmlConfigurator.Configure();
             LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", " --- PROGRAM AÇILIYOR ----", "");
             //programın sadece bir kere çalışmasına yarıyor. birden fazla çalıştırılmak istendiginde uyarı verdiriliyor.
             //DXSplashScreen.Show<SplashScreenView>();
             MyScheduler scheduler = new MyScheduler();
-            scheduler.GoreviTetikle();
+            scheduler.GoreviTetikle();            
 
-            
-        }
+        }        
     }
 }
 

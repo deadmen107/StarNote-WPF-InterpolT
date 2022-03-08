@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using StarNote.Model;
 using StarNote.ViewModel;
 using StarNote.Utils;
+using StarNote.Service;
 
 namespace StarNote.DataAccess
 {
@@ -42,7 +43,7 @@ namespace StarNote.DataAccess
             List<AnalysisYearlyModel> analysismodel = new List<AnalysisYearlyModel>();
             try
             {
-                response = client.GetAsync("GetYearlyAnalysis?date=" + date).Result;
+                response = client.GetAsync("GetYearlyAnalysis?date=" + date + "&type=" + RefreshViews.pagecount).Result;
                 var result = JArray.Parse(response.Content.ReadAsStringAsync().Result);
                 foreach (var item in result)
                 {
@@ -68,7 +69,7 @@ namespace StarNote.DataAccess
             List<string> input = new List<string>();
             try
             {
-                response = client.GetAsync("Getyearlysalesgauge?date=" + date).Result;
+                response = client.GetAsync("Getyearlysalesgauge?date=" + date + "&type=" + RefreshViews.pagecount).Result;
                 var result = JArray.Parse(response.Content.ReadAsStringAsync().Result);
                 foreach (var item in result)
                 {
@@ -94,7 +95,7 @@ namespace StarNote.DataAccess
             List<string> input = new List<string>();
             try
             {
-                response = client.GetAsync("Getyearlypurchasegauge?date=" + date).Result;
+                response = client.GetAsync("Getyearlypurchasegauge?date=" + date + "&type=" + RefreshViews.pagecount).Result;
                 var result = JArray.Parse(response.Content.ReadAsStringAsync().Result);
                 foreach (var item in result)
                 {
@@ -120,7 +121,7 @@ namespace StarNote.DataAccess
             List<string> input = new List<string>();
             try
             {
-                response = client.GetAsync("Getyearlynetgauge?date=" + date).Result;
+                response = client.GetAsync("Getyearlynetgauge?date=" + date + "&type=" + RefreshViews.pagecount).Result;
                 var result = JArray.Parse(response.Content.ReadAsStringAsync().Result);
                 foreach (var item in result)
                 {
@@ -135,5 +136,31 @@ namespace StarNote.DataAccess
             return input[0].Replace(',', '.');
         }
 
+        public string Fillyearlypotansial(string date)
+        {
+            // tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
+            client = new HttpClient();
+            client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + WebapiUtils.access_token);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = null;
+            List<string> input = new List<string>();
+            try
+            {
+                response = client.GetAsync("Getyearlypotansialgauge?date=" + date + "&type=" + RefreshViews.pagecount).Result;
+                var result = JArray.Parse(response.Content.ReadAsStringAsync().Result);
+                foreach (var item in result)
+                {
+                    input.Add((item.ToObject<string>()));
+                }
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Aylık Analiz Net Gauge Api verisi alındı", "");
+            }
+            catch (Exception ex)
+            {
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Aylık Analiz Net Gauge doldurma hatası", ex.Message);
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Aylık Analiz Net Gauge doldurma hatası", response.Content.ReadAsStringAsync().Result);
+            }
+            return input[0].Replace(',', '.');
+        }
     }
 }

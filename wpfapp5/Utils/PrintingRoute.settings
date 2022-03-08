@@ -2,52 +2,73 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="StarNote.Utils" GeneratedClassName="PrintingRoute">
   <Profiles />
   <Settings>
-    <Setting Name="MainGrid" Type="System.String" Scope="User">
+    <Setting Name="Adliye" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="DailySales" Type="System.String" Scope="User">
+    <Setting Name="Özel" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="DailyPurchase" Type="System.String" Scope="User">
+    <Setting Name="Firma" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="MontlySales" Type="System.String" Scope="User">
+    <Setting Name="Harcama" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="MontlyPurchase" Type="System.String" Scope="User">
+    <Setting Name="Dosyalar" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Stok" Type="System.String" Scope="User">
+    <Setting Name="Diller" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="AnalysisMontly" Type="System.String" Scope="User">
+    <Setting Name="Hatırlatmalar" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="AnalysisYearly" Type="System.String" Scope="User">
+    <Setting Name="Eskihatırlatmalar" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="AnalysisSalesman" Type="System.String" Scope="User">
+    <Setting Name="günlükgider" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="AnalysisPotansial" Type="System.String" Scope="User">
+    <Setting Name="günlükgelir" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Tür" Type="System.String" Scope="User">
+    <Setting Name="aylıkgider" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Satış_Görevli" Type="System.String" Scope="User">
+    <Setting Name="aylıkgelir" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Kullanıcılar" Type="System.String" Scope="User">
+    <Setting Name="aylıkişanaliz" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Firmalar" Type="System.String" Scope="User">
+    <Setting Name="yıllıkizanaliz" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Müşteriler" Type="System.String" Scope="User">
+    <Setting Name="tercümananaliz" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Dosya_Takip" Type="System.String" Scope="User">
+    <Setting Name="tercümanlar" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="adliyeler" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="mahkemeler" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="tanımlısirketler" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="tanımlımüsteriter" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="belgeler" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="kullanıcılar" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Filemanagement" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

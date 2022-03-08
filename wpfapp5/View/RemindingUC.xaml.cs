@@ -37,81 +37,45 @@ namespace StarNote.View
 
         private void Btnpdf_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            if (UserUtils.Authority.Contains(UserUtils.Tür_Yazdırma))
+            DevExpress.Xpf.Bars.BarButtonItem btn = sender as DevExpress.Xpf.Bars.BarButtonItem;
+            string tag = btn.Tag.ToString();
+            if (UserUtils.Authority.Contains(UserUtils.hatırlatma_yazdırma))
             {
-                try
+                PrintingRoute printingRoute = new PrintingRoute();
+                if (tag == "0")
                 {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Tür Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.Tür;
-                    if (printingRoute.Tür == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine Günlük Satın Alma raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)gridhedef.View) { Landscape = true });
-                            links[0].ExportToPdf(printingRoute.Tür + "\\Tür " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".pdf");
-                            LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Tür Rapor alındı ", "");
-                            //tablesatıs.ExportToPdf(printingRoute.MainGrid + "\\Genel Takip Raporu" + ".pdf");
-                        }
-                    }
+                    PrintUtils.Print(printingRoute.Hatırlatmalar, "Hatırlatmalar", PrintUtils.PDF, gridhedef);
                 }
-                catch (Exception ex)
+                else if (tag == "1")
                 {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Tür Rapor hatası ", ex.Message);
-                }
+                    PrintUtils.Print(printingRoute.Eskihatırlatmalar, "Eski Hatırlatmalar", PrintUtils.PDF, gridhedef1);
+                }               
             }
             else
             {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Tür_Yazdırma, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.hatırlatma_yazdırma, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void Btnxcel_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            if (UserUtils.Authority.Contains(UserUtils.Tür_Yazdırma))
+            DevExpress.Xpf.Bars.BarButtonItem btn = sender as DevExpress.Xpf.Bars.BarButtonItem;
+            string tag = btn.Tag.ToString();
+            if (UserUtils.Authority.Contains(UserUtils.hatırlatma_yazdırma))
             {
-                string RaporAdı = "Tür";
-                try
+                PrintingRoute printingRoute = new PrintingRoute();
+                if (tag == "0")
                 {
-
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", RaporAdı + "Rapor İsteği alındı", "");
-                    PrintingRoute printingRoute = new PrintingRoute();
-                    string msg = string.Empty;
-                    msg += printingRoute.Tür;
-                    if (printingRoute.Tür == "")
-                    {
-                        MessageBox.Show("Geçerli bir dosya yolu yok", "Dosya Yazdırma Hatası", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        msg += " dizinine " + RaporAdı + " Raporunu çıkartmak istiyor musunuz?";
-                        MessageBoxResult result = MessageBox.Show(msg, "PDF Rapor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<TemplatedLink> links = new List<TemplatedLink>();
-                            links.Add(new PrintableControlLink((TableView)gridhedef.View) { Landscape = true });
-                            links[0].ExportToXlsx(printingRoute.Tür + "\\" + RaporAdı + " Raporu " + DateTime.Now.ToString("dd MM yyyy HH mm") + ".xlsx");
-                        }
-                    }
+                    PrintUtils.Print(printingRoute.Hatırlatmalar, "Hatırlatmalar", PrintUtils.Excel, gridhedef);
                 }
-                catch (Exception ex)
+                else if (tag == "1")
                 {
-                    LogVM.displaypopup("ERROR", "Rapor Yazdırma başarısız.");
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", RaporAdı + "Rapor hatası ", ex.Message);
+                    PrintUtils.Print(printingRoute.Eskihatırlatmalar, "Eski Hatırlatmalar", PrintUtils.Excel, gridhedef1);
                 }
             }
             else
             {
-                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.Tür_Yazdırma, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Kullanıcının bu işleme yetkisi yok", UserUtils.hatırlatma_yazdırma, MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -202,29 +166,29 @@ namespace StarNote.View
                     remindingVM.Getselectedmainrecord(Convert.ToInt32(parsedstr[0]));
                     txtdetay.Text = "";
                     txtdetay.Text += "Tür adı:";
-                    txtdetay.Text += remindingVM.MainModel.Tür+" - ";
-                    txtdetay.Text += "  Dosya no:";
-                    txtdetay.Text += remindingVM.MainModel.Joborder + " - ";
-                    txtdetay.Text += "  Müşteri:";
-                    txtdetay.Text += remindingVM.MainModel.İsim + " - ";
-                    txtdetay.Text += "  Firma:";
-                    txtdetay.Text += remindingVM.MainModel.Firmaadı + " - ";
-                    txtdetay.Text += "  Ürün:";
-                    txtdetay.Text += remindingVM.MainModel.Ürün + " - ";
-                    txtdetay.Text += "  Ürün Detay:";
-                    txtdetay.Text += remindingVM.MainModel.Ürün2 + " - ";
-                    txtdetay.Text += "  Ödeme Yöntem:";
-                    txtdetay.Text += remindingVM.MainModel.Ödemeyöntemi + " - ";
-                    txtdetay.Text += "  Kayıt Tarihi:";
-                    txtdetay.Text += remindingVM.MainModel.Kayıttarihi + " - ";
-                    txtdetay.Text += "  Randevu Tarihi:";
-                    txtdetay.Text += remindingVM.MainModel.Randevutarihi + " - ";
-                    txtdetay.Text += "  Durum:";
-                    txtdetay.Text += remindingVM.MainModel.Durum + " - ";
-                    txtdetay.Text += "  E-posta:";
-                    txtdetay.Text += remindingVM.MainModel.Eposta + " - ";
-                    txtdetay.Text += "  Tel No:";
-                    txtdetay.Text += remindingVM.MainModel.Telefon;
+                    //txtdetay.Text += remindingVM.MainModel.Tür+" - ";
+                    //txtdetay.Text += "  Dosya no:";
+                    //txtdetay.Text += remindingVM.MainModel.Joborder + " - ";
+                    //txtdetay.Text += "  Müşteri:";
+                    //txtdetay.Text += remindingVM.MainModel.İsim + " - ";
+                    //txtdetay.Text += "  Firma:";
+                    //txtdetay.Text += remindingVM.MainModel.Firmaadı + " - ";
+                    //txtdetay.Text += "  Ürün:";
+                    //txtdetay.Text += remindingVM.MainModel.Ürün + " - ";
+                    //txtdetay.Text += "  Ürün Detay:";
+                    //txtdetay.Text += remindingVM.MainModel.Ürün2 + " - ";
+                    //txtdetay.Text += "  Ödeme Yöntem:";
+                    //txtdetay.Text += remindingVM.MainModel.Ödemeyöntemi + " - ";
+                    //txtdetay.Text += "  Kayıt Tarihi:";
+                    //txtdetay.Text += remindingVM.MainModel.Kayıttarihi + " - ";
+                    //txtdetay.Text += "  Randevu Tarihi:";
+                    //txtdetay.Text += remindingVM.MainModel.Randevutarihi + " - ";
+                    //txtdetay.Text += "  Durum:";
+                    //txtdetay.Text += remindingVM.MainModel.Durum + " - ";
+                    //txtdetay.Text += "  E-posta:";
+                    //txtdetay.Text += remindingVM.MainModel.Eposta + " - ";
+                    //txtdetay.Text += "  Tel No:";
+                    //txtdetay.Text += remindingVM.MainModel.Telefon;
                     remindingVM.Currentdata.AnaKayıtdetay = txtdetay.Text;
                     remindingVM.Getoldremindingsbyid(remindingVM.Currentdata.Anakayıtid);
                 }

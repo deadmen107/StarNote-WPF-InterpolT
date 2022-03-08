@@ -20,21 +20,21 @@ namespace StarNote.ViewModel
         public SalesmanAddVM()
         {
             salesmanAddDA = new SalesmanAddDA();           
-            currentdata = new SalesmanAddModel();
+            currentdata = new ParameterModel();
             if (RefreshViews.appstatus)
                 Loaddata();
         }
         
         #region Defines
-        private List<SalesmanAddModel> salesmanlist;
-        public List<SalesmanAddModel> Salesmanlist
+        private List<ParameterModel> salesmanlist;
+        public List<ParameterModel> Salesmanlist
         {
             get { return salesmanlist; }
             set { salesmanlist = value; RaisePropertyChanged("Salesmanlist"); }
         }
         
-        private SalesmanAddModel currentdata;
-        public SalesmanAddModel Currentdata
+        private ParameterModel currentdata;
+        public ParameterModel Currentdata
         {
             get { return currentdata; }
             set { currentdata = value; RaisePropertyChanged("Currentdata"); }
@@ -92,7 +92,7 @@ namespace StarNote.ViewModel
         {
             try
             {
-                Salesmanlist = new List<SalesmanAddModel>(salesmanAddDA.GetAll());
+                Salesmanlist = new List<ParameterModel>(salesmanAddDA.GetAll());
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Satış Görevli Tablo Doldurma Tamamlandı", "");
             }
             catch (Exception ex)

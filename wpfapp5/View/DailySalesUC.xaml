@@ -14,7 +14,7 @@
              xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"       
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
              mc:Ignorable="d" Margin="0" Padding="0"    
-             Background="#c8d6e5"
+             Background="#FE9590AD"
              d:DesignHeight="450" d:DesignWidth="800" LostFocus="UserControl_LostFocus" GotFocus="UserControl_GotFocus">
 
     <UserControl.Resources>
@@ -43,24 +43,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Popup  x:Name="popup" Width="240"    
-                           StaysOpen="true"
-                           Placement="AbsolutePoint"              
-                           AllowsTransparency="True"  
-                           PopupAnimation="Slide"  
-                           HorizontalOffset="150"  
-                           VerticalOffset="100"                           
-                           >
-                <Border  BorderThickness="2" BorderBrush="Black" CornerRadius="0" Padding="0">
-                    <Grid Background="White" x:Name="gridpopup">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                </Border>
-            </Popup>
-            <Button  Content="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Row="1" Grid.Column="4" Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
+            <Button  Style="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Row="1" Grid.Column="4" Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
                 <dxb:BarManager.DXContextMenu>
                     <dxb:PopupMenu Width="150">
 
@@ -79,9 +62,10 @@
                                 ItemClick="Btnxcel_ItemClick" />
                             <dxb:BarButtonItem
                                 x:Name="btnayar"
-                                Content="Kolon ayar ekranı"
+                                Content="Görünümü Kaydet"
                                 Glyph="/Content/settings mini.png"
-                                ItemClick="Btnayar_ItemClick" />
+                                ItemClick="Btnlayoutsave_ItemClick"
+                                />
                         </dxb:PopupMenu.Items>
                     </dxb:PopupMenu>
                 </dxb:BarManager.DXContextMenu>
@@ -96,9 +80,11 @@
 
             <dxg:GridColumn x:Name="Id" Header="ID"                    Width="50"    FieldName="ID"                    Binding="{Binding Id}" />
             <dxg:GridColumn x:Name="Satisgorevli" Header="TERCÜMAN"       Width="auto"  FieldName="SATIŞ GÖREVLİSİ"       Binding="{Binding Satisgorevli}"/>
-            <dxg:GridColumn x:Name="Urun" Header="ÜRÜN"                  Width="auto"  FieldName="ÜRÜN"                  Binding="{Binding Urun}"/>
-            <dxg:GridColumn x:Name="Miktar" Header="MİKTAR"                Width="auto"  FieldName="MİKTAR"                Binding="{Binding Miktar}"/>
-            <dxg:GridColumn x:Name="Birim" Header="BİRİM"                 Width="auto"  FieldName="BİRİM"                 Binding="{Binding Birim}"/>
+            <dxg:GridColumn x:Name="Urun" Header="ÜRÜN"                  Width="auto"  FieldName="ÜRÜN"                  Binding="{Binding Urun}">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:TextEditSettings TextWrapping="Wrap" />
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>                   
             <dxg:GridColumn x:Name="Randevutarihi" Header="TESLİM TARİHİ"        Width="auto"  FieldName="RANDEVU TARİHİ"        Binding="{Binding Randevutarihi}"/>
             <dxg:GridColumn x:Name="Fiyat" Header="FİYAT"                 Width="auto"  FieldName="FİYAT"                 Binding="{Binding Fiyat}"/>
             <dxg:GridColumn x:Name="Ödemeyöntemi" Header="ÖDEME YÖNTEMİ"         Width="auto"  FieldName="ÖDEME YÖNTEMİ"         Binding="{Binding Ödemeyöntemi}"/>

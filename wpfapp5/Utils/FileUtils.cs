@@ -36,7 +36,7 @@ namespace StarNote.Utils
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
         }
 
-        public bool createStandartFile(string directory,string filename, List<MainModel> list,int format)
+        public bool createStandartFile(string directory,string filename, OrderModel model,int format)
         {
             LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Local Dosya Oluşturuluyor", "");
             bool iscreated = false;
@@ -53,39 +53,35 @@ namespace StarNote.Utils
                     //Tercüme Raporu
                     case 0:
                         Report1 tercümerapor = new Report1();
-                        tercümerapor.Parameters["dosyano"].Value = list[0].Kayıtdetay + " esas";
-                        tercümerapor.Parameters["talimatno"].Value =  list[0].Türdetay + "..............." + " talimat numaralı dosyası";
-                        tercümerapor.Parameters["tarih"].Value = Convert.ToDateTime(list[0].Randevutarihi).ToShortDateString();
-                        tercümerapor.Parameters["tür"].Value = list[0].Türdetay + " HAKİMLİĞİ'NE";
-                        tercümerapor.Parameters["şehir"].Value = list[0].Şehir;
+                        tercümerapor.Parameters["dosyano"].Value = model.Costumerorder.Kayıtdetay + " esas";
+                        tercümerapor.Parameters["talimatno"].Value = model.Costumerorder.Türdetay + "..............." + " talimat numaralı dosyası";
+                        tercümerapor.Parameters["tarih"].Value = Convert.ToDateTime(model.Costumerorder.Randevutarihi).ToShortDateString();
+                        tercümerapor.Parameters["tür"].Value = model.Costumerorder.Türdetay + " HAKİMLİĞİ'NE";
+                        tercümerapor.Parameters["şehir"].Value = model.Costumerorder.Şehir;
 
-                        foreach (var item in list)
+                        foreach (var item in model.Joborder)
                         {
                             count++;
                             string kelimeno = "kelime" + count.ToString(), satırno = "satır" + count.ToString(), karakterno = "karakter" + count.ToString(), sayfano = "sayfa" + count.ToString(), ürünno = "ürün" + count.ToString();
-                            tercümerapor.Parameters[kelimeno].Value = " : " + list[count - 1].Kelimesayı + "  kelime";
-                            tercümerapor.Parameters[satırno].Value = " : " + list[count - 1].Satırsayı + "  satır";
-                            tercümerapor.Parameters[karakterno].Value = " : " + list[count - 1].Karaktersayı + "  karakter";
-                            tercümerapor.Parameters[sayfano].Value = " ( " + list[count - 1].Önerilenbirim + " )";
-                            tercümerapor.Parameters[ürünno].Value = list[count - 1].Ürün;
+                            tercümerapor.Parameters[kelimeno].Value = " : " + item.Kelimesayı + "  kelime";
+                            tercümerapor.Parameters[satırno].Value = " : " + item.Satırsayı + "  satır";
+                            tercümerapor.Parameters[karakterno].Value = " : " + item.Karaktersayı + "  karakter";
+                            tercümerapor.Parameters[sayfano].Value = " ( " + item.Hesaplananadet +" SAYFA"+ " )";
+                            tercümerapor.Parameters[ürünno].Value = item.Ürün;
                             
-                            string[] sayfasayısplit = list[count - 1].Önerilenbirim.Split(' ');
-                            int value = 0;
-                            if (int.TryParse(sayfasayısplit[0], out value))
-                            {
-                                toplamsayfa += Convert.ToInt32(sayfasayısplit[0]);
-                            }
+                                toplamsayfa += item.Hesaplananadet;
+                            
                         }
                         toplampara = 90 * toplamsayfa;
-                        tercümerapor.Parameters["toplampara"].Value = toplamsayfa.ToString() +" SAYFA "+ " X " + "90" + " TL = " + toplampara.ToString() + " TL";
+                        tercümerapor.Parameters["toplampara"].Value = toplamsayfa.ToString() + " SAYFA " + " X " + "90" + " TL = " + toplampara.ToString() + " TL";
                         tercümerapor.Parameters["toplamsayfa"].Value = toplamsayfa.ToString() + " Sayfa";
                         //reportirsaliye.ExportOptions.PrintPreview.DefaultDirectory = System.Environment.CurrentDirectory;
                         tercümerapor.ExportOptions.PrintPreview.DefaultDirectory = directory;
                         tercümerapor.ExportOptions.PrintPreview.SaveMode = DevExpress.XtraPrinting.SaveMode.UsingDefaultPath;
                         tercümerapor.ExportOptions.PrintPreview.ShowOptionsBeforeExport = false;
                         tercümerapor.ExportOptions.PrintPreview.DefaultFileName = filename.Substring(0, filename.Length - 4);
-                        tercümerapor.ExportOptions.PrintPreview.ActionAfterExport = ActionAfterExport.None; 
-                        report = new ReportUC(tercümerapor, list, filename);
+                        tercümerapor.ExportOptions.PrintPreview.ActionAfterExport = ActionAfterExport.None;
+                        report = new ReportUC(tercümerapor, model, filename);
                         report.Show();
                         break;
                     //Bildiri Ücret Raporu
@@ -93,27 +89,27 @@ namespace StarNote.Utils
                         Repor2 bildiriücret = new Repor2();
                         bildiriücret.Parameters["Tarih"].Value = DateTime.Now.ToShortDateString();
                         bildiriücret.Parameters["Takipno"].Value = "MS............";
-                        bildiriücret.Parameters["İsim"].Value = list[0].İsim;
-                        bildiriücret.Parameters["adres"].Value = list[0].Adres +"  "+list[0].İlçe +"  "+ list[0].Şehir;
+                        bildiriücret.Parameters["İsim"].Value = model.Costumerorder.İsim;
+                        bildiriücret.Parameters["adres"].Value = model.Costumerorder.Adres + "  " + model.Costumerorder.İlçe + "  " + model.Costumerorder.Şehir;
                         //bildiriücret.Parameters["şehir"].Value = list[0].Şehir;
-                        foreach (var item in list)
+                        foreach (var item in model.Joborder)
                         {
                             count++;
                             string dosyano = "dosyano" + count.ToString(), hizmetno = "hizmet" + count.ToString(), sayfano = "sayfa" + count.ToString(), tutar = "tutar" + count.ToString();
-                            bildiriücret.Parameters[dosyano].Value = list[count - 1].Joborder;
-                            bildiriücret.Parameters[hizmetno].Value = list[count - 1].Ürün;
-                            bildiriücret.Parameters[sayfano].Value = list[count - 1].Miktar + " Adet";
-                            bildiriücret.Parameters[tutar].Value = list[count - 1].Ücret + " TL";
+                            bildiriücret.Parameters[dosyano].Value = item.Joborder;
+                            bildiriücret.Parameters[hizmetno].Value = item.Ürün;
+                            bildiriücret.Parameters[sayfano].Value = item.Miktar + " Adet";
+                            bildiriücret.Parameters[tutar].Value = item.Ücret + " TL";
 
-                            toplampara += list[count - 1].Ücret;                            
-                            toplamsayfa += list[count-1].Miktar;
+                            toplampara += item.Ücret;
+                            toplamsayfa += item.Miktar;
                         }
                         bildiriücret.Parameters["toplamtutar"].Value = toplampara.ToString() + " TL";
                         bildiriücret.Parameters["toplamsayfa"].Value = toplamsayfa.ToString() + " Adet";
                         bildiriücret.Parameters["gelirvergi"].Value = (toplampara * 0.18).ToString() + " TL";
                         bildiriücret.Parameters["stopaj"].Value = (toplampara * 0.2).ToString() + " TL";
                         bildiriücret.Parameters["kesintitoplam"].Value = ((toplampara * 0.2) + (toplampara * 0.18)).ToString() + " TL";
-                        bildiriücret.Parameters["nettutar"].Value =(toplampara+((toplampara * 0.2) + (toplampara * 0.18))).ToString() + " TL";
+                        bildiriücret.Parameters["nettutar"].Value = (toplampara + ((toplampara * 0.2) + (toplampara * 0.18))).ToString() + " TL";
                         bildiriücret.Parameters["ünvan"].Value = "Uzman Yeminli Tercüman";
                         bildiriücret.Parameters["isimfirma"].Value = "MUSTAFA ŞAN";
                         bildiriücret.Parameters["adresfirma"].Value = "";
@@ -123,11 +119,11 @@ namespace StarNote.Utils
                         bildiriücret.ExportOptions.PrintPreview.ShowOptionsBeforeExport = false;
                         bildiriücret.ExportOptions.PrintPreview.DefaultFileName = filename.Substring(0, filename.Length - 4);
                         bildiriücret.ExportOptions.PrintPreview.ActionAfterExport = ActionAfterExport.None;
-                        report = new ReportUC(bildiriücret, list, filename);
+                        report = new ReportUC(bildiriücret, model, filename);
                         report.Show();
-                        break;                    
+                        break;
                 }
-                              
+
                 iscreated = true;
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Local Dosya Oluşturuldu","Dosya Yolu = "+ directory+"\\"+filename);
             }
@@ -186,10 +182,24 @@ namespace StarNote.Utils
             bool isadded = false;
             string path = ConfigurationManager.AppSettings["ftpserver"].ToString() +directory+"/"+filenameforftp;
             LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yükleme başladı", "");
-          
-                if(FtpDirectoryExists(directory))
+
+            if (FtpDirectoryExists(directory))
+            {
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu mevcut yükleme başladı", "");
+                WebClient client = new WebClient();
+                client.Credentials = new NetworkCredential("u0070076", ftppassword);
+                client.UploadFile(path, folderdesktoppath);
+                isadded = true;
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu yüklendi", "");
+            }
+            else
+            {
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu eksik tekrar kontrol başladı", "");
+                string[] paths = directory.Split('/');
+                if (!FtpDirectoryExists(paths[0]))
                 {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu mevcut yükleme başladı", "");
+                    Makefolder(paths[0]);
+                    Makefolder(paths[0] + "/" + paths[1]);
                     WebClient client = new WebClient();
                     client.Credentials = new NetworkCredential("u0070076", ftppassword);
                     client.UploadFile(path, folderdesktoppath);
@@ -198,29 +208,15 @@ namespace StarNote.Utils
                 }
                 else
                 {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu eksik tekrar kontrol başladı", "");
-                    string[] paths = directory.Split('/');
-                    if (!FtpDirectoryExists(paths[0]))
-                    {
-                        Makefolder(paths[0]);
-                        Makefolder(paths[0] + "/" + paths[1]);
-                        WebClient client = new WebClient();
-                        client.Credentials = new NetworkCredential("u0070076", ftppassword);
-                        client.UploadFile(path, folderdesktoppath);
-                        isadded = true;
-                        LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu yüklendi", "");
-                    }
-                    else
-                    {
-                        Makefolder(paths[0] + "/" + paths[1]);
-                        WebClient client = new WebClient();
-                        client.Credentials = new NetworkCredential("u0070076", ftppassword);
-                        client.UploadFile(path, folderdesktoppath);
-                        isadded = true;
-                        LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu yüklendi", "");
-                    }
+                    Makefolder(paths[0] + "/" + paths[1]);
+                    WebClient client = new WebClient();
+                    client.Credentials = new NetworkCredential("u0070076", ftppassword);
+                    client.UploadFile(path, folderdesktoppath);
+                    isadded = true;
+                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu yüklendi", "");
                 }
-              
+            }
+
             return isadded;
         }
 
@@ -232,8 +228,7 @@ namespace StarNote.Utils
             string fileextension = Path.GetExtension(name);
             int count = 1;
             while (true)
-            {
-                
+            {              
                 try
                 {
                     var request = (FtpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["ftpserver"].ToString() + directory + "/" + filename+fileextension);
@@ -312,9 +307,15 @@ namespace StarNote.Utils
             LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya indirme başladı", "");
             try
             {
+                PrintingRoute route = new PrintingRoute();
+                if (route.Filemanagement=="")
+                {
+                    LogVM.displaypopup("ERROR", "Geçerli Dosya Yolu Yok");
+                    return;
+                }
                 string inputfilepath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\"+obj.Dosyaadı;
                 string ftphost = ConfigurationManager.AppSettings["ftpserver"].ToString();
-                string ftpfilepath = (obj.Türadı + "/" + obj.Firmadı+"/"+obj.Dosyaadı);
+                string ftpfilepath = (obj.Mainid + "/" + obj.Klasörno+"/"+obj.Dosyaadı);
 
                 string ftpfullpath = ftphost + ftpfilepath;
 
@@ -328,6 +329,7 @@ namespace StarNote.Utils
                         file.Write(fileData, 0, fileData.Length);
                         file.Close();
                     }
+                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya indirme tamamlandı", inputfilepath);
                     MessageBoxResult result = MessageBox.Show("Dosya İndirme Tamamlandı. Dosyayı Açmak İster misiniz?", "Dosya İndirme ", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (result == MessageBoxResult.Yes)
                     {
@@ -338,7 +340,7 @@ namespace StarNote.Utils
             }
             catch (Exception ex)
             {
-
+                LogVM.displaypopup("ERROR", "Dosya İndirme Hatası");
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Klasör indirme hatası",  ex.Message);
             }
            
@@ -351,7 +353,7 @@ namespace StarNote.Utils
             try
             {
                 string ftphost = ConfigurationManager.AppSettings["ftpserver"].ToString();
-                string ftpfilepath = (obj.Türadı + "/" + obj.Firmadı + "/" + obj.Dosyaadı);
+                string ftpfilepath = (obj.Mainid + "/" + obj.Klasörno + "/" + obj.Dosyaadı);
                 string ftpfullpath = ftphost + ftpfilepath;
 
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpfullpath);

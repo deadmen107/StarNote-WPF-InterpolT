@@ -41,25 +41,9 @@
                         <ColumnDefinition Width="140"/>
                     </Grid.ColumnDefinitions>
                     <TextBox Background="Transparent" BorderBrush="Transparent" Text="Dosya Yönetimi"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
-                    <Button HorizontalAlignment="Right" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt" Height="25" Width="120"  Click="Buttonyenikayıt_Click">Yeni Kayıt</Button>
-                    <Popup  x:Name="popup" Width="240"    
-                           StaysOpen="true"
-                           Placement="AbsolutePoint"              
-                           AllowsTransparency="True"  
-                           PopupAnimation="Slide"  
-                           HorizontalOffset="150"  
-                           VerticalOffset="100"                           
-                           >
-                        <Border  BorderThickness="2" BorderBrush="Black" CornerRadius="0" Padding="0">
-                            <Grid Background="White" x:Name="gridpopup">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="120"/>
-                                    <ColumnDefinition Width="120"/>
-                                </Grid.ColumnDefinitions>
-                            </Grid>
-                        </Border>
-                    </Popup>
-                    <Button  Content="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Column="2"  Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
+                    <Button Style="{StaticResource btnyenikayıt}"  HorizontalAlignment="Right" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt" Height="25" Width="120"  Click="Buttonyenikayıt_Click"></Button>
+
+                    <Button Style="{StaticResource btnsettings}"  x:Name="buttonoutput" Grid.Column="2"  Width="140" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
                         <dxb:BarManager.DXContextMenu>
                             <dxb:PopupMenu>
                                 <dxb:PopupMenu.Items>
@@ -75,9 +59,9 @@
                                 ItemClick="Btnxcel_ItemClick" />
                                     <dxb:BarButtonItem
                                 x:Name="btnayar"
-                                Content="Kolon ayar ekranı"
-                                Glyph="/Content/settings mini.png"
-                                ItemClick="Btnayar_ItemClick" />
+                                Content="Görünümü Kaydet"
+                                Glyph="/Content/settings mini.png" 
+                                        ItemClick="Btnlayoutsave_ItemClick"/>
                                 </dxb:PopupMenu.Items>
                             </dxb:PopupMenu>
                         </dxb:BarManager.DXContextMenu>
@@ -98,37 +82,37 @@
                                 <dxe:TextEditSettings HorizontalContentAlignment="Left"/>
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn x:Name="Türadı" Header="MÜŞTERİ TÜRÜ" Binding="{Binding Path=Türadı}"  FieldName="1">
+                        <dxg:GridColumn Header="MÜŞTERİ TÜRÜ" Binding="{Binding Path=Türadı}">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings HorizontalContentAlignment="Left"/>
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn x:Name="Türdetay" Header="MAHKEME TÜRÜ" Binding="{Binding Path=Türdetay}"  FieldName="6">
+                        <dxg:GridColumn  Header="MAHKEME TÜRÜ" Binding="{Binding Path=Türdetay}">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings HorizontalContentAlignment="Left"/>
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn x:Name="Kayıtdetay" Header="ESAS NO" Binding="{Binding Path=Kayıtdetay}"  FieldName="7">
+                        <dxg:GridColumn  Header="ESAS NO" Binding="{Binding Path=Kayıtdetay}">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings HorizontalContentAlignment="Left"/>
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn x:Name="Firmadı" Header="FİRMA ADI" Binding="{Binding Path=Firmadı}"  FieldName="2">
+                        <dxg:GridColumn  Header="FİRMA ADI" Binding="{Binding Path=Firmadı}">
                         <dxg:GridColumn.EditSettings>
                             <dxe:TextEditSettings HorizontalContentAlignment="Left"/>
                         </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn x:Name="İşemrino" Header="İŞ EMRİ NUMARASI" Binding="{Binding Path=İşemrino}"  FieldName="3">
+                        <dxg:GridColumn  Header="KLASÖR ADI" Binding="{Binding Path=Klasörno}">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings HorizontalContentAlignment="Left"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                        <dxg:GridColumn x:Name="Müşteriadı" Header="MÜŞTERİ ADI" Binding="{Binding Path=Müşteriadı}"  FieldName="4">
+                        <dxg:GridColumn Header="MÜŞTERİ ADI" Binding="{Binding Path=Müşteriadı}">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings HorizontalContentAlignment="Left"/>
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn x:Name="Dosyaadı" Header="DOSYA ADI" Binding="{Binding Path=Dosyaadı}"  FieldName="5">
+                        <dxg:GridColumn  Header="DOSYA ADI" Binding="{Binding Path=Dosyaadı}">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings HorizontalContentAlignment="Left"/>
                             </dxg:GridColumn.EditSettings>
@@ -138,7 +122,7 @@
             </Grid>
         </dx:DXTabItem>
         <dx:DXTabItem  Header="güncelle" x:Name="tabgüncelleme">
-            <ScrollViewer Margin="-12" Background="#c8d6e5"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
+            <ScrollViewer Margin="-12" Background="#FE9590AD"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
                 <ScrollViewer.Resources>
                     <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                         <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
@@ -233,9 +217,9 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <dx:SimpleButton x:Name="btnkayıt" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btnkayıt_Click">Kaydet</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="btnyenidizin" Grid.Column="2" Height="25" Width="140" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Btnyenidizin_Click">Otomatik Dosya Seç</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" >Vazgeç</dx:SimpleButton>
+                                <dx:SimpleButton Style="{StaticResource btnsave}" x:Name="btnkayıt" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btnkayıt_Click"></dx:SimpleButton>
+                                <dx:SimpleButton Style="{StaticResource FlatButtonStyle}"  x:Name="btnyenidizin" Grid.Column="2" Height="25" Width="150" HorizontalAlignment="Right" Margin="0,0,0,0" Click="Btnyenidizin_Click">Otomatik Dosya Seç</dx:SimpleButton>
+                                <dx:SimpleButton Style="{StaticResource btngoback}"  x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" ></dx:SimpleButton>
 
                             </Grid>
                         </Border>

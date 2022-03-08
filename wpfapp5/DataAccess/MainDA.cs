@@ -31,14 +31,14 @@ namespace StarNote.Model
            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
         }
 
-        public List<MainModel>GetAll()
+        public List<OrderModel>GetAll()
         {
             //tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
             client = new HttpClient();
             client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + WebapiUtils.access_token);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            List<MainModel> mainlist = new List<MainModel>();         
+            List<OrderModel> mainlist = new List<OrderModel>();         
             HttpResponseMessage response=null;
             try
             {
@@ -46,9 +46,36 @@ namespace StarNote.Model
                 var result = JArray.Parse(response.Content.ReadAsStringAsync().Result);
                 foreach (var item in result)
                 {
-                    mainlist.Add(item.ToObject<MainModel>());
+                    mainlist.Add(item.ToObject<OrderModel>());
                 }
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Main Tablo Api verisi alındı", "");              
+            }
+            catch (Exception ex)
+            {
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Main Tablo doldurma hatası", ex.Message);
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Main Tablo doldurma hatası", response.Content.ReadAsStringAsync().Result);
+
+            }
+            return mainlist;
+        }
+
+        public List<JobOrderModel> Getselectedjoborders(int Id)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + WebapiUtils.access_token);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            List<JobOrderModel> mainlist = new List<JobOrderModel>();
+            HttpResponseMessage response = null;
+            try
+            {
+                response = client.GetAsync("Getselectedjoborders?Id="+Id).Result;
+                var result = JArray.Parse(response.Content.ReadAsStringAsync().Result);
+                foreach (var item in result)
+                {
+                    mainlist.Add(item.ToObject<JobOrderModel>());
+                }
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Main Tablo Api verisi alındı", "");
             }
             catch (Exception ex)
             {
@@ -160,7 +187,7 @@ namespace StarNote.Model
             return obj;
         }
         
-        public bool Update(MainModel objmainmodel)
+        public bool Update(OrderModel objmainmodel)
         {
             //tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
             bool isUpdated = false;       
@@ -194,14 +221,14 @@ namespace StarNote.Model
             return isUpdated;
         }
 
-        public bool Add(MainModel objnewmain)
+        public bool Add(OrderModel objnewmain)
         {
             //tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
             bool isadded = false;
             try
-            {             
-                objnewmain.Kayıttarihi = Convert.ToDateTime(objnewmain.Kayıttarihi).ToString("dd.MM.yyyy HH:mm");
-                objnewmain.Randevutarihi = Convert.ToDateTime(objnewmain.Randevutarihi).ToString("dd.MM.yyyy HH:mm");
+            {
+                objnewmain.Costumerorder.Kayıttarihi = Convert.ToDateTime(objnewmain.Costumerorder.Kayıttarihi).ToString("dd.MM.yyyy HH:mm");
+                objnewmain.Costumerorder.Randevutarihi = Convert.ToDateTime(objnewmain.Costumerorder.Randevutarihi).ToString("dd.MM.yyyy HH:mm");
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["baseURL"].ToString()+ controller+ "AddMain");
                 httpWebRequest.Headers.Add("Authorization", "Bearer " + WebapiUtils.access_token);
                 httpWebRequest.ContentType = "application/json";
@@ -228,14 +255,14 @@ namespace StarNote.Model
             return isadded;          
         }
 
-        public bool Addsoft(MainModel objnewmain)
+        public bool Addsoft(OrderModel objnewmain)
         {
             //tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
             bool isadded = false;
             try
             {
-                objnewmain.Kayıttarihi = Convert.ToDateTime(objnewmain.Kayıttarihi).ToString("dd.MM.yyyy HH:mm");
-                objnewmain.Randevutarihi = Convert.ToDateTime(objnewmain.Randevutarihi).ToString("dd.MM.yyyy HH:mm");
+                objnewmain.Costumerorder.Kayıttarihi = Convert.ToDateTime(objnewmain.Costumerorder.Kayıttarihi).ToString("dd.MM.yyyy HH:mm");
+                objnewmain.Costumerorder.Randevutarihi = Convert.ToDateTime(objnewmain.Costumerorder.Randevutarihi).ToString("dd.MM.yyyy HH:mm");
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["baseURL"].ToString() + controller + "AddMainSoft");
                 httpWebRequest.Headers.Add("Authorization", "Bearer " + WebapiUtils.access_token);
                 httpWebRequest.ContentType = "application/json";
@@ -260,6 +287,30 @@ namespace StarNote.Model
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Main Kayıt Ekleme hatası", ex.Message);
             }
             return isadded;
+        }
+
+        public helperclass Getsource()
+        {
+            //tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
+            client = new HttpClient();
+            client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + WebapiUtils.access_token);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = null;
+            helperclass obj = new helperclass();
+            try
+            {
+                response = client.GetAsync("Getsources").Result;
+                var result = JObject.Parse(response.Content.ReadAsStringAsync().Result);
+                obj = result.ToObject<helperclass>();
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Seçilen stok Api verisi alındı", "");
+            }
+            catch (Exception ex)
+            {
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Seçilen stok doldurma hatası", ex.Message);
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Seçilen stok doldurma hatası", response.Content.ReadAsStringAsync().Result);
+            }
+            return obj;
         }
 
         public List<string> türsource()
@@ -612,5 +663,20 @@ namespace StarNote.Model
             }
             return objMainList;
         }
+    }
+    public class helperclass
+    {
+        public List<string> Ödemeyöntem { get; set; }
+        public List<string> Method { get; set; }
+        public List<string> Durum { get; set; }
+        public List<string> Birim { get; set; }
+        public List<string> Kdv { get; set; }
+        public List<string> Ürün { get; set; }
+        public List<string> Salesman { get; set; }
+        public List<string> tür { get; set; }
+        public List<string> türdetay { get; set; }
+        public List<string> mainürün { get; set; }
+        public List<CompanyModel> company { get; set; }
+        public List<CostumerModel> costumer { get; set; }
     }
 }

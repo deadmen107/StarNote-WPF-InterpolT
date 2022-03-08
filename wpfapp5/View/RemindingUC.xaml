@@ -44,17 +44,19 @@
                         <ColumnDefinition Width="140"/>
                     </Grid.ColumnDefinitions>
                     <TextBox Background="Transparent" BorderBrush="Transparent" Text="Hatırlatmalar"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
-                    <Button HorizontalAlignment="Right" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt" Height="25" Width="120"  Click="Buttonyenikayıt_Click">Yeni Kayıt</Button>
-                    <Button  Content="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Column="2"  Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
+                    <Button Style="{StaticResource btnyenikayıt}" HorizontalAlignment="Right" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt" Height="25" Width="120"  Click="Buttonyenikayıt_Click">Yeni Kayıt</Button>
+                    <Button  Style="{StaticResource btnsettings}" x:Name="buttonoutput" Grid.Column="2"  Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
                         <dxb:BarManager.DXContextMenu>
                             <dxb:PopupMenu>
                                 <dxb:PopupMenu.Items>
                                     <dxb:BarButtonItem
+                                        Tag="0"
                                         x:Name="btnpdf"
                                 Content="PDF ÇIKTI"
                                 Glyph="/Content/pdf.png"
                                 ItemClick="Btnpdf_ItemClick" />
                                     <dxb:BarButtonItem
+                                          Tag="0"
                                 x:Name="btnxcel"
                                 Content="Excel ÇIKTI"
                                 Glyph="/Content/excel.png"
@@ -110,7 +112,7 @@
             </Grid>
         </dx:DXTabItem>
         <dx:DXTabItem  Header="güncelle" x:Name="tabgüncelleme">
-            <ScrollViewer Margin="-12" Background="#c8d6e5"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"  >
+            <ScrollViewer Margin="-12" Background="#FE9590AD"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"  >
                 <ScrollViewer.Resources>
                     <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                         <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
@@ -304,9 +306,9 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <dx:SimpleButton x:Name="btnkayıt" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btnkayıt_Click">Kaydet</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Btngüncelle_Click">Güncelle</dx:SimpleButton>
-                                <dx:SimpleButton x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" >Vazgeç</dx:SimpleButton>
+                                <dx:SimpleButton Style="{StaticResource btnsave}" x:Name="btnkayıt" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="Btnkayıt_Click"></dx:SimpleButton>
+                                <dx:SimpleButton Style="{StaticResource btnupdate}" x:Name="btngüncelle" Grid.Column="3" Height="25" Width="120" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Btngüncelle_Click"></dx:SimpleButton>
+                                <dx:SimpleButton Style="{StaticResource btngoback}" x:Name="buttonvazgec" Click="Buttonvazgec_Click" Margin="10,0,10,0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" ></dx:SimpleButton>
 
                             </Grid>
                         </Border>
@@ -318,11 +320,15 @@
         </dx:DXTabItem>
         <dx:DXTabItem Background="#DDFAFAFA"  Header="takip" x:Name="tabold">
             <Grid Background="#DDFAFAFA"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="57*"/>
+                    <ColumnDefinition Width="943*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="300"/>
                         <ColumnDefinition Width="*"/>
@@ -330,6 +336,28 @@
                         <ColumnDefinition Width="140"/>
                     </Grid.ColumnDefinitions>
                     <TextBox Background="Transparent" BorderBrush="Transparent" Text="Eski Hatırlatmalar"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
+                    <Button Style="{StaticResource btnyenikayıt}" HorizontalAlignment="Right" Grid.Column="3" Margin="0,0,10,0" x:Name="buttonyenikayıt1" Height="25" Width="120"  Click="Buttonyenikayıt_Click">Yeni Kayıt</Button>
+                    <Button  Style="{StaticResource btnsettings}" x:Name="buttonoutput1" Grid.Column="2"  Width="120" Height="25" dxb:BarManager.MenuShowMouseButton="LeftButton">
+                        <dxb:BarManager.DXContextMenu>
+                            <dxb:PopupMenu>
+                                <dxb:PopupMenu.Items>
+                                    <dxb:BarButtonItem
+                                        Tag="1"
+                                        x:Name="btnpdf1"
+                                Content="PDF ÇIKTI"
+                                Glyph="/Content/pdf.png"
+                                ItemClick="Btnpdf_ItemClick" />
+                                    <dxb:BarButtonItem
+                                          Tag="1"
+                                x:Name="btnxcel1"
+                                Content="Excel ÇIKTI"
+                                Glyph="/Content/excel.png"
+                                ItemClick="Btnxcel_ItemClick" />
+                                </dxb:PopupMenu.Items>
+                            </dxb:PopupMenu>
+                        </dxb:BarManager.DXContextMenu>
+
+                    </Button>
                 </Grid>
                 <dxg:GridControl x:Name="gridhedef1"  Grid.Row="1"   ItemsSource="{Binding Oldremindings,Mode=TwoWay}" MaxHeight="2000" MaxWidth="2000" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" >
                     <dxg:GridControl.View>

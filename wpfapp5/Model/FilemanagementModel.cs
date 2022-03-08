@@ -15,6 +15,13 @@ namespace StarNote.Model
             get { return id; }
             set { id = value; RaisePropertyChanged("Id"); }
         }
+        
+        private int mainid;
+        public int Mainid
+        {
+            get { return mainid; }
+            set { mainid = value; RaisePropertyChanged("Mainid"); }
+        }
 
         private string türadı;
         public string Türadı
@@ -23,13 +30,6 @@ namespace StarNote.Model
             set { türadı = value; RaisePropertyChanged("Türadı"); }
         }
 
-        private int mainid;
-        public int Mainid
-        {
-            get { return mainid; }
-            set { mainid = value; RaisePropertyChanged("Mainid"); }
-        }
-        
         private string türdetay;
         public string Türdetay
         {
@@ -51,13 +51,13 @@ namespace StarNote.Model
             set { firmadı = value; RaisePropertyChanged("Firmadı"); }
         }
 
-        private string işemrino;
-        public string İşemrino
+        private string klasörno;
+        public string Klasörno
         {
-            get { return işemrino; }
-            set { işemrino = value; RaisePropertyChanged("İşemrino"); }
+            get { return klasörno; }
+            set { klasörno = value; RaisePropertyChanged("Klasörno"); }
         }
-
+        
         private string müşteriadı;
         public string Müşteriadı
         {

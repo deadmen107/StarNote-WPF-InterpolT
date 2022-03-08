@@ -1,0 +1,58 @@
+﻿<UserControl
+    x:Class="StarNote.LoadingSplashScreen"
+   
+    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:gif="http://wpfanimatedgif.codeplex.com"
+    mc:Ignorable="d"
+    d:DataContext="{x:Static dx:SplashScreenViewModel.DesignTimeData}"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    
+    
+    >
+  
+        <Grid x:Name="LayoutRoot">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--<TextBlock x:Name="Info" TextWrapping="Wrap" FontSize="17"  Text="işlem Yapılıyor..." Grid.Row="1"  />-->
+            <Image x:Name="animatedgif" gif:ImageBehavior.RepeatBehavior="3x" Width="100" Margin="20" Height="100" Grid.Row="2"
+             gif:ImageBehavior.AnimatedSource="/Content/loadinggif.gif" >
+                <!--<Image.Triggers>
+                -->
+                <!-- Animate the button's Width property. -->
+                <!--
+                <EventTrigger RoutedEvent="Image.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                Storyboard.TargetName="animatedgif"
+                Storyboard.TargetProperty="(Image.Width)"
+                To="150" From="100" Duration="0:0:2" AutoReverse="True" 
+                RepeatBehavior="Forever" />
+                            <DoubleAnimation
+                Storyboard.TargetName="animatedgif"
+                Storyboard.TargetProperty="(Image.Height)"
+                To="150" From="100" Duration="0:0:2" AutoReverse="True" 
+                RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>            
+            </Image.Triggers>-->
+
+            </Image>
+            <!--<fa:ImageAwesome Grid.Row="2" Icon="Spinner" Spin="True" Foreground="BlueViolet" SpinDuration="1.5" Height="170" Width="170" />-->
+
+
+
+
+        </Grid>
+   
+</UserControl>

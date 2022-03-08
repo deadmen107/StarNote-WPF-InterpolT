@@ -26,14 +26,14 @@ namespace StarNote.View
     /// </summary>
     public partial class ReportUC : Window
     {       
-        List<MainModel> list = new List<MainModel>();
+        OrderModel mainmodel = new OrderModel();
         string ftpfilename;
-        public ReportUC(DevExpress.XtraReports.IReport report,List<MainModel> mainlist,string filename)
+        public ReportUC(DevExpress.XtraReports.IReport report,OrderModel model,string filename)
         {            
             InitializeComponent();   
            
             documentview.DocumentSource = report;
-            list = mainlist;
+            mainmodel = model;
             ftpfilename = filename;
             PrintingLocalizer.Active = new TurkishFiltersLocalizer1();            
          
@@ -48,7 +48,7 @@ namespace StarNote.View
                 FileUtils fileUtils = new FileUtils();
                 string filenameforftp = ftpfilename;
                 string folderdesktoppath = System.Environment.CurrentDirectory + "\\" + filenameforftp;
-                string folderpath = list[0].Tür + "/" + list[0].Firmaadı;
+                string folderpath = mainmodel.Costumerorder.Id + "/" + "Starnote";
                 if (fileUtils.SaveFile(folderdesktoppath, folderpath, filenameforftp))
                 {
                     if (fileUtils.deletefile(folderdesktoppath))
@@ -57,13 +57,13 @@ namespace StarNote.View
 
                         filemanagementModel.Id = 0;
                         filemanagementModel.Dosyaadı = filenameforftp;
-                        filemanagementModel.Firmadı = list[0].Firmaadı;
-                        filemanagementModel.Türadı = list[0].Tür;
-                        filemanagementModel.Müşteriadı = list[0].İsim;
-                        filemanagementModel.İşemrino = list[0].Joborder;
-                        filemanagementModel.Kayıtdetay = list[0].Kayıtdetay;
-                        filemanagementModel.Mainid = list[0].Id;
-                        filemanagementModel.Türdetay = list[0].Türdetay;
+                        filemanagementModel.Firmadı = mainmodel.Costumerorder.Firmaadı;
+                        filemanagementModel.Türadı = mainmodel.Costumerorder.Tür;
+                        filemanagementModel.Müşteriadı = mainmodel.Costumerorder.İsim;
+                        filemanagementModel.Klasörno = "Starnote";
+                        filemanagementModel.Kayıtdetay = mainmodel.Costumerorder.Kayıtdetay;
+                        filemanagementModel.Mainid = mainmodel.Costumerorder.Id;
+                        filemanagementModel.Türdetay = mainmodel.Costumerorder.Türdetay;
 
                         fileUtils.filltable(filemanagementModel);                    
                         this.Close();

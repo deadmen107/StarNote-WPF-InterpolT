@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StarNoteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Lisance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar(max)" />
+    <Property Name="PRODUCTID" Type="varchar(max)" />
+    <Property Name="END_DATE" Type="varchar(max)" />
+    <Property Name="STATUS" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_mainview">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar(max)" />
+    <Property Name="SURNAME" Type="varchar(max)" />
+    <Property Name="PHONE" Type="varchar(max)" />
+    <Property Name="REG_DATE" Type="varchar(max)" />
+    <Property Name="REG_HOUR" Type="varchar(max)" />
+    <Property Name="PRODUCT" Type="varchar(max)" />
+    <Property Name="PCS" Type="varchar(max)" />
+    <Property Name="PCSTYPE" Type="varchar(max)" />
+    <Property Name="PRICE" Type="varchar(max)" />
+    <Property Name="PAYMENT" Type="varchar(max)" />
+    <Property Name="RAN_DATE" Type="varchar(max)" />
+    <Property Name="RAN_HOUR" Type="varchar(max)" />
+    <Property Name="STATE" Type="varchar(max)" />
+    <Property Name="INFO" Type="varchar(max)" />
+    <Property Name="TAX_NO" Type="varchar(max)" />
+    <Property Name="TAX_ADRESS" Type="varchar(max)" />
+    <Property Name="TC" Type="varchar(max)" />
+    <Property Name="ADRESS" Type="varchar(max)" />
+    <Property Name="CITY" Type="varchar(max)" />
+    <Property Name="TOWN" Type="varchar(max)" />
+    <Property Name="EMAIL" Type="varchar(max)" />
+    <Property Name="SALES" Type="varchar(max)" />
+    <Property Name="SALESMAN" Type="varchar(max)" />
+    <Property Name="BUDGET" Type="varchar(max)" />
+    <Property Name="COMPANY_NAME" Type="varchar(max)" />
+    <Property Name="COMPANY_ADRESS" Type="varchar(max)" />
+    <Property Name="RememberID" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_note">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NoteID" Type="int" Nullable="false" />
+    <Property Name="NoteName" Type="varchar(max)" />
+    <Property Name="Notetxt" Type="varchar(max)" />
+    <Property Name="RegisterDate" Type="varchar(max)" />
+    <Property Name="RegisterHour" Type="varchar(max)" />
+    <Property Name="Rememberstatus" Type="varchar(max)" />
+    <Property Name="RememberDate" Type="varchar(max)" />
+    <Property Name="RememberHour" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_remember">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="mainID" Type="int" Nullable="false" />
+    <Property Name="RAN_DATE" Type="varchar(max)" />
+    <Property Name="RAN_HOUR" Type="varchar(max)" />
+    <Property Name="STATE" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_salesman">
+    <Key>
+      <PropertyRef Name="PersonelID" />
+    </Key>
+    <Property Name="PersonelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="NAME" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_stok">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="STOKKOD" Type="varchar(max)" />
+    <Property Name="STOKNAME" Type="varchar(max)" />
+    <Property Name="STOKUNİT" Type="varchar(max)" />
+    <Property Name="STOKPCS" Type="varchar(max)" />
+    <Property Name="STOKINCOMEPRICE" Type="varchar(max)" />
+    <Property Name="STOKOUTCOMEPRICE" Type="varchar(max)" />
+    <Property Name="STOKKDV" Type="varchar(max)" />
+    <Property Name="STOKDISCOUNT" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="StarNoteModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Lisance" EntityType="Self.tbl_Lisance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mainview" EntityType="Self.tbl_mainview" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_note" EntityType="Self.tbl_note" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_remember" EntityType="Self.tbl_remember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_salesman" EntityType="Self.tbl_salesman" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_stok" EntityType="Self.tbl_stok" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
