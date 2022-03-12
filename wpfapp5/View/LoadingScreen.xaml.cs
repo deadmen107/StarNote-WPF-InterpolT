@@ -23,6 +23,7 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using StarNote.ViewModel;
+using StarNote.Jobs;
 
 namespace StarNote.View
 {
@@ -71,6 +72,8 @@ namespace StarNote.View
 
         private void login()
         {
+            UserUtils.ActiveUser = userName.Text;
+            UserUtils.Password = password.Text;
             buttonLogin.IsEnabled = false;
             buttonLogin.Visibility = Visibility.Collapsed;
             progressBar.Visibility = Visibility.Visible;
@@ -82,11 +85,12 @@ namespace StarNote.View
             UserUtils userUtils = new UserUtils();
             LisanceUtils lisanceUtils = new LisanceUtils();
             this.Hide();
+            WebapiUtils.GetTokensync();
             if (WebapiUtils.apitest())
             {
                 if (WebapiUtils.Dbtest())
                 {
-                    if (!lisanceUtils.readlisans())
+                    if (!lisanceUtils.readlisans() && false)
                     {
                         DXSplashScreen.Close();
                         MessageBox.Show("Uygulamanız lisanssızdır, lisans sayfasına yönlendirileceksiniz");
@@ -105,6 +109,8 @@ namespace StarNote.View
                                 {
                                     if (userUtils.CheckUserfromApi(userName.Text, password.Text))
                                     {
+                                        MyScheduler scheduler = new MyScheduler();
+                                        scheduler.GoreviTetikle();
                                         LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", " --- UYGULAMA AÇILIYOR  ----", "kullanıcı adı=" + userName.Text);
                                         MainWindow main = new MainWindow();
                                         main.txtUserName.Text = userName.Text;

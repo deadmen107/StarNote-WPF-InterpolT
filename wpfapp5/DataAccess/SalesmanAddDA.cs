@@ -39,7 +39,7 @@ namespace StarNote.DataAccess
             List<ParameterModel> objMainList = new List<ParameterModel>();
             try
             {
-                response = client.GetAsync("GetSalesmanList").Result;
+                response = client.GetAsync("GetAll").Result;
                 var result = JArray.Parse(response.Content.ReadAsStringAsync().Result);
                 foreach (var item in result)
                 {

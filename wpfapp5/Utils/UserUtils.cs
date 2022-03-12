@@ -40,10 +40,10 @@ namespace StarNote.Utils
 
         public bool CheckUserfromApi(string username, string password)
         {
-            //tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
+            TokenModel tk = Task.Run(async () => await WebapiUtils.GetToken()).Result;
             client = new HttpClient();
             client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + WebapiUtils.access_token);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + tk.access_token);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = null;
             List<UsersModel> userlist = new List<UsersModel>();

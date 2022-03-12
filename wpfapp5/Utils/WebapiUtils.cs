@@ -30,25 +30,71 @@ namespace StarNote.Utils
      (sender, cert, chain, sslPolicyErrors) => true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
             TokenModel obj = new TokenModel();
+            UserCredential objuser = new UserCredential
+            {
+                UserName = UserUtils.ActiveUser,
+                Password = UserUtils.Password
+            };
             try
             {
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri(ConfigurationManager.AppSettings["TokenURL"].ToString());
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
-                    var content = new FormUrlEncodedContent(new[]
-                    {
-                       new KeyValuePair<string, string>("grant_type", "password"),
-                       new KeyValuePair<string, string>("username", "sys"),
-                       new KeyValuePair<string, string>("password", "12345")
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["TokenURL"].ToString()+"Login");
+               
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
 
-            });
-                    var result = await client.PostAsync("/token", content);
-                    string resultContent = await result.Content.ReadAsStringAsync();
-                    obj = JsonConvert.DeserializeObject<TokenModel>(resultContent);
-                    
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    var json = Newtonsoft.Json.JsonConvert.SerializeObject(objuser);
+
+                    streamWriter.Write(json);
+                }
+
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                    obj.access_token = result.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                LogVM.Addlog("WebapiUtils", System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Token Çekme Hatası", ex.Message);
+            }
+            return obj;
+        }
+
+        public static TokenModel GetTokensync()
+        {
+            ServicePointManager
+     .ServerCertificateValidationCallback +=
+     (sender, cert, chain, sslPolicyErrors) => true;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            TokenModel obj = new TokenModel();
+            UserCredential objuser = new UserCredential
+            {
+               UserName=UserUtils.ActiveUser,
+               Password=UserUtils.Password
+            };
+            try
+            {
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["TokenURL"].ToString() + "Login");
+
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    var json = Newtonsoft.Json.JsonConvert.SerializeObject(objuser);
+
+                    streamWriter.Write(json);
+                }
+
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                    obj.access_token = result.ToString();
                 }
             }
             catch (Exception ex)
@@ -128,5 +174,10 @@ namespace StarNote.Utils
             }
 
         }
+    }
+    public class UserCredential
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -623,7 +623,7 @@
 
                                 <dxg:GridControl.View>
 
-                                    <dxg:TableView x:Name="tableAcik4" Tag="3" RowDoubleClick="TableAcik_RowDoubleClick"  AllowPerPixelScrolling="True" BestFitMode="AllRows" AutoWidth="True" ShowGroupPanel="False" ShowSearchPanelMode="Always" AllowEditing="False"  ShowTotalSummary="True" SearchPanelNullText="Kelime Arama">
+                                    <dxg:TableView x:Name="tableAcik4" Tag="4" RowDoubleClick="TableAcik_RowDoubleClick"  AllowPerPixelScrolling="True" BestFitMode="AllRows" AutoWidth="True" ShowGroupPanel="False" ShowSearchPanelMode="Always" AllowEditing="False"  ShowTotalSummary="True" SearchPanelNullText="Kelime Arama">
 
                                     </dxg:TableView>
                                 </dxg:GridControl.View>

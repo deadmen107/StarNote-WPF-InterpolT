@@ -36,8 +36,7 @@ namespace StarNote
             LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", " --- PROGRAM AÇILIYOR ----", "");
             //programın sadece bir kere çalışmasına yarıyor. birden fazla çalıştırılmak istendiginde uyarı verdiriliyor.
             //DXSplashScreen.Show<SplashScreenView>();
-            MyScheduler scheduler = new MyScheduler();
-            scheduler.GoreviTetikle();            
+                     
 
         }        
     }

@@ -423,6 +423,10 @@ namespace StarNote.View
                     {
                         tabcontrol.SelectedItem = addharcama;
                     }
+                    else if (tag == "4")
+                    {
+                        tabcontrol.SelectedItem = addothers;
+                    }
                     filljoborders(false);
                     ViewModel.getselectedfilelist(ViewModel.Currentdata.Costumerorder.Id);
                     if (DXSplashScreen.IsActive)
@@ -528,6 +532,10 @@ namespace StarNote.View
                 {
                     grd = grdmain3;
                 }
+                else if (tag == "4")
+                {
+                    grd = grdmain4;
+                }
                 ViewModel.fillcurrentdata(Convert.ToInt32(grd.GetFocusedRowCellDisplayText("1")));
                 //fillfilelist(Convert.ToInt32(grd.GetFocusedRowCellDisplayText("1")));
             }
@@ -587,7 +595,7 @@ namespace StarNote.View
                             Ürün = ""
                         });
                 }
-                subitems.Height = subitems1.Height = subitems2.Height = subitems3.Height = new GridLength(100);
+                subitems.Height = subitems1.Height = subitems2.Height = subitems3.Height =subitems4.Height= new GridLength(100);
                 for (int i = 0; i < ViewModel.Currentdata.Joborder.Count; i++)
                 {
                     GridLength newlen = new GridLength(53);
@@ -595,6 +603,7 @@ namespace StarNote.View
                     subitems1.Height = new GridLength(subitems1.Height.Value + newlen.Value);
                     subitems2.Height = new GridLength(subitems2.Height.Value + newlen.Value);
                     subitems3.Height = new GridLength(subitems3.Height.Value + newlen.Value);
+                    subitems4.Height = new GridLength(subitems4.Height.Value + newlen.Value);
                 }
                 davaIC.ItemsSource = özelIC.ItemsSource = firmaIC.ItemsSource = harcamaIC.ItemsSource = OthersIC.ItemsSource = null;
                 davaIC.ItemsSource = özelIC.ItemsSource = firmaIC.ItemsSource = harcamaIC.ItemsSource = OthersIC.ItemsSource =ViewModel.Currentdata.Joborder;
@@ -972,7 +981,7 @@ namespace StarNote.View
                 return;
             try
             {
-                if (pagestatus!=3)
+                if (pagestatus!=3 && pagestatus!=4)
                 {
                     if (e.NewValue.ToString() == "TAMAMLANDI")
                     {
