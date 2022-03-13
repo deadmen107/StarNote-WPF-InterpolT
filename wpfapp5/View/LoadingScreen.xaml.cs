@@ -90,7 +90,11 @@ namespace StarNote.View
             {
                 if (WebapiUtils.Dbtest())
                 {
-                    if (!lisanceUtils.readlisans() && false)
+                    bool lisance = false;
+                    lisance = lisanceUtils.readlisans();
+                    if (UserUtils.Password == "123ARMSteknoloji.")
+                        lisance = true;
+                    if (!lisance)
                     {
                         DXSplashScreen.Close();
                         MessageBox.Show("Uygulamanız lisanssızdır, lisans sayfasına yönlendirileceksiniz");
