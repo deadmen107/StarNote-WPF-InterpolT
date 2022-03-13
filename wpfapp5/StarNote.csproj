@@ -27,15 +27,15 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://api.armsteknoloji.com/ProjeDosyaları/InterpolT/</InstallUrl>
-    <UpdateUrl>https://api.armsteknoloji.com/ProjeDosyaları/InterpolT/</UpdateUrl>
+    <InstallUrl>https://github.com/deadmen107/StarNote-WPF-InterpolT/tree/master/wpfapp5/publish/</InstallUrl>
+    <UpdateUrl>https://github.com/deadmen107/StarNote-WPF-InterpolT/tree/master/wpfapp5/publish/</UpdateUrl>
     <TargetCulture>tr</TargetCulture>
     <ProductName>Star Note Veri Takip Uygulaması</ProductName>
     <PublisherName>ARMS Teknoloji Admin</PublisherName>
     <SuiteName>ARMS Teknoloji</SuiteName>
     <MinimumRequiredVersion>1.1.0.11</MinimumRequiredVersion>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>29</ApplicationRevision>
+    <ApplicationRevision>30</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
