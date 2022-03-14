@@ -22,7 +22,7 @@ namespace StarNote.Utils
     {       
         //TokenModel tk = new TokenModel();
         private static string controller = "FileManagement/";
-        private static string ftppassword = "5pb02#rG";
+        private static string ftppassword = "5^k30nbC";
 
         public static string yüklendi = "YÜKLENDİ";
         public static string hazır = "HAZIR";
@@ -187,7 +187,7 @@ namespace StarNote.Utils
             {
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu mevcut yükleme başladı", "");
                 WebClient client = new WebClient();
-                client.Credentials = new NetworkCredential("u0070076", ftppassword);
+                client.Credentials = new NetworkCredential("u0584616", ftppassword);
                 client.UploadFile(path, folderdesktoppath);
                 isadded = true;
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu yüklendi", "");
@@ -201,7 +201,7 @@ namespace StarNote.Utils
                     Makefolder(paths[0]);
                     Makefolder(paths[0] + "/" + paths[1]);
                     WebClient client = new WebClient();
-                    client.Credentials = new NetworkCredential("u0070076", ftppassword);
+                    client.Credentials = new NetworkCredential("u0584616", ftppassword);
                     client.UploadFile(path, folderdesktoppath);
                     isadded = true;
                     LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu yüklendi", "");
@@ -210,7 +210,7 @@ namespace StarNote.Utils
                 {
                     Makefolder(paths[0] + "/" + paths[1]);
                     WebClient client = new WebClient();
-                    client.Credentials = new NetworkCredential("u0070076", ftppassword);
+                    client.Credentials = new NetworkCredential("u0584616", ftppassword);
                     client.UploadFile(path, folderdesktoppath);
                     isadded = true;
                     LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya yolu yüklendi", "");
@@ -232,7 +232,7 @@ namespace StarNote.Utils
                 try
                 {
                     var request = (FtpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["ftpserver"].ToString() + directory + "/" + filename+fileextension);
-                    request.Credentials = new NetworkCredential("u0070076", ftppassword);
+                    request.Credentials = new NetworkCredential("u0584616", ftppassword);
                     request.Method = WebRequestMethods.Ftp.GetFileSize;
                     FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                     LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "FTP Dosya  Mevcut yükleme yapılamaz ", "Aynı isimde dosya mevcut lütfen kayıtta değişiklik yapınız");
@@ -260,7 +260,7 @@ namespace StarNote.Utils
                 List<string> directroys = new List<string>();
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["ftpserver"].ToString()+directory);
                 request.Method = WebRequestMethods.Ftp.ListDirectory;
-                request.Credentials = new NetworkCredential("u0070076", ftppassword);
+                request.Credentials = new NetworkCredential("u0584616", ftppassword);
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 Stream responseStream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(responseStream);
@@ -287,7 +287,7 @@ namespace StarNote.Utils
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Klasör oluşturma baslıyor", folder);
                 WebRequest request = WebRequest.Create(ConfigurationManager.AppSettings["ftpserver"].ToString() + folder);
                 request.Method = WebRequestMethods.Ftp.MakeDirectory;
-                request.Credentials = new NetworkCredential("u0070076", ftppassword);
+                request.Credentials = new NetworkCredential("u0584616", ftppassword);
                 using (var resp = (FtpWebResponse)request.GetResponse())
                 {
                     iscreated = true;
@@ -321,7 +321,7 @@ namespace StarNote.Utils
 
                 using (WebClient request = new WebClient())
                 {
-                    request.Credentials = new NetworkCredential("u0070076", ftppassword);
+                    request.Credentials = new NetworkCredential("u0584616", ftppassword);
                     byte[] fileData = request.DownloadData(ftpfullpath);
 
                     using (FileStream file = File.Create(inputfilepath))
@@ -357,7 +357,7 @@ namespace StarNote.Utils
                 string ftpfullpath = ftphost + ftpfilepath;
 
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpfullpath);
-                request.Credentials = new NetworkCredential("u0070076", ftppassword);
+                request.Credentials = new NetworkCredential("u0584616", ftppassword);
                 request.Method = WebRequestMethods.Ftp.DeleteFile;
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 Console.WriteLine("Delete status: {0}", response.StatusDescription);

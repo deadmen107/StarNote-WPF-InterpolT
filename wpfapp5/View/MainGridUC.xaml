@@ -829,19 +829,18 @@
                                     <Border  Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="3" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:TextEdit Name="txtkayıtdetay"  ShowBorder="False"   NullText="Esas No"  Text="{Binding Path=Currentdata.Costumerorder.Kayıtdetay}"></dxe:TextEdit>
                                     </Border>
-                                   
+
                                     <Border  Grid.Column="2" Grid.ColumnSpan="2"   Grid.Row="3" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:TextEdit Name="txtkayıtdetay2"  ShowBorder="False"   NullText="Esas Karar No"  Text="{Binding Path=Currentdata.Costumerorder.Kayıtdetay2}"></dxe:TextEdit>
                                     </Border>
                                 </Grid>
                             </Border>
-
                             <Border Background="#FFFAFAFA" Grid.Row="2"   CornerRadius="19" Padding="0">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
-                                      
+
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="47"/>
@@ -850,13 +849,13 @@
                                         <RowDefinition  Height="*"/>
                                     </Grid.RowDefinitions>
 
-                                    <Label VerticalAlignment="Top" Margin="10,0,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Talimat Bilgileri </Label>
+                                    <Label VerticalAlignment="Top" Margin="10,0,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Talimat Bilgileri</Label>
                                     <Label VerticalAlignment="Top" FontWeight="Bold" Margin="10,0,1,10" FontSize="13" Visibility="Hidden" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="0">Dosya Numarası :</Label>
-                                 
+
                                     <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,25,10,10" ></Separator>
                                     <Label VerticalAlignment="Bottom" Margin="10,0,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="0">TALİMAT ADLİYESİ *</Label>
                                     <Label VerticalAlignment="Bottom" Margin="10,0,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="2" Grid.Row="0">TALİMAT MAHKEMESİ</Label>
-                                    
+
                                     <Label VerticalAlignment="Bottom" Margin="10,0,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="2">TALİMAT NO</Label>
                                     <Label VerticalAlignment="Bottom" Margin="10,0,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="1" Grid.Row="2">TALİMAT AÇIKLAMASI</Label>
                                     <Border  Grid.Column="0"   Grid.Row="1" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
@@ -865,7 +864,7 @@
                                     <Border  Grid.Column="2"  Grid.Row="1" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:ComboBoxEdit Name="txttürdetay1" IsTextEditable="False" ShowBorder="False" ItemsSource="{Binding Path=Türsdetayourcelist}"   NullText="Talimat Mahkeme Türü"  Text="{Binding Path=Currentdata.Costumerorder.Talimatmahkeme}"></dxe:ComboBoxEdit>
                                     </Border>
-                                   
+
                                     <Border  Grid.Column="0"  Grid.Row="3" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:TextEdit Name="txtkayıtdetay112"  ShowBorder="False"   NullText="Talimat No"  Text="{Binding Path=Currentdata.Costumerorder.Kayıtdetay1}"></dxe:TextEdit>
                                     </Border>
@@ -874,7 +873,6 @@
                                     </Border>
                                 </Grid>
                             </Border>
-
                             <Border Background="#FFFAFAFA" Grid.Row="4"  Grid.Column="1"  CornerRadius="19" Padding="0">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -1051,7 +1049,8 @@
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                 </Grid.ColumnDefinitions>
-                                                            <Image Grid.Column="0" x:Name="img" MouseDown="Img_MouseDown" Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
+                                                            <Label Grid.Column="0" Margin="0,0,0,0"  Content="{Binding Path=Id}"></Label>
+                                                            <Image Grid.Column="0" x:Name="img" MouseDown="Img_MouseDown"  Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
                                                             <Border Grid.Row="1" Grid.Column="1"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False" NullText="Numara Verilecek"   Text="{Binding Path=Joborder}"></dxe:TextEdit>
                                                             </Border>
@@ -1571,6 +1570,7 @@
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                             </Grid.ColumnDefinitions>
+                                                            <Label Grid.Column="0" Margin="0,0,0,0"  Content="{Binding Path=Id}"></Label>
                                                             <Image Grid.Column="0" x:Name="img" MouseDown="Img_MouseDown" Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
                                                             <Border Grid.Row="1" Grid.Column="1"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False" NullText="Numara Verilecek"   Text="{Binding Path=Joborder}"></dxe:TextEdit>
@@ -2098,6 +2098,7 @@
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                             </Grid.ColumnDefinitions>
+                                                            <Label Grid.Column="0" Margin="0,0,0,0"  Content="{Binding Path=Id}"></Label>
                                                             <Image Grid.Column="0" x:Name="img" MouseDown="Img_MouseDown" Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
                                                             <Border Grid.Row="1" Grid.Column="1"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False" NullText="Numara Verilecek"   Text="{Binding Path=Joborder}"></dxe:TextEdit>
@@ -2503,7 +2504,7 @@
                                                                 <ColumnDefinition Width="160"/>
                                                             </Grid.ColumnDefinitions>
                                                             <ItemsControl  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Currentdata.Joborder}"></ItemsControl>
-
+                                                            <Label Grid.Column="0" Margin="0,0,0,0"  Content="{Binding Path=Id}"></Label>
                                                             <Image x:Name="img" MouseDown="Img_MouseDown" Grid.Column="0"  Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
                                                             <Border  Background="White" Grid.Column="1"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" CharacterCasing="Upper" ShowBorder="False" NullText="Ürün"  Text="{Binding Path=Ürün2}"></dxe:TextEdit>
@@ -2705,7 +2706,7 @@
                                                                 <ColumnDefinition Width="160"/>
                                                             </Grid.ColumnDefinitions>
                                                             <ItemsControl  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Currentdata.Joborder}"></ItemsControl>
-
+                                                            <Label Grid.Column="0" Margin="0,0,0,0"  Content="{Binding Path=Id}"></Label>
                                                             <Image x:Name="img" MouseDown="Img_MouseDown" Grid.Column="0"  Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
                                                             <Border  Background="White" Grid.Column="1"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" CharacterCasing="Upper" ShowBorder="False" NullText="Ürün"  Text="{Binding Path=Ürün2}"></dxe:TextEdit>

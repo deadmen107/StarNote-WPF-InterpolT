@@ -35,10 +35,19 @@ namespace StarNote.ViewModel
             Currentstok = new StokModel();
             LoadData(100);        
             Count = new List<string>() { "10", "100", "1000" };          
-            clearcommand = new RelayCommand(Clear);            
+            clearcommand = new RelayCommand(Clear);
+            filljobordercount();
         }
 
+
+
         #region Defines
+        private List<int> jobordercount;
+        public List<int> Jobordercount
+        {
+            get { return jobordercount; }
+            set { jobordercount = value; RaisePropertyChanged("Jobordercount"); }
+        }
 
         public static int pagecount { get; set; }
 
@@ -277,6 +286,14 @@ namespace StarNote.ViewModel
         #endregion
 
         #region Method
+        private void filljobordercount()
+        {
+            Jobordercount = new List<int>();
+            for (int i = 1; i < 100; i++)
+            {
+                Jobordercount.Add(i);
+            }
+        }
         public void fillcurrentdata(int ID)
         {
             Currentdata = Alllist.Find(u => u.Costumerorder.Id == ID);
