@@ -2705,3 +2705,5 @@ E:\c#\InterpolT Wpf\wpfapp5\obj\Debug\StarNote.application
 E:\c#\InterpolT Wpf\wpfapp5\obj\Debug\StarNote.csproj.CopyComplete
 E:\c#\InterpolT Wpf\wpfapp5\obj\Debug\StarNote.exe
 E:\c#\InterpolT Wpf\wpfapp5\obj\Debug\StarNote.pdb
+C:\C# Devs\Interpol WPF\wpfapp5\obj\Debug\View\PopupAnalysisUC.g.cs
+C:\C# Devs\Interpol WPF\wpfapp5\obj\Debug\View\PopupAnalysisUC.baml
