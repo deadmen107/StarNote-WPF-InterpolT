@@ -91,8 +91,8 @@ namespace StarNote.View
                 if (WebapiUtils.Dbtest())
                 {
                     bool lisance = false;
-                    lisance = lisanceUtils.readlisans();
-                    if (UserUtils.Password == "123ARMSteknoloji.")
+                    //lisance = lisanceUtils.readlisans();
+                    //if (UserUtils.Password == "123ARMSteknoloji.")
                         lisance = true;
                     if (!lisance)
                     {
