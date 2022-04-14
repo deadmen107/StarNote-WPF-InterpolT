@@ -531,6 +531,7 @@
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="DataAccess\AnalysisMontlyDA.cs" />
     <Compile Include="DataAccess\AnalysisYearlyDA.cs" />
+    <Compile Include="DataAccess\BaseDa.cs" />
     <Compile Include="DataAccess\CompanyDA.cs" />
     <Compile Include="DataAccess\CostumerDA.cs" />
     <Compile Include="DataAccess\DailyAccountingDA.cs" />
@@ -587,6 +588,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LangTR.resx</DependentUpon>
     </Compile>
+    <Compile Include="Service\GlobalStore.cs" />
     <Compile Include="Service\RefreshViews.cs" />
     <Compile Include="Service\VisualTreeHelperExt.cs" />
     <Compile Include="Settings\WeatherSetting.Designer.cs">
@@ -675,6 +677,9 @@
     </Compile>
     <Compile Include="View\LogUC.xaml.cs">
       <DependentUpon>LogUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MontlyAnalysisUC.xaml.cs">
+      <DependentUpon>MontlyAnalysisUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PasswordUC.xaml.cs">
       <DependentUpon>PasswordUC.xaml</DependentUpon>
@@ -798,6 +803,10 @@
     <Page Include="View\LogUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MontlyAnalysisUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PasswordUC.xaml">
       <SubType>Designer</SubType>

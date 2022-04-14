@@ -71,21 +71,9 @@
         </dxwui:HamburgerSubMenu>
         <dxwui:HamburgerMenuItemSeparator/>
         <dxwui:HamburgerSubMenu FontSize="16" Glyph="/Content/dashboard.png"  Content="ANALİZ" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"   >
-            <dxwui:HamburgerSubMenu.Items >
-
+            <dxwui:HamburgerSubMenu.Items>
                 <dxwui:HamburgerSubMenuNavigationButton Tag="11"  Content="Genel Aylık Analiz"         Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="12"  Content="Genel Yıllık Analiz"        Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="101" Content="Adliye Aylık Analiz"        Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="201" Content="Adliye Yıllık Analiz"       Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="102" Content="Özel Tercüme Aylık Analiz"  Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="202" Content="Özel Tercüme Yıllık Analiz" Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="103" Content="Diğer Kurum Aylık Analiz"   Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="203" Content="Diğer Kurum Yıllık Analiz"  Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="104" Content="Harcama Aylık Analiz"       Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="204" Content="Harcama Yıllık Analiz"      Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="105" Content="Diğer Gelir Aylık Analiz"   Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="205" Content="Diğer Yıllık Analiz"        Click="HamburgerSubMenuNavigationButton_Click"/>                
-                <dxwui:HamburgerSubMenuNavigationButton Tag="14"  Content="Tercüman İş Analizi"       Click="HamburgerSubMenuNavigationButton_Click"/>
+                <dxwui:HamburgerSubMenuNavigationButton Tag="12"  Content="Genel Yıllık Analiz"        Click="HamburgerSubMenuNavigationButton_Click"/>               
             </dxwui:HamburgerSubMenu.Items>
         </dxwui:HamburgerSubMenu>
         <dxwui:HamburgerMenuItemSeparator/>
@@ -179,7 +167,7 @@
                                 <view:MontlyPurchaseUC/>
                             </dxdo:DocumentPanel>
                             <dxdo:DocumentPanel x:Name="documentPanelAylıkANALIZ" AllowClose="False">
-                                <view:AnalysisMontlyUC/>
+                                <view:MontlyAnalysisUC/>
                             </dxdo:DocumentPanel>
                             <dxdo:DocumentPanel x:Name="documentPanelYıllıkANALIZ" AllowClose="False">                              
                                 <view:AnalysisYearlyUC/>

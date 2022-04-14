@@ -260,28 +260,7 @@ namespace StarNote
                 {
                     panel = documentPanelANAMENU;
                     menü.Text = "Harici Gelir Ekleme";
-                }
-                else if ((menu.Tag.ToString() == "101" 
-                       || menu.Tag.ToString() == "102"
-                        || menu.Tag.ToString() == "103"
-                         || menu.Tag.ToString() == "104"
-                          || menu.Tag.ToString() == "105"  )                        
-                    && UserUtils.Authority.Contains(UserUtils.Aylık_Analiz))
-                {
-                    panel = documentPanelAylıkANALIZ;
-                    menü.Text = menu.Content.ToString();
-                }
-                else if ((menu.Tag.ToString() == "201"
-                        || menu.Tag.ToString() == "202"
-                         || menu.Tag.ToString() == "203"
-                          || menu.Tag.ToString() == "204"
-                           || menu.Tag.ToString() == "205")
-                     && UserUtils.Authority.Contains(UserUtils.Yıllık_Analiz))
-                {
-                    panel = documentPanelYıllıkANALIZ;
-                    menü.Text = menu.Content.ToString();
-                }
-
+                }                
                 else
                 {
                     MessageBox.Show("Kullanıcının bu sayfaya yetkisi yok");
