@@ -634,6 +634,7 @@
     <Compile Include="ViewModel\LisanceVM.cs" />
     <Compile Include="ViewModel\LogVM.cs" />
     <Compile Include="ViewModel\MainVM.cs" />
+    <Compile Include="ViewModel\MontlyAnalysisVM.cs" />
     <Compile Include="ViewModel\MontlyPurchaseVM.cs" />
     <Compile Include="ViewModel\MontlySalesVM.cs" />
     <Compile Include="ViewModel\PrintingVM.cs" />
