@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     
                      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
-            
+             xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"     
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
@@ -378,10 +378,58 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
-   
 
+    <Style TargetType="Border" x:Key="analysisborder">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Margin" Value="10,5,10,11" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="7" />
+        <Setter Property="Padding" Value="5" />
+    </Style>
 
+    <Style TargetType="dxe:TextEdit" x:Key="analysistxtbox" >
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="FontSize" Value="17" />
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="times new roman" />
+        <Setter Property="ShowBorder" Value="False" />
+        <Setter Property="TextWrapping" Value="Wrap"/>        
+    </Style>
 
+    <Style TargetType="Label" x:Key="analysislabel" >
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
 
+    <Style TargetType="dxg:GridControl" x:Key="analysisgrids">
+        <Setter Property="MaxHeight" Value="2000"/>
+        <Setter Property="MaxWidth" Value="2000" />
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+    <Style TargetType="dxg:TableView" x:Key="analysistable">
+        <Setter Property="AllowPerPixelScrolling" Value="True"/>
+        <Setter Property="BestFitMode" Value="AllRows" />
+        <Setter Property="AutoWidth" Value="False" />
+        <Setter Property="ShowSearchPanelMode" Value="Always"/>
+        <Setter Property="AllowEditing" Value="False"/>
+        <Setter Property="ShowGroupPanel" Value="False"/>
+        <Setter Property="ShowTotalSummary" Value="True"/>
+    </Style>
+
+    <Style TargetType="dxga:ArcScale" x:Key="analysisgaugearcscale">
+        <Setter Property="StartValue" Value="0"/>
+        <Setter Property="EndValue" Value="100" />
+        <Setter Property="StartAngle" Value="0" />
+        <Setter Property="EndAngle" Value="360" />
+        <Setter Property="MajorIntervalCount" Value="1"/>
+        <Setter Property="MinorIntervalCount" Value="1"/>
+        <Setter Property="ShowLabels" Value="false" />
+        <Setter Property="ShowLine" Value="false"/>
+        <Setter Property="ShowMajorTickmarks" Value="true" />
+        <Setter Property="ShowMinorTickmarks" Value="false"/>
+        <Setter Property="ShowSpindleCap" Value="false"/>
+    </Style>
 </ResourceDictionary>

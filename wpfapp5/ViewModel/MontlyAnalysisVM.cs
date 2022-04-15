@@ -165,6 +165,10 @@ namespace StarNote.ViewModel
         #region Methods
 
         #region UI Methods
+        private void Loaddata(DateTime startdate, DateTime enddate)
+        {
+
+        }
 
         #endregion
 
