@@ -561,6 +561,7 @@
     <Compile Include="Model\CostumerOrderModel.cs" />
     <Compile Include="Model\DailyAccountingModel.cs" />
     <Compile Include="Model\DataPoint.cs" />
+    <Compile Include="Model\DataProductModel.cs" />
     <Compile Include="Model\DetayModel.cs" />
     <Compile Include="Model\FilemanagementModel.cs" />
     <Compile Include="Model\GaugeModel.cs" />

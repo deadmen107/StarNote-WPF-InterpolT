@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using StarNote.DataAccess;
 using StarNote.Model;
+using StarNote.Service;
+
 namespace StarNote.ViewModel
 {
     public class MontlyAnalysisVM : BaseModel
@@ -13,6 +15,10 @@ namespace StarNote.ViewModel
         public MontlyAnalysisVM()
         {
             dataaccess = new BaseDa();
+            Startdate = new DateTime(DateTime.Now.Year-1, DateTime.Now.Month, 1);
+            Enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
+
+            Loaddata();
         }
 
 
@@ -41,11 +47,11 @@ namespace StarNote.ViewModel
             set { startdate = value; RaisePropertyChanged("Startdate"); }
         }
 
-        private DateTime endtime;
-        public DateTime Endtime
+        private DateTime enddate;
+        public DateTime Enddate
         {
-            get { return endtime; }
-            set { endtime = value; RaisePropertyChanged("Endtime"); }
+            get { return enddate; }
+            set { enddate = value; RaisePropertyChanged("Enddate"); }
         }
 
         private int totalprocesscount;
@@ -165,11 +171,117 @@ namespace StarNote.ViewModel
         #region Methods
 
         #region UI Methods
-        private void Loaddata(DateTime startdate, DateTime enddate)
+
+        public void Loaddata()
         {
+            ManageBigData(Titleindex, Startdate, Enddate);
+            ManagePartialData(subtitleindex);
 
         }
 
+        private bool IsBetween(DateTime value, DateTime min, DateTime max)
+        {
+            return (min.CompareTo(value) <= 0) && (value.CompareTo(max) <= 0);
+        }
+
+        private void ManageBigData(int titleindex,DateTime startdate, DateTime enddate)
+        {
+            Recorddataorder = new List<OrderModel>();
+            Recorddatacostumer = new List<CostumerOrderModel>();
+            Recorddatajoborder = new List<JobOrderModel>();
+            
+            foreach (var item in GlobalStore.Maindataorder.OrderByDescending(u=>u.Costumerorder.Id))
+            {
+                if (IsBetween(Convert.ToDateTime(item.Costumerorder.Kayıttarihi).Date,startdate.Date,enddate.Date))
+                {
+                    Recorddataorder.Add(item);
+                    Recorddatacostumer.Add(item.Costumerorder);
+                    Recorddatajoborder.AddRange(item.Joborder);
+                }
+            }
+            switch (titleindex)
+            {
+                case 0:  //Genel
+                   
+                    break;
+                case 1: //Adliye
+                    Recorddataorder = Recorddataorder.Where(u=>u.Costumerorder.Tür != "ÖZEL MÜŞTERİLER" && u.Costumerorder.Tür != "ŞİRKETLER" && u.Costumerorder.Savetype==0).ToList();
+                    Recorddatacostumer = Recorddatacostumer.Where(u => u.Tür != "ÖZEL MÜŞTERİLER" && u.Tür != "ŞİRKETLER" && u.Savetype == 0).ToList();
+                    Recorddatajoborder = Recorddatajoborder;
+                    break;
+                case 2: //Özel
+                    Recorddataorder = Recorddataorder.Where(u => u.Costumerorder.Tür == "ÖZEL MÜŞTERİLER"  && u.Costumerorder.Savetype == 0).ToList();
+                    Recorddatacostumer = Recorddatacostumer.Where(u => u.Tür == "ÖZEL MÜŞTERİLER"  && u.Savetype == 0).ToList();
+                    Recorddatajoborder = Recorddatajoborder;
+                    break;
+                case 3: //Firma
+                    Recorddataorder = Recorddataorder.Where(u =>  u.Costumerorder.Tür == "ŞİRKETLER" && u.Costumerorder.Savetype == 0).ToList();
+                    Recorddatacostumer = Recorddatacostumer.Where(u => u.Tür == "ŞİRKETLER" && u.Savetype == 0).ToList();
+                    Recorddatajoborder = Recorddatajoborder;
+                    break;
+                case 4:  //Özel İşlemler
+                    Recorddataorder = Recorddataorder.Where(u => u.Costumerorder.Tür == "ŞİRKETLER" && u.Costumerorder.Savetype == 0).ToList();
+                    Recorddatacostumer = Recorddatacostumer.Where(u => u.Tür == "ŞİRKETLER" && u.Savetype == 0).ToList();
+                    Recorddatajoborder = Recorddatajoborder;
+                    break;
+            }
+        }
+
+        private void ManagePartialData(int subtitleindex)
+        {
+            switch (subtitleindex)
+            {
+                case 0:   //NET
+                    filltablesnet();
+                    break;
+                case 1:   //GELİR
+
+                    break;
+                case 2:  //GİDER
+
+                    break;
+            }
+        }
+
+        private void filltablesnet()
+        {
+            Datachart = (from s in Recorddatacostumer
+                         group s by Convert.ToDateTime(s.Kayıttarihi).Date into g
+                                    select new DataPoint
+                                    {
+                                        Argument = g.Key.ToShortDateString(),
+                                        Value = g.Sum(x => x.Ücret)
+                                    }).ToList();
+            var item =   (from s in Recorddatacostumer
+                          group s by Convert.ToDateTime(s.Kayıttarihi).Date into g
+                          join c in Recorddatajoborder on g.FirstOrDefault().Id equals c.Üstid
+                          select new 
+                          {
+                              Argument = g.Key.ToShortDateString(),
+                              Price = g.FirstOrDefault().Ücret,
+                              Value = c.Ürün2detay.ToList()
+                          }).ToList();
+            //var item = (from s in Recorddatacostumer
+            //            join c in Recorddatajoborder on s.Id equals c.Üstid
+            //            group s by new { Convert.ToDateTime(s.Kayıttarihi).Date, c.Ürün2detay } into g
+            //            select new
+            //            {                            
+            //                Id= g.Select(u=>u.Id).FirstOrDefault(),
+            //                Price = g.Select(u => u.Ücret).FirstOrDefault(),
+            //                Argument = g.Key.Date.ToShortDateString(),
+            //                Value = g.Key.Ürün2detay,
+            //            }).ToList();
+
+            //var itemm = (from s in item
+            //             group s by new { s.Argument , s.Id  } into g
+            //             select new
+            //             {
+            //                 Argument = g.Key,
+            //                 price = g.Sum(u=>u.Price),
+            //                 Value = string.Join(",", g.Select(u => u.Value))
+            //             }).ToList();
+
+        }
         #endregion
 
         #region Report Methods

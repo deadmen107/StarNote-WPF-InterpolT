@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using StarNote.ViewModel;
 namespace StarNote.View
 {
     /// <summary>
@@ -20,9 +20,11 @@ namespace StarNote.View
     /// </summary>
     public partial class MontlyAnalysisUC : UserControl
     {
+        MontlyAnalysisVM analysisVM = new MontlyAnalysisVM();
         public MontlyAnalysisUC()
         {
             InitializeComponent();
+            this.DataContext = analysisVM;
         }
     }
 }

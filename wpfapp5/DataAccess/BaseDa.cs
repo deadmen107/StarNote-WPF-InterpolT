@@ -68,7 +68,7 @@ namespace StarNote.DataAccess
             Stopwatch s = new Stopwatch();
             s.Start();
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller);
+            client.BaseAddress = new Uri(ConfigurationManager.AppSettings["baseURL"].ToString() + controller+"/");
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + WebapiUtils.access_token);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = null;

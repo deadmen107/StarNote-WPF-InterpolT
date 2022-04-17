@@ -9,13 +9,13 @@ namespace StarNote.Model
     public class DataPoint
     {
 
-        public string Argument { get; private set; }
-        public double Value { get; private set; }
-        public DataPoint(string argument, double value)
-        {
-            Argument = argument;
-            Value = value;
-        }
+        public string Argument { get;  set; }
+        public double Value { get;  set; }
+        //public DataPoint(string argument, double value)
+        //{
+        //    Argument = argument;
+        //    Value = value;
+        //}
     }
 }
 

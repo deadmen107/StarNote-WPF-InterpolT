@@ -41,9 +41,9 @@ namespace StarNote.View
             System.Threading.Thread.Sleep(100);
             txtversiyon.Content = "Version V" + GetPublishedVersion();
             LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", " --- LOGİN SCREEN AÇILDI  ----", "");
-            //userName.Text = "sys";
-            //password.Text = "123ARMSteknoloji.";
-            //login();
+            userName.Text = "sys";
+            password.Text = "123ARMSteknoloji.";
+            login();
         }
         public static string GetPublishedVersion()
         {
