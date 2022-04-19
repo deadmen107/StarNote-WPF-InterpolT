@@ -143,7 +143,18 @@
                                         </dxga:ArcScale>
                                     </dxga:CircularGaugeControl.Scales>
                                 </dxga:CircularGaugeControl>
-                                <Border    Grid.Row="1" Grid.Column="2" Style="{StaticResource analysisborder}">
+                                <Border  Grid.Row="1" Grid.Column="2" Style="{StaticResource analysisborder}">
+                                    <Border.InputBindings>
+                                        <MouseBinding MouseAction="LeftDoubleClick"
+                                                      Command="{Binding YourBindableCommand}"
+                                                      CommandParameter="{Binding}" />
+                                    </Border.InputBindings>
+                                    <Border.ToolTip>
+                                        <StackPanel Orientation="Horizontal">                                           
+                                            <TextBlock>Rapor İçin Sağ Tıkla</TextBlock>
+                                            <Image Margin="5,0,0,0" Width="20" Height="20" Source="/Content/Report.png"/>
+                                        </StackPanel>
+                                    </Border.ToolTip>
                                     <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Potansialworth}"/>
                                 </Border>
                                 <Border    Grid.Row="1" Grid.Column="3" Style="{StaticResource analysisborder}">

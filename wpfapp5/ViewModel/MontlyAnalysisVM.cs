@@ -7,15 +7,21 @@ using StarNote.DataAccess;
 using StarNote.Model;
 using StarNote.Service;
 using StarNote.Command;
+using StarNote.Utils;
 
 namespace StarNote.ViewModel
 {
     public class MontlyAnalysisVM : BaseModel
     {
         BaseDa dataaccess;
+        Hedefler hedefler;
+
         public MontlyAnalysisVM()
         {
             dataaccess = new BaseDa();
+            hedefler = new Hedefler();
+            DeleteThanksCommand = new RelayCommand<object>((parms) => DeleteThanks(parms), parms => CanDeleteThanks());
+            Doreportcommand = new RelayCommand(DoReport);
             Selectionchangedtabindex = new RelayCommand(Loaddata);
             Startdate = new DateTime(DateTime.Now.Year-1, DateTime.Now.Month, 1);
             Enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
@@ -34,6 +40,18 @@ namespace StarNote.ViewModel
             set { selectionchangedtabindex = value; RaisePropertyChanged("Selectionchangedtabindex"); }
         }
 
+
+
+        
+
+public RelayCommand<object> DeleteThanksCommand { get; private set; }
+
+        private RelayCommand doreportcommand;
+        public RelayCommand Doreportcommand
+        {
+            get { return doreportcommand; }
+            set { doreportcommand = value; RaisePropertyChanged("Doreportcommand"); }
+        }
 
         #endregion
 
@@ -203,7 +221,7 @@ namespace StarNote.ViewModel
             Recorddatacostumer = new List<CostumerOrderModel>();
             Recorddatajoborder = new List<JobOrderModel>();
             
-            foreach (var item in GlobalStore.Maindataorder.OrderByDescending(u=>u.Costumerorder.Id))
+            foreach (var item in GlobalStore.Maindataorder)
             {
                 if (IsBetween(Convert.ToDateTime(item.Costumerorder.Kayıttarihi).Date,startdate.Date,enddate.Date))
                 {
@@ -308,6 +326,9 @@ namespace StarNote.ViewModel
                                         join c in Recorddatajoborder on s.Id equals c.Üstid
                                         select c.Joborder).Count();
             Totalprocesscount = Recorddatacostumer.Count();
+            TimeSpan t = Enddate - Startdate;           
+            Networthgauge = (Math.Round(100 * Realworth / hedefler.MonthlyAnalysisKAZANÇ, 0)/ t.TotalDays / 30).ToString();
+            Minusworthgauge = (Math.Round(100 * minusworth/ hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
         }
 
         private void FillWidgetsSales()
@@ -320,6 +341,9 @@ namespace StarNote.ViewModel
                                         join c in Recorddatajoborder on s.Id equals c.Üstid
                                         select c.Joborder).Count();
             Totalprocesscount = Recorddatacostumer.Count();
+            TimeSpan t = Enddate - Startdate;
+            Networthgauge = (Math.Round(100 * Realworth / hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
+            Minusworthgauge = (Math.Round(100 * minusworth / hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
         }
 
         private void FillWidgetsPurchase()
@@ -332,10 +356,18 @@ namespace StarNote.ViewModel
                                         join c in Recorddatajoborder on s.Id equals c.Üstid
                                         select c.Joborder).Count();
             Totalprocesscount = Recorddatacostumer.Count();
+            TimeSpan t = Enddate - Startdate;
+            Networthgauge = (Math.Round(100 * Realworth / hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
+            Minusworthgauge = (Math.Round(100 * minusworth / hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
         }
         #endregion
 
         #region Report Methods
+
+        public void DoReport(string tag)
+        {
+            
+        }
 
         #endregion
 
