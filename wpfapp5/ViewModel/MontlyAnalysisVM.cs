@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StarNote.DataAccess;
 using StarNote.Model;
 using StarNote.Service;
+using StarNote.Command;
 
 namespace StarNote.ViewModel
 {
@@ -15,14 +16,26 @@ namespace StarNote.ViewModel
         public MontlyAnalysisVM()
         {
             dataaccess = new BaseDa();
+            Selectionchangedtabindex = new RelayCommand(Loaddata);
             Startdate = new DateTime(DateTime.Now.Year-1, DateTime.Now.Month, 1);
             Enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
-
             Loaddata();
         }
 
 
         #region Defines
+
+        #region Commands
+
+        private RelayCommand selectionchangedtabindex;
+        public RelayCommand Selectionchangedtabindex
+        {
+            get { return selectionchangedtabindex; }
+            set { selectionchangedtabindex = value; RaisePropertyChanged("Selectionchangedtabindex"); }
+        }
+
+
+        #endregion
 
         #region UI Defines
 
@@ -232,18 +245,19 @@ namespace StarNote.ViewModel
             switch (subtitleindex)
             {
                 case 0:   //NET
-                    filltablesnet();
+                    fillcharttable();
+                    FillWidgetsNet();                    
                     break;
                 case 1:   //GELİR
-
+                    FillWidgetsSales();
                     break;
                 case 2:  //GİDER
-
+                    FillWidgetsPurchase();
                     break;
             }
         }
 
-        private void filltablesnet()
+        private void fillcharttable()
         {
             Datachart = (from s in Recorddatacostumer
                          group s by Convert.ToDateTime(s.Kayıttarihi).Date into g
@@ -252,15 +266,15 @@ namespace StarNote.ViewModel
                                         Argument = g.Key.ToShortDateString(),
                                         Value = g.Sum(x => x.Ücret)
                                     }).ToList();
-            var item =   (from s in Recorddatacostumer
-                          group s by Convert.ToDateTime(s.Kayıttarihi).Date into g
-                          join c in Recorddatajoborder on g.FirstOrDefault().Id equals c.Üstid
-                          select new 
-                          {
-                              Argument = g.Key.ToShortDateString(),
-                              Price = g.FirstOrDefault().Ücret,
-                              Value = c.Ürün2detay.ToList()
-                          }).ToList();
+            //var item =   (from s in Recorddatacostumer
+            //              group s by Convert.ToDateTime(s.Kayıttarihi).Date into g
+            //              join c in Recorddatajoborder on g.FirstOrDefault().Id equals c.Üstid
+            //              select new 
+            //              {
+            //                  Argument = g.Key.ToShortDateString(),
+            //                  Price = g.FirstOrDefault().Ücret,
+            //                  Value = c.Ürün2detay.ToList()
+            //              }).ToList();
             //var item = (from s in Recorddatacostumer
             //            join c in Recorddatajoborder on s.Id equals c.Üstid
             //            group s by new { Convert.ToDateTime(s.Kayıttarihi).Date, c.Ürün2detay } into g
@@ -281,6 +295,43 @@ namespace StarNote.ViewModel
             //                 Value = string.Join(",", g.Select(u => u.Value))
             //             }).ToList();
 
+        }
+
+
+        private void FillWidgetsNet()
+        {
+            Potansialworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Beklenentutar).Sum() - Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Beklenentutar).Sum();
+            Networth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Ücret).Sum() - Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Ücret).Sum();
+            Realworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Ücret).Sum();
+            Minusworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Ücret).Sum();
+            Totalgivenfileordercount = (from s in Recorddatacostumer
+                                        join c in Recorddatajoborder on s.Id equals c.Üstid
+                                        select c.Joborder).Count();
+            Totalprocesscount = Recorddatacostumer.Count();
+        }
+
+        private void FillWidgetsSales()
+        {
+            Potansialworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Beklenentutar).Sum();
+            Networth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Ücret).Sum();
+            Realworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Ücret).Sum();
+            Minusworth = 0;
+            Totalgivenfileordercount = (from s in Recorddatacostumer
+                                        join c in Recorddatajoborder on s.Id equals c.Üstid
+                                        select c.Joborder).Count();
+            Totalprocesscount = Recorddatacostumer.Count();
+        }
+
+        private void FillWidgetsPurchase()
+        {
+            Potansialworth =  Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Beklenentutar).Sum();
+            Networth =  Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Ücret).Sum();
+            Realworth = 0;
+            Minusworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Ücret).Sum();
+            Totalgivenfileordercount = (from s in Recorddatacostumer
+                                        join c in Recorddatajoborder on s.Id equals c.Üstid
+                                        select c.Joborder).Count();
+            Totalprocesscount = Recorddatacostumer.Count();
         }
         #endregion
 

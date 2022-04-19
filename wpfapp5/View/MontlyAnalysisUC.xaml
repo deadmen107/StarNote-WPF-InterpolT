@@ -11,6 +11,7 @@
              xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
              xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
              mc:Ignorable="d" Margin="0" Padding="0"    
              Background="#FE9590AD" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -36,15 +37,29 @@
             </Grid.ColumnDefinitions>
             <Label  Grid.Row="0" Grid.Column="1"  Content="Başlangıç Tarihi"/>
             <Label  Grid.Row="0" Grid.Column="2" Content="Bitiş Tarihi" />
-            <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding Startdate}" />
-            <DatePicker Grid.Row="1" Grid.Column="2" SelectedDate="{Binding Enddate}" />
+            <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding Startdate}" >
+                <dxmvvm:Interaction.Behaviors>
+                    <dxmvvm:EventToCommand EventName="SelectedDateChanged" Command="{Binding Selectionchangedtabindex}"/>
+                </dxmvvm:Interaction.Behaviors>
+            </DatePicker>
+            <DatePicker Grid.Row="1" Grid.Column="2" SelectedDate="{Binding Enddate}" >
+                <dxmvvm:Interaction.Behaviors>
+                    <dxmvvm:EventToCommand EventName="SelectedDateChanged" Command="{Binding Selectionchangedtabindex}"/>
+                </dxmvvm:Interaction.Behaviors>
+            </DatePicker>
         </Grid>
-        <dx:DXTabControl Grid.Row="1" Margin="5" SelectedIndex="0" >     <!--     SelectedIndex="{Binding Path=Titleindex}"    SelectedIndex="0"-->
+        <dx:DXTabControl Grid.Row="1" Margin="5" SelectedIndex="{Binding Path=Titleindex}" >     <!--     SelectedIndex="{Binding Path=Titleindex}"    SelectedIndex="0"-->
+            <dxmvvm:Interaction.Behaviors>
+                <dxmvvm:EventToCommand EventName="SelectionChanged" Command="{Binding Selectionchangedtabindex}"/>
+            </dxmvvm:Interaction.Behaviors>
             <dx:DXTabControl.View>
                 <dx:TabControlMultiLineView HeaderLocation="Top"/>
             </dx:DXTabControl.View>
             <dx:DXTabItem Header="GENEL" >
-                <dx:DXTabControl Margin="5" SelectedIndex="0">
+                <dx:DXTabControl Margin="5" SelectedIndex="{Binding Path=Subtitleindex}" >
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="SelectionChanged" Command="{Binding Selectionchangedtabindex}"/>
+                    </dxmvvm:Interaction.Behaviors>
                     <dx:DXTabControl.View>
                         <dx:TabControlMultiLineView HeaderLocation="Top"/>
                     </dx:DXTabControl.View>
@@ -749,7 +764,10 @@
                 </dx:DXTabControl>               
             </dx:DXTabItem>
             <dx:DXTabItem Header="ADLİYE" >
-                <dx:DXTabControl Margin="5" SelectedIndex="0">
+                <dx:DXTabControl Margin="5" SelectedIndex="{Binding Path=Subtitleindex}" >
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="SelectionChanged" Command="{Binding Selectionchangedtabindex}"/>
+                    </dxmvvm:Interaction.Behaviors>
                     <dx:DXTabControl.View>
                         <dx:TabControlMultiLineView HeaderLocation="Top"/>
                     </dx:DXTabControl.View>
@@ -856,85 +874,53 @@
                                 <dx:DXTabControl.View>
                                     <dx:TabControlMultiLineView HeaderLocation="Top"/>
                                 </dx:DXTabControl.View>
-                                <dx:DXTabItem Header="Günlere Göre Maliyet">
-                                    <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
-                                        <dxg:GridControl.View>
-                                            <dxg:TableView   Style="{StaticResource analysistable}" />
-                                        </dxg:GridControl.View>
-                                        <dxg:GridColumn Header="ID"       Width="50"    Binding="{Binding Path=Id}" />
-                                        <dxg:GridColumn Header="ÜRÜN"     Width="120"   Binding="{Binding Path=Urun}" Visible="False"/>
-                                        <dxg:GridColumn Header="1"        Width="50"    Binding="{Binding Path=Gun1}"/>
-                                        <dxg:GridColumn Header="2"        Width="50"    Binding="{Binding Path=Gun2}"/>
-                                        <dxg:GridColumn Header="3"        Width="50"    Binding="{Binding Path=Gun3}"/>
-                                        <dxg:GridColumn Header="4"        Width="50"    Binding="{Binding Path=Gun4}"/>
-                                        <dxg:GridColumn Header="5"        Width="50"    Binding="{Binding Path=Gun5}"/>
-                                        <dxg:GridColumn Header="6"        Width="50"    Binding="{Binding Path=Gun6}"/>
-                                        <dxg:GridColumn Header="7"        Width="50"    Binding="{Binding Path=Gun7}"/>
-                                        <dxg:GridColumn Header="8"        Width="50"    Binding="{Binding Path=Gun8}"/>
-                                        <dxg:GridColumn Header="9"        Width="50"    Binding="{Binding Path=Gun9}"/>
-                                        <dxg:GridColumn Header="10"       Width="50"    Binding="{Binding Path=Gun10}"/>
-                                        <dxg:GridColumn Header="11"       Width="50"    Binding="{Binding Path=Gun11}"/>
-                                        <dxg:GridColumn Header="12"       Width="50"    Binding="{Binding Path=Gun12}"/>
-                                        <dxg:GridColumn Header="13"       Width="50"    Binding="{Binding Path=Gun13}"/>
-                                        <dxg:GridColumn Header="14"       Width="50"    Binding="{Binding Path=Gun14}"/>
-                                        <dxg:GridColumn Header="15"       Width="50"    Binding="{Binding Path=Gun15}"/>
-                                        <dxg:GridColumn Header="16"       Width="50"    Binding="{Binding Path=Gun16}"/>
-                                        <dxg:GridColumn Header="17"       Width="50"    Binding="{Binding Path=Gun17}"/>
-                                        <dxg:GridColumn Header="18"       Width="50"    Binding="{Binding Path=Gun18}"/>
-                                        <dxg:GridColumn Header="19"       Width="50"    Binding="{Binding Path=Gun19}"/>
-                                        <dxg:GridColumn Header="20"       Width="50"    Binding="{Binding Path=Gun20}"/>
-                                        <dxg:GridColumn Header="21"       Width="50"    Binding="{Binding Path=Gun21}"/>
-                                        <dxg:GridColumn Header="22"       Width="50"    Binding="{Binding Path=Gun22}"/>
-                                        <dxg:GridColumn Header="23"       Width="50"    Binding="{Binding Path=Gun23}"/>
-                                        <dxg:GridColumn Header="24"       Width="50"    Binding="{Binding Path=Gun24}"/>
-                                        <dxg:GridColumn Header="25"       Width="50"    Binding="{Binding Path=Gun25}"/>
-                                        <dxg:GridColumn Header="26"       Width="50"    Binding="{Binding Path=Gun26}"/>
-                                        <dxg:GridColumn Header="27"       Width="50"    Binding="{Binding Path=Gun27}"/>
-                                        <dxg:GridColumn Header="28"       Width="50"    Binding="{Binding Path=Gun28}"/>
-                                        <dxg:GridColumn Header="29"       Width="50"    Binding="{Binding Path=Gun29}"/>
-                                        <dxg:GridColumn Header="30"       Width="50"    Binding="{Binding Path=Gun30}"/>
-                                        <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
-                                    </dxg:GridControl>
+                                <dx:DXTabItem Header="Günlere Göre Maliyet Grafiği">
+                                    <dxc:ChartControl>
+                                        <dxc:XYDiagram2D>
+                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                <dxc:SplineSeries2D.Label>
+                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                </dxc:SplineSeries2D.Label>
+                                            </dxc:SplineSeries2D>
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True"/>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <dxc:XYDiagram2D.AxisY>
+                                                <dxc:AxisY2D>
+                                                    <dxc:AxisY2D.Title>
+                                                        <dxc:AxisTitle Content=" "/>
+                                                    </dxc:AxisY2D.Title>
+                                                    <dxc:AxisY2D.WholeRange>
+                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
+                                                    </dxc:AxisY2D.WholeRange>
+                                                </dxc:AxisY2D>
+                                            </dxc:XYDiagram2D.AxisY>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
                                 </dx:DXTabItem>
-                                <dx:DXTabItem Header="Dillere Göre Maliyet">
-                                    <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
-                                        <dxg:GridControl.View>
-                                            <dxg:TableView   Style="{StaticResource analysistable}" />
-                                        </dxg:GridControl.View>
-                                        <dxg:GridColumn Header="ID"       Width="50"    Binding="{Binding Path=Id}" />
-                                        <dxg:GridColumn Header="DİLLER"   Width="120"   Binding="{Binding Path=Urun}"/>
-                                        <dxg:GridColumn Header="1"        Width="50"    Binding="{Binding Path=Gun1}"/>
-                                        <dxg:GridColumn Header="2"        Width="50"    Binding="{Binding Path=Gun2}"/>
-                                        <dxg:GridColumn Header="3"        Width="50"    Binding="{Binding Path=Gun3}"/>
-                                        <dxg:GridColumn Header="4"        Width="50"    Binding="{Binding Path=Gun4}"/>
-                                        <dxg:GridColumn Header="5"        Width="50"    Binding="{Binding Path=Gun5}"/>
-                                        <dxg:GridColumn Header="6"        Width="50"    Binding="{Binding Path=Gun6}"/>
-                                        <dxg:GridColumn Header="7"        Width="50"    Binding="{Binding Path=Gun7}"/>
-                                        <dxg:GridColumn Header="8"        Width="50"    Binding="{Binding Path=Gun8}"/>
-                                        <dxg:GridColumn Header="9"        Width="50"    Binding="{Binding Path=Gun9}"/>
-                                        <dxg:GridColumn Header="10"       Width="50"    Binding="{Binding Path=Gun10}"/>
-                                        <dxg:GridColumn Header="11"       Width="50"    Binding="{Binding Path=Gun11}"/>
-                                        <dxg:GridColumn Header="12"       Width="50"    Binding="{Binding Path=Gun12}"/>
-                                        <dxg:GridColumn Header="13"       Width="50"    Binding="{Binding Path=Gun13}"/>
-                                        <dxg:GridColumn Header="14"       Width="50"    Binding="{Binding Path=Gun14}"/>
-                                        <dxg:GridColumn Header="15"       Width="50"    Binding="{Binding Path=Gun15}"/>
-                                        <dxg:GridColumn Header="16"       Width="50"    Binding="{Binding Path=Gun16}"/>
-                                        <dxg:GridColumn Header="17"       Width="50"    Binding="{Binding Path=Gun17}"/>
-                                        <dxg:GridColumn Header="18"       Width="50"    Binding="{Binding Path=Gun18}"/>
-                                        <dxg:GridColumn Header="19"       Width="50"    Binding="{Binding Path=Gun19}"/>
-                                        <dxg:GridColumn Header="20"       Width="50"    Binding="{Binding Path=Gun20}"/>
-                                        <dxg:GridColumn Header="21"       Width="50"    Binding="{Binding Path=Gun21}"/>
-                                        <dxg:GridColumn Header="22"       Width="50"    Binding="{Binding Path=Gun22}"/>
-                                        <dxg:GridColumn Header="23"       Width="50"    Binding="{Binding Path=Gun23}"/>
-                                        <dxg:GridColumn Header="24"       Width="50"    Binding="{Binding Path=Gun24}"/>
-                                        <dxg:GridColumn Header="25"       Width="50"    Binding="{Binding Path=Gun25}"/>
-                                        <dxg:GridColumn Header="26"       Width="50"    Binding="{Binding Path=Gun26}"/>
-                                        <dxg:GridColumn Header="27"       Width="50"    Binding="{Binding Path=Gun27}"/>
-                                        <dxg:GridColumn Header="28"       Width="50"    Binding="{Binding Path=Gun28}"/>
-                                        <dxg:GridColumn Header="29"       Width="50"    Binding="{Binding Path=Gun29}"/>
-                                        <dxg:GridColumn Header="30"       Width="50"    Binding="{Binding Path=Gun30}"/>
-                                        <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
-                                    </dxg:GridControl>
+                                <dx:DXTabItem Header="Dil Analizi">
+                                    <dxc:ChartControl>
+                                        <dxc:XYDiagram2D>
+                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                <dxc:SplineSeries2D.Label>
+                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                </dxc:SplineSeries2D.Label>
+                                            </dxc:SplineSeries2D>
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True"/>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <dxc:XYDiagram2D.AxisY>
+                                                <dxc:AxisY2D>
+                                                    <dxc:AxisY2D.Title>
+                                                        <dxc:AxisTitle Content=" "/>
+                                                    </dxc:AxisY2D.Title>
+                                                    <dxc:AxisY2D.WholeRange>
+                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
+                                                    </dxc:AxisY2D.WholeRange>
+                                                </dxc:AxisY2D>
+                                            </dxc:XYDiagram2D.AxisY>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
                                 </dx:DXTabItem>
                                 <dx:DXTabItem Header="Belgelere Göre Maliyet">
                                     <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
@@ -976,30 +962,7 @@
                                         <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
                                     </dxg:GridControl>
                                 </dx:DXTabItem>
-                                <dx:DXTabItem Header="Günlere Göre Maliyet Grafiği">
-                                    <dxc:ChartControl>
-                                        <dxc:XYDiagram2D>
-                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
-                                                <dxc:SplineSeries2D.Label>
-                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
-                                                </dxc:SplineSeries2D.Label>
-                                            </dxc:SplineSeries2D>
-                                            <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True"/>
-                                            </dxc:XYDiagram2D.AxisX>
-                                            <dxc:XYDiagram2D.AxisY>
-                                                <dxc:AxisY2D>
-                                                    <dxc:AxisY2D.Title>
-                                                        <dxc:AxisTitle Content=" "/>
-                                                    </dxc:AxisY2D.Title>
-                                                    <dxc:AxisY2D.WholeRange>
-                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
-                                                    </dxc:AxisY2D.WholeRange>
-                                                </dxc:AxisY2D>
-                                            </dxc:XYDiagram2D.AxisY>
-                                        </dxc:XYDiagram2D>
-                                    </dxc:ChartControl>
-                                </dx:DXTabItem>
+
                             </dx:DXTabControl>
 
                         </Grid>
@@ -1509,7 +1472,10 @@
                 </dx:DXTabControl>
             </dx:DXTabItem>
             <dx:DXTabItem Header="ÖZEL" >
-                <dx:DXTabControl Margin="5" SelectedIndex="0">
+                <dx:DXTabControl Margin="5" SelectedIndex="{Binding Path=Subtitleindex}" >
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="SelectionChanged" Command="{Binding Selectionchangedtabindex}"/>
+                    </dxmvvm:Interaction.Behaviors>
                     <dx:DXTabControl.View>
                         <dx:TabControlMultiLineView HeaderLocation="Top"/>
                     </dx:DXTabControl.View>
@@ -1616,85 +1582,53 @@
                                 <dx:DXTabControl.View>
                                     <dx:TabControlMultiLineView HeaderLocation="Top"/>
                                 </dx:DXTabControl.View>
-                                <dx:DXTabItem Header="Günlere Göre Maliyet">
-                                    <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
-                                        <dxg:GridControl.View>
-                                            <dxg:TableView   Style="{StaticResource analysistable}" />
-                                        </dxg:GridControl.View>
-                                        <dxg:GridColumn Header="ID"       Width="50"    Binding="{Binding Path=Id}" />
-                                        <dxg:GridColumn Header="ÜRÜN"     Width="120"   Binding="{Binding Path=Urun}" Visible="False"/>
-                                        <dxg:GridColumn Header="1"        Width="50"    Binding="{Binding Path=Gun1}"/>
-                                        <dxg:GridColumn Header="2"        Width="50"    Binding="{Binding Path=Gun2}"/>
-                                        <dxg:GridColumn Header="3"        Width="50"    Binding="{Binding Path=Gun3}"/>
-                                        <dxg:GridColumn Header="4"        Width="50"    Binding="{Binding Path=Gun4}"/>
-                                        <dxg:GridColumn Header="5"        Width="50"    Binding="{Binding Path=Gun5}"/>
-                                        <dxg:GridColumn Header="6"        Width="50"    Binding="{Binding Path=Gun6}"/>
-                                        <dxg:GridColumn Header="7"        Width="50"    Binding="{Binding Path=Gun7}"/>
-                                        <dxg:GridColumn Header="8"        Width="50"    Binding="{Binding Path=Gun8}"/>
-                                        <dxg:GridColumn Header="9"        Width="50"    Binding="{Binding Path=Gun9}"/>
-                                        <dxg:GridColumn Header="10"       Width="50"    Binding="{Binding Path=Gun10}"/>
-                                        <dxg:GridColumn Header="11"       Width="50"    Binding="{Binding Path=Gun11}"/>
-                                        <dxg:GridColumn Header="12"       Width="50"    Binding="{Binding Path=Gun12}"/>
-                                        <dxg:GridColumn Header="13"       Width="50"    Binding="{Binding Path=Gun13}"/>
-                                        <dxg:GridColumn Header="14"       Width="50"    Binding="{Binding Path=Gun14}"/>
-                                        <dxg:GridColumn Header="15"       Width="50"    Binding="{Binding Path=Gun15}"/>
-                                        <dxg:GridColumn Header="16"       Width="50"    Binding="{Binding Path=Gun16}"/>
-                                        <dxg:GridColumn Header="17"       Width="50"    Binding="{Binding Path=Gun17}"/>
-                                        <dxg:GridColumn Header="18"       Width="50"    Binding="{Binding Path=Gun18}"/>
-                                        <dxg:GridColumn Header="19"       Width="50"    Binding="{Binding Path=Gun19}"/>
-                                        <dxg:GridColumn Header="20"       Width="50"    Binding="{Binding Path=Gun20}"/>
-                                        <dxg:GridColumn Header="21"       Width="50"    Binding="{Binding Path=Gun21}"/>
-                                        <dxg:GridColumn Header="22"       Width="50"    Binding="{Binding Path=Gun22}"/>
-                                        <dxg:GridColumn Header="23"       Width="50"    Binding="{Binding Path=Gun23}"/>
-                                        <dxg:GridColumn Header="24"       Width="50"    Binding="{Binding Path=Gun24}"/>
-                                        <dxg:GridColumn Header="25"       Width="50"    Binding="{Binding Path=Gun25}"/>
-                                        <dxg:GridColumn Header="26"       Width="50"    Binding="{Binding Path=Gun26}"/>
-                                        <dxg:GridColumn Header="27"       Width="50"    Binding="{Binding Path=Gun27}"/>
-                                        <dxg:GridColumn Header="28"       Width="50"    Binding="{Binding Path=Gun28}"/>
-                                        <dxg:GridColumn Header="29"       Width="50"    Binding="{Binding Path=Gun29}"/>
-                                        <dxg:GridColumn Header="30"       Width="50"    Binding="{Binding Path=Gun30}"/>
-                                        <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
-                                    </dxg:GridControl>
+                                <dx:DXTabItem Header="Günlere Göre Maliyet Grafiği">
+                                    <dxc:ChartControl>
+                                        <dxc:XYDiagram2D>
+                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                <dxc:SplineSeries2D.Label>
+                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                </dxc:SplineSeries2D.Label>
+                                            </dxc:SplineSeries2D>
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True"/>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <dxc:XYDiagram2D.AxisY>
+                                                <dxc:AxisY2D>
+                                                    <dxc:AxisY2D.Title>
+                                                        <dxc:AxisTitle Content=" "/>
+                                                    </dxc:AxisY2D.Title>
+                                                    <dxc:AxisY2D.WholeRange>
+                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
+                                                    </dxc:AxisY2D.WholeRange>
+                                                </dxc:AxisY2D>
+                                            </dxc:XYDiagram2D.AxisY>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
                                 </dx:DXTabItem>
-                                <dx:DXTabItem Header="Dillere Göre Maliyet">
-                                    <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
-                                        <dxg:GridControl.View>
-                                            <dxg:TableView   Style="{StaticResource analysistable}" />
-                                        </dxg:GridControl.View>
-                                        <dxg:GridColumn Header="ID"       Width="50"    Binding="{Binding Path=Id}" />
-                                        <dxg:GridColumn Header="DİLLER"   Width="120"   Binding="{Binding Path=Urun}"/>
-                                        <dxg:GridColumn Header="1"        Width="50"    Binding="{Binding Path=Gun1}"/>
-                                        <dxg:GridColumn Header="2"        Width="50"    Binding="{Binding Path=Gun2}"/>
-                                        <dxg:GridColumn Header="3"        Width="50"    Binding="{Binding Path=Gun3}"/>
-                                        <dxg:GridColumn Header="4"        Width="50"    Binding="{Binding Path=Gun4}"/>
-                                        <dxg:GridColumn Header="5"        Width="50"    Binding="{Binding Path=Gun5}"/>
-                                        <dxg:GridColumn Header="6"        Width="50"    Binding="{Binding Path=Gun6}"/>
-                                        <dxg:GridColumn Header="7"        Width="50"    Binding="{Binding Path=Gun7}"/>
-                                        <dxg:GridColumn Header="8"        Width="50"    Binding="{Binding Path=Gun8}"/>
-                                        <dxg:GridColumn Header="9"        Width="50"    Binding="{Binding Path=Gun9}"/>
-                                        <dxg:GridColumn Header="10"       Width="50"    Binding="{Binding Path=Gun10}"/>
-                                        <dxg:GridColumn Header="11"       Width="50"    Binding="{Binding Path=Gun11}"/>
-                                        <dxg:GridColumn Header="12"       Width="50"    Binding="{Binding Path=Gun12}"/>
-                                        <dxg:GridColumn Header="13"       Width="50"    Binding="{Binding Path=Gun13}"/>
-                                        <dxg:GridColumn Header="14"       Width="50"    Binding="{Binding Path=Gun14}"/>
-                                        <dxg:GridColumn Header="15"       Width="50"    Binding="{Binding Path=Gun15}"/>
-                                        <dxg:GridColumn Header="16"       Width="50"    Binding="{Binding Path=Gun16}"/>
-                                        <dxg:GridColumn Header="17"       Width="50"    Binding="{Binding Path=Gun17}"/>
-                                        <dxg:GridColumn Header="18"       Width="50"    Binding="{Binding Path=Gun18}"/>
-                                        <dxg:GridColumn Header="19"       Width="50"    Binding="{Binding Path=Gun19}"/>
-                                        <dxg:GridColumn Header="20"       Width="50"    Binding="{Binding Path=Gun20}"/>
-                                        <dxg:GridColumn Header="21"       Width="50"    Binding="{Binding Path=Gun21}"/>
-                                        <dxg:GridColumn Header="22"       Width="50"    Binding="{Binding Path=Gun22}"/>
-                                        <dxg:GridColumn Header="23"       Width="50"    Binding="{Binding Path=Gun23}"/>
-                                        <dxg:GridColumn Header="24"       Width="50"    Binding="{Binding Path=Gun24}"/>
-                                        <dxg:GridColumn Header="25"       Width="50"    Binding="{Binding Path=Gun25}"/>
-                                        <dxg:GridColumn Header="26"       Width="50"    Binding="{Binding Path=Gun26}"/>
-                                        <dxg:GridColumn Header="27"       Width="50"    Binding="{Binding Path=Gun27}"/>
-                                        <dxg:GridColumn Header="28"       Width="50"    Binding="{Binding Path=Gun28}"/>
-                                        <dxg:GridColumn Header="29"       Width="50"    Binding="{Binding Path=Gun29}"/>
-                                        <dxg:GridColumn Header="30"       Width="50"    Binding="{Binding Path=Gun30}"/>
-                                        <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
-                                    </dxg:GridControl>
+                                <dx:DXTabItem Header="Dil Analizi">
+                                    <dxc:ChartControl>
+                                        <dxc:XYDiagram2D>
+                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                <dxc:SplineSeries2D.Label>
+                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                </dxc:SplineSeries2D.Label>
+                                            </dxc:SplineSeries2D>
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True"/>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <dxc:XYDiagram2D.AxisY>
+                                                <dxc:AxisY2D>
+                                                    <dxc:AxisY2D.Title>
+                                                        <dxc:AxisTitle Content=" "/>
+                                                    </dxc:AxisY2D.Title>
+                                                    <dxc:AxisY2D.WholeRange>
+                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
+                                                    </dxc:AxisY2D.WholeRange>
+                                                </dxc:AxisY2D>
+                                            </dxc:XYDiagram2D.AxisY>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
                                 </dx:DXTabItem>
                                 <dx:DXTabItem Header="Belgelere Göre Maliyet">
                                     <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
@@ -1736,30 +1670,7 @@
                                         <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
                                     </dxg:GridControl>
                                 </dx:DXTabItem>
-                                <dx:DXTabItem Header="Günlere Göre Maliyet Grafiği">
-                                    <dxc:ChartControl>
-                                        <dxc:XYDiagram2D>
-                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
-                                                <dxc:SplineSeries2D.Label>
-                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
-                                                </dxc:SplineSeries2D.Label>
-                                            </dxc:SplineSeries2D>
-                                            <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True"/>
-                                            </dxc:XYDiagram2D.AxisX>
-                                            <dxc:XYDiagram2D.AxisY>
-                                                <dxc:AxisY2D>
-                                                    <dxc:AxisY2D.Title>
-                                                        <dxc:AxisTitle Content=" "/>
-                                                    </dxc:AxisY2D.Title>
-                                                    <dxc:AxisY2D.WholeRange>
-                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
-                                                    </dxc:AxisY2D.WholeRange>
-                                                </dxc:AxisY2D>
-                                            </dxc:XYDiagram2D.AxisY>
-                                        </dxc:XYDiagram2D>
-                                    </dxc:ChartControl>
-                                </dx:DXTabItem>
+
                             </dx:DXTabControl>
 
                         </Grid>
@@ -2269,7 +2180,10 @@
                 </dx:DXTabControl>
             </dx:DXTabItem>
             <dx:DXTabItem Header="FİRMA" >
-                <dx:DXTabControl Margin="5" SelectedIndex="0">
+                <dx:DXTabControl Margin="5" SelectedIndex="{Binding Path=Subtitleindex}" >
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="SelectionChanged" Command="{Binding Selectionchangedtabindex}"/>
+                    </dxmvvm:Interaction.Behaviors>
                     <dx:DXTabControl.View>
                         <dx:TabControlMultiLineView HeaderLocation="Top"/>
                     </dx:DXTabControl.View>
@@ -2376,85 +2290,53 @@
                                 <dx:DXTabControl.View>
                                     <dx:TabControlMultiLineView HeaderLocation="Top"/>
                                 </dx:DXTabControl.View>
-                                <dx:DXTabItem Header="Günlere Göre Maliyet">
-                                    <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
-                                        <dxg:GridControl.View>
-                                            <dxg:TableView   Style="{StaticResource analysistable}" />
-                                        </dxg:GridControl.View>
-                                        <dxg:GridColumn Header="ID"       Width="50"    Binding="{Binding Path=Id}" />
-                                        <dxg:GridColumn Header="ÜRÜN"     Width="120"   Binding="{Binding Path=Urun}" Visible="False"/>
-                                        <dxg:GridColumn Header="1"        Width="50"    Binding="{Binding Path=Gun1}"/>
-                                        <dxg:GridColumn Header="2"        Width="50"    Binding="{Binding Path=Gun2}"/>
-                                        <dxg:GridColumn Header="3"        Width="50"    Binding="{Binding Path=Gun3}"/>
-                                        <dxg:GridColumn Header="4"        Width="50"    Binding="{Binding Path=Gun4}"/>
-                                        <dxg:GridColumn Header="5"        Width="50"    Binding="{Binding Path=Gun5}"/>
-                                        <dxg:GridColumn Header="6"        Width="50"    Binding="{Binding Path=Gun6}"/>
-                                        <dxg:GridColumn Header="7"        Width="50"    Binding="{Binding Path=Gun7}"/>
-                                        <dxg:GridColumn Header="8"        Width="50"    Binding="{Binding Path=Gun8}"/>
-                                        <dxg:GridColumn Header="9"        Width="50"    Binding="{Binding Path=Gun9}"/>
-                                        <dxg:GridColumn Header="10"       Width="50"    Binding="{Binding Path=Gun10}"/>
-                                        <dxg:GridColumn Header="11"       Width="50"    Binding="{Binding Path=Gun11}"/>
-                                        <dxg:GridColumn Header="12"       Width="50"    Binding="{Binding Path=Gun12}"/>
-                                        <dxg:GridColumn Header="13"       Width="50"    Binding="{Binding Path=Gun13}"/>
-                                        <dxg:GridColumn Header="14"       Width="50"    Binding="{Binding Path=Gun14}"/>
-                                        <dxg:GridColumn Header="15"       Width="50"    Binding="{Binding Path=Gun15}"/>
-                                        <dxg:GridColumn Header="16"       Width="50"    Binding="{Binding Path=Gun16}"/>
-                                        <dxg:GridColumn Header="17"       Width="50"    Binding="{Binding Path=Gun17}"/>
-                                        <dxg:GridColumn Header="18"       Width="50"    Binding="{Binding Path=Gun18}"/>
-                                        <dxg:GridColumn Header="19"       Width="50"    Binding="{Binding Path=Gun19}"/>
-                                        <dxg:GridColumn Header="20"       Width="50"    Binding="{Binding Path=Gun20}"/>
-                                        <dxg:GridColumn Header="21"       Width="50"    Binding="{Binding Path=Gun21}"/>
-                                        <dxg:GridColumn Header="22"       Width="50"    Binding="{Binding Path=Gun22}"/>
-                                        <dxg:GridColumn Header="23"       Width="50"    Binding="{Binding Path=Gun23}"/>
-                                        <dxg:GridColumn Header="24"       Width="50"    Binding="{Binding Path=Gun24}"/>
-                                        <dxg:GridColumn Header="25"       Width="50"    Binding="{Binding Path=Gun25}"/>
-                                        <dxg:GridColumn Header="26"       Width="50"    Binding="{Binding Path=Gun26}"/>
-                                        <dxg:GridColumn Header="27"       Width="50"    Binding="{Binding Path=Gun27}"/>
-                                        <dxg:GridColumn Header="28"       Width="50"    Binding="{Binding Path=Gun28}"/>
-                                        <dxg:GridColumn Header="29"       Width="50"    Binding="{Binding Path=Gun29}"/>
-                                        <dxg:GridColumn Header="30"       Width="50"    Binding="{Binding Path=Gun30}"/>
-                                        <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
-                                    </dxg:GridControl>
+                                <dx:DXTabItem Header="Günlere Göre Maliyet Grafiği">
+                                    <dxc:ChartControl>
+                                        <dxc:XYDiagram2D>
+                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                <dxc:SplineSeries2D.Label>
+                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                </dxc:SplineSeries2D.Label>
+                                            </dxc:SplineSeries2D>
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True"/>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <dxc:XYDiagram2D.AxisY>
+                                                <dxc:AxisY2D>
+                                                    <dxc:AxisY2D.Title>
+                                                        <dxc:AxisTitle Content=" "/>
+                                                    </dxc:AxisY2D.Title>
+                                                    <dxc:AxisY2D.WholeRange>
+                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
+                                                    </dxc:AxisY2D.WholeRange>
+                                                </dxc:AxisY2D>
+                                            </dxc:XYDiagram2D.AxisY>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
                                 </dx:DXTabItem>
-                                <dx:DXTabItem Header="Dillere Göre Maliyet">
-                                    <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
-                                        <dxg:GridControl.View>
-                                            <dxg:TableView   Style="{StaticResource analysistable}" />
-                                        </dxg:GridControl.View>
-                                        <dxg:GridColumn Header="ID"       Width="50"    Binding="{Binding Path=Id}" />
-                                        <dxg:GridColumn Header="DİLLER"   Width="120"   Binding="{Binding Path=Urun}"/>
-                                        <dxg:GridColumn Header="1"        Width="50"    Binding="{Binding Path=Gun1}"/>
-                                        <dxg:GridColumn Header="2"        Width="50"    Binding="{Binding Path=Gun2}"/>
-                                        <dxg:GridColumn Header="3"        Width="50"    Binding="{Binding Path=Gun3}"/>
-                                        <dxg:GridColumn Header="4"        Width="50"    Binding="{Binding Path=Gun4}"/>
-                                        <dxg:GridColumn Header="5"        Width="50"    Binding="{Binding Path=Gun5}"/>
-                                        <dxg:GridColumn Header="6"        Width="50"    Binding="{Binding Path=Gun6}"/>
-                                        <dxg:GridColumn Header="7"        Width="50"    Binding="{Binding Path=Gun7}"/>
-                                        <dxg:GridColumn Header="8"        Width="50"    Binding="{Binding Path=Gun8}"/>
-                                        <dxg:GridColumn Header="9"        Width="50"    Binding="{Binding Path=Gun9}"/>
-                                        <dxg:GridColumn Header="10"       Width="50"    Binding="{Binding Path=Gun10}"/>
-                                        <dxg:GridColumn Header="11"       Width="50"    Binding="{Binding Path=Gun11}"/>
-                                        <dxg:GridColumn Header="12"       Width="50"    Binding="{Binding Path=Gun12}"/>
-                                        <dxg:GridColumn Header="13"       Width="50"    Binding="{Binding Path=Gun13}"/>
-                                        <dxg:GridColumn Header="14"       Width="50"    Binding="{Binding Path=Gun14}"/>
-                                        <dxg:GridColumn Header="15"       Width="50"    Binding="{Binding Path=Gun15}"/>
-                                        <dxg:GridColumn Header="16"       Width="50"    Binding="{Binding Path=Gun16}"/>
-                                        <dxg:GridColumn Header="17"       Width="50"    Binding="{Binding Path=Gun17}"/>
-                                        <dxg:GridColumn Header="18"       Width="50"    Binding="{Binding Path=Gun18}"/>
-                                        <dxg:GridColumn Header="19"       Width="50"    Binding="{Binding Path=Gun19}"/>
-                                        <dxg:GridColumn Header="20"       Width="50"    Binding="{Binding Path=Gun20}"/>
-                                        <dxg:GridColumn Header="21"       Width="50"    Binding="{Binding Path=Gun21}"/>
-                                        <dxg:GridColumn Header="22"       Width="50"    Binding="{Binding Path=Gun22}"/>
-                                        <dxg:GridColumn Header="23"       Width="50"    Binding="{Binding Path=Gun23}"/>
-                                        <dxg:GridColumn Header="24"       Width="50"    Binding="{Binding Path=Gun24}"/>
-                                        <dxg:GridColumn Header="25"       Width="50"    Binding="{Binding Path=Gun25}"/>
-                                        <dxg:GridColumn Header="26"       Width="50"    Binding="{Binding Path=Gun26}"/>
-                                        <dxg:GridColumn Header="27"       Width="50"    Binding="{Binding Path=Gun27}"/>
-                                        <dxg:GridColumn Header="28"       Width="50"    Binding="{Binding Path=Gun28}"/>
-                                        <dxg:GridColumn Header="29"       Width="50"    Binding="{Binding Path=Gun29}"/>
-                                        <dxg:GridColumn Header="30"       Width="50"    Binding="{Binding Path=Gun30}"/>
-                                        <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
-                                    </dxg:GridControl>
+                                <dx:DXTabItem Header="Dil Analizi">
+                                    <dxc:ChartControl>
+                                        <dxc:XYDiagram2D>
+                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                <dxc:SplineSeries2D.Label>
+                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                </dxc:SplineSeries2D.Label>
+                                            </dxc:SplineSeries2D>
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True"/>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <dxc:XYDiagram2D.AxisY>
+                                                <dxc:AxisY2D>
+                                                    <dxc:AxisY2D.Title>
+                                                        <dxc:AxisTitle Content=" "/>
+                                                    </dxc:AxisY2D.Title>
+                                                    <dxc:AxisY2D.WholeRange>
+                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
+                                                    </dxc:AxisY2D.WholeRange>
+                                                </dxc:AxisY2D>
+                                            </dxc:XYDiagram2D.AxisY>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
                                 </dx:DXTabItem>
                                 <dx:DXTabItem Header="Belgelere Göre Maliyet">
                                     <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
@@ -2496,30 +2378,7 @@
                                         <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
                                     </dxg:GridControl>
                                 </dx:DXTabItem>
-                                <dx:DXTabItem Header="Günlere Göre Maliyet Grafiği">
-                                    <dxc:ChartControl>
-                                        <dxc:XYDiagram2D>
-                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
-                                                <dxc:SplineSeries2D.Label>
-                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
-                                                </dxc:SplineSeries2D.Label>
-                                            </dxc:SplineSeries2D>
-                                            <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True"/>
-                                            </dxc:XYDiagram2D.AxisX>
-                                            <dxc:XYDiagram2D.AxisY>
-                                                <dxc:AxisY2D>
-                                                    <dxc:AxisY2D.Title>
-                                                        <dxc:AxisTitle Content=" "/>
-                                                    </dxc:AxisY2D.Title>
-                                                    <dxc:AxisY2D.WholeRange>
-                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
-                                                    </dxc:AxisY2D.WholeRange>
-                                                </dxc:AxisY2D>
-                                            </dxc:XYDiagram2D.AxisY>
-                                        </dxc:XYDiagram2D>
-                                    </dxc:ChartControl>
-                                </dx:DXTabItem>
+
                             </dx:DXTabControl>
 
                         </Grid>
@@ -3029,7 +2888,10 @@
                 </dx:DXTabControl>
             </dx:DXTabItem>
             <dx:DXTabItem Header="ÖZEL İŞLEMLER" >
-                <dx:DXTabControl Margin="5" SelectedIndex="0">
+                <dx:DXTabControl Margin="5" SelectedIndex="{Binding Path=Subtitleindex}" >
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="SelectionChanged" Command="{Binding Selectionchangedtabindex}"/>
+                    </dxmvvm:Interaction.Behaviors>
                     <dx:DXTabControl.View>
                         <dx:TabControlMultiLineView HeaderLocation="Top"/>
                     </dx:DXTabControl.View>
@@ -3136,85 +2998,53 @@
                                 <dx:DXTabControl.View>
                                     <dx:TabControlMultiLineView HeaderLocation="Top"/>
                                 </dx:DXTabControl.View>
-                                <dx:DXTabItem Header="Günlere Göre Maliyet">
-                                    <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
-                                        <dxg:GridControl.View>
-                                            <dxg:TableView   Style="{StaticResource analysistable}" />
-                                        </dxg:GridControl.View>
-                                        <dxg:GridColumn Header="ID"       Width="50"    Binding="{Binding Path=Id}" />
-                                        <dxg:GridColumn Header="ÜRÜN"     Width="120"   Binding="{Binding Path=Urun}" Visible="False"/>
-                                        <dxg:GridColumn Header="1"        Width="50"    Binding="{Binding Path=Gun1}"/>
-                                        <dxg:GridColumn Header="2"        Width="50"    Binding="{Binding Path=Gun2}"/>
-                                        <dxg:GridColumn Header="3"        Width="50"    Binding="{Binding Path=Gun3}"/>
-                                        <dxg:GridColumn Header="4"        Width="50"    Binding="{Binding Path=Gun4}"/>
-                                        <dxg:GridColumn Header="5"        Width="50"    Binding="{Binding Path=Gun5}"/>
-                                        <dxg:GridColumn Header="6"        Width="50"    Binding="{Binding Path=Gun6}"/>
-                                        <dxg:GridColumn Header="7"        Width="50"    Binding="{Binding Path=Gun7}"/>
-                                        <dxg:GridColumn Header="8"        Width="50"    Binding="{Binding Path=Gun8}"/>
-                                        <dxg:GridColumn Header="9"        Width="50"    Binding="{Binding Path=Gun9}"/>
-                                        <dxg:GridColumn Header="10"       Width="50"    Binding="{Binding Path=Gun10}"/>
-                                        <dxg:GridColumn Header="11"       Width="50"    Binding="{Binding Path=Gun11}"/>
-                                        <dxg:GridColumn Header="12"       Width="50"    Binding="{Binding Path=Gun12}"/>
-                                        <dxg:GridColumn Header="13"       Width="50"    Binding="{Binding Path=Gun13}"/>
-                                        <dxg:GridColumn Header="14"       Width="50"    Binding="{Binding Path=Gun14}"/>
-                                        <dxg:GridColumn Header="15"       Width="50"    Binding="{Binding Path=Gun15}"/>
-                                        <dxg:GridColumn Header="16"       Width="50"    Binding="{Binding Path=Gun16}"/>
-                                        <dxg:GridColumn Header="17"       Width="50"    Binding="{Binding Path=Gun17}"/>
-                                        <dxg:GridColumn Header="18"       Width="50"    Binding="{Binding Path=Gun18}"/>
-                                        <dxg:GridColumn Header="19"       Width="50"    Binding="{Binding Path=Gun19}"/>
-                                        <dxg:GridColumn Header="20"       Width="50"    Binding="{Binding Path=Gun20}"/>
-                                        <dxg:GridColumn Header="21"       Width="50"    Binding="{Binding Path=Gun21}"/>
-                                        <dxg:GridColumn Header="22"       Width="50"    Binding="{Binding Path=Gun22}"/>
-                                        <dxg:GridColumn Header="23"       Width="50"    Binding="{Binding Path=Gun23}"/>
-                                        <dxg:GridColumn Header="24"       Width="50"    Binding="{Binding Path=Gun24}"/>
-                                        <dxg:GridColumn Header="25"       Width="50"    Binding="{Binding Path=Gun25}"/>
-                                        <dxg:GridColumn Header="26"       Width="50"    Binding="{Binding Path=Gun26}"/>
-                                        <dxg:GridColumn Header="27"       Width="50"    Binding="{Binding Path=Gun27}"/>
-                                        <dxg:GridColumn Header="28"       Width="50"    Binding="{Binding Path=Gun28}"/>
-                                        <dxg:GridColumn Header="29"       Width="50"    Binding="{Binding Path=Gun29}"/>
-                                        <dxg:GridColumn Header="30"       Width="50"    Binding="{Binding Path=Gun30}"/>
-                                        <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
-                                    </dxg:GridControl>
+                                <dx:DXTabItem Header="Günlere Göre Maliyet Grafiği">
+                                    <dxc:ChartControl>
+                                        <dxc:XYDiagram2D>
+                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                <dxc:SplineSeries2D.Label>
+                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                </dxc:SplineSeries2D.Label>
+                                            </dxc:SplineSeries2D>
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True"/>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <dxc:XYDiagram2D.AxisY>
+                                                <dxc:AxisY2D>
+                                                    <dxc:AxisY2D.Title>
+                                                        <dxc:AxisTitle Content=" "/>
+                                                    </dxc:AxisY2D.Title>
+                                                    <dxc:AxisY2D.WholeRange>
+                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
+                                                    </dxc:AxisY2D.WholeRange>
+                                                </dxc:AxisY2D>
+                                            </dxc:XYDiagram2D.AxisY>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
                                 </dx:DXTabItem>
-                                <dx:DXTabItem Header="Dillere Göre Maliyet">
-                                    <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
-                                        <dxg:GridControl.View>
-                                            <dxg:TableView   Style="{StaticResource analysistable}" />
-                                        </dxg:GridControl.View>
-                                        <dxg:GridColumn Header="ID"       Width="50"    Binding="{Binding Path=Id}" />
-                                        <dxg:GridColumn Header="DİLLER"   Width="120"   Binding="{Binding Path=Urun}"/>
-                                        <dxg:GridColumn Header="1"        Width="50"    Binding="{Binding Path=Gun1}"/>
-                                        <dxg:GridColumn Header="2"        Width="50"    Binding="{Binding Path=Gun2}"/>
-                                        <dxg:GridColumn Header="3"        Width="50"    Binding="{Binding Path=Gun3}"/>
-                                        <dxg:GridColumn Header="4"        Width="50"    Binding="{Binding Path=Gun4}"/>
-                                        <dxg:GridColumn Header="5"        Width="50"    Binding="{Binding Path=Gun5}"/>
-                                        <dxg:GridColumn Header="6"        Width="50"    Binding="{Binding Path=Gun6}"/>
-                                        <dxg:GridColumn Header="7"        Width="50"    Binding="{Binding Path=Gun7}"/>
-                                        <dxg:GridColumn Header="8"        Width="50"    Binding="{Binding Path=Gun8}"/>
-                                        <dxg:GridColumn Header="9"        Width="50"    Binding="{Binding Path=Gun9}"/>
-                                        <dxg:GridColumn Header="10"       Width="50"    Binding="{Binding Path=Gun10}"/>
-                                        <dxg:GridColumn Header="11"       Width="50"    Binding="{Binding Path=Gun11}"/>
-                                        <dxg:GridColumn Header="12"       Width="50"    Binding="{Binding Path=Gun12}"/>
-                                        <dxg:GridColumn Header="13"       Width="50"    Binding="{Binding Path=Gun13}"/>
-                                        <dxg:GridColumn Header="14"       Width="50"    Binding="{Binding Path=Gun14}"/>
-                                        <dxg:GridColumn Header="15"       Width="50"    Binding="{Binding Path=Gun15}"/>
-                                        <dxg:GridColumn Header="16"       Width="50"    Binding="{Binding Path=Gun16}"/>
-                                        <dxg:GridColumn Header="17"       Width="50"    Binding="{Binding Path=Gun17}"/>
-                                        <dxg:GridColumn Header="18"       Width="50"    Binding="{Binding Path=Gun18}"/>
-                                        <dxg:GridColumn Header="19"       Width="50"    Binding="{Binding Path=Gun19}"/>
-                                        <dxg:GridColumn Header="20"       Width="50"    Binding="{Binding Path=Gun20}"/>
-                                        <dxg:GridColumn Header="21"       Width="50"    Binding="{Binding Path=Gun21}"/>
-                                        <dxg:GridColumn Header="22"       Width="50"    Binding="{Binding Path=Gun22}"/>
-                                        <dxg:GridColumn Header="23"       Width="50"    Binding="{Binding Path=Gun23}"/>
-                                        <dxg:GridColumn Header="24"       Width="50"    Binding="{Binding Path=Gun24}"/>
-                                        <dxg:GridColumn Header="25"       Width="50"    Binding="{Binding Path=Gun25}"/>
-                                        <dxg:GridColumn Header="26"       Width="50"    Binding="{Binding Path=Gun26}"/>
-                                        <dxg:GridColumn Header="27"       Width="50"    Binding="{Binding Path=Gun27}"/>
-                                        <dxg:GridColumn Header="28"       Width="50"    Binding="{Binding Path=Gun28}"/>
-                                        <dxg:GridColumn Header="29"       Width="50"    Binding="{Binding Path=Gun29}"/>
-                                        <dxg:GridColumn Header="30"       Width="50"    Binding="{Binding Path=Gun30}"/>
-                                        <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
-                                    </dxg:GridControl>
+                                <dx:DXTabItem Header="Dil Analizi">
+                                    <dxc:ChartControl>
+                                        <dxc:XYDiagram2D>
+                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                <dxc:SplineSeries2D.Label>
+                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                </dxc:SplineSeries2D.Label>
+                                            </dxc:SplineSeries2D>
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True"/>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <dxc:XYDiagram2D.AxisY>
+                                                <dxc:AxisY2D>
+                                                    <dxc:AxisY2D.Title>
+                                                        <dxc:AxisTitle Content=" "/>
+                                                    </dxc:AxisY2D.Title>
+                                                    <dxc:AxisY2D.WholeRange>
+                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
+                                                    </dxc:AxisY2D.WholeRange>
+                                                </dxc:AxisY2D>
+                                            </dxc:XYDiagram2D.AxisY>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
                                 </dx:DXTabItem>
                                 <dx:DXTabItem Header="Belgelere Göre Maliyet">
                                     <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
@@ -3256,30 +3086,7 @@
                                         <dxg:GridColumn Header="31"       Width="50"    Binding="{Binding Path=Gun31}"/>
                                     </dxg:GridControl>
                                 </dx:DXTabItem>
-                                <dx:DXTabItem Header="Günlere Göre Maliyet Grafiği">
-                                    <dxc:ChartControl>
-                                        <dxc:XYDiagram2D>
-                                            <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
-                                                <dxc:SplineSeries2D.Label>
-                                                    <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
-                                                </dxc:SplineSeries2D.Label>
-                                            </dxc:SplineSeries2D>
-                                            <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True"/>
-                                            </dxc:XYDiagram2D.AxisX>
-                                            <dxc:XYDiagram2D.AxisY>
-                                                <dxc:AxisY2D>
-                                                    <dxc:AxisY2D.Title>
-                                                        <dxc:AxisTitle Content=" "/>
-                                                    </dxc:AxisY2D.Title>
-                                                    <dxc:AxisY2D.WholeRange>
-                                                        <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
-                                                    </dxc:AxisY2D.WholeRange>
-                                                </dxc:AxisY2D>
-                                            </dxc:XYDiagram2D.AxisY>
-                                        </dxc:XYDiagram2D>
-                                    </dxc:ChartControl>
-                                </dx:DXTabItem>
+
                             </dx:DXTabControl>
 
                         </Grid>

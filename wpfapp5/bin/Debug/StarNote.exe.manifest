@@ -1255,14 +1255,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StarNote.exe" size="1863664">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StarNote.exe" size="1867760">
       <assemblyIdentity name="StarNote" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1rtgkRyKOzvVRwYg33uZZfWyMH2tPvyz29a+7WzD0Lw=</dsig:DigestValue>
+        <dsig:DigestValue>iCGEMPYIzOrW7OYYpFnXekQCiV/c/fn1Ws/pK2abXys=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
