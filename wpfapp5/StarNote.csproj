@@ -529,6 +529,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Command\RelayparameterCommand.cs" />
     <Compile Include="DataAccess\AnalysisMontlyDA.cs" />
     <Compile Include="DataAccess\AnalysisYearlyDA.cs" />
     <Compile Include="DataAccess\BaseDa.cs" />
@@ -615,6 +616,12 @@
     </Compile>
     <Compile Include="Utils\Report1.Designer.cs">
       <DependentUpon>Report1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ReportAnalysis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\ReportAnalysis.Designer.cs">
+      <DependentUpon>ReportAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\UserUtils.cs" />
     <Compile Include="Utils\WebapiUtils.cs" />
@@ -908,6 +915,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Report1.resx">
       <DependentUpon>Report1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\ReportAnalysis.resx">
+      <DependentUpon>ReportAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Report2.resx">
       <DependentUpon>Report2.cs</DependentUpon>

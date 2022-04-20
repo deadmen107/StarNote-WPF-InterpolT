@@ -26,5 +26,6 @@ namespace StarNote.View
             InitializeComponent();
             this.DataContext = analysisVM;
         }
+
     }
 }

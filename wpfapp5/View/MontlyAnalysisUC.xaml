@@ -12,6 +12,7 @@
              xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
               xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+
              mc:Ignorable="d" Margin="0" Padding="0"    
              Background="#FE9590AD" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -143,12 +144,10 @@
                                         </dxga:ArcScale>
                                     </dxga:CircularGaugeControl.Scales>
                                 </dxga:CircularGaugeControl>
-                                <Border  Grid.Row="1" Grid.Column="2" Style="{StaticResource analysisborder}">
-                                    <Border.InputBindings>
-                                        <MouseBinding MouseAction="LeftDoubleClick"
-                                                      Command="{Binding YourBindableCommand}"
-                                                      CommandParameter="{Binding}" />
-                                    </Border.InputBindings>
+                                <Border x:Name="genelnetpotansiyel" Tag="0" Grid.Row="1" Grid.Column="2"  Style="{StaticResource analysisborder}" >
+                                    <dxmvvm:Interaction.Behaviors>
+                                        <dxmvvm:EventToCommand EventName="MouseRightButtonUp" CommandParameter="{Binding ElementName=genelnetpotansiyel, Path=Tag}" Command="{Binding Path=Doreportcommand}" />
+                                    </dxmvvm:Interaction.Behaviors>
                                     <Border.ToolTip>
                                         <StackPanel Orientation="Horizontal">                                           
                                             <TextBlock>Rapor İçin Sağ Tıkla</TextBlock>

@@ -8,6 +8,7 @@ using StarNote.Model;
 using StarNote.Service;
 using StarNote.Command;
 using StarNote.Utils;
+using System.Windows.Controls;
 
 namespace StarNote.ViewModel
 {
@@ -19,10 +20,9 @@ namespace StarNote.ViewModel
         public MontlyAnalysisVM()
         {
             dataaccess = new BaseDa();
-            hedefler = new Hedefler();
-            DeleteThanksCommand = new RelayCommand<object>((parms) => DeleteThanks(parms), parms => CanDeleteThanks());
-            Doreportcommand = new RelayCommand(DoReport);
+            hedefler = new Hedefler();          
             Selectionchangedtabindex = new RelayCommand(Loaddata);
+            Doreportcommand = new RelayparameterCommand(DoReport, CanExecuteMyMethod);
             Startdate = new DateTime(DateTime.Now.Year-1, DateTime.Now.Month, 1);
             Enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
             Loaddata();
@@ -40,17 +40,16 @@ namespace StarNote.ViewModel
             set { selectionchangedtabindex = value; RaisePropertyChanged("Selectionchangedtabindex"); }
         }
 
-
-
-        
-
-public RelayCommand<object> DeleteThanksCommand { get; private set; }
-
-        private RelayCommand doreportcommand;
-        public RelayCommand Doreportcommand
+        private RelayparameterCommand doreportcommand;
+        public RelayparameterCommand Doreportcommand
         {
             get { return doreportcommand; }
             set { doreportcommand = value; RaisePropertyChanged("Doreportcommand"); }
+        }
+
+        private bool CanExecuteMyMethod(object parameter)
+        {
+            return true;
         }
 
         #endregion
@@ -364,9 +363,10 @@ public RelayCommand<object> DeleteThanksCommand { get; private set; }
 
         #region Report Methods
 
-        public void DoReport(string tag)
+        public void DoReport(object sender)
         {
             
+            System.Windows.Forms.MessageBox.Show(sender.ToString());
         }
 
         #endregion
