@@ -33,12 +33,12 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="340"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="140"/>
                 <ColumnDefinition Width="140"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Content="AKTİF EKRAN ADI" FontWeight="Bold" FontFamily="times new roman" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Content="{Binding Path=Titlename}" FontWeight="Bold" Foreground="White" FontFamily="times new roman" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
             <Label  Grid.Row="0" Grid.Column="3"  Content="Başlangıç Tarihi"/>
             <Label  Grid.Row="0" Grid.Column="4" Content="Bitiş Tarihi" />
             <DatePicker Grid.Row="1" Grid.Column="3" SelectedDate="{Binding Startdate}" >
@@ -52,10 +52,10 @@
                 </dxmvvm:Interaction.Behaviors>
             </DatePicker>
         </Grid>
-        <Border  Grid.Row="1" Margin="5" Background="white">
+        <Border CornerRadius="15" Grid.Row="1" Margin="5" Background="white">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -67,15 +67,15 @@
                     <ColumnDefinition Width="110"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button IsEnabled="{Binding Path=Isbtnenable}" Style="{StaticResource FlatButtonStyle}" Tag="0" Grid.Column="1" Grid.Row="0" Width="60"  Height="25"  Content="GENEL" />
-                <Button IsEnabled="{Binding Path=Isbtnenable}" Style="{StaticResource FlatButtonStyle}" Tag="1" Grid.Column="2" Grid.Row="0" Width="60"  Height="25"  Content="ADLİYE" />
-                <Button IsEnabled="{Binding Path=Isbtnenable}" Style="{StaticResource FlatButtonStyle}" Tag="2" Grid.Column="3" Grid.Row="0" Width="60"  Height="25"  Content="ÖZEL" />
-                <Button IsEnabled="{Binding Path=Isbtnenable}" Style="{StaticResource FlatButtonStyle}" Tag="3" Grid.Column="4" Grid.Row="0" Width="60"  Height="25"  Content="FİRMA" />
-                <Button IsEnabled="{Binding Path=Isbtnenable}" Style="{StaticResource FlatButtonStyle}" Tag="4" Grid.Column="5" Grid.Row="0" Width="100" Height="25"  Content="DİĞER İŞLEMLER" />
-                <Border Grid.ColumnSpan="7" BorderThickness="2" BorderBrush="Black" Grid.Row="1" Margin="5">
+                <Button IsEnabled="{Binding Path=Isbtnenable}"  Style="{StaticResource FlatButtonStyle}" Command="{Binding Path=Tabindexchangedcommand}" CommandParameter="{Binding ElementName=btnGenel, Path=Tag}" x:Name="btnGenel" Tag="0" Grid.Column="1" Grid.Row="0" Width="60"  Height="25"  Content="GENEL" />
+                <Button IsEnabled="{Binding Path=Isbtnenable}"  Style="{StaticResource FlatButtonStyle}" Command="{Binding Path=Tabindexchangedcommand}" CommandParameter="{Binding ElementName=btnAdliye, Path=Tag}" x:Name="btnAdliye" Tag="1" Grid.Column="2" Grid.Row="0" Width="60"  Height="25"  Content="ADLİYE" />
+                <Button IsEnabled="{Binding Path=Isbtnenable}"  Style="{StaticResource FlatButtonStyle}" Command="{Binding Path=Tabindexchangedcommand}" CommandParameter="{Binding ElementName=btnOzel, Path=Tag}" x:Name="btnOzel" Tag="2" Grid.Column="3" Grid.Row="0" Width="60"  Height="25"  Content="ÖZEL" />
+                <Button IsEnabled="{Binding Path=Isbtnenable}"  Style="{StaticResource FlatButtonStyle}" Command="{Binding Path=Tabindexchangedcommand}" CommandParameter="{Binding ElementName=btnFirma, Path=Tag}" x:Name="btnFirma" Tag="3" Grid.Column="4" Grid.Row="0" Width="60"  Height="25"  Content="FİRMA" />
+                <Button IsEnabled="{Binding Path=Isbtnenable}"  Style="{StaticResource FlatButtonStyle}" Command="{Binding Path=Tabindexchangedcommand}" CommandParameter="{Binding ElementName=btnDiger, Path=Tag}" x:Name="btnDiger" Tag="4" Grid.Column="5" Grid.Row="0" Width="100" Height="25"  Content="DİĞER İŞLEMLER" />
+                <Border Grid.ColumnSpan="7" CornerRadius="15" Background="#FE9590AD" Grid.Row="1" Margin="8,5,8,0">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="40"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -87,10 +87,10 @@
                             <ColumnDefinition Width="110"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Style="{StaticResource FlatButtonStyle}" IsEnabled="{Binding Path=Isbtnenable}" Visibility="{Binding Path=Networkthbtnvisibility}" Tag="0" Grid.Column="1" Grid.Row="0" Width="60"  Height="25"  Content="NET" />
-                        <Button Style="{StaticResource FlatButtonStyle}" IsEnabled="{Binding Path=Isbtnenable}" Visibility="{Binding Path=Salesbtnvisibility}"     Tag="1" Grid.Column="2" Grid.Row="0" Width="60"  Height="25"  Content="GELİR" />
-                        <Button Style="{StaticResource FlatButtonStyle}" IsEnabled="{Binding Path=Isbtnenable}" Visibility="{Binding Path=Purchasebtnvisibility}"  Tag="2" Grid.Column="3" Grid.Row="0" Width="60"  Height="25"  Content="GİDER" />                   
-                        <Border Grid.ColumnSpan="7" BorderThickness="2" BorderBrush="Black" Grid.Row="1" Margin="5">
+                        <Button VerticalAlignment="Bottom" Style="{StaticResource FlatButtonStyle}" IsEnabled="{Binding Path=Isbtnenable}" Visibility="{Binding Path=Networkthbtnvisibility}" Command="{Binding Path=Subtabindexchangedcommand}" CommandParameter="{Binding ElementName=btnNet, Path=Tag}" x:Name="btnNet" Tag="0" Grid.Column="1" Grid.Row="0" Width="60"  Height="25"  Content="NET" />
+                        <Button VerticalAlignment="Bottom" Style="{StaticResource FlatButtonStyle}" IsEnabled="{Binding Path=Isbtnenable}" Visibility="{Binding Path=Salesbtnvisibility}"     Command="{Binding Path=Subtabindexchangedcommand}" CommandParameter="{Binding ElementName=btnGelir, Path=Tag}" x:Name="btnGelir" Tag="1" Grid.Column="2" Grid.Row="0" Width="60"  Height="25"  Content="GELİR" />
+                        <Button VerticalAlignment="Bottom" Style="{StaticResource FlatButtonStyle}" IsEnabled="{Binding Path=Isbtnenable}" Visibility="{Binding Path=Purchasebtnvisibility}"  Command="{Binding Path=Subtabindexchangedcommand}" CommandParameter="{Binding ElementName=btnGider, Path=Tag}" x:Name="btnGider" Tag="2" Grid.Column="3" Grid.Row="0" Width="60"  Height="25"  Content="GİDER" />                   
+                        <Border Grid.ColumnSpan="7" CornerRadius="15"  Grid.Row="1" Margin="5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="160"/>
@@ -227,28 +227,44 @@
                                         </dxc:ChartControl>
                                     </dx:DXTabItem>
                                     <dx:DXTabItem Header="Dil Analizi">
-                                        <dxc:ChartControl>
-                                            <dxc:XYDiagram2D>
-                                                <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
-                                                    <dxc:SplineSeries2D.Label>
-                                                        <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
-                                                    </dxc:SplineSeries2D.Label>
-                                                </dxc:SplineSeries2D>
-                                                <dxc:XYDiagram2D.AxisX>
-                                                    <dxc:AxisX2D GridLinesVisible="True"/>
-                                                </dxc:XYDiagram2D.AxisX>
-                                                <dxc:XYDiagram2D.AxisY>
-                                                    <dxc:AxisY2D>
-                                                        <dxc:AxisY2D.Title>
-                                                            <dxc:AxisTitle Content=" "/>
-                                                        </dxc:AxisY2D.Title>
-                                                        <dxc:AxisY2D.WholeRange>
-                                                            <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
-                                                        </dxc:AxisY2D.WholeRange>
-                                                    </dxc:AxisY2D>
-                                                </dxc:XYDiagram2D.AxisY>
-                                            </dxc:XYDiagram2D>
-                                        </dxc:ChartControl>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="100"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <dxc:ChartControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7">
+                                                <dxc:XYDiagram2D>
+                                                    <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                        <dxc:SplineSeries2D.Label>
+                                                            <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                        </dxc:SplineSeries2D.Label>
+                                                    </dxc:SplineSeries2D>
+                                                    <dxc:XYDiagram2D.AxisX>
+                                                        <dxc:AxisX2D GridLinesVisible="True"/>
+                                                    </dxc:XYDiagram2D.AxisX>
+                                                    <dxc:XYDiagram2D.AxisY>
+                                                        <dxc:AxisY2D>
+                                                            <dxc:AxisY2D.Title>
+                                                                <dxc:AxisTitle Content=" "/>
+                                                            </dxc:AxisY2D.Title>
+                                                            <dxc:AxisY2D.WholeRange>
+                                                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False"/>
+                                                            </dxc:AxisY2D.WholeRange>
+                                                        </dxc:AxisY2D>
+                                                    </dxc:XYDiagram2D.AxisY>
+                                                </dxc:XYDiagram2D>
+                                            </dxc:ChartControl>
+                                        </Grid>
+                                       
                                     </dx:DXTabItem>
                                     <dx:DXTabItem Header="Belgelere Göre Maliyet">
                                         <dxg:GridControl    ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >

@@ -3160,3 +3160,4 @@ E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\View\MontlyAnalysisUC.g.cs
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\StarNote.csprojAssemblyReference.cache
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\StarNote.Utils.AnalysisReport.resources
+C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\StarNote.Utils.AnalysisReport.resources
