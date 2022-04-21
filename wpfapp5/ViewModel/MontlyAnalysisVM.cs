@@ -9,6 +9,9 @@ using StarNote.Service;
 using StarNote.Command;
 using StarNote.Utils;
 using System.Windows.Controls;
+using StarNote.View;
+using DevExpress.XtraPrinting;
+using System.Windows;
 
 namespace StarNote.ViewModel
 {
@@ -20,10 +23,14 @@ namespace StarNote.ViewModel
         public MontlyAnalysisVM()
         {
             dataaccess = new BaseDa();
-            hedefler = new Hedefler();          
+            hedefler = new Hedefler();
+            Networkthbtnvisibility = Visibility.Visible;
+            Salesbtnvisibility = Visibility.Visible;
+            Purchasebtnvisibility = Visibility.Visible;
+            Isbtnenable = true;
             Selectionchangedtabindex = new RelayCommand(Loaddata);
             Doreportcommand = new RelayparameterCommand(DoReport, CanExecuteMyMethod);
-            Startdate = new DateTime(DateTime.Now.Year-1, DateTime.Now.Month, 1);
+            Startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month-1, 1);
             Enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
             Loaddata();
         }
@@ -33,8 +40,36 @@ namespace StarNote.ViewModel
 
         #region Commands
 
-        private RelayCommand selectionchangedtabindex;
-        public RelayCommand Selectionchangedtabindex
+        private Visibility networkthbtnvisibility;
+        public Visibility Networkthbtnvisibility
+        {
+            get { return networkthbtnvisibility; }
+            set { networkthbtnvisibility = value; RaisePropertyChanged("Networkthbtnvisibility"); }
+        }
+
+        private Visibility salesbtnvisibility;
+        public Visibility Salesbtnvisibility
+        {
+            get { return salesbtnvisibility; }
+            set { salesbtnvisibility = value; RaisePropertyChanged("Salesbtnvisibility"); }
+        }
+
+        private Visibility purchasebtnvisibility;
+        public Visibility Purchasebtnvisibility
+        {
+            get { return purchasebtnvisibility; }
+            set { purchasebtnvisibility = value; RaisePropertyChanged("Purchasebtnvisibility"); }
+        }
+
+        private bool isbtnenable;
+        public bool Isbtnenable
+        {
+            get { return isbtnenable; }
+            set { isbtnenable = value; RaisePropertyChanged("Isbtnenable"); }
+        }
+
+        private RelayparameterCommand selectionchangedtabindex;
+        public RelayparameterCommand Selectionchangedtabindex
         {
             get { return selectionchangedtabindex; }
             set { selectionchangedtabindex = value; RaisePropertyChanged("Selectionchangedtabindex"); }
@@ -194,6 +229,15 @@ namespace StarNote.ViewModel
 
         #region Report Defines
 
+        private List<AnalysisreportModel> reportdata;
+
+        public List<AnalysisreportModel> Reportdata
+        {
+            get { return reportdata; }
+            set { reportdata = value; RaisePropertyChanged("Reportdata"); }
+        }
+
+
         #endregion
 
         #endregion
@@ -202,11 +246,33 @@ namespace StarNote.ViewModel
 
         #region UI Methods
 
-        public void Loaddata()
+        public void TopSelectionChanged(object sender)
         {
-            ManageBigData(Titleindex, Startdate, Enddate);
-            ManagePartialData(subtitleindex);
+            var newindex = (int)sender;
+            if (newindex == Subtitleindex)
+                return;
+            Subtitleindex = newindex;
+            Loaddata();
+        }
 
+        public void BottomSelectionChanged(object sender)
+        {
+            var newindex = (int)sender;
+            if (newindex == Titleindex)
+                return;
+            Titleindex = newindex;
+             Loaddata();
+        }
+
+        public async Task Loaddata()
+        {
+            isbtnenable = false;
+            await Task.Run(async () =>
+            {
+                ManageBigData(Titleindex, Startdate, Enddate);
+                ManagePartialData(subtitleindex);
+                isbtnenable = true;
+            });
         }
 
         private bool IsBetween(DateTime value, DateTime min, DateTime max)
@@ -366,7 +432,15 @@ namespace StarNote.ViewModel
         public void DoReport(object sender)
         {
             
-            System.Windows.Forms.MessageBox.Show(sender.ToString());
+            //System.Windows.Forms.MessageBox.Show(sender.ToString());
+            AnalysisReport reportAnalysis = new AnalysisReport();          
+            reportAnalysis.ExportOptions.PrintPreview.SaveMode = DevExpress.XtraPrinting.SaveMode.UsingDefaultPath;
+            reportAnalysis.ExportOptions.PrintPreview.ShowOptionsBeforeExport = false;
+            reportAnalysis.DataSource = Reportdata;
+            reportAnalysis.ExportToPdf("report.pdf");
+            reportAnalysis.ExportOptions.PrintPreview.ActionAfterExport = ActionAfterExport.None;
+            ReportUC report = new ReportUC(reportAnalysis, new OrderModel(), "Repor1");
+            report.Show();
         }
 
         #endregion

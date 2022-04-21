@@ -1816,7 +1816,6 @@ E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\StarNote.csproj.CopyComplete
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\StarNote.exe
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\StarNote.pdb
-E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\StarNote.csproj.AssemblyReference.cache
 C:\C# Devs\Interpol WPF\wpfapp5\bin\Debug\StarNote.exe.config
 C:\C# Devs\Interpol WPF\wpfapp5\bin\Debug\StarNote.exe.manifest
 C:\C# Devs\Interpol WPF\wpfapp5\bin\Debug\StarNote.application
@@ -3159,3 +3158,5 @@ C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\StarNote.application
 C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\StarNote.csproj.CopyComplete
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\View\MontlyAnalysisUC.baml
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\View\MontlyAnalysisUC.g.cs
+E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\StarNote.csprojAssemblyReference.cache
+E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\StarNote.Utils.AnalysisReport.resources

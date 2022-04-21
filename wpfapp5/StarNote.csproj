@@ -555,6 +555,7 @@
     <Compile Include="Jobs\ApiJobs.cs" />
     <Compile Include="Jobs\MyScheduler.cs" />
     <Compile Include="Model\AnalysisMontlyModel.cs" />
+    <Compile Include="Model\AnalysisreportModel.cs" />
     <Compile Include="Model\AnalysisYearlyModel.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\CompanyModel.cs" />
@@ -598,6 +599,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>WeatherSetting.settings</DependentUpon>
     </Compile>
+    <Compile Include="Utils\AnalysisReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\AnalysisReport.Designer.cs">
+      <DependentUpon>AnalysisReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\Hedefler.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -616,12 +623,6 @@
     </Compile>
     <Compile Include="Utils\Report1.Designer.cs">
       <DependentUpon>Report1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Utils\ReportAnalysis.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Utils\ReportAnalysis.Designer.cs">
-      <DependentUpon>ReportAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\UserUtils.cs" />
     <Compile Include="Utils\WebapiUtils.cs" />
@@ -913,11 +914,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utils\AnalysisReport.resx">
+      <DependentUpon>AnalysisReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utils\Report1.resx">
       <DependentUpon>Report1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utils\ReportAnalysis.resx">
-      <DependentUpon>ReportAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Report2.resx">
       <DependentUpon>Report2.cs</DependentUpon>
