@@ -170,6 +170,51 @@
         </Style.Triggers>
     </Style>
 
+    <Style TargetType="Button" x:Key="btnreport">
+        <Setter Property="Background" Value="DarkCyan"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Width" Value="75"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border 
+                        BorderThickness="0"
+                        CornerRadius="4">
+                        <Border.ToolTip>
+                            <TextBlock Text="Rapor İçin Tıklayınız" FontWeight="ExtraBold"></TextBlock>
+                        </Border.ToolTip>
+                        <Image  Source="/Content/add.png" Width="16" HorizontalAlignment="Left" Margin="4,0,0,0"></Image>                            
+                        <Border.Style>                           
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush>
+                                            <LinearGradientBrush.GradientStops>
+                                                <GradientStop Color="#FF363050" Offset="0"/>
+                                            </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#CF363050"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <!--<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style TargetType="Button" x:Key="btnupdate">
         <Setter Property="Background" Value="DarkCyan"/>
         <Setter Property="Foreground" Value="White"/>

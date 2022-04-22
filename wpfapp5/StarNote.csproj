@@ -556,6 +556,7 @@
     <Compile Include="Jobs\MyScheduler.cs" />
     <Compile Include="Model\AnalysisMontlyModel.cs" />
     <Compile Include="Model\AnalysisreportModel.cs" />
+    <Compile Include="Model\Analysissubgridmodel.cs" />
     <Compile Include="Model\AnalysisYearlyModel.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\CompanyModel.cs" />

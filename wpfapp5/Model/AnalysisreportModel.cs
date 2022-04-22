@@ -15,6 +15,13 @@ namespace StarNote.Model
             set { id = value; RaisePropertyChanged("Id"); }
         }
 
+        private string processtype;
+        public string Processtype
+        {
+            get { return processtype; }
+            set { processtype = value; RaisePropertyChanged("Processtype"); }
+        }
+
         private string customername;
         public string Customername
         {
@@ -35,6 +42,15 @@ namespace StarNote.Model
             get { return dateregister; }
             set { dateregister = value; RaisePropertyChanged("Dateregister"); }
         }
-        
+
+        private string status;
+
+        public string Status
+        {
+            get { return status; }
+            set { status = value; RaisePropertyChanged("Status"); }
+        }
+
+
     }
 }

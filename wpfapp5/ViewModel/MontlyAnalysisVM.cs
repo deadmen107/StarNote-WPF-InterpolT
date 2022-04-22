@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using StarNote.View;
 using DevExpress.XtraPrinting;
 using System.Windows;
+using System.Drawing;
 
 namespace StarNote.ViewModel
 {
@@ -31,10 +32,12 @@ namespace StarNote.ViewModel
             Subtabindexchangedcommand = new RelayparameterCommand(BottomSelectionChanged, CanExecuteMyMethod);
             Tabindexchangedcommand = new RelayparameterCommand(TopSelectionChanged,CanExecuteMyMethod);
             Doreportcommand = new RelayparameterCommand(DoReport, CanExecuteMyMethod);
+            Selectionchangedtabindex = new RelayCommand(datechanged);
             Startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month-1, 1);
             Enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
             Titleindex = 0;
             Subtitleindex = 0;
+            Setbtncolors();
             Changetitle();
             Loaddata();
         }
@@ -43,6 +46,13 @@ namespace StarNote.ViewModel
         #region Defines
 
         #region Commands
+
+        private RelayCommand selectionchangedtabindex;
+        public RelayCommand Selectionchangedtabindex
+        {
+            get { return selectionchangedtabindex; }
+            set { selectionchangedtabindex = value; RaisePropertyChanged("Selectionchangedtabindex"); }
+        }
 
         private RelayparameterCommand subtabindexchangedcommand;
         public RelayparameterCommand Subtabindexchangedcommand
@@ -72,7 +82,128 @@ namespace StarNote.ViewModel
 
         #endregion
 
-        #region UI Defines
+        #region Colors
+
+        private Brush btnbrushgenel;
+        public Brush Btnbrushgenel
+        {
+            get { return btnbrushgenel; }
+            set { btnbrushgenel = value; RaisePropertyChanged("Btnbrushgenel"); }
+        }
+
+        private Brush btnbrushadliye;
+        public Brush Btnbrushadliye
+        {
+            get { return btnbrushadliye; }
+            set { btnbrushadliye = value; RaisePropertyChanged("Btnbrushadliye"); }
+        }
+
+        private Brush btnbrushözel;
+        public Brush Btnbrushözel
+        {
+            get { return btnbrushözel; }
+            set { btnbrushözel = value; RaisePropertyChanged("Btnbrushözel"); }
+        }
+
+        private Brush btnbrushfirma;
+        public Brush Btnbrushfirma
+        {
+            get { return btnbrushfirma; }
+            set { btnbrushfirma = value; RaisePropertyChanged("Btnbrushfirma"); }
+        }
+
+        private Brush btnbrushdiger;
+        public Brush Btnbrushdiger
+        {
+            get { return btnbrushdiger; }
+            set { btnbrushdiger = value; RaisePropertyChanged("Btnbrushdiger"); }
+        }
+
+        private Brush btnbrushNet;
+        public Brush BtnbrushNet
+        {
+            get { return btnbrushNet; }
+            set { btnbrushNet = value; RaisePropertyChanged("BtnbrushNet"); }
+        }
+
+        private Brush btnbrushGelir;
+        public Brush BtnbrushGelir
+        {
+            get { return btnbrushGelir; }
+            set { btnbrushGelir = value; RaisePropertyChanged("BtnbrushGelir"); }
+        }
+
+        private Brush btnBrushGider;
+        public Brush BtnbrushGider
+        {
+            get { return btnBrushGider; }
+            set { btnBrushGider = value; RaisePropertyChanged("BtnbrushGider"); }
+        }
+
+        #endregion
+
+        #region UI Defines        
+
+        private string languagename;
+        public string Languagename
+        {
+            get { return languagename; }
+            set { languagename = value; RaisePropertyChanged("Languagenames"); }
+        }
+
+        private string documentname;
+        public string Documentname
+        {
+            get { return documentname; }
+            set { documentname = value; RaisePropertyChanged("Languagenames"); }
+        }
+
+
+        private List<string> languagenames;
+        public List<string> Languagenames
+        {
+            get { return languagenames; }
+            set { languagenames = value; RaisePropertyChanged("Languagenames"); }
+        }
+
+        private List<string> documentnames;
+        public List<string> Documentnames
+        {
+            get { return documentnames; }
+            set { documentnames = value; RaisePropertyChanged("Documentnames"); }
+        }
+
+        private List<DataPoint> languagechart;
+        public List<DataPoint> Languagechart
+        {
+            get { return languagechart; }
+            set { languagechart = value; RaisePropertyChanged("Languagechart"); }
+        }
+
+
+        private List<DataPoint> documentchart;
+        public List<DataPoint> Documentchart
+        {
+            get { return documentchart; }
+            set { documentchart = value; RaisePropertyChanged("Documentchart"); }
+        }
+
+
+
+        private List<Analysissubgridmodel> languagedata;
+        public List<Analysissubgridmodel> Languagedata
+        {
+            get { return languagedata; }
+            set { languagedata = value; RaisePropertyChanged("Languagedata"); }
+        }
+
+        private List<Analysissubgridmodel> documentdata;
+        public List<Analysissubgridmodel> Documentdata
+        {
+            get { return documentdata; }
+            set { documentdata = value; RaisePropertyChanged("Documentdata"); }
+        }
+
 
         private string titlename;
         public string Titlename
@@ -223,13 +354,6 @@ namespace StarNote.ViewModel
             set { datachart = value; RaisePropertyChanged("Datachart"); }
         }
 
-        private List<OrderModel> recorddataorder;
-        public List<OrderModel> Recorddataorder
-        {
-            get { return recorddataorder; }
-            set { recorddataorder = value; RaisePropertyChanged("Griddata"); }
-        }
-
         private List<CostumerOrderModel> recorddatacostumer;
         public List<CostumerOrderModel> Recorddatacostumer
         {
@@ -249,13 +373,11 @@ namespace StarNote.ViewModel
         #region Report Defines
 
         private List<AnalysisreportModel> reportdata;
-
         public List<AnalysisreportModel> Reportdata
         {
             get { return reportdata; }
             set { reportdata = value; RaisePropertyChanged("Reportdata"); }
         }
-
 
         #endregion
 
@@ -264,6 +386,41 @@ namespace StarNote.ViewModel
         #region Methods
 
         #region UI Methods
+
+        private void datechanged()
+        {
+            Loaddata();
+        }
+
+        private void Setbtncolors()
+        {
+            List<Brush> Topbtns = new List<Brush>
+            {
+               Btnbrushgenel, Btnbrushadliye, Btnbrushözel, Btnbrushfirma, Btnbrushdiger
+            };
+            List<Brush> Bottombtns = new List<Brush>
+            {
+               BtnbrushNet, BtnbrushGelir, BtnbrushGider
+            };
+
+            for (int i = 0; i < Topbtns.Count; i++)
+                Topbtns[i] = Brushes.DarkCyan;
+            for (int i = 0; i < Bottombtns.Count; i++)
+                Bottombtns[i] = Brushes.DarkCyan;
+
+            Topbtns[Titleindex] = Brushes.Bisque;
+            Bottombtns[Subtitleindex] = Brushes.Bisque;
+
+        }
+
+        private void Changebtnvisibility()
+        {
+            Networkthbtnvisibility = Visibility.Visible;
+            Salesbtnvisibility = Visibility.Visible;
+            Purchasebtnvisibility = Visibility.Visible;
+            if (Titleindex == 1 || Titleindex == 2 || Titleindex == 3)
+                Purchasebtnvisibility = Visibility.Hidden;
+        }
 
         private void Changetitle()
         {
@@ -278,6 +435,7 @@ namespace StarNote.ViewModel
             if (newindex == Titleindex)
                 return;
             Titleindex = newindex;
+            Setbtncolors();
             Changetitle();
             Loaddata();
         }
@@ -288,6 +446,7 @@ namespace StarNote.ViewModel
             if (newindex == Subtitleindex)
                 return;
             Subtitleindex = newindex;
+            Setbtncolors();
             Changetitle();
             Loaddata();
         }
@@ -309,8 +468,7 @@ namespace StarNote.ViewModel
         }
 
         private void ManageBigData(int titleindex,DateTime startdate, DateTime enddate)
-        {
-            Recorddataorder = new List<OrderModel>();
+        {           
             Recorddatacostumer = new List<CostumerOrderModel>();
             Recorddatajoborder = new List<JobOrderModel>();
             
@@ -318,7 +476,13 @@ namespace StarNote.ViewModel
             {
                 if (IsBetween(Convert.ToDateTime(item.Costumerorder.Kayıttarihi).Date,startdate.Date,enddate.Date))
                 {
-                    Recorddataorder.Add(item);
+                    if (item.Costumerorder.Satışyöntemi == "GIDER")
+                    {
+                        if(item.Costumerorder.Ücret>0)
+                        item.Costumerorder.Ücret = item.Costumerorder.Ücret * -1;
+                        if (item.Costumerorder.Beklenentutar > 0)
+                            item.Costumerorder.Beklenentutar = item.Costumerorder.Beklenentutar * -1;
+                    }
                     Recorddatacostumer.Add(item.Costumerorder);
                     Recorddatajoborder.AddRange(item.Joborder);
                 }
@@ -328,23 +492,19 @@ namespace StarNote.ViewModel
                 case 0:  //Genel
                    
                     break;
-                case 1: //Adliye
-                    Recorddataorder = Recorddataorder.Where(u=>u.Costumerorder.Tür != "ÖZEL MÜŞTERİLER" && u.Costumerorder.Tür != "ŞİRKETLER" && u.Costumerorder.Savetype==0).ToList();
+                case 1: //Adliye                    
                     Recorddatacostumer = Recorddatacostumer.Where(u => u.Tür != "ÖZEL MÜŞTERİLER" && u.Tür != "ŞİRKETLER" && u.Savetype == 0).ToList();
                     Recorddatajoborder = Recorddatajoborder;
                     break;
-                case 2: //Özel
-                    Recorddataorder = Recorddataorder.Where(u => u.Costumerorder.Tür == "ÖZEL MÜŞTERİLER"  && u.Costumerorder.Savetype == 0).ToList();
+                case 2: //Özel               
                     Recorddatacostumer = Recorddatacostumer.Where(u => u.Tür == "ÖZEL MÜŞTERİLER"  && u.Savetype == 0).ToList();
                     Recorddatajoborder = Recorddatajoborder;
                     break;
-                case 3: //Firma
-                    Recorddataorder = Recorddataorder.Where(u =>  u.Costumerorder.Tür == "ŞİRKETLER" && u.Costumerorder.Savetype == 0).ToList();
+                case 3: //Firma                    
                     Recorddatacostumer = Recorddatacostumer.Where(u => u.Tür == "ŞİRKETLER" && u.Savetype == 0).ToList();
                     Recorddatajoborder = Recorddatajoborder;
                     break;
-                case 4:  //Özel İşlemler
-                    Recorddataorder = Recorddataorder.Where(u =>   u.Costumerorder.Savetype == 1).ToList();
+                case 4:  //Özel İşlemler                  
                     Recorddatacostumer = Recorddatacostumer.Where(u =>  u.Savetype == 1).ToList();
                     Recorddatajoborder = Recorddatajoborder;
                     break;
@@ -354,14 +514,12 @@ namespace StarNote.ViewModel
         private void ManagePartialData(int subtitleindex)
         {
             Fillwidget();
-            fillcharttable();          
+            fillcharttable();
+            Filllanguagedata();
         }
 
         private void fillcharttable()
         {
-            foreach (var item in Recorddatacostumer)
-                if (item.Satışyöntemi == "GIDER")
-                    item.Ücret = item.Ücret * -1;
             switch (Subtitleindex)
             {
                 case 0:                  
@@ -391,96 +549,198 @@ namespace StarNote.ViewModel
                                      Value = g.Sum(x => x.Ücret)
                                  }).ToList();
                     break;
-            }
-           
-            //var item =   (from s in Recorddatacostumer
-            //              group s by Convert.ToDateTime(s.Kayıttarihi).Date into g
-            //              join c in Recorddatajoborder on g.FirstOrDefault().Id equals c.Üstid
-            //              select new 
-            //              {
-            //                  Argument = g.Key.ToShortDateString(),
-            //                  Price = g.FirstOrDefault().Ücret,
-            //                  Value = c.Ürün2detay.ToList()
-            //              }).ToList();
-            //var item = (from s in Recorddatacostumer
-            //            join c in Recorddatajoborder on s.Id equals c.Üstid
-            //            group s by new { Convert.ToDateTime(s.Kayıttarihi).Date, c.Ürün2detay } into g
-            //            select new
-            //            {                            
-            //                Id= g.Select(u=>u.Id).FirstOrDefault(),
-            //                Price = g.Select(u => u.Ücret).FirstOrDefault(),
-            //                Argument = g.Key.Date.ToShortDateString(),
-            //                Value = g.Key.Ürün2detay,
-            //            }).ToList();
-
-            //var itemm = (from s in item
-            //             group s by new { s.Argument , s.Id  } into g
-            //             select new
-            //             {
-            //                 Argument = g.Key,
-            //                 price = g.Sum(u=>u.Price),
-            //                 Value = string.Join(",", g.Select(u => u.Value))
-            //             }).ToList();
-
+            }           
         }
-
 
         private void Fillwidget()
         {
-            foreach (var item in Recorddatacostumer)
-                if (item.Satışyöntemi == "GIDER")
-                    item.Ücret = item.Ücret * -1;
-            TimeSpan t = Enddate - Startdate;
-            Totalprocesscount = Recorddatacostumer.Count();
+            TimeSpan t = Enddate - Startdate;          
             switch (Subtitleindex)
             {
                 case 0:
-                    Potansialworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Beklenentutar).Sum() - Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Beklenentutar).Sum();
-                    Networth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Ücret).Sum() - Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Ücret).Sum();
+                    Potansialworth = Recorddatacostumer.Select(u => u.Beklenentutar).Sum();
+                    Networth = Recorddatacostumer.Select(u => u.Ücret).Sum();
                     Realworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Ücret).Sum();
                     Minusworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Ücret).Sum();
                     Totalgivenfileordercount = (from s in Recorddatacostumer
                                                 join c in Recorddatajoborder on s.Id equals c.Üstid
-                                                select c.Joborder).Count();                                     
-                    Networthgauge = (Math.Round(100 * Realworth / hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
-                    Minusworthgauge = (Math.Round(100 * minusworth / hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
+                                                select c.Joborder).Count();
+                    Totalprocesscount = Recorddatacostumer.Count();
+                    Networthgauge = (Math.Round(100 * Realworth / (hedefler.MonthlyAnalysisKAZANÇ * (t.TotalDays / 30)),0)).ToString();
+                    Minusworthgauge = (Math.Round(100 * minusworth / (hedefler.MonthlyAnalysisKAZANÇ * (t.TotalDays / 30)), 0)).ToString();
                     break;
                 case 1:
                     Potansialworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Beklenentutar).Sum();
                     Networth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Ücret).Sum();
                     Realworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Select(u => u.Ücret).Sum();
                     Minusworth = 0;
-                    Totalgivenfileordercount = (from s in Recorddatacostumer
+                    Totalgivenfileordercount = (from s in Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR")
                                                 join c in Recorddatajoborder on s.Id equals c.Üstid
-                                                select c.Joborder).Count();            
-                    Networthgauge = (Math.Round(100 * Realworth / hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
-                    Minusworthgauge = (Math.Round(100 * minusworth / hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
+                                                select c.Joborder).Count();
+                    Totalprocesscount = Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").Count();
+                    Networthgauge = (Math.Round(100 * Realworth / (hedefler.MonthlyAnalysisKAZANÇ * (t.TotalDays / 30)), 0)).ToString();
+                    Minusworthgauge = (Math.Round(100 * minusworth / (hedefler.MonthlyAnalysisKAZANÇ * (t.TotalDays / 30)), 0)).ToString();
                     break;
                 case 2:
                     Potansialworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Beklenentutar).Sum();
                     Networth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Ücret).Sum();
                     Realworth = 0;
                     Minusworth = Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Select(u => u.Ücret).Sum();
-                    Totalgivenfileordercount = (from s in Recorddatacostumer
+                    Totalgivenfileordercount = (from s in Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER")
                                                 join c in Recorddatajoborder on s.Id equals c.Üstid
-                                                select c.Joborder).Count();                  
-                    Networthgauge = (Math.Round(100 * Realworth / hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
-                    Minusworthgauge = (Math.Round(100 * minusworth / hedefler.MonthlyAnalysisKAZANÇ, 0) / t.TotalDays / 30).ToString();
+                                                select c.Joborder).Count();
+                    Totalprocesscount = Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").Count();
+                    Networthgauge = (Math.Round(100 * Realworth / (hedefler.MonthlyAnalysisKAZANÇ * (t.TotalDays / 30)), 0)).ToString();
+                    Minusworthgauge = (Math.Round(100 * minusworth / (hedefler.MonthlyAnalysisKAZANÇ * (t.TotalDays / 30)), 0)).ToString();
                     break;               
             }
            
         }
 
-       
+        private void Filllanguagedata()
+        {
+            Languagedata = new List<Analysissubgridmodel>();
+            Languagenames = new List<string>();
+            foreach (var order in Calcdataforreport())
+                foreach (var item in Recorddatajoborder.Where(u => u.Üstid == order.Id).ToList())
+                {
+                    var duplicatedata = Languagedata.FirstOrDefault(u => u.Name == item.Ürün + "->" + item.Ürün2);
+                    if (duplicatedata == null)
+                        Languagedata.Add(new Analysissubgridmodel { Name = item.Ürün + "->" + item.Ürün2, Count = 1, Potansialworth = item.Ücret });
+                    else
+                    {
+                        duplicatedata.Count += 1;
+                        duplicatedata.Potansialworth += item.Ücret;
+                    }
+                    Languagenames.Add(item.Ürün + "->" + item.Ürün2);
+                }
+            Languagedata = Languagedata.OrderByDescending(u => u.Count).ToList();
+            Languagenames = Languagenames.Distinct().OrderBy(u=>u).ToList();
+        
+        }
         #endregion
 
         #region Report Methods
 
+        private List<CostumerOrderModel> Calcdataforreport()
+        {
+            switch (Subtitleindex)
+            {
+                case 0:
+                    return Recorddatacostumer;                   
+                case 1:
+                    return  Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR").ToList();                   
+                case 2:
+                    return Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER").ToList();                    
+            }
+            return new List<CostumerOrderModel>();
+        }
+
         public void DoReport(object sender)
         {
-            
-            //System.Windows.Forms.MessageBox.Show(sender.ToString());
-            AnalysisReport reportAnalysis = new AnalysisReport();          
+            MessageBoxResult result = MessageBox.Show("Rapor Oluşturmak İstediğinize emin misiniz?", "Rapor Oluşturma", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+                return;
+            Reportdata = new List<AnalysisreportModel>();
+            switch (sender.ToString())
+            {
+                case "0":  //potansiyel kazanç
+                    foreach (var item in Calcdataforreport())
+                    {
+                        Reportdata.Add(new AnalysisreportModel
+                        {
+                            Id = item.Id,
+                            Customername = item.İsim,
+                            Processtype = item.Tür,
+                            Price=item.Beklenentutar,
+                            Dateregister = item.Kayıttarihi,
+                            Status=item.Durum
+                        });
+                    }
+                    Reportdata.Add(new AnalysisreportModel {Status="TOPLAM=",Price = Reportdata.Select(u=>u.Price).Sum() });
+                    break;
+                case "1":  //gerçek kazanc
+                    foreach (var item in Calcdataforreport().Where(u => u.Satışyöntemi == "GELIR"))
+                    {
+                        Reportdata.Add(new AnalysisreportModel
+                        {
+                            Id = item.Id,
+                            Customername = item.İsim,
+                            Processtype = item.Tür,
+                            Price = item.Ücret,
+                            Dateregister = item.Kayıttarihi,
+                            Status = item.Durum
+                        });
+                    }
+                    Reportdata.Add(new AnalysisreportModel { Status = "TOPLAM=", Price = Reportdata.Select(u => u.Price).Sum() });
+                    break;
+                case "2":   // total process count
+                    int i = 1;
+                    foreach (var item in Calcdataforreport())
+                    {
+                        Reportdata.Add(new AnalysisreportModel
+                        {
+                            Id = item.Id,
+                            Customername = item.İsim,
+                            Processtype = item.Tür,
+                            Price = i,
+                            Dateregister = item.Kayıttarihi,
+                            Status = item.Durum
+                        });
+                        i++;
+                    }                  
+                    break;
+                case "3":  //net kazanç
+                    foreach (var item in Calcdataforreport())
+                    {
+                        Reportdata.Add(new AnalysisreportModel
+                        {
+                            Id = item.Id,
+                            Customername = item.İsim,
+                            Processtype = item.Tür,
+                            Price = item.Ücret,
+                            Dateregister = item.Kayıttarihi,
+                            Status = item.Durum
+                        });
+                    }
+                    Reportdata.Add(new AnalysisreportModel { Status = "TOPLAM=", Price = Reportdata.Select(u => u.Price).Sum() });
+                    break;
+                case "4":  // harcama
+                    foreach (var item in Calcdataforreport().Where(u => u.Satışyöntemi == "GIDER"))
+                    {
+                        Reportdata.Add(new AnalysisreportModel
+                        {
+                            Id = item.Id,
+                            Customername = item.İsim,
+                            Processtype = item.Tür,
+                            Price = item.Ücret,
+                            Dateregister = item.Kayıttarihi,
+                            Status = item.Durum
+                        });
+                    }
+                    Reportdata.Add(new AnalysisreportModel { Status = "TOPLAM=", Price = Reportdata.Select(u => u.Price).Sum() });
+                    break;
+                case "5":  //dosya numaları
+                    int j = 1;
+                    foreach (var item in Calcdataforreport())
+                    {
+                        foreach (var joborder in Recorddatajoborder.Where(u => u.Üstid == item.Id))
+                        {
+                            Reportdata.Add(new AnalysisreportModel
+                            {
+                                Id = joborder.Id,
+                                Customername = item.İsim,
+                                Processtype = item.Tür,
+                                Price =j,
+                                Dateregister = item.Kayıttarihi,
+                                Status = joborder.Joborder
+                            });
+                            j++;
+                        }
+                    }
+                    break;               
+            }
+            AnalysisReport reportAnalysis = new AnalysisReport();
             reportAnalysis.ExportOptions.PrintPreview.SaveMode = DevExpress.XtraPrinting.SaveMode.UsingDefaultPath;
             reportAnalysis.ExportOptions.PrintPreview.ShowOptionsBeforeExport = false;
             reportAnalysis.DataSource = Reportdata;
@@ -488,6 +748,8 @@ namespace StarNote.ViewModel
             reportAnalysis.ExportOptions.PrintPreview.ActionAfterExport = ActionAfterExport.None;
             ReportUC report = new ReportUC(reportAnalysis, new OrderModel(), "Repor1");
             report.Show();
+            //System.Windows.Forms.MessageBox.Show(sender.ToString());
+
         }
 
         #endregion
