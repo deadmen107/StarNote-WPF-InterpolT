@@ -12,10 +12,11 @@
              xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
               xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-
+ 
              mc:Ignorable="d" Margin="0" Padding="0"    
              Background="#FE9590AD" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+              LostFocus="UserControl_LostFocus"  GotFocus="UserControl_GotFocus">
     <UserControl.Resources>
         <ResourceDictionary Source="/StarNote;component/Resources/ButtonResources.xaml">
         </ResourceDictionary>
@@ -116,7 +117,7 @@
                                     <Label Grid.Row="0" Grid.Column="1" Content="Aylık Kazançlar" Style="{StaticResource analysislabel}" />
                                     <Label Grid.Row="0" Grid.Column="2" Content="Aylık Potansiyel Kazanç" Style="{StaticResource analysislabel}"/>                                   
                                     <Label Grid.Row="0" Grid.Column="3" Content="Aylık Gerçek Kazanç" Style="{StaticResource analysislabel}"/>
-                                    <Label Grid.Row="0" Grid.Column="4" Content="İşlem Sayısı" Style="{StaticResource analysislabel}"/>
+                                    <Label Grid.Row="0" Grid.Column="4" Content="Müşteri Sayısı" Style="{StaticResource analysislabel}"/>
                                     <Label Grid.Row="2" Grid.Column="2" Content="Aylık Net Gelir" Style="{StaticResource analysislabel}" />
                                     <Label Grid.Row="2" Grid.Column="3" Content="Aylık Toplam Harcama" Style="{StaticResource analysislabel}"/>
                                     <Label Grid.Row="2" Grid.Column="4" Content="Verilen Dosya Numarası" Style="{StaticResource analysislabel}"/>
@@ -176,20 +177,20 @@
                                             </dxga:ArcScale>
                                         </dxga:CircularGaugeControl.Scales>
                                     </dxga:CircularGaugeControl>
-                                    <Border Grid.Row="1" Grid.Column="2"  Style="{StaticResource analysisborder}" >    
-                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Potansialworth}"/>
+                                    <Border Grid.Row="1" Grid.Column="2"  Style="{StaticResource analysisborder}" >
+                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Potansialworth,StringFormat='{}{0:0.00 TL}'}"/>
                                     </Border>
-                                    <Border Grid.Row="1" Grid.Column="3" Style="{StaticResource analysisborder}">                                      
-                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Realworth}"/>
+                                    <Border Grid.Row="1" Grid.Column="3" Style="{StaticResource analysisborder}">
+                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Realworth,StringFormat='{}{0:0.00 TL}'}"/>
                                     </Border>
                                     <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource analysisborder}">
                                         <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Totalprocesscount}"/>
                                     </Border>
                                     <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource analysisborder}">
-                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Networth}" />
+                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Networth,StringFormat='{}{0:0.00 TL}'}"/>
                                     </Border>
                                     <Border Grid.Row="3" Grid.Column="3" Style="{StaticResource analysisborder}">
-                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Minusworth}"/>
+                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Minusworth,StringFormat='{}{0:0.00 TL}'}"/>
                                     </Border>
                                     <Border Grid.Row="3" Grid.Column="4" Style="{StaticResource analysisborder}">
                                         <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Totalgivenfileordercount}"/>
@@ -227,7 +228,11 @@
                                                         </dxc:AxisY2D.WholeRange>
                                                     </dxc:AxisY2D>
                                                 </dxc:XYDiagram2D.AxisY>
+
                                             </dxc:XYDiagram2D>
+                                            <dxc:ChartControl.Legend>
+                                                <dxc:Legend />
+                                            </dxc:ChartControl.Legend>
                                         </dxc:ChartControl>
                                     </dx:DXTabItem>
                                     <dx:DXTabItem Header="Dil Analizi">
@@ -248,11 +253,15 @@
                                             </Grid.ColumnDefinitions>
                                             <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Content="Dil Tercümesi"></Label>                                          
                                             <Border Grid.Row="1" Grid.Column="0" Background="White"  Margin="0,4,0,5"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                <dxe:ComboBoxEdit IsReadOnly="True" ItemsSource="{Binding Path=Languagenames}" EditValue="{Binding Path=Languagename}" IsTextEditable="False" NullText="Dil Seçiniz" ShowBorder="False" ShowEditorButtons="False"></dxe:ComboBoxEdit>
+                                                <dxe:ComboBoxEdit  ItemsSource="{Binding Path=Languagenames,UpdateSourceTrigger=PropertyChanged}" EditValue="{Binding Path=Languagename,UpdateSourceTrigger=PropertyChanged}"  IsTextEditable="False" NullText="Dil Seçiniz" ShowBorder="False" ShowEditorButtons="False">
+                                                    <dxmvvm:Interaction.Behaviors>
+                                                        <dxmvvm:EventToCommand EventName="EditValueChanged" Command="{Binding Languagechange,UpdateSourceTrigger=PropertyChanged}"/>
+                                                    </dxmvvm:Interaction.Behaviors>
+                                                </dxe:ComboBoxEdit>
                                             </Border>                                           
                                             <dxc:ChartControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5">
                                                 <dxc:XYDiagram2D>
-                                                    <dxc:SplineSeries2D DataSource="{Binding Path=Languagechart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                    <dxc:SplineSeries2D DataSource="{Binding Path=Languagechart,UpdateSourceTrigger=PropertyChanged}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
                                                         <dxc:SplineSeries2D.Label>
                                                             <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
                                                         </dxc:SplineSeries2D.Label>
@@ -278,10 +287,13 @@
                                                         </dxc:AxisY2D>
                                                     </dxc:XYDiagram2D.AxisY>
                                                 </dxc:XYDiagram2D>
+                                                <dxc:ChartControl.Legend>
+                                                    <dxc:Legend />
+                                                </dxc:ChartControl.Legend>
                                             </dxc:ChartControl>
                                             <dxg:GridControl Grid.Column="5" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" ItemsSource="{Binding Languagedata}"  Style="{StaticResource analysisgrids}"  >
                                                 <dxg:GridControl.View>
-                                                    <dxg:TableView ShowGroupPanel="False"  Style="{StaticResource analysistable}" />
+                                                    <dxg:TableView ShowGroupPanel="False" ShowSearchPanelMode="Never" Style="{StaticResource analysistable}" />
                                                 </dxg:GridControl.View>
                                                 <dxg:GridColumn Header="Dil Tercümesi" Width="170"   Binding="{Binding Path=Name}"/>
                                                 <dxg:GridColumn Header="Adet"        Width="47"    Binding="{Binding Path=Count}"/>
@@ -305,13 +317,17 @@
                                                 <ColumnDefinition/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Content="Belgeler"></Label>
+                                            <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Content="Belge"></Label>
                                             <Border Grid.Row="1" Grid.Column="0" Background="White"  Margin="0,4,0,5"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                <dxe:ComboBoxEdit IsReadOnly="True" IsTextEditable="False" NullText="Belge Seçiniz" ShowBorder="False" ShowEditorButtons="False"></dxe:ComboBoxEdit>
+                                                <dxe:ComboBoxEdit  ItemsSource="{Binding Path=Documentnames,UpdateSourceTrigger=PropertyChanged}" EditValue="{Binding Path=Documentname,UpdateSourceTrigger=PropertyChanged}"  IsTextEditable="False" NullText="Belge Seçiniz" ShowBorder="False" ShowEditorButtons="False">
+                                                    <dxmvvm:Interaction.Behaviors>
+                                                        <dxmvvm:EventToCommand EventName="EditValueChanged" Command="{Binding Documentchange,UpdateSourceTrigger=PropertyChanged}"/>
+                                                    </dxmvvm:Interaction.Behaviors>
+                                                </dxe:ComboBoxEdit>
                                             </Border>
                                             <dxc:ChartControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5">
                                                 <dxc:XYDiagram2D>
-                                                    <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                    <dxc:SplineSeries2D DataSource="{Binding Path=Documentchart,UpdateSourceTrigger=PropertyChanged}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
                                                         <dxc:SplineSeries2D.Label>
                                                             <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
                                                         </dxc:SplineSeries2D.Label>
@@ -338,13 +354,13 @@
                                                     </dxc:XYDiagram2D.AxisY>
                                                 </dxc:XYDiagram2D>
                                             </dxc:ChartControl>
-                                            <dxg:GridControl Grid.Column="5" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" ItemsSource="{Binding Griddataproducts}"  Style="{StaticResource analysisgrids}"  >
+                                            <dxg:GridControl Grid.Column="5" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" ItemsSource="{Binding Documentdata}"  Style="{StaticResource analysisgrids}"  >
                                                 <dxg:GridControl.View>
-                                                    <dxg:TableView ShowGroupPanel="False" Style="{StaticResource analysistable}" />
+                                                    <dxg:TableView ShowGroupPanel="False" ShowSearchPanelMode="Never" Style="{StaticResource analysistable}" />
                                                 </dxg:GridControl.View>
-                                                <dxg:GridColumn Header="Belge" Width="170"   Binding="{Binding Path=Urun}"/>
-                                                <dxg:GridColumn Header="Adet"        Width="47"    Binding="{Binding Path=Gun1}"/>
-                                                <dxg:GridColumn Header="Potansiyel Kazanç"        Width="*"    Binding="{Binding Path=Gun1}"/>
+                                                <dxg:GridColumn Header="Belge" Width="170"   Binding="{Binding Path=Name}"/>
+                                                <dxg:GridColumn Header="Adet"        Width="47"    Binding="{Binding Path=Count}"/>
+                                                <dxg:GridColumn Header="Potansiyel Kazanç"        Width="*"    Binding="{Binding Path=Potansialworth}"/>
                                             </dxg:GridControl>
                                         </Grid>
                                     </dx:DXTabItem>

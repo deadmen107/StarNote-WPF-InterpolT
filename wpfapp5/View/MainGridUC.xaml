@@ -115,27 +115,21 @@
                                 <dxg:GridColumn    Header="ESAS ADLİYESİ"         Binding="{Binding Path=Costumerorder.Tür}"                                    FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="ESAS MAHKEMELERİ"         Binding="{Binding Path=Costumerorder.Türdetay}"                               FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="ESAS NO"              Binding="{Binding Path=Costumerorder.Kayıtdetay}"                             FixedWidth="true"   Width="130" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
-                                    <dxg:GridColumn    Header="KARAR NO"             Binding="{Binding Path=Costumerorder.Kayıtdetay2}"                            FixedWidth="true"   Width="160" >
-                                        <dxg:GridColumn.EditSettings>
-                                            <dxe:TextEditSettings TextWrapping="Wrap"/>
-                                        </dxg:GridColumn.EditSettings>
-                                    </dxg:GridColumn>
-                                    <dxg:GridColumn    Header="TALİMAT ADLİYELER"         Binding="{Binding Path=Costumerorder.Talimatadliye}"                                    FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
+                                <dxg:GridColumn    Header="KARAR NO"             Binding="{Binding Path=Costumerorder.Kayıtdetay2}"                            FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings><dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings></dxg:GridColumn>
+                                <dxg:GridColumn    Header="TALİMAT ADLİYELER"         Binding="{Binding Path=Costumerorder.Talimatadliye}"                                    FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="TALİMAT MAHKEMELER"         Binding="{Binding Path=Costumerorder.Talimatmahkeme}"                               FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="TALİMAT NO"           Binding="{Binding Path=Costumerorder.Kayıtdetay1}"                            FixedWidth="true"   Width="130" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
-                                <dxg:GridColumn    Header="TALİMAT AÇIKLAMASI"             Binding="{Binding Path=Costumerorder.Talimatkararno}"                            FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
-                                    
-                                    
-                               
+                                <dxg:GridColumn    Header="TALİMAT AÇIKLAMASI"             Binding="{Binding Path=Costumerorder.Talimatkararno}"                            FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>                              
                                 <dxg:GridColumn    Header="İSİM SOYİSİM"         Binding="{Binding Path=Costumerorder.İsim}"                                   FixedWidth="true"   Width="150" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="KAYIT TARİHİ"         Binding="{Binding Path=Costumerorder.Kayıttarihi}"                            FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="TESLİM TARİHİ"        Binding="{Binding Path=Costumerorder.Randevutarihi}"                          FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="TERCÜMAN"             Binding="{Binding Path=Costumerorder.Satıselemanı}"                           FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="ÖN ÖDEME"             Binding="{Binding Path=Costumerorder.Önödeme}"                                FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
-                                <dxg:GridColumn    Header="ALINAN NET TUTAR"      Binding="{Binding Path=Costumerorder.Ücret}"                 FieldName="11"   FixedWidth="true"   Width="120" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
-                                <dxg:GridColumn    Header="HESAPLANAN TUTAR"       Binding="{Binding Path=Costumerorder.Beklenentutar}"                          FixedWidth="true"   Width="130" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
+                                <dxg:GridColumn    Header="NOTER GİDERİ"             Binding="{Binding Path=Costumerorder.Notergideri}"                        FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
+                                <dxg:GridColumn    Header="ALINAN NET TUTAR"      Binding="{Binding Path=Costumerorder.Ücret}"                 FieldName="11"  FixedWidth="true"   Width="120" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
+                                <dxg:GridColumn    Header="HESAPLANAN TUTAR"       Binding="{Binding Path=Costumerorder.Beklenentutar}"                        FixedWidth="true"   Width="130" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="KDV ORANI"            Binding="{Binding Path=Costumerorder.Kdv}"                                    FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
-                                <dxg:GridColumn    Header="SATIŞ YÖNTEMİ"                Binding="{Binding Path=Costumerorder.Satışyöntemi}"                           FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
+                                <dxg:GridColumn    Header="SATIŞ YÖNTEMİ"                Binding="{Binding Path=Costumerorder.Satışyöntemi}"                   FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="ÖDEME YÖNTEMİ"        Binding="{Binding Path=Costumerorder.Ödemeyöntemi}"                           FixedWidth="true"   Width="130" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="DURUM"                Binding="{Binding Path=Costumerorder.Durum}"    FieldName="21" IsSmart="True" FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="AÇIKLAMA"             Binding="{Binding Path=Costumerorder.Acıklama}"                               FixedWidth="true"   Width="300" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
@@ -278,6 +272,7 @@
                                 <dxg:GridColumn    Header="TESLİM TARİHİ"        Binding="{Binding Path=Costumerorder.Randevutarihi}"                          FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="TERCÜMAN"             Binding="{Binding Path=Costumerorder.Satıselemanı}"                           FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="ÖN ÖDEME"             Binding="{Binding Path=Costumerorder.Önödeme}"                                FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
+                                <dxg:GridColumn    Header="NOTER GİDERİ"             Binding="{Binding Path=Costumerorder.Notergideri}"                        FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="ALINAN NET TUTAR"      Binding="{Binding Path=Costumerorder.Ücret}"                 FieldName="11"   FixedWidth="true"   Width="120" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="HESAPLANAN TUTAR"       Binding="{Binding Path=Costumerorder.Beklenentutar}"                          FixedWidth="true"   Width="130" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="KDV ORANI"            Binding="{Binding Path=Costumerorder.Kdv}"                                    FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
@@ -412,16 +407,16 @@
                                 <dxg:GridColumn    Header="ESAS MAHKEMELERİ"     Binding="{Binding Path=Costumerorder.Türdetay}"                               FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="ESAS NO"              Binding="{Binding Path=Costumerorder.Kayıtdetay}"                             FixedWidth="true"   Width="130" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="KARAR NO"             Binding="{Binding Path=Costumerorder.Kayıtdetay2}"                            FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
-
-                                <dxg:GridColumn    Header="TALİMAT ADLİYELER"    Binding="{Binding Path=Costumerorder.Talimatadliye}"                                    FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
-                                <dxg:GridColumn    Header="TALİMAT MAHKEMELER"   Binding="{Binding Path=Costumerorder.Talimatmahkeme}"                               FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
+                                <dxg:GridColumn    Header="TALİMAT ADLİYELER"    Binding="{Binding Path=Costumerorder.Talimatadliye}"                          FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
+                                <dxg:GridColumn    Header="TALİMAT MAHKEMELER"   Binding="{Binding Path=Costumerorder.Talimatmahkeme}"                         FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="TALİMAT NO"           Binding="{Binding Path=Costumerorder.Kayıtdetay1}"                            FixedWidth="true"   Width="130" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
-                                <dxg:GridColumn    Header="TALİMAT AÇIKLAMASI"   Binding="{Binding Path=Costumerorder.Talimatkararno}"                            FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
+                                <dxg:GridColumn    Header="TALİMAT AÇIKLAMASI"   Binding="{Binding Path=Costumerorder.Talimatkararno}"                         FixedWidth="true"   Width="160" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="İSİM SOYİSİM"         Binding="{Binding Path=Costumerorder.İsim}"                                   FixedWidth="true"   Width="150" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="KAYIT TARİHİ"         Binding="{Binding Path=Costumerorder.Kayıttarihi}"                            FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="TESLİM TARİHİ"        Binding="{Binding Path=Costumerorder.Randevutarihi}"                          FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="TERCÜMAN"             Binding="{Binding Path=Costumerorder.Satıselemanı}"                           FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="ÖN ÖDEME"             Binding="{Binding Path=Costumerorder.Önödeme}"                                FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
+                                <dxg:GridColumn    Header="NOTER GİDERİ"         Binding="{Binding Path=Costumerorder.Notergideri}"                            FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="ALINAN NET TUTAR"     Binding="{Binding Path=Costumerorder.Ücret}"                 FieldName="11"   FixedWidth="true"   Width="120" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="HESAPLANAN TUTAR"     Binding="{Binding Path=Costumerorder.Beklenentutar}"                          FixedWidth="true"   Width="130" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                 <dxg:GridColumn    Header="KDV ORANI"            Binding="{Binding Path=Costumerorder.Kdv}"                                    FixedWidth="true"   Width="100" ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
@@ -630,14 +625,8 @@
                                 </dxg:GridControl.View>
 
                                 <dxg:GridControl.Columns>
-                                    <dxg:GridColumn    Header="ID"                   Binding="{Binding Path=Costumerorder.Id}"            FieldName="1" ReadOnly="True"  FixedWidth="true"   Width="50"  >                                        <dxg:GridColumn.EditSettings>
-                                            <dxe:TextEditSettings TextWrapping="Wrap"/>
-                                        </dxg:GridColumn.EditSettings>
-                                    </dxg:GridColumn>
-                                    <dxg:GridColumn    Header="GÖREVLİ ADI"             Binding="{Binding Path=Costumerorder.Satıselemanı}"                                               >
-                                        <dxg:GridColumn.EditSettings>
-                                            <dxe:TextEditSettings TextWrapping="Wrap"/>
-                                        </dxg:GridColumn.EditSettings>
+                                    <dxg:GridColumn    Header="ID"                   Binding="{Binding Path=Costumerorder.Id}"            FieldName="1" ReadOnly="True"  FixedWidth="true"   Width="50"  ><dxg:GridColumn.EditSettings><dxe:TextEditSettings TextWrapping="Wrap"/> </dxg:GridColumn.EditSettings></dxg:GridColumn>
+                                    <dxg:GridColumn    Header="GÖREVLİ ADI"             Binding="{Binding Path=Costumerorder.Satıselemanı}"><dxg:GridColumn.EditSettings><dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
                                     <dxg:GridColumn    Header="MÜŞTERİ ADI"             Binding="{Binding Path=Costumerorder.İsim}"                                               >
                                         <dxg:GridColumn.EditSettings>
@@ -967,7 +956,7 @@
                                     <Label VerticalAlignment="Top" Margin="10,5,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Ürün Bilgileri</Label>
                                     <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,35,10,10" ></Separator>
 
-                                    <Button Grid.Row="0"  Style="{StaticResource FlatButtonStyle}"  Margin="5,-5,30,5" Click="Addsubitem_Click"  VerticalAlignment="Center" HorizontalAlignment="Right" Width="120" Height="20" >Ürün Ekle</Button>
+                                    <Button Grid.Row="0"  Style="{StaticResource FlatButtonStyle}"  Margin="5,-5,30,5" Click="Addsubitem_Click"  VerticalAlignment="Center" HorizontalAlignment="Right" Width="120" Height="20" >Tercüme Ekle</Button>
                                     <ScrollViewer Grid.Row="1"    VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto"  >
                                         <ScrollViewer.Resources>
                                             <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
@@ -992,6 +981,7 @@
                                             <Grid Grid.Row="0">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="40"/>
+                                                    <ColumnDefinition Width="50"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
@@ -1005,24 +995,24 @@
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
-                                                    <ColumnDefinition Width="160"/>
-                                                    <ColumnDefinition Width="160"/>
+                                                    <ColumnDefinition Width="160"/>                                                   
                                                 </Grid.ColumnDefinitions>
-                                                <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Dosya Numarası</Label>
-                                                <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hedef Dil</Label>
-                                                <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Kaynak Dil</Label>
-                                                <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Belge</Label>
-                                                <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sayfa Sayısı</Label>
-                                                <Label Grid.Row="0" Grid.Column="6" Visibility="Hidden"  Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
-                                                <Label Grid.Row="0" Grid.Column="6"  Margin="12,5,5,5" HorizontalAlignment= "Left">Talep Edilen Ücret</Label>
-                                                <Label Grid.Row="0" Grid.Column="7"  Margin="12,5,5,5" HorizontalAlignment= "Left">Durum</Label>
-                                                <Label Grid.Row="0" Grid.Column="8"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
-                                                <Label Grid.Row="0" Grid.Column="9"  Margin="12,5,5,5" HorizontalAlignment= "Left">Tavsiye Edilen Tutar</Label>
-                                                <Label Grid.Row="0" Grid.Column="10"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hesaplanan Tutar</Label>
-                                                <Label Grid.Row="0" Grid.Column="11" Margin="12,5,5,5" HorizontalAlignment="Left">Hesaplanan Adet</Label>
-                                                <Label Grid.Row="0" Grid.Column="12" Margin="12,5,5,5" HorizontalAlignment="Left">Kelime sayı</Label>
-                                                <Label Grid.Row="0" Grid.Column="13" Margin="12,5,5,5" HorizontalAlignment="Left">Satır Sayı</Label>
-                                                <Label Grid.Row="0" Grid.Column="14" Margin="12,5,5,5" HorizontalAlignment="Left">Karakter Sayı</Label>
+                                                <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sıra</Label>
+                                                <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Dosya Numarası</Label>
+                                                <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hedef Dil</Label>
+                                                <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Kaynak Dil</Label>
+                                                <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Belge</Label>
+                                                <Label Grid.Row="0" Grid.Column="6"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sayfa Sayısı</Label>
+                                                <Label Grid.Row="0" Grid.Column="7" Visibility="Hidden"  Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
+                                                <Label Grid.Row="0" Grid.Column="7"  Margin="12,5,5,5" HorizontalAlignment= "Left">Talep Edilen Ücret</Label>
+                                                <Label Grid.Row="0" Grid.Column="8"  Margin="12,5,5,5" HorizontalAlignment= "Left">Durum</Label>
+                                                <Label Grid.Row="0" Grid.Column="9"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
+                                                <Label Grid.Row="0" Grid.Column="10"  Margin="12,5,5,5" HorizontalAlignment= "Left">Tavsiye Edilen Tutar</Label>
+                                                <Label Grid.Row="0" Grid.Column="11"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hesaplanan Tutar</Label>
+                                                <Label Grid.Row="0" Grid.Column="12" Margin="12,5,5,5" HorizontalAlignment="Left">Hesaplanan Adet</Label>
+                                                <Label Grid.Row="0" Grid.Column="13" Margin="12,5,5,5" HorizontalAlignment="Left">Kelime sayı</Label>
+                                                <Label Grid.Row="0" Grid.Column="14" Margin="12,5,5,5" HorizontalAlignment="Left">Satır Sayı</Label>
+                                                <Label Grid.Row="0" Grid.Column="15" Margin="12,5,5,5" HorizontalAlignment="Left">Karakter Sayı</Label>
                                             </Grid>
                                             
                                             <ItemsControl x:Name="davaIC" Grid.Row="1" ItemsSource="{Binding Path=Currentdata.Joborder,Mode=OneWay}">
@@ -1031,6 +1021,7 @@
                                            <Grid  >                                              
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="40"/>
+                                                    <ColumnDefinition Width="50"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
@@ -1045,80 +1036,80 @@
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
-                                                    <ColumnDefinition Width="160"/>
-                                                </Grid.ColumnDefinitions>
-                                                            <Label Grid.Column="0" Margin="0,0,0,0"  Content="{Binding Path=Id}"></Label>
+                                                </Grid.ColumnDefinitions>                                                           
                                                             <Image Grid.Column="0" x:Name="img" MouseDown="Img_MouseDown"  Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
                                                             <Border Grid.Row="1" Grid.Column="1"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False"  Text="{Binding Path=Lowerid}"></dxe:TextEdit>
+                                                            </Border>
+                                                            <Border Grid.Row="1" Grid.Column="2"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False" NullText="Numara Verilecek"   Text="{Binding Path=Joborder}"></dxe:TextEdit>
                                                             </Border>
-
-                                                            <Border Grid.Row="1" Grid.Column="2"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="3"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:ComboBoxEdit Tag="{Binding Path=Id}" IsTextEditable="False"    ShowBorder="False" NullText="Kaynak Dil" ItemsSource="{Binding Ürünsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"  Text="{Binding Path=Ürün}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="4" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:ComboBoxEdit Tag="{Binding Path=Id}" IsTextEditable="False"    ShowBorder="False" NullText="Hedef Dil" ItemsSource="{Binding Ürünsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"  Text="{Binding Path=Ürün2}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="4" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="5" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:ComboBoxEdit  IsTextEditable="False"   ShowBorder="False" NullText="Belge" ItemsSource="{Binding Ürün2sourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"    Text="{Binding Path=Ürün2detay}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="5" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="6" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}"  EditValueChanged="Sayfasayısı_EditValueChanged"  ShowBorder="False" NullText="Sayfa Sayısı"   Text="{Binding Path=Miktar,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="6" Background="White" Visibility="Hidden" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="7" Background="White" Visibility="Hidden" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:ComboBoxEdit IsTextEditable="False"   ShowBorder="False" NullText="Birim"   ItemsSource="{Binding Birimsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" Text="{Binding Path=Birim}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="6" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="7" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit  Tag="{Binding Path=Id}"  ShowBorder="False" EditValueChanged="Subprice_EditValueChanged" NullText="Ücret"   Text="{Binding Path=Ücret,UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="7" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="8" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:ComboBoxEdit IsTextEditable="False"    ItemsSource="{Binding Durumsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" ShowBorder="False" NullText="Durum"   Text="{Binding Path=Durum}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="8"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="9"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit     ShowBorder="False" NullText="Açıklama" CharacterCasing="Upper"  Text="{Binding Path=Acıklama}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="9" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="10" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit     ShowBorder="False"  NullText="Tavsiye Edilen tutar"   Text="{Binding Path=Tavsiyeedilentutar}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="10" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="11" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit  Tag="{Binding Path=Id}"  IsReadOnly="True" ShowBorder="False" NullText="Hesaplanan Tutar"   Text="{Binding Path=Hesaplanantutar}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Grid.Row="1" Grid.Column="11" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border  Grid.Row="1" Grid.Column="12" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit  Tag="{Binding Path=Id}"  IsReadOnly="True"  ShowBorder="False" NullText="Hesaplanan Adet"   Text="{Binding Path=Hesaplananadet}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="12" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="13" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit  Tag="{Binding Path=Id}"  EditValueChanged="Hesaplama_EditValueChanged" ShowBorder="False" NullText="Kelime Sayısı"   Text="{Binding Path=Kelimesayı}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="13" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="14" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit  Tag="{Binding Path=Id}" EditValueChanged="Hesaplama_EditValueChanged"  ShowBorder="False" NullText="Satır Sayısı"   Text="{Binding Path=Satırsayı}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="14"   Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="15"   Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" EditValueChanged="Hesaplama_EditValueChanged"   ShowBorder="False" NullText="Karakter Sayısı"   Text="{Binding Path=Karaktersayı}"></dxe:TextEdit>
                                                             </Border>
                                                         </Grid>
@@ -1194,7 +1185,8 @@
                                     <!--<Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="1" Grid.Row="2">ÖDEME ŞEKLİ *</Label>-->
                                     <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="2">TERCÜMAN*</Label>
                                     <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="1" Grid.Row="2">DURUM *</Label>
-                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="2" Grid.Row="2">AÇIKLAMA</Label>
+                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="3" Grid.Row="2">AÇIKLAMA</Label>
+                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="2" Grid.Row="2">NOTER GİDERİ</Label>
 
                                     <Border  Grid.Column="0" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:ComboBoxEdit IsTextEditable="False" ShowBorder="False" CharacterCasing="Upper"  ItemsSource="{Binding Path=Salesmansourcelist}"  Text="{Binding Path=Currentdata.Costumerorder.Satıselemanı}"></dxe:ComboBoxEdit>
@@ -1221,8 +1213,11 @@
                                     <Border   Grid.Column="1" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:ComboBoxEdit IsTextEditable="False" CharacterCasing="Upper"  EditValueChanged="Anasiparişdurum_EditValueChanged"  ShowBorder="False"  ItemsSource="{Binding Path=Durumsourcelist}"  Text="{Binding Path=Currentdata.Costumerorder.Durum}"></dxe:ComboBoxEdit>
                                     </Border>
-                                    <Border  Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                    <Border  Grid.Column="3" Grid.Row="3"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:TextEdit    ShowBorder="False" CharacterCasing="Upper" TextWrapping="Wrap" Text="{Binding Path=Currentdata.Costumerorder.Acıklama}"></dxe:TextEdit>
+                                    </Border>
+                                    <Border  Grid.Column="2" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                        <dxe:TextEdit    ShowBorder="False" CharacterCasing="Upper"  Text="{Binding Path=Currentdata.Costumerorder.Notergideri}"></dxe:TextEdit>
                                     </Border>
                                 </Grid>
                             </Border>
@@ -1344,7 +1339,7 @@
                                 <RowDefinition Height="30"/>
                                 <RowDefinition Height="100"/>
                                 <RowDefinition Height="30"/>
-                                <RowDefinition Height="200"/>
+                                <RowDefinition Height="300"/>
                                 <RowDefinition Height="30" />
                                 <RowDefinition Height="200"/>
                                 <RowDefinition Height="30" />
@@ -1488,7 +1483,7 @@
                                     <Label VerticalAlignment="Top" Margin="10,5,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Ürün Bilgileri</Label>
                                     <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,35,10,10" ></Separator>
 
-                                    <Button Grid.Row="0"  Style="{StaticResource FlatButtonStyle}"  Margin="5,-5,30,5" Click="Addsubitem_Click"  VerticalAlignment="Center" HorizontalAlignment="Right" Width="120" Height="20" >Ürün Ekle</Button>
+                                    <Button Grid.Row="0"  Style="{StaticResource FlatButtonStyle}"  Margin="5,-5,30,5" Click="Addsubitem_Click"  VerticalAlignment="Center" HorizontalAlignment="Right" Width="120" Height="20" >Tercüme Ekle</Button>
                                     <ScrollViewer Grid.Row="1"    VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto"  >
                                         <ScrollViewer.Resources>
                                             <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
@@ -1513,7 +1508,7 @@
                                             <Grid Grid.Row="0">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="40"/>
-                                                    <ColumnDefinition Width="160"/>
+                                                    <ColumnDefinition Width="50"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
@@ -1529,21 +1524,22 @@
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                 </Grid.ColumnDefinitions>
-                                                <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Dosya Numarası</Label>
-                                                <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hedef Dil</Label>
-                                                <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Kaynak Dil</Label>
-                                                <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Belge</Label>
-                                                <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sayfa Sayısı</Label>
-                                                <Label Grid.Row="0" Grid.Column="6"  Visibility="Hidden" Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
-                                                <Label Grid.Row="0" Grid.Column="6"  Margin="12,5,5,5" HorizontalAlignment= "Left">Talep Edilen Ücret</Label>
-                                                <Label Grid.Row="0" Grid.Column="7"  Margin="12,5,5,5" HorizontalAlignment= "Left">Durum</Label>
-                                                <Label Grid.Row="0" Grid.Column="8"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
-                                                <Label Grid.Row="0" Grid.Column="9"  Margin="12,5,5,5" HorizontalAlignment= "Left">Tavsiye Edilen Tutar</Label>
-                                                <Label Grid.Row="0" Grid.Column="10"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hesaplanan Tutar</Label>
-                                                <Label Grid.Row="0" Grid.Column="11" Margin="12,5,5,5" HorizontalAlignment="Left">Hesaplanan Adet</Label>
-                                                <Label Grid.Row="0" Grid.Column="12" Margin="12,5,5,5" HorizontalAlignment="Left">Kelime sayı</Label>
-                                                <Label Grid.Row="0" Grid.Column="13" Margin="12,5,5,5" HorizontalAlignment="Left">Satır Sayı</Label>
-                                                <Label Grid.Row="0" Grid.Column="14" Margin="12,5,5,5" HorizontalAlignment="Left">Karakter Sayı</Label>
+                                                <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sıra</Label>
+                                                <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Dosya Numarası</Label>
+                                                <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hedef Dil</Label>
+                                                <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Kaynak Dil</Label>
+                                                <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Belge</Label>
+                                                <Label Grid.Row="0" Grid.Column="6"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sayfa Sayısı</Label>
+                                                <Label Grid.Row="0" Grid.Column="7" Visibility="Hidden"  Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
+                                                <Label Grid.Row="0" Grid.Column="7"  Margin="12,5,5,5" HorizontalAlignment= "Left">Talep Edilen Ücret</Label>
+                                                <Label Grid.Row="0" Grid.Column="8"  Margin="12,5,5,5" HorizontalAlignment= "Left">Durum</Label>
+                                                <Label Grid.Row="0" Grid.Column="9"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
+                                                <Label Grid.Row="0" Grid.Column="10"  Margin="12,5,5,5" HorizontalAlignment= "Left">Tavsiye Edilen Tutar</Label>
+                                                <Label Grid.Row="0" Grid.Column="11"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hesaplanan Tutar</Label>
+                                                <Label Grid.Row="0" Grid.Column="12" Margin="12,5,5,5" HorizontalAlignment="Left">Hesaplanan Adet</Label>
+                                                <Label Grid.Row="0" Grid.Column="13" Margin="12,5,5,5" HorizontalAlignment="Left">Kelime sayı</Label>
+                                                <Label Grid.Row="0" Grid.Column="14" Margin="12,5,5,5" HorizontalAlignment="Left">Satır Sayı</Label>
+                                                <Label Grid.Row="0" Grid.Column="15" Margin="12,5,5,5" HorizontalAlignment="Left">Karakter Sayı</Label>
                                             </Grid>
 
                                             <ItemsControl x:Name="özelIC" Grid.Row="1" ItemsSource="{Binding Path=Currentdata.Joborder,Mode=OneWay}">
@@ -1552,7 +1548,7 @@
                                                         <Grid  >
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition Width="40"/>
-                                                                <ColumnDefinition Width="160"/>
+                                                                <ColumnDefinition Width="50"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
@@ -1568,85 +1564,87 @@
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                             </Grid.ColumnDefinitions>
-                                                            <Label Grid.Column="0" Margin="0,0,0,0"  Content="{Binding Path=Id}"></Label>
-                                                            <Image Grid.Column="0" x:Name="img" MouseDown="Img_MouseDown" Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
+                                                            <Image Grid.Column="0" x:Name="img" MouseDown="Img_MouseDown"  Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
                                                             <Border Grid.Row="1" Grid.Column="1"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False"  Text="{Binding Path=Lowerid}"></dxe:TextEdit>
+                                                            </Border>
+                                                            <Border Grid.Row="1" Grid.Column="2"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False" NullText="Numara Verilecek"   Text="{Binding Path=Joborder}"></dxe:TextEdit>
                                                             </Border>
-
-                                                            <Border Grid.Row="1" Grid.Column="2"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:ComboBoxEdit Tag="{Binding Path=Id}" IsTextEditable="False"  CharacterCasing="Upper"  ShowBorder="False" NullText="Kaynak Dil" ItemsSource="{Binding Ürünsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"  Text="{Binding Path=Ürün}"></dxe:ComboBoxEdit>
-                                                            </Border>
-
-
-                                                            <Border Grid.Row="1" Grid.Column="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:ComboBoxEdit Tag="{Binding Path=Id}" IsTextEditable="False" CharacterCasing="Upper"   ShowBorder="False" NullText="Hedef Dil" ItemsSource="{Binding Ürünsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"  Text="{Binding Path=Ürün2}"></dxe:ComboBoxEdit>
+                                                            <Border Grid.Row="1" Grid.Column="3"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:ComboBoxEdit Tag="{Binding Path=Id}" IsTextEditable="False"    ShowBorder="False" NullText="Kaynak Dil" ItemsSource="{Binding Ürünsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"  Text="{Binding Path=Ürün}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="4" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:ComboBoxEdit  IsTextEditable="False" CharacterCasing="Upper"  ShowBorder="False" NullText="Belge" ItemsSource="{Binding Ürün2sourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"    Text="{Binding Path=Ürün2detay}"></dxe:ComboBoxEdit>
+                                                                <dxe:ComboBoxEdit Tag="{Binding Path=Id}" IsTextEditable="False"    ShowBorder="False" NullText="Hedef Dil" ItemsSource="{Binding Ürünsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"  Text="{Binding Path=Ürün2}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="5" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit Tag="{Binding Path=Id}" CharacterCasing="Upper"  EditValueChanged="Sayfasayısı_EditValueChanged"  ShowBorder="False" NullText="Sayfa Sayısı"   Text="{Binding Path=Miktar}"></dxe:TextEdit>
-                                                            </Border>
-
-
-                                                            <Border Grid.Row="1" Grid.Column="6" Background="White" Visibility="Hidden" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:ComboBoxEdit IsTextEditable="False" CharacterCasing="Upper"   ShowBorder="False" NullText="Birim"   ItemsSource="{Binding Birimsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" Text="{Binding Path=Birim}"></dxe:ComboBoxEdit>
+                                                                <dxe:ComboBoxEdit  IsTextEditable="False"   ShowBorder="False" NullText="Belge" ItemsSource="{Binding Ürün2sourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"    Text="{Binding Path=Ürün2detay}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="6" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper"  ShowBorder="False" EditValueChanged="Subprice_EditValueChanged" NullText="Ücret"   Text="{Binding Path=Ücret,UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                                                <dxe:TextEdit Tag="{Binding Path=Id}"  EditValueChanged="Sayfasayısı_EditValueChanged"  ShowBorder="False" NullText="Sayfa Sayısı"   Text="{Binding Path=Miktar,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                                            </Border>
+
+
+                                                            <Border Grid.Row="1" Grid.Column="7" Background="White" Visibility="Hidden" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:ComboBoxEdit IsTextEditable="False"   ShowBorder="False" NullText="Birim"   ItemsSource="{Binding Birimsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" Text="{Binding Path=Birim}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="7" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:ComboBoxEdit IsTextEditable="False" CharacterCasing="Upper"   ItemsSource="{Binding Durumsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" ShowBorder="False" NullText="Durum"   Text="{Binding Path=Durum}"></dxe:ComboBoxEdit>
+                                                                <dxe:TextEdit  Tag="{Binding Path=Id}"  ShowBorder="False" EditValueChanged="Subprice_EditValueChanged" NullText="Ücret"   Text="{Binding Path=Ücret,UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="8"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit     ShowBorder="False" CharacterCasing="Upper" NullText="Açıklama"   Text="{Binding Path=Acıklama}"></dxe:TextEdit>
+                                                            <Border Grid.Row="1" Grid.Column="8" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:ComboBoxEdit IsTextEditable="False"    ItemsSource="{Binding Durumsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" ShowBorder="False" NullText="Durum"   Text="{Binding Path=Durum}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="9" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit     ShowBorder="False" CharacterCasing="Upper" NullText="Tavsiye Edilen tutar"   Text="{Binding Path=Tavsiyeedilentutar}"></dxe:TextEdit>
+                                                            <Border Grid.Row="1" Grid.Column="9"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit     ShowBorder="False" NullText="Açıklama" CharacterCasing="Upper"  Text="{Binding Path=Acıklama}"></dxe:TextEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="10" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper"  IsReadOnly="True" ShowBorder="False" NullText="Hesaplanan Tutar"   Text="{Binding Path=Hesaplanantutar}"></dxe:TextEdit>
+                                                                <dxe:TextEdit     ShowBorder="False"  NullText="Tavsiye Edilen tutar"   Text="{Binding Path=Tavsiyeedilentutar}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Grid.Row="1" Grid.Column="11" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper"  IsReadOnly="True"  ShowBorder="False" NullText="Hesaplanan Adet"   Text="{Binding Path=Hesaplananadet}"></dxe:TextEdit>
+                                                            <Border Grid.Row="1" Grid.Column="11" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit  Tag="{Binding Path=Id}"  IsReadOnly="True" ShowBorder="False" NullText="Hesaplanan Tutar"   Text="{Binding Path=Hesaplanantutar}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="12" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper" EditValueChanged="Hesaplama_EditValueChanged"  ShowBorder="False" NullText="Kelime Sayısı"   Text="{Binding Path=Kelimesayı}"></dxe:TextEdit>
+                                                            <Border  Grid.Row="1" Grid.Column="12" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit  Tag="{Binding Path=Id}"  IsReadOnly="True"  ShowBorder="False" NullText="Hesaplanan Adet"   Text="{Binding Path=Hesaplananadet}"></dxe:TextEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="13" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper" EditValueChanged="Hesaplama_EditValueChanged"  ShowBorder="False" NullText="Satır Sayısı"   Text="{Binding Path=Satırsayı}"></dxe:TextEdit>
+                                                                <dxe:TextEdit  Tag="{Binding Path=Id}"  EditValueChanged="Hesaplama_EditValueChanged" ShowBorder="False" NullText="Kelime Sayısı"   Text="{Binding Path=Kelimesayı}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="14"   Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit Tag="{Binding Path=Id}" CharacterCasing="Upper" EditValueChanged="Hesaplama_EditValueChanged"   ShowBorder="False" NullText="Karakter Sayısı"   Text="{Binding Path=Karaktersayı}"></dxe:TextEdit>
+                                                            <Border Grid.Row="1" Grid.Column="14" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" EditValueChanged="Hesaplama_EditValueChanged"  ShowBorder="False" NullText="Satır Sayısı"   Text="{Binding Path=Satırsayı}"></dxe:TextEdit>
+                                                            </Border>
+
+
+                                                            <Border Grid.Row="1" Grid.Column="15"   Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit Tag="{Binding Path=Id}" EditValueChanged="Hesaplama_EditValueChanged"   ShowBorder="False" NullText="Karakter Sayısı"   Text="{Binding Path=Karaktersayı}"></dxe:TextEdit>
                                                             </Border>
                                                         </Grid>
                                                     </DataTemplate>
                                                 </ItemsControl.ItemTemplate>
                                             </ItemsControl>
                                         </Grid>
+
                                     </ScrollViewer>
                                 </Grid>
 
@@ -1701,6 +1699,8 @@
                                         <RowDefinition Height="47"/>
                                         <RowDefinition Height="53"/>
                                         <RowDefinition Height="47"/>
+                                        <RowDefinition Height="53"/>
+                                        <RowDefinition Height="47"/>
                                         <RowDefinition  Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label VerticalAlignment="Top" Margin="10,0,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Sipariş Bilgileri</Label>
@@ -1713,7 +1713,8 @@
                                     <!--<Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="2">GELİR/GİDER *</Label>-->
                                     <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="1" Grid.Row="2">ÖDEME ŞEKLİ *</Label>
                                     <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="2" Grid.Row="2">DURUM *</Label>
-                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="3" Grid.Row="2">AÇIKLAMA</Label>
+                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="4">AÇIKLAMA</Label>
+                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="3" Grid.Row="2">NOTER GİDERİ</Label>
                                     <Border  Grid.Column="0" Grid.Row="1" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:TextEdit    ShowBorder="False" CharacterCasing="Upper"  Text="{Binding Path=Currentdata.Costumerorder.Önödeme}"></dxe:TextEdit>
                                     </Border>
@@ -1748,8 +1749,11 @@
                                     <Border   Grid.Column="2" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:ComboBoxEdit IsTextEditable="False" CharacterCasing="Upper" EditValueChanged="Anasiparişdurum_EditValueChanged"  ShowBorder="False"  ItemsSource="{Binding Path=Durumsourcelist}"  Text="{Binding Path=Currentdata.Costumerorder.Durum}"></dxe:ComboBoxEdit>
                                     </Border>
-                                    <Border  Grid.Column="3"  Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                        <dxe:TextEdit    ShowBorder="False" TextWrapping="Wrap" CharacterCasing="Upper" Text="{Binding Path=Currentdata.Costumerorder.Acıklama}"></dxe:TextEdit>
+                                    <Border  Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                        <dxe:TextEdit    ShowBorder="False" CharacterCasing="Upper" TextWrapping="Wrap" Text="{Binding Path=Currentdata.Costumerorder.Acıklama}"></dxe:TextEdit>
+                                    </Border>
+                                    <Border  Grid.Column="3" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                        <dxe:TextEdit    ShowBorder="False" CharacterCasing="Upper"  Text="{Binding Path=Currentdata.Costumerorder.Notergideri}"></dxe:TextEdit>
                                     </Border>
 
                                 </Grid>
@@ -1872,7 +1876,7 @@
                                 <RowDefinition Height="30"/>
                                 <RowDefinition Height="100"/>
                                 <RowDefinition Height="30"/>
-                                <RowDefinition Height="200"/>
+                                <RowDefinition Height="300"/>
                                 <RowDefinition Height="30" />
                                 <RowDefinition Height="200"/>
                                 <RowDefinition Height="30" />
@@ -2016,7 +2020,7 @@
                                     <Label VerticalAlignment="Top" Margin="10,5,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Ürün Bilgileri</Label>
                                     <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,35,10,10" ></Separator>
 
-                                    <Button Grid.Row="0"  Style="{StaticResource FlatButtonStyle}"  Margin="5,-5,30,5" Click="Addsubitem_Click"  VerticalAlignment="Center" HorizontalAlignment="Right" Width="120" Height="20" >Ürün Ekle</Button>
+                                    <Button Grid.Row="0"  Style="{StaticResource FlatButtonStyle}"  Margin="5,-5,30,5" Click="Addsubitem_Click"  VerticalAlignment="Center" HorizontalAlignment="Right" Width="120" Height="20" >Tercüme Ekle</Button>
                                     <ScrollViewer Grid.Row="1"    VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto"  >
                                         <ScrollViewer.Resources>
                                             <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
@@ -2041,7 +2045,7 @@
                                             <Grid Grid.Row="0">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="40"/>
-                                                    <ColumnDefinition Width="160"/>
+                                                    <ColumnDefinition Width="50"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
@@ -2057,21 +2061,22 @@
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                 </Grid.ColumnDefinitions>
-                                                <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Dosya Numarası</Label>
-                                                <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hedef Dil</Label>
-                                                <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Kaynak Dil</Label>
-                                                <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Belge</Label>
-                                                <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sayfa Sayısı</Label>
-                                                <Label Grid.Row="0" Grid.Column="6" Visibility="Hidden" Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
-                                                <Label Grid.Row="0" Grid.Column="6"  Margin="12,5,5,5" HorizontalAlignment= "Left">Talep Edilen Ücret</Label>
-                                                <Label Grid.Row="0" Grid.Column="7"  Margin="12,5,5,5" HorizontalAlignment= "Left">Durum</Label>
-                                                <Label Grid.Row="0" Grid.Column="8"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
-                                                <Label Grid.Row="0" Grid.Column="9"  Margin="12,5,5,5" HorizontalAlignment= "Left">Tavsiye Edilen Tutar</Label>
-                                                <Label Grid.Row="0" Grid.Column="10"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hesaplanan Tutar</Label>
-                                                <Label Grid.Row="0" Grid.Column="11" Margin="12,5,5,5" HorizontalAlignment="Left">Hesaplanan Adet</Label>
-                                                <Label Grid.Row="0" Grid.Column="12" Margin="12,5,5,5" HorizontalAlignment="Left">Kelime sayı</Label>
-                                                <Label Grid.Row="0" Grid.Column="13" Margin="12,5,5,5" HorizontalAlignment="Left">Satır Sayı</Label>
-                                                <Label Grid.Row="0" Grid.Column="14" Margin="12,5,5,5" HorizontalAlignment="Left">Karakter Sayı</Label>
+                                                <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sıra</Label>
+                                                <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Dosya Numarası</Label>
+                                                <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hedef Dil</Label>
+                                                <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Kaynak Dil</Label>
+                                                <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Belge</Label>
+                                                <Label Grid.Row="0" Grid.Column="6"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sayfa Sayısı</Label>
+                                                <Label Grid.Row="0" Grid.Column="7" Visibility="Hidden"  Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
+                                                <Label Grid.Row="0" Grid.Column="7"  Margin="12,5,5,5" HorizontalAlignment= "Left">Talep Edilen Ücret</Label>
+                                                <Label Grid.Row="0" Grid.Column="8"  Margin="12,5,5,5" HorizontalAlignment= "Left">Durum</Label>
+                                                <Label Grid.Row="0" Grid.Column="9"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
+                                                <Label Grid.Row="0" Grid.Column="10"  Margin="12,5,5,5" HorizontalAlignment= "Left">Tavsiye Edilen Tutar</Label>
+                                                <Label Grid.Row="0" Grid.Column="11"  Margin="12,5,5,5" HorizontalAlignment= "Left">Hesaplanan Tutar</Label>
+                                                <Label Grid.Row="0" Grid.Column="12" Margin="12,5,5,5" HorizontalAlignment="Left">Hesaplanan Adet</Label>
+                                                <Label Grid.Row="0" Grid.Column="13" Margin="12,5,5,5" HorizontalAlignment="Left">Kelime sayı</Label>
+                                                <Label Grid.Row="0" Grid.Column="14" Margin="12,5,5,5" HorizontalAlignment="Left">Satır Sayı</Label>
+                                                <Label Grid.Row="0" Grid.Column="15" Margin="12,5,5,5" HorizontalAlignment="Left">Karakter Sayı</Label>
                                             </Grid>
 
                                             <ItemsControl x:Name="firmaIC" Grid.Row="1" ItemsSource="{Binding Path=Currentdata.Joborder,Mode=OneWay}">
@@ -2080,7 +2085,7 @@
                                                         <Grid  >
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition Width="40"/>
-                                                                <ColumnDefinition Width="160"/>
+                                                                <ColumnDefinition Width="50"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
@@ -2096,85 +2101,87 @@
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                             </Grid.ColumnDefinitions>
-                                                            <Label Grid.Column="0" Margin="0,0,0,0"  Content="{Binding Path=Id}"></Label>
-                                                            <Image Grid.Column="0" x:Name="img" MouseDown="Img_MouseDown" Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
+                                                            <Image Grid.Column="0" x:Name="img" MouseDown="Img_MouseDown"  Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
                                                             <Border Grid.Row="1" Grid.Column="1"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False"  Text="{Binding Path=Lowerid}"></dxe:TextEdit>
+                                                            </Border>
+                                                            <Border Grid.Row="1" Grid.Column="2"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False" NullText="Numara Verilecek"   Text="{Binding Path=Joborder}"></dxe:TextEdit>
                                                             </Border>
-
                                                             <Border Grid.Row="1" Grid.Column="3"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:ComboBoxEdit Tag="{Binding Path=Id}" IsTextEditable="False"  CharacterCasing="Upper"  ShowBorder="False" NullText="Hedef Dil" ItemsSource="{Binding Ürünsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"  EditValue="{Binding Path=Ürün}"></dxe:ComboBoxEdit>
-                                                            </Border>
-
-
-                                                            <Border Grid.Row="1" Grid.Column="2" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:ComboBoxEdit Tag="{Binding Path=Id}" IsTextEditable="False" CharacterCasing="Upper"   ShowBorder="False" NullText="Kaynak Dil" ItemsSource="{Binding Ürünsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"  EditValue="{Binding Path=Ürün2}"></dxe:ComboBoxEdit>
+                                                                <dxe:ComboBoxEdit Tag="{Binding Path=Id}" IsTextEditable="False"    ShowBorder="False" NullText="Kaynak Dil" ItemsSource="{Binding Ürünsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"  Text="{Binding Path=Ürün}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="4" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:ComboBoxEdit  IsTextEditable="False" CharacterCasing="Upper"  ShowBorder="False" NullText="Belge" ItemsSource="{Binding Ürün2sourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"    Text="{Binding Path=Ürün2detay}"></dxe:ComboBoxEdit>
+                                                                <dxe:ComboBoxEdit Tag="{Binding Path=Id}" IsTextEditable="False"    ShowBorder="False" NullText="Hedef Dil" ItemsSource="{Binding Ürünsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"  Text="{Binding Path=Ürün2}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="5" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit Tag="{Binding Path=Id}" CharacterCasing="Upper" EditValueChanged="Sayfasayısı_EditValueChanged"  ShowBorder="False" NullText="Sayfa Sayısı"   EditValue="{Binding Path=Miktar}"></dxe:TextEdit>
-                                                            </Border>
-
-
-                                                            <Border Grid.Row="1" Grid.Column="6" Visibility="Hidden" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:ComboBoxEdit IsTextEditable="False" CharacterCasing="Upper"   ShowBorder="False" NullText="Birim"   ItemsSource="{Binding Birimsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" Text="{Binding Path=Birim}"></dxe:ComboBoxEdit>
+                                                                <dxe:ComboBoxEdit  IsTextEditable="False"   ShowBorder="False" NullText="Belge" ItemsSource="{Binding Ürün2sourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"    Text="{Binding Path=Ürün2detay}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="6" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper" ShowBorder="False" EditValueChanged="Subprice_EditValueChanged" NullText="Ücret"   EditValue="{Binding Path=Ücret,UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                                                <dxe:TextEdit Tag="{Binding Path=Id}"  EditValueChanged="Sayfasayısı_EditValueChanged"  ShowBorder="False" NullText="Sayfa Sayısı"   Text="{Binding Path=Miktar,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                                            </Border>
+
+
+                                                            <Border Grid.Row="1" Grid.Column="7" Background="White" Visibility="Hidden" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:ComboBoxEdit IsTextEditable="False"   ShowBorder="False" NullText="Birim"   ItemsSource="{Binding Birimsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" Text="{Binding Path=Birim}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="7" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:ComboBoxEdit IsTextEditable="False"   CharacterCasing="Upper" ItemsSource="{Binding Durumsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" ShowBorder="False" NullText="Durum"   Text="{Binding Path=Durum}"></dxe:ComboBoxEdit>
+                                                                <dxe:TextEdit  Tag="{Binding Path=Id}"  ShowBorder="False" EditValueChanged="Subprice_EditValueChanged" NullText="Ücret"   Text="{Binding Path=Ücret,UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="8"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit     ShowBorder="False" CharacterCasing="Upper" NullText="Açıklama"   Text="{Binding Path=Acıklama}"></dxe:TextEdit>
+                                                            <Border Grid.Row="1" Grid.Column="8" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:ComboBoxEdit IsTextEditable="False"    ItemsSource="{Binding Durumsourcelist, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" ShowBorder="False" NullText="Durum"   Text="{Binding Path=Durum}"></dxe:ComboBoxEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="9" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit     ShowBorder="False" CharacterCasing="Upper"  NullText="Tavsiye Edilen tutar"   Text="{Binding Path=Tavsiyeedilentutar}"></dxe:TextEdit>
+                                                            <Border Grid.Row="1" Grid.Column="9"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit     ShowBorder="False" NullText="Açıklama" CharacterCasing="Upper"  Text="{Binding Path=Acıklama}"></dxe:TextEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="10" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper" IsReadOnly="True" ShowBorder="False" NullText="Hesaplanan Tutar"   Text="{Binding Path=Hesaplanantutar}"></dxe:TextEdit>
+                                                                <dxe:TextEdit     ShowBorder="False"  NullText="Tavsiye Edilen tutar"   Text="{Binding Path=Tavsiyeedilentutar}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Grid.Row="1" Grid.Column="11" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper" IsReadOnly="True"  ShowBorder="False" NullText="Hesaplanan Adet"   Text="{Binding Path=Hesaplananadet}"></dxe:TextEdit>
+                                                            <Border Grid.Row="1" Grid.Column="11" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit  Tag="{Binding Path=Id}"  IsReadOnly="True" ShowBorder="False" NullText="Hesaplanan Tutar"   Text="{Binding Path=Hesaplanantutar}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="12" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit  Tag="{Binding Path=Id}"  CharacterCasing="Upper" EditValueChanged="Hesaplama_EditValueChanged"  ShowBorder="False" NullText="Kelime Sayısı"   Text="{Binding Path=Kelimesayı}"></dxe:TextEdit>
+                                                            <Border  Grid.Row="1" Grid.Column="12" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit  Tag="{Binding Path=Id}"  IsReadOnly="True"  ShowBorder="False" NullText="Hesaplanan Adet"   Text="{Binding Path=Hesaplananadet}"></dxe:TextEdit>
                                                             </Border>
 
 
                                                             <Border Grid.Row="1" Grid.Column="13" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper"  EditValueChanged="Hesaplama_EditValueChanged"  ShowBorder="False" NullText="Satır Sayısı"   Text="{Binding Path=Satırsayı}"></dxe:TextEdit>
+                                                                <dxe:TextEdit  Tag="{Binding Path=Id}"  EditValueChanged="Hesaplama_EditValueChanged" ShowBorder="False" NullText="Kelime Sayısı"   Text="{Binding Path=Kelimesayı}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border Grid.Row="1" Grid.Column="14"   Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                                <dxe:TextEdit Tag="{Binding Path=Id}" CharacterCasing="Upper" EditValueChanged="Hesaplama_EditValueChanged"   ShowBorder="False" NullText="Karakter Sayısı"   Text="{Binding Path=Karaktersayı}"></dxe:TextEdit>
+                                                            <Border Grid.Row="1" Grid.Column="14" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit  Tag="{Binding Path=Id}" EditValueChanged="Hesaplama_EditValueChanged"  ShowBorder="False" NullText="Satır Sayısı"   Text="{Binding Path=Satırsayı}"></dxe:TextEdit>
+                                                            </Border>
+
+
+                                                            <Border Grid.Row="1" Grid.Column="15"   Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit Tag="{Binding Path=Id}" EditValueChanged="Hesaplama_EditValueChanged"   ShowBorder="False" NullText="Karakter Sayısı"   Text="{Binding Path=Karaktersayı}"></dxe:TextEdit>
                                                             </Border>
                                                         </Grid>
                                                     </DataTemplate>
                                                 </ItemsControl.ItemTemplate>
                                             </ItemsControl>
                                         </Grid>
+
                                     </ScrollViewer>
                                 </Grid>
 
@@ -2229,6 +2236,8 @@
                                         <RowDefinition Height="47"/>
                                         <RowDefinition Height="53"/>
                                         <RowDefinition Height="47"/>
+                                        <RowDefinition Height="53"/>
+                                        <RowDefinition Height="47"/>
                                         <RowDefinition  Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label VerticalAlignment="Top" Margin="10,0,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Sipariş Bilgileri</Label>
@@ -2241,7 +2250,8 @@
                                     <!--<Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="2">GELİR/GİDER *</Label>-->
                                     <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="1" Grid.Row="2">ÖDEME ŞEKLİ *</Label>
                                     <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="2" Grid.Row="2">DURUM</Label>
-                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="3" Grid.Row="2">AÇIKLAMA</Label>
+                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="4">AÇIKLAMA</Label>
+                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="3" Grid.Row="2">NOTER GİDERİ</Label>
                                     <Border  Grid.Column="0" Grid.Row="1" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:TextEdit    ShowBorder="False" CharacterCasing="Upper"  Text="{Binding Path=Currentdata.Costumerorder.Önödeme}"></dxe:TextEdit>
                                     </Border>
@@ -2276,8 +2286,11 @@
                                     <Border   Grid.Column="2" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:ComboBoxEdit IsTextEditable="False" CharacterCasing="Upper" EditValueChanged="Anasiparişdurum_EditValueChanged"  ShowBorder="False"  ItemsSource="{Binding Path=Durumsourcelist}"  Text="{Binding Path=Currentdata.Costumerorder.Durum}"></dxe:ComboBoxEdit>
                                     </Border>
-                                    <Border  Grid.Column="3"  Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                    <Border  Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:TextEdit    ShowBorder="False" CharacterCasing="Upper" TextWrapping="Wrap" Text="{Binding Path=Currentdata.Costumerorder.Acıklama}"></dxe:TextEdit>
+                                    </Border>
+                                    <Border  Grid.Column="3" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                        <dxe:TextEdit    ShowBorder="False" CharacterCasing="Upper"  Text="{Binding Path=Currentdata.Costumerorder.Notergideri}"></dxe:TextEdit>
                                     </Border>
                                 </Grid>
                             </Border>

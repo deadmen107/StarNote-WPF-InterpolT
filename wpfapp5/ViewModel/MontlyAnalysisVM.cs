@@ -33,6 +33,8 @@ namespace StarNote.ViewModel
             Tabindexchangedcommand = new RelayparameterCommand(TopSelectionChanged,CanExecuteMyMethod);
             Doreportcommand = new RelayparameterCommand(DoReport, CanExecuteMyMethod);
             Selectionchangedtabindex = new RelayCommand(datechanged);
+            Languagechange = new RelayCommand(filllanguagechart);
+            Documentchange = new RelayCommand(fillDocumentchart);
             Startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month-1, 1);
             Enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
             Titleindex = 0;
@@ -73,6 +75,20 @@ namespace StarNote.ViewModel
         {
             get { return doreportcommand; }
             set { doreportcommand = value; RaisePropertyChanged("Doreportcommand"); }
+        }
+
+        private RelayCommand languagechange;
+        public RelayCommand Languagechange
+        {
+            get { return languagechange; }
+            set { languagechange = value; RaisePropertyChanged("Languagechange"); }
+        }
+
+        private RelayCommand documentchange;
+        public RelayCommand Documentchange
+        {
+            get { return documentchange; }
+            set { documentchange = value; RaisePropertyChanged("Documentchange"); }
         }
 
         private bool CanExecuteMyMethod(object parameter)
@@ -453,6 +469,10 @@ namespace StarNote.ViewModel
 
         public async Task Loaddata()
         {
+            if (GlobalStore.MaindataCostumer == null || GlobalStore.MaindataCostumer.Count == 0)
+                return;
+            if (GlobalStore.MaindataJoborder == null || GlobalStore.MaindataJoborder.Count == 0)
+                return;
             isbtnenable = false;
             await Task.Run(async () =>
             {
@@ -516,40 +536,20 @@ namespace StarNote.ViewModel
             Fillwidget();
             fillcharttable();
             Filllanguagedata();
+            filllanguagechart();
+            Filldocumentdata();
+            fillDocumentchart();
         }
 
         private void fillcharttable()
         {
-            switch (Subtitleindex)
-            {
-                case 0:                  
-                    Datachart = (from s in Recorddatacostumer
-                                 group s by Convert.ToDateTime(s.Kayıttarihi).Date into g
-                                 select new DataPoint
-                                 {
-                                     Argument = g.Key.ToShortDateString(),
-                                     Value = g.Sum(x => x.Ücret)
-                                 }).ToList();
-                    break;
-                case 1:
-                    Datachart = (from s in Recorddatacostumer.Where(u => u.Satışyöntemi == "GELIR")
-                                 group s by Convert.ToDateTime(s.Kayıttarihi).Date into g
-                                 select new DataPoint
-                                 {
-                                     Argument = g.Key.ToShortDateString(),
-                                     Value = g.Sum(x => x.Ücret)
-                                 }).ToList();
-                    break;
-                case 2:
-                    Datachart = (from s in Recorddatacostumer.Where(u => u.Satışyöntemi == "GIDER")
-                                 group s by Convert.ToDateTime(s.Kayıttarihi).Date into g
-                                 select new DataPoint
-                                 {
-                                     Argument = g.Key.ToShortDateString(),
-                                     Value = g.Sum(x => x.Ücret)
-                                 }).ToList();
-                    break;
-            }           
+            Datachart = (from s in Calcdataforreport()
+                         group s by Convert.ToDateTime(s.Kayıttarihi).Date into g
+                         select new DataPoint
+                         {
+                             Argument = g.Key.ToShortDateString(),
+                             Value = g.Sum(x => x.Ücret)
+                         }).ToList();
         }
 
         private void Fillwidget()
@@ -617,6 +617,95 @@ namespace StarNote.ViewModel
             Languagedata = Languagedata.OrderByDescending(u => u.Count).ToList();
             Languagenames = Languagenames.Distinct().OrderBy(u=>u).ToList();
         
+        }
+
+        private void Filldocumentdata()
+        {
+            Documentdata = new List<Analysissubgridmodel>();
+            Documentnames = new List<string>();
+            foreach (var order in Calcdataforreport())
+                foreach (var item in Recorddatajoborder.Where(u => u.Üstid == order.Id).ToList())
+                {
+                    var duplicatedata = Documentdata.FirstOrDefault(u => u.Name == item.Ürün2detay);
+                    if (duplicatedata == null)
+                        Documentdata.Add(new Analysissubgridmodel { Name = item.Ürün2detay, Count = 1, Potansialworth = item.Ücret });
+                    else
+                    {
+                        duplicatedata.Count += 1;
+                        duplicatedata.Potansialworth += item.Ücret;
+                    }
+                    Documentnames.Add(item.Ürün2detay);
+                }
+            Documentdata = Documentdata.OrderByDescending(u => u.Count).ToList();
+            Documentnames = Documentnames.Distinct().OrderBy(u => u).ToList();
+
+        }
+
+        private void fillDocumentchart()
+        {
+            try
+            {
+                List<DataPoint> MainData = new List<DataPoint>();
+                if (string.IsNullOrWhiteSpace(Documentname))
+                    return;
+                foreach (var order in Calcdataforreport())
+                {
+                    List<DataPoint> data = new List<DataPoint>();
+                    foreach (var item in Recorddatajoborder.Where(u => u.Ürün2detay == Documentname && u.Üstid == order.Id).ToList())
+                    {
+                        data.Add(new DataPoint { Argument = Convert.ToDateTime(order.Kayıttarihi).Date.ToShortDateString(), Value = item.Ücret });
+                    }
+                    if (data.Count != 0)
+                        MainData.Add(new DataPoint { Argument = data.First().Argument, Value = data.Sum(u => u.Value) });
+                }
+                Documentchart = MainData.GroupBy(x => x.Argument)
+                                .Select(x => new DataPoint
+                                {
+                                    Argument = x.Key,
+                                    Value = x.Sum(y => y.Value)
+                                })
+                                .ToList();
+            }
+            catch (Exception ex)
+            {
+
+                LogVM.displaypopup("ERROR", ex.Message);
+            }
+        }
+
+        private void filllanguagechart()
+        {
+            try
+            {
+                string[] parsedstr = { };
+                string[] separatingStrings = { "->" };
+                List<DataPoint> MainData = new List<DataPoint>();
+                if (string.IsNullOrWhiteSpace(languagename))
+                    return;                
+                parsedstr = Languagename.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                foreach (var order in Calcdataforreport())
+                {
+                    List<DataPoint> data = new List<DataPoint>();
+                    foreach (var item in Recorddatajoborder.Where(u => u.Ürün2.ToString() == parsedstr[1] && u.Ürün.ToString() == parsedstr[0] && u.Üstid == order.Id).ToList())
+                    {
+                        data.Add(new DataPoint { Argument = Convert.ToDateTime(order.Kayıttarihi).Date.ToShortDateString(), Value = item.Ücret });
+                    }
+                    if (data.Count != 0)
+                        MainData.Add(new DataPoint { Argument = data.First().Argument, Value = data.Sum(u => u.Value) });
+                }
+                Languagechart = MainData.GroupBy(x => x.Argument)
+                                .Select(x => new DataPoint
+                                {
+                                    Argument = x.Key,
+                                    Value = x.Sum(y => y.Value)
+                                })
+                                .ToList();
+            }
+            catch (Exception ex)
+            {
+
+                LogVM.displaypopup("ERROR", ex.Message);
+            }
         }
         #endregion
 
@@ -740,14 +829,41 @@ namespace StarNote.ViewModel
                     }
                     break;               
             }
-            AnalysisReport reportAnalysis = new AnalysisReport();
-            reportAnalysis.ExportOptions.PrintPreview.SaveMode = DevExpress.XtraPrinting.SaveMode.UsingDefaultPath;
-            reportAnalysis.ExportOptions.PrintPreview.ShowOptionsBeforeExport = false;
-            reportAnalysis.DataSource = Reportdata;
-            reportAnalysis.ExportToPdf("report.pdf");
-            reportAnalysis.ExportOptions.PrintPreview.ActionAfterExport = ActionAfterExport.None;
-            ReportUC report = new ReportUC(reportAnalysis, new OrderModel(), "Repor1");
-            report.Show();
+
+            switch (sender.ToString())
+            {
+                case "2":
+                    AnalysisReport2 reportAnalysis2 = new AnalysisReport2();
+                    reportAnalysis2.ExportOptions.PrintPreview.SaveMode = DevExpress.XtraPrinting.SaveMode.UsingDefaultPath;
+                    reportAnalysis2.ExportOptions.PrintPreview.ShowOptionsBeforeExport = false;
+                    reportAnalysis2.DataSource = Reportdata;
+                    reportAnalysis2.ExportToPdf("müşteriler.pdf");
+                    reportAnalysis2.ExportOptions.PrintPreview.ActionAfterExport = ActionAfterExport.None;
+                    ReportUC report2 = new ReportUC(reportAnalysis2, new OrderModel(), "Repor2");
+                    report2.Show();
+                    break;
+                case "5":
+                    AnalysisReport3 reportAnalysis3 = new AnalysisReport3();
+                    reportAnalysis3.ExportOptions.PrintPreview.SaveMode = DevExpress.XtraPrinting.SaveMode.UsingDefaultPath;
+                    reportAnalysis3.ExportOptions.PrintPreview.ShowOptionsBeforeExport = false;
+                    reportAnalysis3.DataSource = Reportdata;
+                    reportAnalysis3.ExportToPdf("tercümeler.pdf");
+                    reportAnalysis3.ExportOptions.PrintPreview.ActionAfterExport = ActionAfterExport.None;
+                    ReportUC report3 = new ReportUC(reportAnalysis3, new OrderModel(), "Repor3");
+                    report3.Show();
+                    break;
+                default:
+                    AnalysisReport reportAnalysis = new AnalysisReport();
+                    reportAnalysis.ExportOptions.PrintPreview.SaveMode = DevExpress.XtraPrinting.SaveMode.UsingDefaultPath;
+                    reportAnalysis.ExportOptions.PrintPreview.ShowOptionsBeforeExport = false;
+                    reportAnalysis.DataSource = Reportdata;
+                    reportAnalysis.ExportToPdf("analiz.pdf");
+                    reportAnalysis.ExportOptions.PrintPreview.ActionAfterExport = ActionAfterExport.None;
+                    ReportUC report = new ReportUC(reportAnalysis, new OrderModel(), "Repor1");
+                    report.Show();
+                    break;
+            }
+          
             //System.Windows.Forms.MessageBox.Show(sender.ToString());
 
         }

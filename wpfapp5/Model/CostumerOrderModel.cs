@@ -251,5 +251,11 @@ namespace StarNote.Model
             set { talimatkararno = value; RaisePropertyChanged("Talimatkararno"); }
         }
 
+        private double notergideri;
+        public double Notergideri
+        {
+            get { return notergideri; }
+            set { notergideri = value; RaisePropertyChanged("Notergideri"); }
+        }
     }
 }

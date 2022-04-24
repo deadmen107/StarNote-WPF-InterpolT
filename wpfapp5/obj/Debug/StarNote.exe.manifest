@@ -1255,14 +1255,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StarNote.exe" size="1769456">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StarNote.exe" size="3893744">
       <assemblyIdentity name="StarNote" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>egeKlHXE2MtBRL7frPNUHBeMnxoboEvi2jkW++KUIjs=</dsig:DigestValue>
+        <dsig:DigestValue>otdx0Po9ox0UzSiA70IfVkr020D0ipH26ypvzYZ4L4Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1311,13 +1311,13 @@
       <dsig:DigestValue>oOa0kNX2f5fpk9rOZq1p5bAjHHxskbSMpgg6Lnit1x4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="StarNote.exe.config" size="36367">
+  <file name="StarNote.exe.config" size="36397">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>iQYsMNbN1Am14/ceoE+Cioa6U1YabzVJJGQ15sbyjac=</dsig:DigestValue>
+      <dsig:DigestValue>x6rjVjikIgFQrh/z7hYf2Jax/M07EUgUSpbpROEST5E=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

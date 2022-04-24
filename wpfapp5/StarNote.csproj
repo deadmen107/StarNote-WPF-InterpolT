@@ -35,7 +35,7 @@
     <SuiteName>ARMS Teknoloji</SuiteName>
     <MinimumRequiredVersion>1.1.0.11</MinimumRequiredVersion>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>32</ApplicationRevision>
+    <ApplicationRevision>33</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -600,6 +600,18 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>WeatherSetting.settings</DependentUpon>
     </Compile>
+    <Compile Include="Utils\AnalysisReport3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\AnalysisReport3.Designer.cs">
+      <DependentUpon>AnalysisReport3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\AnalysisReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\AnalysisReport2.Designer.cs">
+      <DependentUpon>AnalysisReport2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\AnalysisReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -915,6 +927,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utils\AnalysisReport3.resx">
+      <DependentUpon>AnalysisReport3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\AnalysisReport2.resx">
+      <DependentUpon>AnalysisReport2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utils\AnalysisReport.resx">
       <DependentUpon>AnalysisReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -1146,6 +1164,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Content\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\tenor.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\VZvw.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\loading.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

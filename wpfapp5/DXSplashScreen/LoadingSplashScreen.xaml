@@ -23,32 +23,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--<TextBlock x:Name="Info" TextWrapping="Wrap" FontSize="17"  Text="işlem Yapılıyor..." Grid.Row="1"  />-->
-            <Image x:Name="animatedgif" gif:ImageBehavior.RepeatBehavior="3x" Width="100" Margin="20" Height="100" Grid.Row="2"
-             gif:ImageBehavior.AnimatedSource="/Content/loadinggif.gif" >
-                <!--<Image.Triggers>
-                -->
-                <!-- Animate the button's Width property. -->
-                <!--
-                <EventTrigger RoutedEvent="Image.Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation
-                Storyboard.TargetName="animatedgif"
-                Storyboard.TargetProperty="(Image.Width)"
-                To="150" From="100" Duration="0:0:2" AutoReverse="True" 
-                RepeatBehavior="Forever" />
-                            <DoubleAnimation
-                Storyboard.TargetName="animatedgif"
-                Storyboard.TargetProperty="(Image.Height)"
-                To="150" From="100" Duration="0:0:2" AutoReverse="True" 
-                RepeatBehavior="Forever" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>            
-            </Image.Triggers>-->
-
+            <Image x:Name="animatedgif" gif:ImageBehavior.RepeatBehavior="15x" Width="150" Margin="20" Height="150" Grid.Row="2"
+             gif:ImageBehavior.AnimatedSource="/Content/loading.gif" >
+              
             </Image>
-            <!--<fa:ImageAwesome Grid.Row="2" Icon="Spinner" Spin="True" Foreground="BlueViolet" SpinDuration="1.5" Height="170" Width="170" />-->
+          
 
 
 

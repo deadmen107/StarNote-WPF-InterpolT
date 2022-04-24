@@ -605,11 +605,13 @@ namespace StarNote.View
                     subitems3.Height = new GridLength(subitems3.Height.Value + newlen.Value);
                     subitems4.Height = new GridLength(subitems4.Height.Value + newlen.Value);
                 }
+                for (int i = 0; i < ViewModel.Currentdata.Joborder.Count; i++)
+                {
+                    ViewModel.Currentdata.Joborder[i].Lowerid = i + 1;
+                }
                 davaIC.ItemsSource = özelIC.ItemsSource = firmaIC.ItemsSource = harcamaIC.ItemsSource = OthersIC.ItemsSource = null;
                 davaIC.ItemsSource = özelIC.ItemsSource = firmaIC.ItemsSource = harcamaIC.ItemsSource = OthersIC.ItemsSource =ViewModel.Currentdata.Joborder;
                 cancalc = true;
-
-
             }
             catch (Exception ex)
             {
@@ -932,6 +934,8 @@ namespace StarNote.View
             {
                 if (cancalc)
                 {
+                    if (e.NewValue == null)
+                        return;
                     TextEdit curretval = sender as TextEdit;
                     int output;
                     if (int.TryParse(e.NewValue.ToString(), out output))

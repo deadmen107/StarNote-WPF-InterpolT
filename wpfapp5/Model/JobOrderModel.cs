@@ -129,5 +129,11 @@ namespace StarNote.Model
             set { karaktersayı = value; RaisePropertyChanged(e => Karaktersayı); }
         }
 
+        private int lowerid;
+        public int Lowerid
+        {
+            get { return lowerid; }
+            set { lowerid = value; RaisePropertyChanged(e => Lowerid); }
+        }
     }
 }

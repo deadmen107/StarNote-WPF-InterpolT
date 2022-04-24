@@ -42,6 +42,15 @@
                 </Style>
             </ScrollViewer.Resources>
             <TextBlock >
+                    Versiyon 1.1.0.32 <LineBreak/>
+          * Yeni Analiz Ekranı Kullanıma Sunuldu.<LineBreak/>
+          * Kayıt Ekranına Noter Gideri Bölümü eklendi. <LineBreak/>
+          * Nufus kayıt örneğindeki çoklama hatası db de düzeltildi.  <LineBreak/>                
+          * kdvlerin 0.4 gözükme sorunu düzeltildi  <LineBreak/>        
+          * Kayıt ekranında ürün ekle tercüme ekle yapıldı.<LineBreak/>
+          * Yükleme çark animasyonu düzenlendi. <LineBreak/>
+          * alt ürünlerde sıralama numarası özelliği eklendi.  <LineBreak/>  
+          --------------------------------------------------- <LineBreak/>   
                  Versiyon 1.1.0.19 <LineBreak/>
           * Analiz ekranlarındaki hesaplamalarda düzeltmeler yapıldı.<LineBreak/>
           * Analiz ekranlarına potansiyel kazanç eklendi. <LineBreak/>

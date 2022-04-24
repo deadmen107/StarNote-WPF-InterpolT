@@ -2708,7 +2708,6 @@ C:\C# Devs\Interpol WPF\wpfapp5\obj\Debug\View\PopupAnalysisUC.g.cs
 C:\C# Devs\Interpol WPF\wpfapp5\obj\Debug\View\PopupAnalysisUC.baml
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\View\PopupAnalysisUC.g.cs
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\View\PopupAnalysisUC.baml
-C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\StarNote.csproj.AssemblyReference.cache
 C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\DXSplashScreen\LoadingSplashScreen.baml
 C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\DXSplashScreen\SplashScreenView.baml
 C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\Resources\ButtonResources.baml
@@ -3161,3 +3160,6 @@ E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\StarNote.csprojAssemblyReference.cache
 E:\c#\Uygulamalarım\Versiyonlar\Tercüme Versiyon\InterpolT\StarNote Veri Takip Uygulaması V2.0\wpfapp5\obj\Debug\StarNote.Utils.AnalysisReport.resources
 C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\StarNote.Utils.AnalysisReport.resources
+C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\StarNote.csprojAssemblyReference.cache
+C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\StarNote.Utils.AnalysisReport2.resources
+C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\StarNote.Utils.AnalysisReport3.resources

@@ -37,8 +37,7 @@
         <dxwui:HamburgerSubMenu FontSize="16"  Glyph="/Content/home.png" Content="ANA MENÜ" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"  >
             <dxwui:HamburgerSubMenu.Items >
                 <dxwui:HamburgerSubMenuNavigationButton Tag="1" Content="Genel Takip Ekranı" Click="HamburgerSubMenuNavigationButton_Click"   />
-                <dxwui:HamburgerSubMenuNavigationButton Tag="20" Content="Dosya Yönetim Ekranı" Click="HamburgerSubMenuNavigationButton_Click"   />
-                <dxwui:HamburgerSubMenuNavigationButton Tag="8" Content="Dil Takip Ekranı" Click="HamburgerSubMenuNavigationButton_Click" />
+                <dxwui:HamburgerSubMenuNavigationButton Tag="20" Content="Dosya Yönetim Ekranı" Click="HamburgerSubMenuNavigationButton_Click"   />               
             </dxwui:HamburgerSubMenu.Items>
         </dxwui:HamburgerSubMenu>
         <dxwui:HamburgerMenuItemSeparator/>
@@ -72,13 +71,14 @@
         <dxwui:HamburgerMenuItemSeparator/>
         <dxwui:HamburgerSubMenu FontSize="16" Glyph="/Content/dashboard.png"  Content="ANALİZ" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"   >
             <dxwui:HamburgerSubMenu.Items>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="11"  Content="Genel Aylık Analiz"         Click="HamburgerSubMenuNavigationButton_Click"/>
-                <dxwui:HamburgerSubMenuNavigationButton Tag="12"  Content="Genel Yıllık Analiz"        Click="HamburgerSubMenuNavigationButton_Click"/>               
+                <dxwui:HamburgerSubMenuNavigationButton Tag="11"  Content="Analiz Ekranı"  Click="HamburgerSubMenuNavigationButton_Click"/>
+                
             </dxwui:HamburgerSubMenu.Items>
         </dxwui:HamburgerSubMenu>
         <dxwui:HamburgerMenuItemSeparator/>
         <dxwui:HamburgerSubMenu FontSize="16" Glyph="/Content/mainsettings.png" Content="AYARLAR" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"   >
             <dxwui:HamburgerSubMenu.Items >
+                <dxwui:HamburgerSubMenuNavigationButton Tag="8" Content="Dil Takip Ekranı" Click="HamburgerSubMenuNavigationButton_Click" />
                 <dxwui:HamburgerSubMenuNavigationButton Tag="3" Content="Tercümanlar" Click="HamburgerSubMenuNavigationButton_Click"   />
                 <dxwui:HamburgerSubMenuNavigationButton Tag="19" Content="Adliye Türleri" Click="HamburgerSubMenuNavigationButton_Click"   />
                 <dxwui:HamburgerSubMenuNavigationButton Tag="25" Content="Mahkemeler" Click="HamburgerSubMenuNavigationButton_Click"   />
