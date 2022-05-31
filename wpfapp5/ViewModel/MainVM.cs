@@ -318,6 +318,15 @@ namespace StarNote.ViewModel
             LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Main Kayıt Temizleme Tamamlandı", "");
         }     
         
+        private bool DataValidation(OrderModel model)
+        {
+            bool isok = false;
+            if (model.Costumerorder.Talimatadliye == "Talimat Adliye")
+                model.Costumerorder.Talimatadliye = null;
+            isok = true;
+            return isok;
+        }
+
         public bool Save()
         {
             bool isok = false;
@@ -327,6 +336,13 @@ namespace StarNote.ViewModel
                 //currentdata.Kullanıcı = UserUtils.ActiveUser;
                 //if (Currentdata.Joborder == null)
                 //    Currentdata.Joborder = "";
+                if (!DataValidation(currentdata))
+                {
+                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Data Validation Hatası", "");
+                    return false;
+                }
+
+
                 isok = ObjMainService.Add(currentdata);
                 if (isok)
                 {

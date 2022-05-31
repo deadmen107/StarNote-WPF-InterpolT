@@ -548,7 +548,7 @@
                                             <dxg:GridControl.Columns>
                                                     <dxg:GridColumn    Header="ID"                   Binding="{Binding Path=Id}"                             Visible="False"  ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>
                                                     <dxg:GridColumn    Header="Order ID"             Binding="{Binding Path=Üstid}"                          Visible="False"  ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>                                                   
-                                                    <dxg:GridColumn    Header="Ürün"                 Binding="{Binding Path=Ürün}"                                            ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>                                                    
+                                                    <dxg:GridColumn    Header="Ürün"                 Binding="{Binding Path=Ürün2}"                                            ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>                                                    
                                                     <dxg:GridColumn    Header="Miktar"               Binding="{Binding Path=Miktar}"                                          ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn> 
                                                     <dxg:GridColumn    Header="Birim"                Binding="{Binding Path=Birim}"                                           ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn> 
                                                     <dxg:GridColumn    Header="Ücret"                Binding="{Binding Path=Ücret}"                                           ><dxg:GridColumn.EditSettings> <dxe:TextEditSettings TextWrapping="Wrap"/></dxg:GridColumn.EditSettings> </dxg:GridColumn>                                                  
@@ -686,7 +686,7 @@
                                                         <dxe:TextEditSettings TextWrapping="Wrap"/>
                                                     </dxg:GridColumn.EditSettings>
                                                 </dxg:GridColumn>
-                                                <dxg:GridColumn    Header="Ürün"                 Binding="{Binding Path=Ürün}"                                            >
+                                                <dxg:GridColumn    Header="Ürün"                 Binding="{Binding Path=Ürün2}"                                            >
                                                     <dxg:GridColumn.EditSettings>
                                                         <dxe:TextEditSettings TextWrapping="Wrap"/>
                                                     </dxg:GridColumn.EditSettings>
@@ -758,7 +758,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="300"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="kayıtekrantext" Background="Transparent" BorderBrush="Transparent" Text="Yeni Kayıt Ekleme"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
+                            <TextBox x:Name="davakayıtekrantext" Background="Transparent" BorderBrush="Transparent" Text="Yeni Kayıt Ekleme"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="1">
                             <Grid.RowDefinitions>
@@ -2396,7 +2396,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="300"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox  Background="Transparent" BorderBrush="Transparent" Text="Yeni Harcama Ekleme"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
+                            <TextBox x:Name="harcamakayıtekrantext"  Background="Transparent" BorderBrush="Transparent" Text="Yeni Harcama Ekleme"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="1">
                             <Grid.RowDefinitions>
@@ -2488,18 +2488,20 @@
                                             <Grid Grid.Row="0">
                                                 <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="50"/>
                                                 <ColumnDefinition Width="160"/>
                                                 <ColumnDefinition Width="160"/>
                                                 <ColumnDefinition Width="160"/>
                                                 <ColumnDefinition Width="160"/>
                                                 <ColumnDefinition Width="160"/>
-                                                <ColumnDefinition Width="160"/>
-                                            </Grid.ColumnDefinitions>                                           
-                                            <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Ürün</Label>
-                                            <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Miktar</Label>
-                                            <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
-                                            <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Ücret</Label>
-                                            <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sıra</Label>
+                                            <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Ürün</Label>
+                                            <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Miktar</Label>
+                                            <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
+                                            <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Ücret</Label>
+                                            <Label Grid.Row="0" Grid.Column="6"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
                                             </Grid>
                                             <ItemsControl x:Name="harcamaIC" Grid.Row="1" ItemsSource="{Binding Path=Currentdata.Joborder,Mode=OneWay}">
                                                 <ItemsControl.ItemTemplate>
@@ -2507,37 +2509,40 @@
                                                         <Grid  >
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition Width="40"/>
+                                                                <ColumnDefinition Width="50"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
-                                                                <ColumnDefinition Width="160"/>
+                                                                <ColumnDefinition Width="*"/>
                                                             </Grid.ColumnDefinitions>
                                                             <ItemsControl  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Currentdata.Joborder}"></ItemsControl>
-                                                            <Label Grid.Column="0" Margin="0,0,0,0"  Content="{Binding Path=Id}"></Label>
                                                             <Image x:Name="img" MouseDown="Img_MouseDown" Grid.Column="0"  Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
-                                                            <Border  Background="White" Grid.Column="1"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="1"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False"  Text="{Binding Path=Lowerid}"></dxe:TextEdit>
+                                                            </Border>
+                                                            <Border  Background="White" Grid.Column="2"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" CharacterCasing="Upper" ShowBorder="False" NullText="Ürün"  Text="{Binding Path=Ürün2}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Background="White" Grid.Column="2" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border  Background="White" Grid.Column="3" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}"  CharacterCasing="Upper"  ShowBorder="False" NullText="Sayfa Sayısı"   Text="{Binding Path=Miktar}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Background="White" Grid.Column="3" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border  Background="White" Grid.Column="4" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit   ShowBorder="False" CharacterCasing="Upper" NullText="Birim"   Text="{Binding Path=Birim}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Background="White" Grid.Column="4"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border  Background="White" Grid.Column="5"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper"  ShowBorder="False"  EditValueChanged="Subprice_EditValueChanged" NullText="Ücret"   EditValue="{Binding Path=Ücret,UpdateSourceTrigger=LostFocus}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Background="White" Grid.Column="5" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border  Background="White" Grid.Column="6" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit  CharacterCasing="Upper"   ShowBorder="False" NullText="Açıklama"   Text="{Binding Path=Acıklama}"></dxe:TextEdit>
                                                             </Border>
                                                         </Grid>
@@ -2557,10 +2562,10 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="260"/>
                                     </Grid.ColumnDefinitions>
-                                    <Button Name="othersbntvazgec"    Style="{StaticResource btngoback}"   Click="Bntvazgec_Click"    Grid.Column="0" FontWeight="Bold"  Margin="5,0,3,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
-                                    <Button Name="othersbtnkayıt"     Style="{StaticResource btnsave}"    Click="Btnkayıt_Click"   Grid.Column="3" FontWeight="Bold" Margin="5,0,3,0" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
-                                    <Button Name="othersbtnguncelle"  Style="{StaticResource btnupdate}"   Click="Btnguncelle_Click"   Grid.Column="3" FontWeight="Bold" Margin="5,0,3,0" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
-                                    <Button Name="othersbtntemizle"   Style="{StaticResource btnclear}"    Grid.Column="3" FontWeight="Bold"  Padding="0"     Margin="5,0,3,0"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="26" Width="124"  Command="{Binding Path=Clearcommand}"></Button>
+                                    <Button Name="harcamabntvazgec"    Style="{StaticResource btngoback}"   Click="Bntvazgec_Click"    Grid.Column="0" FontWeight="Bold"  Margin="5,0,3,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
+                                    <Button Name="harcamabtnkayıt"     Style="{StaticResource btnsave}"    Click="Btnkayıt_Click"   Grid.Column="3" FontWeight="Bold" Margin="5,0,3,0" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
+                                    <Button Name="harcamabtnguncelle"  Style="{StaticResource btnupdate}"   Click="Btnguncelle_Click"   Grid.Column="3" FontWeight="Bold" Margin="5,0,3,0" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
+                                    <Button Name="harcamabtntemizle"   Style="{StaticResource btnclear}"    Grid.Column="3" FontWeight="Bold"  Padding="0"     Margin="5,0,3,0"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="26" Width="124"  Command="{Binding Path=Clearcommand}"></Button>
 
                                 </Grid>
                             </Border>
@@ -2602,7 +2607,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="300"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="harcamakayıtekrantext" Background="Transparent" BorderBrush="Transparent" Text="Yeni Harici Gelir Ekleme"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
+                            <TextBox x:Name="otherskayıtekrantext" Background="Transparent" BorderBrush="Transparent" Text="Yeni Harici Gelir Ekleme"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="1">
                             <Grid.RowDefinitions>
@@ -2632,21 +2637,25 @@
                                     </Grid.RowDefinitions>
                                     <Label VerticalAlignment="Top" Margin="10,0,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Sipariş Bilgileri</Label>
                                     <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,25,10,10" ></Separator>
-                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="0">TERCÜMAN*</Label>
+                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="0">GÖREVLİ ADI*</Label>
+                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="2">MÜŞTERİ ADI*</Label>
                                     <Label VerticalAlignment="Bottom" Margin="10,10,10,-4"  FontSize="11" HorizontalAlignment="left" Grid.Column="2" Grid.Row="0">TESLİM TARİHİ *</Label>
-                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="3" Grid.Row="0">SİPARİŞ TUTARI</Label>
-                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="2">AÇIKLAMA</Label>
+                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="1" Grid.Row="2">SİPARİŞ TUTARI</Label>
+                                    <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="2" Grid.Row="2">AÇIKLAMA</Label>
 
                                     <Border  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"  Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:ComboBoxEdit CharacterCasing="Upper" IsTextEditable="False" ShowBorder="False"  ItemsSource="{Binding Path=Salesmansourcelist}"  Text="{Binding Path=Currentdata.Costumerorder.Satıselemanı}"></dxe:ComboBoxEdit>
                                     </Border>
-                                    <Border  Grid.Column="3" Grid.Row="1" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                    <Border  Grid.Column="0" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                        <dxe:TextEdit   CharacterCasing="Upper" ShowBorder="False"  Text="{Binding Path=Currentdata.Costumerorder.İsim}"></dxe:TextEdit>
+                                    </Border>
+                                    <Border  Grid.Column="1" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:TextEdit   CharacterCasing="Upper" ShowBorder="False"  Text="{Binding Path=Currentdata.Costumerorder.Ücret}"></dxe:TextEdit>
                                     </Border>
-                                    <Border  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                    <Border  Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:TextEdit   CharacterCasing="Upper" ShowBorder="False" TextWrapping="Wrap" Text="{Binding Path=Currentdata.Costumerorder.Acıklama}"></dxe:TextEdit>
                                     </Border>
-                                    <Border  Grid.Column="2" Grid.Row="1" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                    <Border  Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:DateEdit  ShowBorder="False" CharacterCasing="Upper" EditValue="{Binding Path = Currentdata.Costumerorder.Randevutarihi}" Mask="dd.MM.yyyy HH:mm" MaskType="DateTimeAdvancingCaret"  >
                                             <dxe:DateEdit.StyleSettings>
                                                 <dxe:DateEditPickerStyleSettings />
@@ -2690,18 +2699,20 @@
                                             <Grid Grid.Row="0">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="40"/>
+                                                    <ColumnDefinition Width="50"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
                                                     <ColumnDefinition Width="160"/>
-                                                    <ColumnDefinition Width="160"/>
+                                                    <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
-                                                <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Ürün</Label>
-                                                <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Miktar</Label>
-                                                <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
-                                                <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Ücret</Label>
-                                                <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
+                                                <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sıra</Label>
+                                                <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Ürün</Label>
+                                                <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Miktar</Label>
+                                                <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
+                                                <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Ücret</Label>
+                                                <Label Grid.Row="0" Grid.Column="6"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
                                             </Grid>
                                             <ItemsControl x:Name="OthersIC" Grid.Row="1" ItemsSource="{Binding Path=Currentdata.Joborder,Mode=OneWay}">
                                                 <ItemsControl.ItemTemplate>
@@ -2709,37 +2720,40 @@
                                                         <Grid  >
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition Width="40"/>
+                                                                <ColumnDefinition Width="50"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
                                                                 <ColumnDefinition Width="160"/>
-                                                                <ColumnDefinition Width="160"/>
+                                                                <ColumnDefinition Width="*"/>
                                                             </Grid.ColumnDefinitions>
                                                             <ItemsControl  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Currentdata.Joborder}"></ItemsControl>
-                                                            <Label Grid.Column="0" Margin="0,0,0,0"  Content="{Binding Path=Id}"></Label>
                                                             <Image x:Name="img" MouseDown="Img_MouseDown" Grid.Column="0"  Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
-                                                            <Border  Background="White" Grid.Column="1"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border Grid.Row="1" Grid.Column="1"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                                <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False"  Text="{Binding Path=Lowerid}"></dxe:TextEdit>
+                                                            </Border>
+                                                            <Border  Background="White" Grid.Column="2"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}" CharacterCasing="Upper" ShowBorder="False" NullText="Ürün"  Text="{Binding Path=Ürün2}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Background="White" Grid.Column="2" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border  Background="White" Grid.Column="3" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit Tag="{Binding Path=Id}"  CharacterCasing="Upper"  ShowBorder="False" NullText="Sayfa Sayısı"   Text="{Binding Path=Miktar}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Background="White" Grid.Column="3" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border  Background="White" Grid.Column="4" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit   ShowBorder="False" CharacterCasing="Upper" NullText="Birim"   Text="{Binding Path=Birim}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Background="White" Grid.Column="4"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border  Background="White" Grid.Column="5"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper"  ShowBorder="False"  EditValueChanged="Subprice_EditValueChanged" NullText="Ücret"   EditValue="{Binding Path=Ücret,UpdateSourceTrigger=LostFocus}"></dxe:TextEdit>
                                                             </Border>
 
 
-                                                            <Border  Background="White" Grid.Column="5" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                            <Border  Background="White" Grid.Column="6" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                                                 <dxe:TextEdit  CharacterCasing="Upper"   ShowBorder="False" NullText="Açıklama"   Text="{Binding Path=Acıklama}"></dxe:TextEdit>
                                                             </Border>
                                                         </Grid>
@@ -2759,10 +2773,10 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="260"/>
                                     </Grid.ColumnDefinitions>
-                                    <Button Name="harcamabntvazgec"    Style="{StaticResource btngoback}"   Click="Bntvazgec_Click"    Grid.Column="0" FontWeight="Bold"  Margin="5,0,3,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
-                                    <Button Name="harcamabtnkayıt"     Style="{StaticResource btnsave}"    Click="Btnkayıt_Click"   Grid.Column="3" FontWeight="Bold" Margin="5,0,3,0" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
-                                    <Button Name="harcamabtnguncelle"  Style="{StaticResource btnupdate}"   Click="Btnguncelle_Click"   Grid.Column="3" FontWeight="Bold" Margin="5,0,3,0" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
-                                    <Button Name="harcamabtntemizle"   Style="{StaticResource btnclear}"    Grid.Column="3" FontWeight="Bold"  Padding="0"     Margin="5,0,3,0"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="26" Width="124"  Command="{Binding Path=Clearcommand}"></Button>
+                                    <Button Name="othersbntvazgec"    Style="{StaticResource btngoback}"   Click="Bntvazgec_Click"    Grid.Column="0" FontWeight="Bold"  Margin="5,0,3,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
+                                    <Button Name="othersbtnkayıt"     Style="{StaticResource btnsave}"    Click="Btnkayıt_Click"   Grid.Column="3" FontWeight="Bold" Margin="5,0,3,0" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
+                                    <Button Name="othersbtnguncelle"  Style="{StaticResource btnupdate}"   Click="Btnguncelle_Click"   Grid.Column="3" FontWeight="Bold" Margin="5,0,3,0" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Width="124"  ></Button>
+                                    <Button Name="othersbtntemizle"   Style="{StaticResource btnclear}"    Grid.Column="3" FontWeight="Bold"  Padding="0"     Margin="5,0,3,0"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="26" Width="124"  Command="{Binding Path=Clearcommand}"></Button>
 
                                 </Grid>
                             </Border>

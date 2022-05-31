@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="StarNote.exe" version="1.1.0.32" publicKeyToken="0000000000000000" language="tr" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="StarNote.exe" version="1.1.0.34" publicKeyToken="0000000000000000" language="tr" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="amblem.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -1255,14 +1255,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StarNote.exe" size="3893744">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StarNote.exe" size="3895280">
       <assemblyIdentity name="StarNote" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>otdx0Po9ox0UzSiA70IfVkr020D0ipH26ypvzYZ4L4Q=</dsig:DigestValue>
+        <dsig:DigestValue>8uTIP+LF8AoClyaMlh/YxzIgB2Wz7wj+eQXmYpu1T9Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1311,13 +1311,13 @@
       <dsig:DigestValue>oOa0kNX2f5fpk9rOZq1p5bAjHHxskbSMpgg6Lnit1x4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="StarNote.exe.config" size="36397">
+  <file name="StarNote.exe.config" size="36367">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>x6rjVjikIgFQrh/z7hYf2Jax/M07EUgUSpbpROEST5E=</dsig:DigestValue>
+      <dsig:DigestValue>iQYsMNbN1Am14/ceoE+Cioa6U1YabzVJJGQ15sbyjac=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

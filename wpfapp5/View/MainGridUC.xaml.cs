@@ -198,6 +198,7 @@ namespace StarNote.View
                         tabcontrol.SelectedItem = grid;
                     if (RefreshViews.pagecount == 2)   // Özel Müşteri Ekleme Ekranı
                     {
+                        özelkayıtekrantext.Text = "Özel Müşteri Tercümesi Ekleme";
                         filljoborders(true);
                         pagestatus = 1;
                         özelscrollbar.ScrollToVerticalOffset(0);                        
@@ -210,6 +211,7 @@ namespace StarNote.View
                     }
                     if (RefreshViews.pagecount == 26)    // Şirket Ekleme Ekranı
                     {
+                        özelkayıtekrantext.Text = "Firma Tercümesi Ekleme";
                         filljoborders(true);
                         firmascrollbar.ScrollToVerticalOffset(0);
                         pagestatus = 2;                        
@@ -222,6 +224,7 @@ namespace StarNote.View
                     }
                     if (RefreshViews.pagecount == 27)
                     {
+                        özelkayıtekrantext.Text = "Dava Tercümesi Ekleme";
                         filljoborders(true);
                         davascrollbar.ScrollToVerticalOffset(0);
                         pagestatus = 0;                        
@@ -233,6 +236,7 @@ namespace StarNote.View
                     }
                     if (RefreshViews.pagecount == 29)
                     {
+                        özelkayıtekrantext.Text = "Harcama Ekleme";
                         filljoborders(true);
                         pagestatus = 3;                        
                         harcamabtnguncelle.Visibility = Visibility.Hidden;
@@ -247,6 +251,7 @@ namespace StarNote.View
                     }
                     if (RefreshViews.pagecount == 30)
                     {
+                        özelkayıtekrantext.Text = "Harici Gelir Ekleme";
                         filljoborders(true);
                         pagestatus = 4;
                         othersbtnguncelle.Visibility = Visibility.Hidden;
@@ -258,7 +263,7 @@ namespace StarNote.View
                         //ViewModel.Currentdata.Costumerorder.Kayıttarihi = DateTime.Now.ToString();                   
                         ViewModel.Currentdata.Costumerorder.Ödemeyöntemi = "NAKIT";
                         ViewModel.Currentdata.Costumerorder.Savetype = 1;
-                        tabcontrol.SelectedItem = addharcama;
+                        tabcontrol.SelectedItem = addothers;
                     }
                     if (DXSplashScreen.IsActive)
                         DXSplashScreen.Close();
@@ -406,25 +411,30 @@ namespace StarNote.View
                     othersbtnkayıt.Visibility = Visibility.Hidden;
                     if (tag == "0")
                     {
+                        davakayıtekrantext.Text = "Adliye Tercümesi Güncelleme";
                         davascrollbar.ScrollToVerticalOffset(0);
                         tabcontrol.SelectedItem = adddava;
                     }
                     else if (tag == "1")
                     {
+                        özelkayıtekrantext.Text = "Özel Müşteri Tercümesi Güncelleme";
                         özelscrollbar.ScrollToVerticalOffset(0);
                         tabcontrol.SelectedItem = addözel;
                     }
                     else if (tag == "2")
                     {
+                        firmakayıtekrantext.Text = "Firma Tercümesi Güncelleme";
                         firmascrollbar.ScrollToVerticalOffset(0);
                         tabcontrol.SelectedItem = addfirma;
                     }
                     else if (tag == "3")
                     {
+                        harcamakayıtekrantext.Text = "Harcama Güncelleme";
                         tabcontrol.SelectedItem = addharcama;
                     }
                     else if (tag == "4")
                     {
+                        otherskayıtekrantext.Text = "Harici Gelir Güncelleme";
                         tabcontrol.SelectedItem = addothers;
                     }
                     filljoborders(false);
