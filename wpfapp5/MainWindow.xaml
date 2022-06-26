@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:view="clr-namespace:StarNote.View"
-      
+        xmlns:viewProduct="clr-namespace:StarNote.View.Product"
         xmlns:dxwuii="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/internal"
         xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
         xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"        
@@ -145,12 +145,18 @@
                     </Grid>
                 </Grid>
 
-                <dxdo:DockLayoutManager Background="#FF4949F4" x:Name="dockLayoutManager" Grid.Row="1" BorderThickness="0" >
+                <dxdo:DockLayoutManager  Background="#FF4949F4" x:Name="dockLayoutManager" Grid.Row="1" BorderThickness="0" >
                     <dxdo:LayoutGroup Background="#FF4949F4" >
-                        <dxdo:DocumentGroup Margin="-3,-5" ShowTabHeaders="False">
-                            <dxdo:DocumentPanel  x:Name="documentPanelANAMENU" AllowClose="False">
-                                <view:MainGridUC/>
-                            </dxdo:DocumentPanel>                           
+                        <dxdo:DocumentGroup SelectedTabIndex="{Binding Path=Pagestatus}" Margin="-3,-5" ShowTabHeaders="False">
+                            
+                            <dxdo:DocumentPanel  x:Name="documentPanelANAMENU" AllowClose="False"><view:MainGridUC/></dxdo:DocumentPanel>
+                            
+                            <dxdo:DocumentPanel ><viewProduct:ProductUC/></dxdo:DocumentPanel>
+                            
+                            <dxdo:DocumentPanel><viewProduct:ProductAddUC/></dxdo:DocumentPanel>
+                            
+                       
+                            
                             <dxdo:DocumentPanel x:Name="documentPanelMUHASEBEALIS" AllowClose="False">
                                 <view:DailyPurchaseUC/>
                             </dxdo:DocumentPanel>
@@ -202,9 +208,7 @@
                             <dxdo:DocumentPanel x:Name="documentmüsteriekle" AllowClose="False">
                                 <view:CostumerUC/>
                             </dxdo:DocumentPanel>
-                            <dxdo:DocumentPanel x:Name="documentürünekle" AllowClose="False">                               
-                                <view:ProductUC/>
-                            </dxdo:DocumentPanel>
+                           
                             <dxdo:DocumentPanel x:Name="documentşifre" AllowClose="False">                               
                                 <view:PasswordUC/>
                             </dxdo:DocumentPanel>

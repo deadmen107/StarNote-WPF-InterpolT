@@ -68,8 +68,10 @@
     <Style TargetType="Button" x:Key="btnsave">
         <Setter Property="Background" Value="DarkCyan"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Width" Value="75"/>
-        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -121,8 +123,10 @@
     <Style TargetType="Button" x:Key="btnyenikayıt">
         <Setter Property="Background" Value="DarkCyan"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Width" Value="75"/>
-        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -218,8 +222,10 @@
     <Style TargetType="Button" x:Key="btnupdate">
         <Setter Property="Background" Value="DarkCyan"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Width" Value="75"/>
-        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -271,8 +277,10 @@
     <Style TargetType="Button" x:Key="btngoback">
         <Setter Property="Background" Value="DarkCyan"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Width" Value="75"/>
-        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Margin" Value="10,0,10,0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -476,5 +484,48 @@
         <Setter Property="ShowMajorTickmarks" Value="true" />
         <Setter Property="ShowMinorTickmarks" Value="false"/>
         <Setter Property="ShowSpindleCap" Value="false"/>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="ScreentitleTextbox">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="Times New Roman" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="BorderTitle" >
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="10,0,10,10" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="BorderSubTitle">
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="Margin" Value="10,10,10,-4" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+    <Style TargetType="Border" x:Key="subitemborder">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Margin" Value="10,10,10,11"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="7" />
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+
+    <Style TargetType="dxe:ComboBoxEdit" x:Key="subitemcombobox">
+        <Setter Property="CharacterCasing" Value="Upper"/>
+        <Setter Property="ShowBorder" Value="False"/>
+        <Setter Property="IsTextEditable" Value="False" />
+    </Style>
+
+    <Style TargetType="dxe:TextEdit" x:Key="subitemtextedit">
+        <Setter Property="CharacterCasing" Value="Upper"/>
+        <Setter Property="ShowBorder" Value="False"/>
     </Style>
 </ResourceDictionary>

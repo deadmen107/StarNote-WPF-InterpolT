@@ -37,7 +37,7 @@ namespace StarNote.DataAccess
                     url = method + "?" + parametername;
                 else
                     url = method;
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["baseURL"].ToString() + controller + url);
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["baseURL"].ToString() + controller + "/" + url);
                 httpWebRequest.Headers.Add("Authorization", "Bearer " + WebapiUtils.access_token);
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";

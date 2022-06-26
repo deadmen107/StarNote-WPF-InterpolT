@@ -24,7 +24,7 @@ namespace StarNote.Model
         private static string controller = "MainScreen/";
 
         public MainService()
-        {                   
+        {
             ServicePointManager
            .ServerCertificateValidationCallback +=
            (sender, cert, chain, sslPolicyErrors) => true;

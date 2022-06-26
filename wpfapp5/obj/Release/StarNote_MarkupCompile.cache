@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\c#\InterpolT Wpf\wpfapp5\obj\Release\
+C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Release\
 StarNote
 none
 false
 TRACE
-E:\c#\InterpolT Wpf\wpfapp5\App.xaml
-32-392118666
+C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\App.xaml
+35985736243
 
-120-1859302098
-134-988391344
-DXSplashScreen\LoadingSplashScreen.xaml;DXSplashScreen\SplashScreenView.xaml;MainWindow.xaml;Resources\ButtonResources.xaml;View\AnalysisMontlyUC.xaml;View\AnalysisYearlyUC.xaml;View\CompanyUC.xaml;View\CostumerUC.xaml;View\DailyPurchaseUC.xaml;View\DailySalesUC.xaml;View\FilemanagementUC.xaml;View\GridUISettingUC.xaml;View\LisanceUC.xaml;View\LisanceWindow.xaml;View\LogUC.xaml;View\PasswordUC.xaml;View\ProductUC.xaml;View\RemindingUC.xaml;View\ReportUC.xaml;View\TypeAddUC.xaml;View\SalesmanAdd.xaml;View\HedeflerUC.xaml;View\LoadingScreen.xaml;View\MainGridUC.xaml;View\MontlyPurchaseUC.xaml;View\MontlySalesUC.xaml;View\PrintingUC.xaml;View\SalesmanUC.xaml;View\StokUC.xaml;View\TypeDetailUC.xaml;View\UsersUC.xaml;View\VersionUC.xaml;
+137-300247800
+134-568670991
+DXSplashScreen\LoadingSplashScreen.xaml;DXSplashScreen\SplashScreenView.xaml;MainWindow.xaml;Resources\ButtonResources.xaml;View\AnalysisMontlyUC.xaml;View\AnalysisYearlyUC.xaml;View\CompanyUC.xaml;View\CostumerUC.xaml;View\DailyPurchaseUC.xaml;View\DailySalesUC.xaml;View\FilemanagementUC.xaml;View\GridUISettingUC.xaml;View\LisanceUC.xaml;View\LisanceWindow.xaml;View\LogUC.xaml;View\MontlyAnalysisUC.xaml;View\PasswordUC.xaml;View\PopupAnalysisUC.xaml;View\Product\ProductAddUC.xaml;View\Product\ProductUC.xaml;View\RemindingUC.xaml;View\ReportUC.xaml;View\TypeAddUC.xaml;View\SalesmanAdd.xaml;View\HedeflerUC.xaml;View\LoadingScreen.xaml;View\MainGridUC.xaml;View\MontlyPurchaseUC.xaml;View\MontlySalesUC.xaml;View\PrintingUC.xaml;View\SalesmanUC.xaml;View\StokUC.xaml;View\TypeDetailUC.xaml;View\UsersUC.xaml;View\VersionUC.xaml;
 
 True
 

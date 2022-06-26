@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\wpfapp5",
+    "\\wpfapp5\\View"
   ],
-  "SelectedNode": "\\StarNote Interpol.sln",
+  "SelectedNode": "\\wpfapp5\\View\\LoadingScreen.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

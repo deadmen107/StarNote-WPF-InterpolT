@@ -2,15 +2,25 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:StarNote"
-                StartupUri="View/LoadingScreen.xaml">
+             xmlns:viewmodels ="clr-namespace:StarNote.ViewModel"  
+             
+             StartupUri="View/LoadingScreen.xaml">
     <Application.Resources>
-       
-            <ResourceDictionary>
-                <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <viewmodels:ProductVM x:Key="productvm" />
+            <viewmodels:CompanyVM x:Key="companyvm" />
+            <viewmodels:CostumerVM x:Key="customervm" />
+            <viewmodels:FilemanagementVM x:Key="filemanagementvm"/>
+            <viewmodels:StokVM x:Key="stokvm" />
+            <viewmodels:SalesmansVM x:Key="salesmanvm"/>
+            <viewmodels:TypeVM x:Key="typevm" />
+            <viewmodels:TypeDetailVM x:Key="typedetailvm" />
+            <viewmodels:UsersVM x:Key="uservm" />
+            <viewmodels:MainVM x:Key="mainvm" />
+            <ResourceDictionary.MergedDictionaries>
                     <ResourceDictionary Source="pack://application:,,,/ToastNotifications.Messages;component/Themes/Default.xaml" />
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
-       
     </Application.Resources>
     
 </Application>

@@ -533,6 +533,10 @@ namespace StarNote.ViewModel
 
         private void ManagePartialData(int subtitleindex)
         {
+            if (recorddatacostumer == null || recorddatajoborder == null)
+            {
+                return;
+            }
             Fillwidget();
             fillcharttable();
             Filllanguagedata();

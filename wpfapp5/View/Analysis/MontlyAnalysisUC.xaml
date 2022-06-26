@@ -1,0 +1,381 @@
+﻿<UserControl x:Class="StarNote.View.Analysis.MontlyAnalysisUC"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"     
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+             xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+ 
+             mc:Ignorable="d" Margin="0" Padding="0"    
+             Background="#FE9590AD" 
+             d:DesignHeight="450" d:DesignWidth="800"
+              LostFocus="UserControl_LostFocus"  GotFocus="UserControl_GotFocus">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/StarNote;component/Resources/ButtonResources.xaml">
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />          
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="340"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="140"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Content="{Binding Path=Titlename}" FontWeight="Bold"  FontFamily="times new roman" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <Label  Grid.Row="0" Grid.Column="3"  Content="Başlangıç Tarihi"/>
+            <Label  Grid.Row="0" Grid.Column="4" Content="Bitiş Tarihi" />
+            <DatePicker Grid.Row="1" Grid.Column="3" SelectedDate="{Binding Startdate}" >
+                <dxmvvm:Interaction.Behaviors>
+                    <dxmvvm:EventToCommand EventName="SelectedDateChanged" Command="{Binding Selectionchangedtabindex}"/>
+                </dxmvvm:Interaction.Behaviors>
+            </DatePicker>
+            <DatePicker Grid.Row="1" Grid.Column="4" SelectedDate="{Binding Enddate}" >
+                <dxmvvm:Interaction.Behaviors>
+                    <dxmvvm:EventToCommand EventName="SelectedDateChanged" Command="{Binding Selectionchangedtabindex}"/>
+                </dxmvvm:Interaction.Behaviors>
+            </DatePicker>
+        </Grid>
+        <Border CornerRadius="15" Grid.Row="1" Margin="5" Background="white">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button IsEnabled="{Binding Path=Isbtnenable}"  Style="{StaticResource FlatButtonStyle}" Command="{Binding Path=Tabindexchangedcommand}" CommandParameter="{Binding ElementName=btnGenel, Path=Tag}"  x:Name="btnGenel"  Tag="0" Grid.Column="1" Grid.Row="0" Width="60"  Height="25" Background="{Binding Path=Btnbrushgenel}" Content="GENEL" />
+                <Button IsEnabled="{Binding Path=Isbtnenable}"  Style="{StaticResource FlatButtonStyle}" Command="{Binding Path=Tabindexchangedcommand}" CommandParameter="{Binding ElementName=btnAdliye, Path=Tag}" x:Name="btnAdliye" Tag="1" Grid.Column="2" Grid.Row="0" Width="60"  Height="25" Background="{Binding Path=Btnbrushadliye}" Content="ADLİYE" />
+                <Button IsEnabled="{Binding Path=Isbtnenable}"  Style="{StaticResource FlatButtonStyle}" Command="{Binding Path=Tabindexchangedcommand}" CommandParameter="{Binding ElementName=btnOzel, Path=Tag}"   x:Name="btnOzel"   Tag="2" Grid.Column="3" Grid.Row="0" Width="60"  Height="25" Background="{Binding Path=Btnbrushözel}" Content="ÖZEL" />
+                <Button IsEnabled="{Binding Path=Isbtnenable}"  Style="{StaticResource FlatButtonStyle}" Command="{Binding Path=Tabindexchangedcommand}" CommandParameter="{Binding ElementName=btnFirma, Path=Tag}"  x:Name="btnFirma"  Tag="3" Grid.Column="4" Grid.Row="0" Width="60"  Height="25" Background="{Binding Path=Btnbrushfirma}" Content="FİRMA" />
+                <Button IsEnabled="{Binding Path=Isbtnenable}"  Style="{StaticResource FlatButtonStyle}" Command="{Binding Path=Tabindexchangedcommand}" CommandParameter="{Binding ElementName=btnDiger, Path=Tag}"  x:Name="btnDiger"  Tag="4" Grid.Column="5" Grid.Row="0" Width="100" Height="25" Background="{Binding Path=Btnbrushdiger}" Content="DİĞER İŞLEMLER" />
+                <Border Grid.ColumnSpan="7" CornerRadius="15" Background="#FE9590AD" Grid.Row="1" Margin="8,5,8,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button VerticalAlignment="Bottom" Style="{StaticResource FlatButtonStyle}" IsEnabled="{Binding Path=Isbtnenable}" Visibility="{Binding Path=Networkthbtnvisibility}" Command="{Binding Path=Subtabindexchangedcommand}" CommandParameter="{Binding ElementName=btnNet, Path=Tag}"   Background="{Binding Path=BtnbrushNet}" x:Name="btnNet" Tag="0" Grid.Column="1" Grid.Row="0" Width="60"  Height="25"  Content="NET" />
+                        <Button VerticalAlignment="Bottom" Style="{StaticResource FlatButtonStyle}" IsEnabled="{Binding Path=Isbtnenable}" Visibility="{Binding Path=Salesbtnvisibility}"     Command="{Binding Path=Subtabindexchangedcommand}" CommandParameter="{Binding ElementName=btnGelir, Path=Tag}" Background="{Binding Path=BtnbrushGelir}" x:Name="btnGelir" Tag="1" Grid.Column="2" Grid.Row="0" Width="60"  Height="25"  Content="GELİR" />
+                        <Button VerticalAlignment="Bottom" Style="{StaticResource FlatButtonStyle}" IsEnabled="{Binding Path=Isbtnenable}" Visibility="{Binding Path=Purchasebtnvisibility}"  Command="{Binding Path=Subtabindexchangedcommand}" CommandParameter="{Binding ElementName=btnGider, Path=Tag}" Background="{Binding Path=BtnbrushGider}" x:Name="btnGider" Tag="2" Grid.Column="3" Grid.Row="0" Width="60"  Height="25"  Content="GİDER" />                   
+                        <Border Grid.ColumnSpan="7" CornerRadius="15"  Grid.Row="1" Margin="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="160"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid  Grid.Row="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="5"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Aylık Harcamalar" Style="{StaticResource analysislabel}" />                                   
+                                    <Label Grid.Row="0" Grid.Column="1" Content="Aylık Kazançlar" Style="{StaticResource analysislabel}" />
+                                    <Label Grid.Row="0" Grid.Column="2" Content="Aylık Potansiyel Kazanç" Style="{StaticResource analysislabel}"/>                                   
+                                    <Label Grid.Row="0" Grid.Column="3" Content="Aylık Gerçek Kazanç" Style="{StaticResource analysislabel}"/>
+                                    <Label Grid.Row="0" Grid.Column="4" Content="Müşteri Sayısı" Style="{StaticResource analysislabel}"/>
+                                    <Label Grid.Row="2" Grid.Column="2" Content="Aylık Net Gelir" Style="{StaticResource analysislabel}" />
+                                    <Label Grid.Row="2" Grid.Column="3" Content="Aylık Toplam Harcama" Style="{StaticResource analysislabel}"/>
+                                    <Label Grid.Row="2" Grid.Column="4" Content="Verilen Dosya Numarası" Style="{StaticResource analysislabel}"/>
+                                    <Button  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,14,0" Width="25" Height="20" Tag="0" Style="{StaticResource btnreport}" Command="{Binding Path=Doreportcommand}" x:Name="Potansialworth"           CommandParameter="{Binding ElementName=Potansialworth,Path=Tag}"></Button>
+                                    <Button  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,14,0" Width="25" Height="20" Tag="1" Style="{StaticResource btnreport}" Command="{Binding Path=Doreportcommand}" x:Name="Realworth"                CommandParameter="{Binding ElementName=Realworth,Path=Tag}"></Button>
+                                    <Button  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" Margin="0,0,14,0" Width="25" Height="20" Tag="2" Style="{StaticResource btnreport}" Command="{Binding Path=Doreportcommand}" x:Name="Totalprocesscount"        CommandParameter="{Binding ElementName=Totalprocesscount,Path=Tag}"></Button>
+                                    <Button  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,14,0" Width="25" Height="20" Tag="3" Style="{StaticResource btnreport}" Command="{Binding Path=Doreportcommand}" x:Name="Networth"                 CommandParameter="{Binding ElementName=Networth,Path=Tag}"></Button>
+                                    <Button  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,14,0" Width="25" Height="20" Tag="4" Style="{StaticResource btnreport}" Command="{Binding Path=Doreportcommand}" x:Name="Minusworth"               CommandParameter="{Binding ElementName=Minusworth,Path=Tag}"></Button>
+                                    <Button  Grid.Row="2" Grid.Column="4" HorizontalAlignment="Right" Margin="0,0,14,0" Width="25" Height="20" Tag="5" Style="{StaticResource btnreport}" Command="{Binding Path=Doreportcommand}" x:Name="Totalgivenfileordercount" CommandParameter="{Binding ElementName=Totalgivenfileordercount,Path=Tag}"></Button>
+
+                                    <dxga:CircularGaugeControl Grid.Row="1"  Grid.Column="0" Grid.RowSpan="3"   EnableAnimation="True" >
+                                        <dxga:CircularGaugeControl.Scales>
+                                            <dxga:ArcScale Style="{StaticResource analysisgaugearcscale}" >
+                                                <dxga:ArcScale.Layers>
+                                                    <dxga:ArcScaleLayer>
+                                                    </dxga:ArcScaleLayer>
+                                                </dxga:ArcScale.Layers>
+                                                <dxga:ArcScale.Ranges>
+                                                    <dxga:ArcScaleRange EndValue="{Binding Path=Minusworthgauge,Mode=TwoWay}">
+                                                        <dxga:ArcScaleRange.Options>
+                                                            <dxga:RangeOptions Offset="-10" Thickness="10"/>
+                                                        </dxga:ArcScaleRange.Options>
+                                                        <dxga:ArcScaleRange.Presentation>
+                                                            <dxga:DefaultArcScaleRangePresentation Fill="#FF0D2A93"/>
+                                                        </dxga:ArcScaleRange.Presentation>
+                                                    </dxga:ArcScaleRange>
+                                                </dxga:ArcScale.Ranges>
+                                                <dxga:ArcScale.SpindleCapOptions>
+                                                    <dxga:SpindleCapOptions ZIndex="100"/>
+                                                </dxga:ArcScale.SpindleCapOptions>
+                                            </dxga:ArcScale>
+                                        </dxga:CircularGaugeControl.Scales>
+                                    </dxga:CircularGaugeControl>
+                                    <dxga:CircularGaugeControl Grid.Row="1"  Grid.Column="1" Grid.RowSpan="3"  >
+                                        <dxga:CircularGaugeControl.Scales>
+                                            <dxga:ArcScale Style="{StaticResource analysisgaugearcscale}" >
+                                                <dxga:ArcScale.Layers>
+                                                    <dxga:ArcScaleLayer>
+                                                        <dxga:ArcScaleLayer.Options>
+                                                            <dxga:LayerOptions/>
+                                                        </dxga:ArcScaleLayer.Options>
+                                                    </dxga:ArcScaleLayer>
+                                                </dxga:ArcScale.Layers>
+                                                <dxga:ArcScale.Ranges>
+                                                    <dxga:ArcScaleRange EndValue="{Binding Path=Networthgauge}">
+                                                        <dxga:ArcScaleRange.Options>
+                                                            <dxga:RangeOptions Offset="-10" Thickness="10"/>
+                                                        </dxga:ArcScaleRange.Options>
+                                                        <dxga:ArcScaleRange.Presentation>
+                                                            <dxga:DefaultArcScaleRangePresentation Fill="#FF0D2A93"/>
+                                                        </dxga:ArcScaleRange.Presentation>
+                                                    </dxga:ArcScaleRange>
+                                                </dxga:ArcScale.Ranges>
+                                                <dxga:ArcScale.SpindleCapOptions>
+                                                    <dxga:SpindleCapOptions ZIndex="100"/>
+                                                </dxga:ArcScale.SpindleCapOptions>
+                                            </dxga:ArcScale>
+                                        </dxga:CircularGaugeControl.Scales>
+                                    </dxga:CircularGaugeControl>
+                                    <Border Grid.Row="1" Grid.Column="2"  Style="{StaticResource analysisborder}" >
+                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Potansialworth,StringFormat='{}{0:0.00 TL}'}"/>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="3" Style="{StaticResource analysisborder}">
+                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Realworth,StringFormat='{}{0:0.00 TL}'}"/>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource analysisborder}">
+                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Totalprocesscount}"/>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource analysisborder}">
+                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Networth,StringFormat='{}{0:0.00 TL}'}"/>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="3" Style="{StaticResource analysisborder}">
+                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Minusworth,StringFormat='{}{0:0.00 TL}'}"/>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="4" Style="{StaticResource analysisborder}">
+                                        <dxe:TextEdit Style="{StaticResource analysistxtbox}" Text="{Binding Path=Totalgivenfileordercount}"/>
+                                    </Border>
+                                </Grid>
+                                <dx:DXTabControl  Grid.Row="1" Margin="0,4,0,0" SelectedIndex="0">
+                                    <dx:DXTabControl.View>
+                                        <dx:TabControlMultiLineView HeaderLocation="Top"/>
+                                    </dx:DXTabControl.View>
+                                    <dx:DXTabItem Header="Günlere Göre Maliyet Grafiği">
+                                        <dxc:ChartControl>
+                                            <dxc:XYDiagram2D>
+                                                <dxc:SplineSeries2D DataSource="{Binding Path=Datachart}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                    <dxc:SplineSeries2D.Label>
+                                                        <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="True"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                    </dxc:SplineSeries2D.Label>
+                                                </dxc:SplineSeries2D>
+                                                <dxc:XYDiagram2D.AxisX>
+                                                    <dxc:AxisX2D GridLinesVisible="True">
+                                                        <dxc:AxisX2D.Title>
+                                                            <dxc:AxisTitle Content="Başlangıç Bitiş Tarihi"/>
+                                                        </dxc:AxisX2D.Title>
+                                                        <dxc:AxisX2D.WholeRange>
+                                                            <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="True"/>
+                                                        </dxc:AxisX2D.WholeRange>
+                                                    </dxc:AxisX2D>
+                                                </dxc:XYDiagram2D.AxisX>
+                                                <dxc:XYDiagram2D.AxisY>
+                                                    <dxc:AxisY2D>
+                                                        <dxc:AxisY2D.Title>
+                                                            <dxc:AxisTitle Content="Gerçek Kazanç"/>
+                                                        </dxc:AxisY2D.Title>
+                                                        <dxc:AxisY2D.WholeRange>
+                                                            <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="True"/>
+                                                        </dxc:AxisY2D.WholeRange>
+                                                    </dxc:AxisY2D>
+                                                </dxc:XYDiagram2D.AxisY>
+
+                                            </dxc:XYDiagram2D>
+                                            <dxc:ChartControl.Legend>
+                                                <dxc:Legend />
+                                            </dxc:ChartControl.Legend>
+                                        </dxc:ChartControl>
+                                    </dx:DXTabItem>
+                                    <dx:DXTabItem Header="Dil Analizi">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Content="Dil Tercümesi"></Label>                                          
+                                            <Border Grid.Row="1" Grid.Column="0" Background="White"  Margin="0,4,0,5"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                <dxe:ComboBoxEdit  ItemsSource="{Binding Path=Languagenames,UpdateSourceTrigger=PropertyChanged}" EditValue="{Binding Path=Languagename,UpdateSourceTrigger=PropertyChanged}"  IsTextEditable="False" NullText="Dil Seçiniz" ShowBorder="False" ShowEditorButtons="False">
+                                                    <dxmvvm:Interaction.Behaviors>
+                                                        <dxmvvm:EventToCommand EventName="EditValueChanged" Command="{Binding Languagechange,UpdateSourceTrigger=PropertyChanged}"/>
+                                                    </dxmvvm:Interaction.Behaviors>
+                                                </dxe:ComboBoxEdit>
+                                            </Border>                                           
+                                            <dxc:ChartControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5">
+                                                <dxc:XYDiagram2D>
+                                                    <dxc:SplineSeries2D DataSource="{Binding Path=Languagechart,UpdateSourceTrigger=PropertyChanged}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                        <dxc:SplineSeries2D.Label>
+                                                            <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                        </dxc:SplineSeries2D.Label>
+                                                    </dxc:SplineSeries2D>
+                                                    <dxc:XYDiagram2D.AxisX>
+                                                        <dxc:AxisX2D GridLinesVisible="True">
+                                                            <dxc:AxisX2D.Title>
+                                                                <dxc:AxisTitle Content="Başlangıç Bitiş Tarihi"/>
+                                                            </dxc:AxisX2D.Title>
+                                                            <dxc:AxisX2D.WholeRange>
+                                                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="True"/>
+                                                            </dxc:AxisX2D.WholeRange>
+                                                        </dxc:AxisX2D>
+                                                    </dxc:XYDiagram2D.AxisX>
+                                                    <dxc:XYDiagram2D.AxisY>
+                                                        <dxc:AxisY2D>
+                                                            <dxc:AxisY2D.Title>
+                                                                <dxc:AxisTitle Content="Potansiyel Dil Kazancı"/>
+                                                            </dxc:AxisY2D.Title>
+                                                            <dxc:AxisY2D.WholeRange>
+                                                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="True"/>
+                                                            </dxc:AxisY2D.WholeRange>
+                                                        </dxc:AxisY2D>
+                                                    </dxc:XYDiagram2D.AxisY>
+                                                </dxc:XYDiagram2D>
+                                                <dxc:ChartControl.Legend>
+                                                    <dxc:Legend />
+                                                </dxc:ChartControl.Legend>
+                                            </dxc:ChartControl>
+                                            <dxg:GridControl Grid.Column="5" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" ItemsSource="{Binding Languagedata}"  Style="{StaticResource analysisgrids}"  >
+                                                <dxg:GridControl.View>
+                                                    <dxg:TableView ShowGroupPanel="False" ShowSearchPanelMode="Never" Style="{StaticResource analysistable}" />
+                                                </dxg:GridControl.View>
+                                                <dxg:GridColumn Header="Dil Tercümesi" Width="170"   Binding="{Binding Path=Name}"/>
+                                                <dxg:GridColumn Header="Adet"        Width="47"    Binding="{Binding Path=Count}"/>
+                                                <dxg:GridColumn Header="Potansiyel Kazanç"        Width="*"    Binding="{Binding Path=Potansialworth}"/>
+                                            </dxg:GridControl>
+                                        </Grid>                                      
+                                    </dx:DXTabItem>
+                                    <dx:DXTabItem Header="Belgelere Göre Maliyet">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Content="Belge"></Label>
+                                            <Border Grid.Row="1" Grid.Column="0" Background="White"  Margin="0,4,0,5"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                <dxe:ComboBoxEdit  ItemsSource="{Binding Path=Documentnames,UpdateSourceTrigger=PropertyChanged}" EditValue="{Binding Path=Documentname,UpdateSourceTrigger=PropertyChanged}"  IsTextEditable="False" NullText="Belge Seçiniz" ShowBorder="False" ShowEditorButtons="False">
+                                                    <dxmvvm:Interaction.Behaviors>
+                                                        <dxmvvm:EventToCommand EventName="EditValueChanged" Command="{Binding Documentchange,UpdateSourceTrigger=PropertyChanged}"/>
+                                                    </dxmvvm:Interaction.Behaviors>
+                                                </dxe:ComboBoxEdit>
+                                            </Border>
+                                            <dxc:ChartControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5">
+                                                <dxc:XYDiagram2D>
+                                                    <dxc:SplineSeries2D DataSource="{Binding Path=Documentchart,UpdateSourceTrigger=PropertyChanged}"   ArgumentDataMember="Argument"  ValueDataMember="Value"     LineTension="0.8"   MarkerSize="15"  MarkerVisible="False">
+                                                        <dxc:SplineSeries2D.Label>
+                                                            <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90"   ConnectorVisible="False"  Indent="15"    ResolveOverlappingMode="Default"      Visible="False"/>
+                                                        </dxc:SplineSeries2D.Label>
+                                                    </dxc:SplineSeries2D>
+                                                    <dxc:XYDiagram2D.AxisX>
+                                                        <dxc:AxisX2D GridLinesVisible="True">
+                                                            <dxc:AxisX2D.Title>
+                                                                <dxc:AxisTitle Content="Başlangıç Bitiş Tarihi"/>
+                                                            </dxc:AxisX2D.Title>
+                                                            <dxc:AxisX2D.WholeRange>
+                                                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="True"/>
+                                                            </dxc:AxisX2D.WholeRange>
+                                                        </dxc:AxisX2D>
+                                                    </dxc:XYDiagram2D.AxisX>
+                                                    <dxc:XYDiagram2D.AxisY>
+                                                        <dxc:AxisY2D>
+                                                            <dxc:AxisY2D.Title>
+                                                                <dxc:AxisTitle Content="Potansiyel Kazanç"/>
+                                                            </dxc:AxisY2D.Title>
+                                                            <dxc:AxisY2D.WholeRange>
+                                                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="True"/>
+                                                            </dxc:AxisY2D.WholeRange>
+                                                        </dxc:AxisY2D>
+                                                    </dxc:XYDiagram2D.AxisY>
+                                                </dxc:XYDiagram2D>
+                                            </dxc:ChartControl>
+                                            <dxg:GridControl Grid.Column="5" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" ItemsSource="{Binding Documentdata}"  Style="{StaticResource analysisgrids}"  >
+                                                <dxg:GridControl.View>
+                                                    <dxg:TableView ShowGroupPanel="False" ShowSearchPanelMode="Never" Style="{StaticResource analysistable}" />
+                                                </dxg:GridControl.View>
+                                                <dxg:GridColumn Header="Belge" Width="170"   Binding="{Binding Path=Name}"/>
+                                                <dxg:GridColumn Header="Adet"        Width="47"    Binding="{Binding Path=Count}"/>
+                                                <dxg:GridColumn Header="Potansiyel Kazanç"        Width="*"    Binding="{Binding Path=Potansialworth}"/>
+                                            </dxg:GridControl>
+                                        </Grid>
+                                    </dx:DXTabItem>
+
+                                </dx:DXTabControl>
+
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+            
+            </Grid>
+         
+        </Border>
+    
+    </Grid>   
+</UserControl>
+

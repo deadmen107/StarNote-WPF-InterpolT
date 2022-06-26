@@ -36,14 +36,17 @@ namespace StarNote
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-   
+
     public partial class MainWindow : ThemedWindow
     {
-    
+        public static AppPages ActivePage = AppPages.MainWindow;
+        private static MainWindowVM windowVM = new MainWindowVM();
         public MainWindow()
         {
 
             InitializeComponent();
+            this.DataContext = windowVM;
+            windowVM.Pagestatus = 0;
             GridControlLocalizer.Active = new TurkishFiltersLocalizer();
             RefreshViews.pagecount = 1;
             WeatherStatus();
@@ -64,6 +67,16 @@ namespace StarNote
                 return "1.0.0.1";
             }
         }
+
+       
+
+        public static void ChangePage(AppPages page)
+        {
+            ActivePage = page;
+            windowVM.Pagestatus = (int)page;
+        }
+
+        public static readonly DependencyProperty windowevent;
 
         private void createxmlfolder()
         {
@@ -227,7 +240,8 @@ namespace StarNote
                 }
                 else if (menu.Tag.ToString() == "24" && UserUtils.Authority.Contains(UserUtils.Ürün_detay_ekranı))
                 {
-                    panel = documentürünekle;
+                    //panel = documentürünekle;
+                    ChangePage(AppPages.ProductUC);
                     menü.Text = "Ürün Tanımlama";
                 }
                 else if (menu.Tag.ToString() == "25" && UserUtils.Authority.Contains(UserUtils.Tür_görüntüle))
@@ -349,6 +363,16 @@ namespace StarNote
         {
             VersionUC versionUC = new VersionUC();
             versionUC.Show();
+        }
+
+        public enum AppPages
+        {
+            MainWindow = 0,
+
+            ProductUC = 1,
+
+            ProductAddUC = 2 
+          
         }
     }
 

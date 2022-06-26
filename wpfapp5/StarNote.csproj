@@ -35,7 +35,7 @@
     <SuiteName>ARMS Teknoloji</SuiteName>
     <MinimumRequiredVersion>1.1.0.11</MinimumRequiredVersion>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>34</ApplicationRevision>
+    <ApplicationRevision>35</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -530,22 +530,10 @@
     </ApplicationDefinition>
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Command\RelayparameterCommand.cs" />
-    <Compile Include="DataAccess\AnalysisMontlyDA.cs" />
-    <Compile Include="DataAccess\AnalysisYearlyDA.cs" />
     <Compile Include="DataAccess\BaseDa.cs" />
-    <Compile Include="DataAccess\CompanyDA.cs" />
-    <Compile Include="DataAccess\CostumerDA.cs" />
     <Compile Include="DataAccess\DailyAccountingDA.cs" />
-    <Compile Include="DataAccess\FilemanagementDA.cs" />
     <Compile Include="DataAccess\MontlyAccountingDA.cs" />
-    <Compile Include="DataAccess\ProductDA.cs" />
     <Compile Include="DataAccess\RemindingDA.cs" />
-    <Compile Include="DataAccess\TypeAddDA.cs" />
-    <Compile Include="DataAccess\SalesmanAddDA.cs" />
-    <Compile Include="DataAccess\SalesmanAnalysisDA.cs" />
-    <Compile Include="DataAccess\StokDA.cs" />
-    <Compile Include="DataAccess\TypeDetailDA.cs" />
-    <Compile Include="DataAccess\UsersDA.cs" />
     <Compile Include="DXSplashScreen\LoadingSplashScreen.xaml.cs">
       <DependentUpon>LoadingSplashScreen.xaml</DependentUpon>
     </Compile>
@@ -554,6 +542,7 @@
     </Compile>
     <Compile Include="Jobs\ApiJobs.cs" />
     <Compile Include="Jobs\MyScheduler.cs" />
+    <Compile Include="MainWindowVM.cs" />
     <Compile Include="Model\AnalysisMontlyModel.cs" />
     <Compile Include="Model\AnalysisreportModel.cs" />
     <Compile Include="Model\Analysissubgridmodel.cs" />
@@ -645,8 +634,6 @@
     <Compile Include="Utils\Report2.Designer.cs">
       <DependentUpon>Report2.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\AnalysisMontlyVM.cs" />
-    <Compile Include="ViewModel\AnalysisYearlyVM.cs" />
     <Compile Include="ViewModel\CompanyVM.cs" />
     <Compile Include="ViewModel\CostumerVM.cs" />
     <Compile Include="ViewModel\DailySalesVM.cs" />
@@ -662,100 +649,129 @@
     <Compile Include="ViewModel\PrintingVM.cs" />
     <Compile Include="ViewModel\ProductVM.cs" />
     <Compile Include="ViewModel\RemindingVM.cs" />
-    <Compile Include="ViewModel\TypeAddVM.cs" />
-    <Compile Include="ViewModel\SalesmanAddVM.cs" />
-    <Compile Include="ViewModel\SalesmanAnalysisVM.cs" />
+    <Compile Include="ViewModel\TypeVM.cs" />
+    <Compile Include="ViewModel\SalesmansVM.cs" />
     <Compile Include="ViewModel\StokVM.cs" />
     <Compile Include="ViewModel\TypeDetailVM.cs" />
     <Compile Include="ViewModel\UsersVM.cs" />
-    <Compile Include="View\AnalysisMontlyUC.xaml.cs">
-      <DependentUpon>AnalysisMontlyUC.xaml</DependentUpon>
+    <Compile Include="View\Company\CompanyEditUC.xaml.cs">
+      <DependentUpon>CompanyEditUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AnalysisYearlyUC.xaml.cs">
-      <DependentUpon>AnalysisYearlyUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\CompanyUC.xaml.cs">
+    <Compile Include="View\Company\CompanyUC.xaml.cs">
       <DependentUpon>CompanyUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CostumerUC.xaml.cs">
+    <Compile Include="View\Customer\CostumerUC.xaml.cs">
       <DependentUpon>CostumerUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DailyPurchaseUC.xaml.cs">
+    <Compile Include="View\Customer\CustomerEditUC.xaml.cs">
+      <DependentUpon>CustomerEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Analysis\DailyPurchaseUC.xaml.cs">
       <DependentUpon>DailyPurchaseUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DailySalesUC.xaml.cs">
+    <Compile Include="View\Analysis\DailySalesUC.xaml.cs">
       <DependentUpon>DailySalesUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\FilemanagementUC.xaml.cs">
+    <Compile Include="View\FileManagement\FilemanagementEditUC.xaml.cs">
+      <DependentUpon>FilemanagementEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FileManagement\FilemanagementUC.xaml.cs">
       <DependentUpon>FilemanagementUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GridUISettingUC.xaml.cs">
-      <DependentUpon>GridUISettingUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\LisanceUC.xaml.cs">
+    <Compile Include="View\Lisance\LisanceUC.xaml.cs">
       <DependentUpon>LisanceUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LisanceWindow.xaml.cs">
+    <Compile Include="View\Lisance\LisanceWindow.xaml.cs">
       <DependentUpon>LisanceWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LogUC.xaml.cs">
+    <Compile Include="View\Common\LogUC.xaml.cs">
       <DependentUpon>LogUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MontlyAnalysisUC.xaml.cs">
+    <Compile Include="View\Analysis\MontlyAnalysisUC.xaml.cs">
       <DependentUpon>MontlyAnalysisUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PasswordUC.xaml.cs">
+    <Compile Include="View\Common\PasswordUC.xaml.cs">
       <DependentUpon>PasswordUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PopupAnalysisUC.xaml.cs">
+    <Compile Include="View\Common\PopupAnalysisUC.xaml.cs">
       <DependentUpon>PopupAnalysisUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ProductUC.xaml.cs">
+    <Compile Include="View\MainScreen\MainCompanyEditUC.xaml.cs">
+      <DependentUpon>MainCompanyEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainScreen\MainLawEditUC.xaml.cs">
+      <DependentUpon>MainLawEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainScreen\MainPrivateEditUC.xaml.cs">
+      <DependentUpon>MainPrivateEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainScreen\MainPurchaseEditUC.xaml.cs">
+      <DependentUpon>MainPurchaseEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainScreen\MainSalesEditUC.xaml.cs">
+      <DependentUpon>MainSalesEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\ProductEditUC.xaml.cs">
+      <DependentUpon>ProductEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\ProductUC.xaml.cs">
       <DependentUpon>ProductUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RemindingUC.xaml.cs">
+    <Compile Include="View\Reminding\RemindingUC.xaml.cs">
       <DependentUpon>RemindingUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ReportUC.xaml.cs">
+    <Compile Include="View\Common\ReportUC.xaml.cs">
       <DependentUpon>ReportUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TypeAddUC.xaml.cs">
-      <DependentUpon>TypeAddUC.xaml</DependentUpon>
+    <Compile Include="View\Salesman\SalesmansEditUC.xaml.cs">
+      <DependentUpon>SalesmansEditUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SalesmanAdd.xaml.cs">
-      <DependentUpon>SalesmanAdd.xaml</DependentUpon>
+    <Compile Include="View\Stok\StokEditUC.xaml.cs">
+      <DependentUpon>StokEditUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\HedeflerUC.xaml.cs">
+    <Compile Include="View\TypeDetail\TypeDetailEditUC.xaml.cs">
+      <DependentUpon>TypeDetailEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Type\TypeEditUC.xaml.cs">
+      <DependentUpon>TypeEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Type\TypeUC.xaml.cs">
+      <DependentUpon>TypeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Salesman\SalesmansUC.xaml.cs">
+      <DependentUpon>SalesmansUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Goals\HedeflerUC.xaml.cs">
       <DependentUpon>HedeflerUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LoadingScreen.xaml.cs">
+    <Compile Include="View\Common\LoadingScreen.xaml.cs">
       <DependentUpon>LoadingScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainGridUC.xaml.cs">
+    <Compile Include="View\MainScreen\MainGridUC.xaml.cs">
       <DependentUpon>MainGridUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MontlyPurchaseUC.xaml.cs">
+    <Compile Include="View\Analysis\MontlyPurchaseUC.xaml.cs">
       <DependentUpon>MontlyPurchaseUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MontlySalesUC.xaml.cs">
+    <Compile Include="View\Analysis\MontlySalesUC.xaml.cs">
       <DependentUpon>MontlySalesUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PrintingUC.xaml.cs">
+    <Compile Include="View\Common\PrintingUC.xaml.cs">
       <DependentUpon>PrintingUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SalesmanUC.xaml.cs">
-      <DependentUpon>SalesmanUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\StokUC.xaml.cs">
+    <Compile Include="View\Stok\StokUC.xaml.cs">
       <DependentUpon>StokUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TypeDetailUC.xaml.cs">
+    <Compile Include="View\TypeDetail\TypeDetailUC.xaml.cs">
       <DependentUpon>TypeDetailUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UsersUC.xaml.cs">
+    <Compile Include="View\User\UsersEditUC.xaml.cs">
+      <DependentUpon>UsersEditUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\UsersUC.xaml.cs">
       <DependentUpon>UsersUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\VersionUC.xaml.cs">
+    <Compile Include="View\Common\VersionUC.xaml.cs">
       <DependentUpon>VersionUC.xaml</DependentUpon>
     </Compile>
     <Page Include="DXSplashScreen\LoadingSplashScreen.xaml">
@@ -783,123 +799,163 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="View\AnalysisMontlyUC.xaml">
+    <Page Include="View\Company\CompanyEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AnalysisYearlyUC.xaml">
+    <Page Include="View\Company\CompanyUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CompanyUC.xaml">
+    <Page Include="View\Customer\CostumerUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CostumerUC.xaml">
+    <Page Include="View\Customer\CustomerEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DailyPurchaseUC.xaml">
+    <Page Include="View\Analysis\DailyPurchaseUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DailySalesUC.xaml">
+    <Page Include="View\Analysis\DailySalesUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\FilemanagementUC.xaml">
+    <Page Include="View\FileManagement\FilemanagementEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GridUISettingUC.xaml">
+    <Page Include="View\FileManagement\FilemanagementUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LisanceUC.xaml">
+    <Page Include="View\Lisance\LisanceUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LisanceWindow.xaml">
+    <Page Include="View\Lisance\LisanceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LogUC.xaml">
+    <Page Include="View\Common\LogUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MontlyAnalysisUC.xaml">
+    <Page Include="View\Analysis\MontlyAnalysisUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PasswordUC.xaml">
+    <Page Include="View\Common\PasswordUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PopupAnalysisUC.xaml">
+    <Page Include="View\Common\PopupAnalysisUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ProductUC.xaml">
+    <Page Include="View\MainScreen\MainCompanyEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\RemindingUC.xaml">
+    <Page Include="View\MainScreen\MainLawEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ReportUC.xaml">
+    <Page Include="View\MainScreen\MainPrivateEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TypeAddUC.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\SalesmanAdd.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\HedeflerUC.xaml">
+    <Page Include="View\MainScreen\MainPurchaseEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LoadingScreen.xaml">
+    <Page Include="View\MainScreen\MainSalesEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainGridUC.xaml">
+    <Page Include="View\Product\ProductEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MontlyPurchaseUC.xaml">
+    <Page Include="View\Product\ProductUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MontlySalesUC.xaml">
+    <Page Include="View\Reminding\RemindingUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PrintingUC.xaml">
+    <Page Include="View\Common\ReportUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SalesmanUC.xaml">
+    <Page Include="View\Salesman\SalesmansEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\StokUC.xaml">
+    <Page Include="View\Stok\StokEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TypeDetailUC.xaml">
+    <Page Include="View\TypeDetail\TypeDetailEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UsersUC.xaml">
+    <Page Include="View\Type\TypeEditUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\VersionUC.xaml">
+    <Page Include="View\Type\TypeUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Salesman\SalesmansUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Goals\HedeflerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Common\LoadingScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainScreen\MainGridUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Analysis\MontlyPurchaseUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Analysis\MontlySalesUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Common\PrintingUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Stok\StokUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TypeDetail\TypeDetailUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UsersEditUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UsersUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Common\VersionUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1174,5 +1230,6 @@
   <ItemGroup>
     <Resource Include="Content\loading.gif" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

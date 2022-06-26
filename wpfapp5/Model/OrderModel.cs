@@ -20,7 +20,7 @@ namespace StarNote.Model
         public List<JobOrderModel> Joborder
         {
             get { return joborder; }
-            set { joborder = value; RaisePropertyChanged(e=>Joborder); }
+            set { joborder = value; RaisePropertyChanged("Joborder"); }
         }
 
       
