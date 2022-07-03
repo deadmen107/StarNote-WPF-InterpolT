@@ -15,6 +15,7 @@ using DevExpress.XtraReports.UI;
 using StarNote.Model;
 using StarNote.ViewModel;
 using StarNote.View;
+using StarNote.View.Common;
 
 namespace StarNote.Utils
 {

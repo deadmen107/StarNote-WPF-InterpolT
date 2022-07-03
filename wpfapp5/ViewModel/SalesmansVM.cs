@@ -40,7 +40,7 @@ namespace StarNote.ViewModel
         {
             while (true)
             {
-                if (MainWindow.ActivePage == MainWindow.AppPages.ProductUC || MainWindow.ActivePage == MainWindow.AppPages.ProductAddUC)
+                if (MainWindow.ActivePage == MainWindow.AppPages.Salesman || MainWindow.ActivePage == MainWindow.AppPages.SalesmanEdit)
                 {
                     if (!isDataValid)
                     {
@@ -159,7 +159,7 @@ namespace StarNote.ViewModel
                 Currentdata = new Model.ParameterModel();
                 Savebtnvisibility = Visibility.Visible;
                 Updatebtnvisibility = Visibility.Hidden;
-                MainWindow.ChangePage(MainWindow.AppPages.ProductAddUC);
+                MainWindow.ChangePage(MainWindow.AppPages.SalesmanEdit);
             }
             else
             {
@@ -172,7 +172,7 @@ namespace StarNote.ViewModel
             Currentdata = sender as ParameterModel;
             Updatebtnvisibility = Visibility.Visible;
             Savebtnvisibility = Visibility.Hidden;
-            MainWindow.ChangePage(MainWindow.AppPages.ProductAddUC);
+            MainWindow.ChangePage(MainWindow.AppPages.SalesmanEdit);
         }
 
         public void Loaddata()
@@ -195,7 +195,7 @@ namespace StarNote.ViewModel
                 bool isok = dataacces.DoPost(Currentdata, controller, add);
                 if (isok)
                 {
-                    MainWindow.ChangePage(MainWindow.AppPages.ProductUC);
+                    MainWindow.ChangePage(MainWindow.AppPages.Salesman);
                     Loaddata();
                     LogVM.displaypopup("INFO", "Kayıt Tamamlandı");
                     RefreshViews.ürün2source = true;
@@ -221,7 +221,7 @@ namespace StarNote.ViewModel
                 bool isok = dataacces.DoPost(Currentdata, controller, update);
                 if (isok)
                 {
-                    MainWindow.ChangePage(MainWindow.AppPages.ProductUC);
+                    MainWindow.ChangePage(MainWindow.AppPages.Salesman);
                     Loaddata();
                     LogVM.displaypopup("INFO", "Güncelleme Tamamlandı");
                     RefreshViews.ürün2source = true;
@@ -241,7 +241,7 @@ namespace StarNote.ViewModel
 
         public void GoBack()
         {
-            MainWindow.ChangePage(MainWindow.AppPages.ProductUC);
+            MainWindow.ChangePage(MainWindow.AppPages.Salesman);
         }
 
         private void Delete(object sender)

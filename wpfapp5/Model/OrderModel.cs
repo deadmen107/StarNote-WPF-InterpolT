@@ -8,7 +8,10 @@ namespace StarNote.Model
 {
     public class OrderModel : BaseModel
     {
-       
+        public OrderModel()
+        {
+            Joborder = new List<JobOrderModel>();
+        }
         private CostumerOrderModel costumerorder;
         public CostumerOrderModel Costumerorder
         {

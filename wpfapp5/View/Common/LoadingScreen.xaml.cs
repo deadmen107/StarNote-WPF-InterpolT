@@ -24,6 +24,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using StarNote.ViewModel;
 using StarNote.Jobs;
+using StarNote.View.Analysis.Lisance;
 
 namespace StarNote.View.Common
 {

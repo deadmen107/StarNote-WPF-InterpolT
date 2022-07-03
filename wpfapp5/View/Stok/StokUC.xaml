@@ -12,7 +12,6 @@
              xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
              mc:Ignorable="d" Margin="0" Padding="0"  
-              LostFocus="UserControl_LostFocus" GotFocus="UserControl_GotFocus"
              Background="#FE9590AD"   
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:viewmodel="clr-namespace:StarNote.ViewModel" DataContext="{StaticResource stokvm}">
 

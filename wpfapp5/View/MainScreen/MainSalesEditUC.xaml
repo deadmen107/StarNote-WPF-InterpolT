@@ -1,17 +1,18 @@
 ﻿<UserControl x:Class="StarNote.View.MainScreen.MainSalesEditUC"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
              mc:Ignorable="d" Margin="0" Padding="0"    
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:viewmodel="clr-namespace:StarNote.ViewModel" DataContext="{StaticResource mainvm}">
     <UserControl.Resources>
         <ResourceDictionary Source="/StarNote;component/Resources/ButtonResources.xaml">
         </ResourceDictionary>
     </UserControl.Resources>
-    <ScrollViewer Margin="-12" Background="#FE9590AD"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
+    <!--<ScrollViewer Margin="-12" Background="#FE9590AD"     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
         <ScrollViewer.Resources>
             <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                 <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
@@ -49,7 +50,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="30"/>
-                    <RowDefinition x:Name="subitems4" Height="100"/>
+                    <RowDefinition Height="{Binding Joborderrowhight}"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="30"/>
@@ -69,7 +70,7 @@
                             <RowDefinition  Height="*"/>
                         </Grid.RowDefinitions>
                         <Label Style="{StaticResource BorderTitle}" Grid.Column="0" Grid.Row="0">Sipariş Bilgileri</Label>
-                        <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,25,10,10" ></Separator>
+                        <Separator Style="{StaticResource itemseperator}" ></Separator>
                         <Label Style="{StaticResource BorderSubTitle}" Grid.Column="0" Grid.Row="0">GÖREVLİ ADI*</Label>
                         <Label Style="{StaticResource BorderSubTitle}" Grid.Column="0" Grid.Row="2">MÜŞTERİ ADI*</Label>
                         <Label Style="{StaticResource BorderSubTitle}" Grid.Column="2" Grid.Row="0">TESLİM TARİHİ *</Label>
@@ -93,7 +94,6 @@
                                 <dxe:DateEdit.StyleSettings>
                                     <dxe:DateEditPickerStyleSettings />
                                 </dxe:DateEdit.StyleSettings>
-
                             </dxe:DateEdit>
                         </Border>
                     </Grid>
@@ -107,10 +107,10 @@
                         <Label Style="{StaticResource BorderTitle}" Grid.Column="0" Grid.Row="0">Ürün Bilgileri</Label>
                         <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,35,10,10" ></Separator>
 
-                        <Button Style="{StaticResource FlatButtonStyle}" Grid.Row="0"  Margin="5,-5,30,5" Click="Addsubitem_Click"  VerticalAlignment="Center" HorizontalAlignment="Right" Width="120" Height="20" >ekle</Button>
-                        <ScrollViewer Grid.Row="1"    VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto"  >
+                        <Button Grid.Row="0"  Style="{StaticResource FlatButtonStyle}"  Margin="5,-5,30,5" Command="{Binding Addnewsubitemcommand}"  VerticalAlignment="Center" HorizontalAlignment="Right" Width="120" Height="20" >Gelir Ekle</Button>
+                        <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto"  >
                             <ScrollViewer.Resources>
-                                <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+                                <Style  x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                                     <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
                                     <Style.Triggers>
                                         <Trigger Property="Orientation" Value="Horizontal">
@@ -140,12 +140,12 @@
                                         <ColumnDefinition Width="160"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="1"  Margin="12,5,5,5" HorizontalAlignment= "Left">Sıra</Label>
-                                    <Label Grid.Row="0" Grid.Column="2"  Margin="12,5,5,5" HorizontalAlignment= "Left">Ürün</Label>
-                                    <Label Grid.Row="0" Grid.Column="3"  Margin="12,5,5,5" HorizontalAlignment= "Left">Miktar</Label>
-                                    <Label Grid.Row="0" Grid.Column="4"  Margin="12,5,5,5" HorizontalAlignment= "Left">Birim</Label>
-                                    <Label Grid.Row="0" Grid.Column="5"  Margin="12,5,5,5" HorizontalAlignment= "Left">Ücret</Label>
-                                    <Label Grid.Row="0" Grid.Column="6"  Margin="12,5,5,5" HorizontalAlignment= "Left">Açıklama</Label>
+                                    <Label Grid.Row="0" Grid.Column="1"  Style="{StaticResource subitemrowlabel}">Sıra</Label>
+                                    <Label Grid.Row="0" Grid.Column="2"  Style="{StaticResource subitemrowlabel}">Ürün</Label>
+                                    <Label Grid.Row="0" Grid.Column="3"  Style="{StaticResource subitemrowlabel}">Miktar</Label>
+                                    <Label Grid.Row="0" Grid.Column="4"  Style="{StaticResource subitemrowlabel}">Birim</Label>
+                                    <Label Grid.Row="0" Grid.Column="5"  Style="{StaticResource subitemrowlabel}">Ücret</Label>
+                                    <Label Grid.Row="0" Grid.Column="6"  Style="{StaticResource subitemrowlabel}">Açıklama</Label>
                                 </Grid>
                                 <ItemsControl x:Name="OthersIC" Grid.Row="1" ItemsSource="{Binding Path=Currentdata.Joborder,Mode=OneWay}">
                                     <ItemsControl.ItemTemplate>
@@ -163,31 +163,31 @@
                                                 </Grid.ColumnDefinitions>
                                                 <ItemsControl  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Currentdata.Joborder}"></ItemsControl>
                                                 <Image x:Name="img" MouseDown="Img_MouseDown" Grid.Column="0"  Tag="{Binding Path=Id}" Source="/Content/remove.png" Height="15"/>
-                                                <Border Grid.Row="1" Grid.Column="1"  Background="White"   Margin="10,10,10,11" BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                                                <Border Grid.Row="1" Grid.Column="1"  Style="{StaticResource subitemborder}">
                                                     <dxe:TextEdit Tag="{Binding Path=Id}" IsReadOnly="True"  ShowBorder="False"  Text="{Binding Path=Lowerid}"></dxe:TextEdit>
                                                 </Border>
-                                                <Border  Background="White" Grid.Column="2"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                    <dxe:TextEdit Tag="{Binding Path=Id}" CharacterCasing="Upper" ShowBorder="False" NullText="Ürün"  Text="{Binding Path=Ürün2}"></dxe:TextEdit>
+                                                <Border  Background="White" Grid.Column="2"   Style="{StaticResource subitemborder}">
+                                                    <dxe:TextEdit Tag="{Binding Path=Id}" Style="{StaticResource subitemtextedit}" NullText="Ürün"  Text="{Binding Path=Ürün2}"></dxe:TextEdit>
                                                 </Border>
 
 
-                                                <Border  Background="White" Grid.Column="3" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                    <dxe:TextEdit Tag="{Binding Path=Id}"  CharacterCasing="Upper"  ShowBorder="False" NullText="Sayfa Sayısı"   Text="{Binding Path=Miktar}"></dxe:TextEdit>
+                                                <Border  Background="White" Grid.Column="3"  Style="{StaticResource subitemborder}">
+                                                    <dxe:TextEdit Tag="{Binding Path=Id}"  Style="{StaticResource subitemtextedit}" NullText="Sayfa Sayısı"   Text="{Binding Path=Miktar}"></dxe:TextEdit>
                                                 </Border>
 
 
-                                                <Border  Background="White" Grid.Column="4" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                    <dxe:TextEdit   ShowBorder="False" CharacterCasing="Upper" NullText="Birim"   Text="{Binding Path=Birim}"></dxe:TextEdit>
+                                                <Border  Background="White" Grid.Column="4"  Style="{StaticResource subitemborder}">
+                                                    <dxe:TextEdit    Style="{StaticResource subitemtextedit}" NullText="Birim"   Text="{Binding Path=Birim}"></dxe:TextEdit>
                                                 </Border>
 
 
-                                                <Border  Background="White" Grid.Column="5"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                    <dxe:TextEdit  Tag="{Binding Path=Id}" CharacterCasing="Upper"  ShowBorder="False"  EditValueChanged="Subprice_EditValueChanged" NullText="Ücret"   EditValue="{Binding Path=Ücret,UpdateSourceTrigger=LostFocus}"></dxe:TextEdit>
+                                                <Border  Background="White" Grid.Column="5"   Style="{StaticResource subitemborder}">
+                                                    <dxe:TextEdit  Tag="{Binding Path=Id}"  Style="{StaticResource subitemtextedit}"  EditValueChanged="Subprice_EditValueChanged" NullText="Ücret"   EditValue="{Binding Path=Ücret,UpdateSourceTrigger=LostFocus}"></dxe:TextEdit>
                                                 </Border>
 
 
-                                                <Border  Background="White" Grid.Column="6" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
-                                                    <dxe:TextEdit  CharacterCasing="Upper"   ShowBorder="False" NullText="Açıklama"   Text="{Binding Path=Acıklama}"></dxe:TextEdit>
+                                                <Border  Background="White" Grid.Column="6"  Style="{StaticResource subitemborder}">
+                                                    <dxe:TextEdit   Style="{StaticResource subitemtextedit}" NullText="Açıklama"   Text="{Binding Path=Acıklama}"></dxe:TextEdit>
                                                 </Border>
                                             </Grid>
                                         </DataTemplate>
@@ -206,15 +206,15 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="260"/>
                         </Grid.ColumnDefinitions>
-                        <dx:SimpleButton Style="{StaticResource btnsave}"    Visibility="{Binding Path=Savebtnvisibility}"     Command="{Binding Path=Savecommand}"   Grid.Column="3"  ></dx:SimpleButton>
-                        <dx:SimpleButton Style="{StaticResource btnupdate}"  Visibility="{Binding Path=Updatebtnvisibility}"   Command="{Binding Path=Updatecommand}"   Grid.Column="3"  ></dx:SimpleButton>
-                        <dx:SimpleButton Style="{StaticResource btngoback}"  Command="{Binding Path=Gobackcommand}"  Grid.Column="0" ></dx:SimpleButton>
-                        <Button Name="othersbtntemizle"   Style="{StaticResource btnclear}"    Grid.Column="3" FontWeight="Bold"  Padding="0"     Margin="5,0,3,0"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="26" Width="124"  Command="{Binding Path=Clearcommand}"></Button>
+                        <dx:SimpleButton  Grid.Column="3" Style="{StaticResource btnsave}"    Visibility="{Binding Path=Savebtnvisibility}"     Command="{Binding Path=Savecommand}"    ></dx:SimpleButton>
+                        <dx:SimpleButton  Grid.Column="3" Style="{StaticResource btnupdate}"  Visibility="{Binding Path=Updatebtnvisibility}"   Command="{Binding Path=Updatecommand}"     ></dx:SimpleButton>
+                        <dx:SimpleButton  Grid.Column="0" Style="{StaticResource btngoback}"  Command="{Binding Path=Gobackcommand}"  ></dx:SimpleButton>
+                        <Button Name="othersbtntemizle"  Grid.Column="3"  Style="{StaticResource btnclear}"      Command="{Binding Path=Clearcommand}"></Button>
 
                     </Grid>
                 </Border>
 
             </Grid>
         </Grid>
-    </ScrollViewer>
+    </ScrollViewer>-->
 </UserControl>

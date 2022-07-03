@@ -18,7 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StarNote.View
+namespace StarNote.View.Reminding
 {
     /// <summary>
     /// Interaction logic for RemindingUC.xaml

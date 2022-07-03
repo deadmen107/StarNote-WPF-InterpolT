@@ -16,32 +16,108 @@ using System.Net;
 using DevExpress.Xpf.WindowsUI;
 using System.Windows;
 using System.IO;
+using System.Threading;
+using System.Drawing;
 
 namespace StarNote.ViewModel
 {
     public class MainVM : BaseModel
     {
-        MainService ObjMainService;
         StokVM stokVM;
-
+        BaseDa dataacces;
+        bool isDataValid = false;
 
         public MainVM()
-        {          
-            ObjMainService = new MainService();
-            stokVM = new StokVM();
+        {
+            dataacces = new BaseDa();
             Currentdata = new OrderModel();
             Currentdata.Costumerorder = new CostumerOrderModel();
             Currentdata.Joborder = new List<JobOrderModel>();
             Currentstok = new StokModel();
-            LoadData(100);        
-            Count = new List<string>() { "10", "100", "1000" };          
-            clearcommand = new RelayCommand(Clear);
+            stokVM = new StokVM();
+            Joborderrowhight = new GridLength(100);
+            Savebtnvisibility = Visibility.Visible;
+            Updatebtnvisibility = Visibility.Hidden;
+            Commandinit();
             filljobordercount();
+            LoadData();
+            Thread mainvmThread = new Thread(DataValidChecker);
+            mainvmThread.Start();
+        }
+        private void DataValidChecker()
+        {
+            while (true)
+            {
+                if (
+                    MainWindow.ActivePage == MainWindow.AppPages.MainGrid || 
+                    MainWindow.ActivePage == MainWindow.AppPages.MainCompanyEdit ||
+                    MainWindow.ActivePage == MainWindow.AppPages.MainLawEdit ||
+                    MainWindow.ActivePage == MainWindow.AppPages.MainPrivateEdit||
+                    MainWindow.ActivePage == MainWindow.AppPages.MainPurchaseEdit ||
+                    MainWindow.ActivePage == MainWindow.AppPages.MainSalesEdit
+                    )
+                {
+                    if (!isDataValid)
+                    {
+                        LoadData();
+                        isDataValid = true;
+                    }
+                }
+                else
+                {
+                    isDataValid = false;
+                }
+            }
+        }
+
+        private void Commandinit()
+        {
+            Savecommand = new RelayCommand(Save);
+            Updatecommand = new RelayCommand(Update);
+            Gobackcommand = new RelayCommand(GoBack);
+            Addnewsubitemcommand = new RelayCommand(Addsubitem);
+            Companynamechangedcommand = new RelayCommand(Getselectedcompany);
+            Costumernamechangedcommand = new RelayCommand(Getselectedcostumer);
+            Tabledoubleclick = new RelayparameterCommand(fillcurrentdata, CanExecuteMyMethod);
+            Deletesubitemcommand = new RelayparameterCommand(DeleteSubItem, CanExecuteMyMethod);
+            Newsavechange = new RelayCommand(Preparenewsave);
+            Subpricechangedcommand = new RelayCommand(Subpricechanged);
+            Amountchangedcommand = new RelayCommand(AmountChanged);
+            Amountcalccommand = new RelayCommand(AmountCalc);
+            clearcommand = new RelayCommand(Clear);
+            Statechangedcommand = new RelayCommand(Statechanged);
+            Deletesubfilecommand = new RelayparameterCommand(Deletesubfile, CanExecuteMyMethod);
+        }
+
+        #region Defines
+
+        #region variable
+
+        private Visibility updatebtnvisibility;
+
+        public Visibility Updatebtnvisibility
+        {
+            get { return updatebtnvisibility; }
+            set { updatebtnvisibility = value; RaisePropertyChanged("Updatebtnvisibility"); }
+        }
+
+        private Visibility savebtnvisibility;
+
+        public Visibility Savebtnvisibility
+        {
+            get { return savebtnvisibility; }
+            set { savebtnvisibility = value; RaisePropertyChanged("Savebtnvisibility"); }
+        }
+
+        private GridLength joborderrowhight;
+
+        public GridLength Joborderrowhight
+        {
+            get { return joborderrowhight; }
+            set { joborderrowhight = value; RaisePropertyChanged("Joborderrowhight"); }
         }
 
 
-
-        #region Defines
         private List<int> jobordercount;
         public List<int> Jobordercount
         {
@@ -79,7 +155,7 @@ namespace StarNote.ViewModel
             get { return orderlist; }
             set { orderlist = value; RaisePropertyChanged("Orderlist"); }
         }
-        
+
         private StokModel currentstok;
         public StokModel Currentstok
         {
@@ -136,14 +212,6 @@ namespace StarNote.ViewModel
             set { localfilelist = value; RaisePropertyChanged("Localfilelist"); }
         }
 
-
-        private List<string> count;
-        public List<string> Count
-        {
-            get { return count; }
-            set { count = value; RaisePropertyChanged("Count"); }
-        }
-
         private List<OrderModel> mainlist;
         public List<OrderModel> Mainlist
         {
@@ -166,7 +234,6 @@ namespace StarNote.ViewModel
             get { return alllist; }
             set { alllist = value; RaisePropertyChanged("Alllist"); }
         }
-
 
         private List<OrderModel> mainlistfirma;
         public List<OrderModel> Mainlistfirma
@@ -195,14 +262,9 @@ namespace StarNote.ViewModel
             get { return currentdata; }
             set { currentdata = value; RaisePropertyChanged("Currentdata"); }
         }
-        
-        private RelayCommand clearcommand;
-        public RelayCommand Clearcommand
-        {
-            get { return clearcommand; }
 
-        }
         
+
         #region sourcelist
 
         private List<string> ürün2sourcelist;
@@ -285,7 +347,345 @@ namespace StarNote.ViewModel
 
         #endregion
 
+        #region commands
+        private bool CanExecuteMyMethod(object parameter)
+        {
+            return true;
+        }
+
+        private RelayCommand newsavechange;
+        public RelayCommand Newsavechange
+        {
+            get { return newsavechange; }
+            set { newsavechange = value; RaisePropertyChanged("Newsavechange"); }
+        }
+
+        private RelayparameterCommand tabledoubleclick;
+        public RelayparameterCommand Tabledoubleclick
+        {
+            get { return tabledoubleclick; }
+            set { tabledoubleclick = value; RaisePropertyChanged("Tabledoubleclick"); }
+        }
+       
+        private RelayCommand updatecommand;
+        public RelayCommand Updatecommand
+        {
+            get { return updatecommand; }
+            set { updatecommand = value; RaisePropertyChanged("Updatecommand"); }
+        }
+
+        private RelayCommand savecommand;
+        public RelayCommand Savecommand
+        {
+            get { return savecommand; }
+            set { savecommand = value; RaisePropertyChanged("Savecommand"); }
+        }
+
+        private RelayCommand gobackcommand;
+
+        public RelayCommand Gobackcommand
+        {
+            get { return gobackcommand; }
+            set { gobackcommand = value; RaisePropertyChanged("Gobackcommand"); }
+        }
+
+        private RelayCommand clearcommand;
+        public RelayCommand Clearcommand
+        {
+            get { return clearcommand; }
+
+        }
+
+        private RelayCommand companynamechangedcommand;
+        public RelayCommand Companynamechangedcommand
+        {
+            get { return companynamechangedcommand; }
+            set { companynamechangedcommand = value; RaisePropertyChanged("Companynamechangedcommand"); }
+        }
+
+        private RelayCommand costumernamechangedcommand;
+        public RelayCommand Costumernamechangedcommand
+        {
+            get { return costumernamechangedcommand; }
+            set { costumernamechangedcommand = value; RaisePropertyChanged("Costumernamechangedcommand"); }
+        }
+
+        private RelayCommand addnewsubitemcommand;
+        public RelayCommand Addnewsubitemcommand
+        {
+            get { return addnewsubitemcommand; }
+            set { addnewsubitemcommand = value; RaisePropertyChanged("Addnewsubitemcommand"); }
+        }
+
+        private RelayparameterCommand deletesubitemcommand;
+        public RelayparameterCommand Deletesubitemcommand
+        {
+            get { return deletesubitemcommand; }
+            set { deletesubitemcommand = value; RaisePropertyChanged("Deletesubitemcommand"); }
+        }
+
+        private RelayCommand subpricechangedcommand;
+        public RelayCommand Subpricechangedcommand
+        {
+            get { return subpricechangedcommand; }
+            set { subpricechangedcommand = value; RaisePropertyChanged("Subpricechangedcommand"); }
+        }
+
+
+        private RelayCommand amountchangedcommand;
+        public RelayCommand Amountchangedcommand
+        {
+            get { return amountchangedcommand; }
+            set { amountchangedcommand = value; RaisePropertyChanged("Amountchangedcommand"); }
+        }
+
+        private RelayCommand amountcalccommand;
+        public RelayCommand Amountcalccommand
+        {
+            get { return amountcalccommand; }
+            set { amountcalccommand = value; RaisePropertyChanged("Amountcalccommand"); }
+        }
+
+        private RelayCommand statechangedcommand;
+        public RelayCommand Statechangedcommand
+        {
+            get { return statechangedcommand; }
+            set { statechangedcommand = value; RaisePropertyChanged("Statechangedcommand"); }
+        }
+
+        private RelayparameterCommand deletesubfilecommand;
+
+        public RelayparameterCommand Deletesubfilecommand
+        {
+            get { return deletesubfilecommand; }
+            set { deletesubfilecommand = value; RaisePropertyChanged("Deletesubfilecommand"); }
+        }
+
+        #endregion
+
+        #region routes
+        private const string controller = "MainScreen";
+        private const string GetMainAll = "GetMainAll";
+        private const string Getselectedjoborders = "Getselectedjoborders"; //Id
+        private const string GetJobOrder = "GetJobOrder";
+        private const string Getnewid = "Getnewid";
+        private const string Getjoborderlist = "Getjoborderlist";
+        private const string Getselectedstok = "Getselectedstok"; //name
+        private const string UpdateMain = "UpdateMain";
+        private const string Add = "AddMain";  //kayıt ve update date al
+        private const string Addsoft = "AddMainSoft";//kayıt ve update date al
+        private const string Getsource = "Getsources";
+        private const string türsource = "GettürSource";
+        private const string Getnewmainid = "Getnewid";
+        private const string ürün2source = "GetproductSource";
+        private const string ödemeyöntemsource = "GetödemeyöntemSource";
+        private const string methodsource = "GetmethodSource";
+        private const string durumsource = "GetdurumSource";
+        private const string birimsource = "GetbirimSource";
+        private const string kdvsource = "GetkdvSource";
+        private const string ürünsource = "GetürünSource";
+        private const string salesmansource = "GetsalesmanSource";
+        private const string typedetailsource = "Gettypedetailsource";
+        private const string GetcompanySource = "GetCompanySource";
+        private const string Getselectedfilelist = "Getselectedfilelist"; //id
+        private const string GetcostumerSource = "GetCostumerSource";
+        #endregion
+
+        #endregion
+
         #region Method
+
+        private void Preparenewsave()
+        {
+            Loadsources();
+            Localfilelist = new List<LocalfileModel>();
+            Localfile = new LocalfileModel();
+            Currentdata = new OrderModel();
+            Currentdata.Costumerorder.Kayıttarihi = DateTime.Now.ToString();
+            Currentdata.Costumerorder.Randevutarihi = DateTime.Now.AddMinutes(1).ToString();
+            Currentdata.Costumerorder.Durum = "YAPILIYOR";
+            Currentdata.Costumerorder.Satıselemanı = "MUSTAFA ŞAN";
+            Currentdata.Costumerorder.Ödemeyöntemi = "NAKIT";
+            Currentdata.Costumerorder.Kdv = "%40";
+            filljoborders(true);
+            if (MainWindow.AppPages.MainLawEdit == MainWindow.ActivePage)
+            {
+                Currentdata.Costumerorder.Satışyöntemi = "GELIR";
+                Currentdata.Costumerorder.Ödemeyöntemi = "NAKIT";
+            }
+            if (MainWindow.AppPages.MainPrivateEdit == MainWindow.ActivePage)
+            {
+                Currentdata.Costumerorder.Satışyöntemi = "GELIR";
+                Currentdata.Costumerorder.Tür = "ÖZEL MÜŞTERİLER";
+                Currentdata.Costumerorder.Firmaadı = "ŞAHIS";
+            }
+            if (MainWindow.AppPages.MainCompanyEdit == MainWindow.ActivePage)
+            {
+                Currentdata.Costumerorder.Satışyöntemi = "GELIR";
+                Currentdata.Costumerorder.Tür = "ŞİRKETLER";
+                Currentdata.Costumerorder.Firmaadı = "ŞAHIS";
+            }
+            if (MainWindow.AppPages.MainPurchaseEdit == MainWindow.ActivePage)
+            {
+                Currentdata.Costumerorder.Durum = "TAMAMLANDI";
+                Currentdata.Costumerorder.Kullanıcı = UserUtils.ActiveUser;
+                Currentdata.Costumerorder.Satışyöntemi = "GIDER";
+                Currentdata.Costumerorder.Ödemeyöntemi = "NAKIT";
+                Currentdata.Costumerorder.Savetype = 1;
+            }
+            if (MainWindow.AppPages.MainSalesEdit == MainWindow.ActivePage)
+            {
+                Currentdata.Costumerorder.Satışyöntemi = "GELIR";
+                Currentdata.Costumerorder.Durum = "TAMAMLANDI";
+                Currentdata.Costumerorder.Kullanıcı = UserUtils.ActiveUser;
+                Currentdata.Costumerorder.Satışyöntemi = "GELIR";
+                Currentdata.Costumerorder.Ödemeyöntemi = "NAKIT";
+                Currentdata.Costumerorder.Savetype = 1;
+            }
+        }
+
+        private void filljoborders(bool createnew)
+        {
+            try
+            {
+                int newid = 1;
+                if (Currentdata.Joborder.Count != 0)
+                    newid =Currentdata.Joborder.Max(u => u.Id);
+                if (createnew)
+                {
+                    if (MainWindow.AppPages.MainPurchaseEdit != MainWindow.ActivePage && MainWindow.AppPages.MainSalesEdit != MainWindow.ActivePage)
+                    {
+                        Currentdata.Joborder.Add(new JobOrderModel()
+                        {
+                            Id = newid + 1,
+                            Ücret = 0.0,
+                            Birim = "SAYFA",
+                            Durum = "YAPILIYOR",
+                            Ürün2 = "TÜRKÇE",
+                            Ürün = "TÜRKÇE"
+                        });
+                    }
+                    else
+                    {
+                        Currentdata.Joborder.Add(new JobOrderModel()
+                        {
+                            Id = newid + 1,
+                            Ücret = 0.0,
+                            Birim = "",
+                            Durum = "YAPILIYOR",
+                            Ürün2 = "",
+                            Ürün = ""
+                        });
+                    }
+                }
+                Joborderrowhight = new GridLength(100);
+                for (int i = 0; i < Currentdata.Joborder.Count; i++)
+                {
+                    GridLength newlen = new GridLength(53);
+                    Joborderrowhight = new GridLength(Joborderrowhight.Value + newlen.Value);
+                }
+                for (int i = 0; i < Currentdata.Joborder.Count; i++)
+                {
+                    Currentdata.Joborder[i].Lowerid = i + 1;
+                }
+            }
+            catch (Exception ex)
+            {
+               
+            }
+        }
+
+        private void fillcurrentdata(object sender)
+        {
+            var responsedata = sender as CostumerModel;
+            Currentdata = Mainlist.FirstOrDefault(u => u.Costumerorder.Id == responsedata.Id);
+
+            Updatebtnvisibility = Visibility.Visible;
+            Savebtnvisibility = Visibility.Hidden;
+
+            if(Currentdata.Costumerorder.Tür == "ÖZEL MÜŞLERİLER")
+            {
+                MainWindow.ChangePage(MainWindow.AppPages.MainPrivateEdit);
+            }
+            if (Currentdata.Costumerorder.Tür == "ŞİRKETLER")
+            {
+                MainWindow.ChangePage(MainWindow.AppPages.MainCompanyEdit);
+            }
+            if (Currentdata.Costumerorder.Tür != "ŞİRKETLER" && Currentdata.Costumerorder.Tür != "ÖZEL MÜŞLERİLER"  && Currentdata.Costumerorder.Savetype == 0)
+            {
+                MainWindow.ChangePage(MainWindow.AppPages.MainCompanyEdit);
+            }
+            if (Currentdata.Costumerorder.Satışyöntemi != "GELIR"  && Currentdata.Costumerorder.Savetype == 1)
+            {
+                MainWindow.ChangePage(MainWindow.AppPages.MainSalesEdit);
+            }
+            if (Currentdata.Costumerorder.Satışyöntemi != "GIDER" && Currentdata.Costumerorder.Savetype == 1)
+            {
+                MainWindow.ChangePage(MainWindow.AppPages.MainPurchaseEdit);
+            }
+        }
+
+        public void Save()
+        {
+            try
+            {
+                if (!DataValidation(currentdata))
+                {
+                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Data Validation Hatası", "");
+                }
+                else
+                {
+                    bool isok = dataacces.DoPost(Currentdata, controller, Add);
+                    if (isok)
+                    {
+                        uploadfiles(true);
+                        MainWindow.ChangePage(MainWindow.AppPages.MainGrid);
+                        LoadData();
+                        LogVM.displaypopup("INFO", "Kayıt Tamamlandı");
+                        LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Firma Kaydetme Tamamlandı", "");
+                    }
+                    else
+                    {
+                        LogVM.displaypopup("ERROR", "Kaydetme Başarısız");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Firma Kaydetme Hatası", ex.Message);
+            }
+
+        }
+
+        public void Update()
+        {
+            try
+            {
+                bool isok = dataacces.DoPost(Currentdata, controller, UpdateMain);
+                if (isok)
+                {
+                    uploadfiles(false);
+                    LoadData();
+                    MainWindow.ChangePage(MainWindow.AppPages.MainGrid);
+                    LogVM.displaypopup("INFO", "Güncelleme Tamamlandı");
+                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Firma Güncelleme Tamamlandı", "");
+                }
+                else
+                {
+                    LogVM.displaypopup("ERROR", "Güncelleme Başarısız");
+                }
+            }
+            catch (Exception ex)
+            {
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Firma Güncelleme Hatası", ex.Message);
+            }
+        }
+
+        public void GoBack()
+        {
+            MainWindow.ChangePage(MainWindow.AppPages.MainGrid);
+        }
+
         private void filljobordercount()
         {
             Jobordercount = new List<int>();
@@ -294,27 +694,23 @@ namespace StarNote.ViewModel
                 Jobordercount.Add(i);
             }
         }
-        public void fillcurrentdata(int ID)
-        {
-            Currentdata = Alllist.Find(u => u.Costumerorder.Id == ID);
-        }
-
+       
         public string filljoborder()
         {
             string joborder = string.Empty;
-            
-            joborder = ObjMainService.Getjoborder();
+            joborder = dataacces.DoGet(joborder, controller, GetJobOrder);
             return joborder;
         }
             
         public List<JobOrderModel> Getorderlist(int Id)
         {
-            return ObjMainService.Getselectedjoborders(Id);
+            List<JobOrderModel> list = new List<JobOrderModel>();
+            return dataacces.DoGet(list, controller, Getselectedjoborders, "Id", Id.ToString());
         }
         
         private void Clear()
         {
-            Currentdata = new OrderModel();
+            Preparenewsave();
             LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Main Kayıt Temizleme Tamamlandı", "");
         }     
         
@@ -327,44 +723,14 @@ namespace StarNote.ViewModel
             return isok;
         }
 
-        public bool Save()
-        {
-            bool isok = false;
-            try
-            {
-                //currentdata.Beklenentutar =(Convert.ToDouble(currentdata.Önerilentutar) - currentdata.Ücret).ToString();               
-                //currentdata.Kullanıcı = UserUtils.ActiveUser;
-                //if (Currentdata.Joborder == null)
-                //    Currentdata.Joborder = "";
-                if (!DataValidation(currentdata))
-                {
-                    LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Data Validation Hatası", "");
-                    return false;
-                }
-
-
-                isok = ObjMainService.Add(currentdata);
-                if (isok)
-                {
-                    uploadfiles(true);
-                }              
-                LoadData(1000);                
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Main Kaydetme Tamamlandı", "");
-            }
-            catch (Exception ex)
-            {
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Main Kaydetme Hatası", ex.Message);
-            }
-            return isok;
-        }
-        
         public void Loadsources()
         {
             try
             {
                 List<string> companies = new List<string>();
                 List<string> costumers = new List<string>();
-                helperclass model = ObjMainService.Getsource();
+                helperclass model = new helperclass();
+                model = dataacces.DoGet(model, controller, Getsource);
                 Companylist = model.company;
                 Costumerlist = model.costumer;
                 foreach (var item in Companylist)
@@ -396,12 +762,12 @@ namespace StarNote.ViewModel
             }
         }
 
-        public void LoadData(int count)
+        public void LoadData()
         {
             try
             {                
                 List<OrderModel> mainlist = new List<OrderModel>();
-                Alllist = ObjMainService.GetAll();
+                Alllist = dataacces.DoGet(mainlist, controller, GetMainAll);
                 if (!UserUtils.Authority.Contains(UserUtils.Bütün_Kayıtlar))
                     mainlist = Alllist.Where(x => x.Costumerorder.Kullanıcı == UserUtils.ActiveUser).ToList();
                 else
@@ -419,24 +785,6 @@ namespace StarNote.ViewModel
             {
                 LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Main Tablo Doldurma Hatası", ex.Message);
             }
-        }
-        
-        public bool Update()
-        {
-            bool isok = false;
-            try
-            {
-                //currentdata.Beklenentutar = (Convert.ToDouble(currentdata.Önerilentutar) - currentdata.Ücret).ToString();
-                isok = ObjMainService.Update(currentdata);
-                uploadfiles(false);
-                LoadData(1000);
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Main Güncelleme Tamamlandı", "");
-            }
-            catch (Exception ex)
-            {
-                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Main Güncelleme Hatası", ex.Message);
-            }
-            return isok;
         }
         
         #region Dosya İşlemleri
@@ -505,7 +853,8 @@ namespace StarNote.ViewModel
 
         private void uploadfiles(bool issave)
         {
-            int filemainid = ObjMainService.Getnewmainid();
+            int filemainid = 0;
+            filemainid = dataacces.DoGet(filemainid, controller, Getnewmainid);
             try
             {
                 foreach (var localfile in Localfilelist)
@@ -543,7 +892,7 @@ namespace StarNote.ViewModel
             List<FilemanagementModel> list = new List<FilemanagementModel>();
             List<LocalfileModel> locallist = new List<LocalfileModel>();
             List<string> listfilenames = new List<string>();
-            list = ObjMainService.Getselectedfilelist(id);
+            list = dataacces.DoGet(list, controller, Getselectedfilelist, "id", id.ToString());
             foreach (var item in list)
             {
                 listfilenames.Add(item.Klasörno);
@@ -580,24 +929,42 @@ namespace StarNote.ViewModel
 
         #region UI İşlemleri
 
+        private void DeleteSubItem(object sender)
+        {
+            int tag = (int)sender;
+            JobOrderModel model = Currentdata.Joborder.Find(u => u.Id == tag);
+            if (model.Üstid == 0)
+            {
+                Currentdata.Joborder.Remove(model);
+                filljoborders(false);
+                getmainprice();
+            }
+            else
+            {
+                LogVM.displaypopup("ERROR", "Kayıtlı Sipariş Değiştirilemez");
+            }
+        }
+
+        private void Addsubitem()
+        {
+            filljoborders(true);
+        }
+
         public void fillstok(string name)
         {
             try
             {
-                Currentstok = ObjMainService.Getselectedstok(name);
-
-
+                Currentstok = dataacces.DoGet(Currentstok, controller, Getselectedstok, "name", name);
             }
             catch (Exception)
             {
-
-
             }
 
         }
 
-        public void Getselectedcompany(string Companyname)
+        public void Getselectedcompany()
         {
+            string Companyname = Currentdata.Costumerorder.Firmaadı;
             try
             {
                 if (Companyname != null && Companyname != string.Empty)
@@ -615,8 +982,9 @@ namespace StarNote.ViewModel
             }
         }
 
-        public void Getselectedcostumer(string Costumername)
+        public void Getselectedcostumer()
         {
+            string Costumername = Currentdata.Costumerorder.İsim;
             try
             {
                 if (Costumername != null && Costumername != string.Empty)
@@ -637,51 +1005,53 @@ namespace StarNote.ViewModel
             }
         }
 
-        public void sayfahesaplama(int Tag)
+        public void AmountCalc()
         {
-            string kelime = Currentdata.Joborder.Find(u => u.Id == Tag).Kelimesayı.ToString();
-            string satır = Currentdata.Joborder.Find(u => u.Id == Tag).Satırsayı.ToString();
-            string karakter = Currentdata.Joborder.Find(u => u.Id == Tag).Karaktersayı.ToString();
-            int value;
-            int value1;
-            int vlaue2;
-            if (int.TryParse(kelime, out value) && int.TryParse(satır, out value1) && int.TryParse(karakter, out vlaue2))
+            foreach (var item in Currentdata.Joborder)
             {
-                Currentstok = stokVM.Stoklist.Find(u => u.Stokadı == Currentdata.Joborder.Find(i => i.Id == Tag).Ürün);
+                string kelime = Currentdata.Joborder.Find(u => u.Id == item.Id).Kelimesayı.ToString();
+                string satır = Currentdata.Joborder.Find(u => u.Id == item.Id).Satırsayı.ToString();
+                string karakter = Currentdata.Joborder.Find(u => u.Id == item.Id).Karaktersayı.ToString();
+                int value;
+                int value1;
+                int vlaue2;
+                if (int.TryParse(kelime, out value) && int.TryParse(satır, out value1) && int.TryParse(karakter, out vlaue2))
+                {
+                    Currentstok = stokVM.Stoklist.Find(u => u.Stokadı == Currentdata.Joborder.Find(i => i.Id == item.Id).Ürün);
 
-                double kelimesayfa, satırsayfa, karaktersayfa;
-                kelimesayfa = Convert.ToDouble(kelime) / 180;
-                satırsayfa = Convert.ToDouble(satır) / 20;
-                karaktersayfa = Convert.ToDouble(karakter) / 1000;
+                    double kelimesayfa, satırsayfa, karaktersayfa;
+                    kelimesayfa = Convert.ToDouble(kelime) / 180;
+                    satırsayfa = Convert.ToDouble(satır) / 20;
+                    karaktersayfa = Convert.ToDouble(karakter) / 1000;
 
-                if (kelimesayfa > satırsayfa && kelimesayfa > karaktersayfa)
-                {
-                    //kelime out
-                    Currentdata.Joborder.Find(u => u.Id == Tag).Hesaplanantutar = (Math.Ceiling(kelimesayfa) * Currentstok.Satışfiyat);
-                    Currentdata.Joborder.Find(u => u.Id == Tag).Hesaplananadet = (int)Math.Ceiling(kelimesayfa);
-                }
-                else if (satırsayfa > kelimesayfa && satırsayfa > karaktersayfa)
-                {
-                    //satır out
-                    Currentdata.Joborder.Find(u => u.Id == Tag).Hesaplanantutar = (Math.Ceiling(satırsayfa) * Currentstok.Satışfiyat);
-                    Currentdata.Joborder.Find(u => u.Id == Tag).Hesaplananadet = (int)Math.Ceiling(satırsayfa);
-                }
-                else if (karaktersayfa > kelimesayfa && karaktersayfa > satırsayfa)
-                {
-                    //karakter out
-                    Currentdata.Joborder.Find(u => u.Id == Tag).Hesaplanantutar = (Math.Ceiling(karaktersayfa) * Currentstok.Satışfiyat);
-                    Currentdata.Joborder.Find(u => u.Id == Tag).Hesaplananadet = (int)Math.Ceiling(karaktersayfa);
-                }
-                else
-                {
-                    //satır out
-                    Currentdata.Joborder.Find(u => u.Id == Tag).Hesaplanantutar = 0;
-                    Currentdata.Joborder.Find(u => u.Id == Tag).Hesaplananadet = 0;
+                    if (kelimesayfa > satırsayfa && kelimesayfa > karaktersayfa)
+                    {
+                        //kelime out
+                        Currentdata.Joborder.Find(u => u.Id == item.Id).Hesaplanantutar = Math.Ceiling(kelimesayfa) * Currentstok.Satışfiyat;
+                        Currentdata.Joborder.Find(u => u.Id == item.Id).Hesaplananadet = (int)Math.Ceiling(kelimesayfa);
+                    }
+                    else if (satırsayfa > kelimesayfa && satırsayfa > karaktersayfa)
+                    {
+                        //satır out
+                        Currentdata.Joborder.Find(u => u.Id == item.Id).Hesaplanantutar = Math.Ceiling(satırsayfa) * Currentstok.Satışfiyat;
+                        Currentdata.Joborder.Find(u => u.Id == item.Id).Hesaplananadet = (int)Math.Ceiling(satırsayfa);
+                    }
+                    else if (karaktersayfa > kelimesayfa && karaktersayfa > satırsayfa)
+                    {
+                        //karakter out
+                        Currentdata.Joborder.Find(u => u.Id == item.Id).Hesaplanantutar = Math.Ceiling(karaktersayfa) * Currentstok.Satışfiyat;
+                        Currentdata.Joborder.Find(u => u.Id == item.Id).Hesaplananadet = (int)Math.Ceiling(karaktersayfa);
+                    }
+                    else
+                    {
+                        //satır out
+                        Currentdata.Joborder.Find(u => u.Id == item.Id).Hesaplanantutar = 0;
+                        Currentdata.Joborder.Find(u => u.Id == item.Id).Hesaplananadet = 0;
+                    }
                 }
             }
         }
-
-        public void getmainprice()
+        private void getmainprice()
         {
             currentdata.Costumerorder.Beklenentutar = 0.0;
             List<JobOrderModel> list = currentdata.Joborder;
@@ -693,46 +1063,68 @@ namespace StarNote.ViewModel
             currentdata.Costumerorder.Beklenentutar = price;
         }
 
-        public void ürünfiyathesaplama(int Tag,bool mahkememi=false)
+        public void AmountChanged()
         {
-            string miktarstr = Currentdata.Joborder.Find(u => u.Id == Tag).Miktar.ToString();
-            int value;
-
-            if (int.TryParse(miktarstr, out value))
+            foreach (var subitem in Currentdata.Joborder)
             {
-                Currentstok = stokVM.Stoklist.Find(u => u.Stokadı == Currentdata.Joborder.Find(i => i.Id == Tag).Ürün);
-                if (mahkememi)
-                    Currentdata.Joborder.Find(u => u.Id == Tag).Ücret = 122 * Convert.ToDouble(miktarstr);
-                else                              
-                Currentdata.Joborder.Find(u => u.Id == Tag).Ücret = Currentstok.Satışfiyat * Convert.ToDouble(miktarstr);
-
+                Currentstok = stokVM.Stoklist.Find(u => u.Stokadı == Currentdata.Joborder.Find(i => i.Id == subitem.Id).Ürün);
+                Currentdata.Joborder.Find(u => u.Id == subitem.Id).Ücret = Currentdata.Costumerorder.Tür!="ÖZEL MÜŞTERİLER" && Currentdata.Costumerorder.Tür=="ŞİRKETLER" && Currentdata.Costumerorder.Savetype == 0
+                    ? 122 * Convert.ToDouble(subitem.Miktar)
+                    : Currentstok.Satışfiyat * Convert.ToDouble(subitem.Miktar);
             }
         }
 
-        public bool anasiparişdurumuhesaplama()
+        public void  Statechanged()
         {
-            List<JobOrderModel> list = currentdata.Joborder;
-            bool isok = true;
-            foreach (var model in list)
+            foreach (var item in Currentdata.Joborder)
             {
-                if (model.Durum != "TAMAMLANDI")
+                if (item.Durum != "TAMAMLANDI")
                 {
-                    return false;
+                    if (Currentdata.Costumerorder.Durum == "TAMAMLANDI")
+                    {
+                        LogVM.displaypopup("ERROR", "AÇIK SİPARİŞ VAR");
+                        Currentdata.Costumerorder.Durum = "YAPILIYOR";
+                    }
                 }
+               
             }
-            return isok;
         }
-        #endregion
+
+        private void Subpricechanged()
+        {
+            getmainprice();
+            if (MainWindow.ActivePage == MainWindow.AppPages.MainPurchaseEdit || MainWindow.ActivePage == MainWindow.AppPages.MainSalesEdit)
+            {
+                Currentdata.Costumerorder.Ücret = Currentdata.Costumerorder.Beklenentutar;
+            }
+           
+        }
+
+        private void Deletesubfile(object sender)
+        {
+            var item = sender as LocalfileModel;
+            changelocalfilelist(item.Id);
+        }
 
         #endregion
 
-
-
-
-
-
+        #endregion
 
     }
-
+    public class helperclass
+    {
+        public List<string> Ödemeyöntem { get; set; }
+        public List<string> Method { get; set; }
+        public List<string> Durum { get; set; }
+        public List<string> Birim { get; set; }
+        public List<string> Kdv { get; set; }
+        public List<string> Ürün { get; set; }
+        public List<string> Salesman { get; set; }
+        public List<string> tür { get; set; }
+        public List<string> türdetay { get; set; }
+        public List<string> mainürün { get; set; }
+        public List<CompanyModel> company { get; set; }
+        public List<CostumerModel> costumer { get; set; }
+    }
 
 }

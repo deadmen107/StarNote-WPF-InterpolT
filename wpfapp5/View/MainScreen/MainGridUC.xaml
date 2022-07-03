@@ -11,13 +11,13 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
              mc:Ignorable="d" Margin="0" Padding="0"    
-             LostFocus="UserControl_LostFocus" GotFocus="UserControl_GotFocus" 
+           
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:viewmodel="clr-namespace:StarNote.ViewModel" DataContext="{StaticResource companyvm}">
     <UserControl.Resources>
         <ResourceDictionary Source="/StarNote;component/Resources/ButtonResources.xaml">
         </ResourceDictionary>
     </UserControl.Resources>
-    <dx:DXTabItem Name="grid" >
+    <!--<dx:DXTabItem Name="grid" >
         <dx:DXTabControl  SelectionChanged="Özelfirmasecim_SelectionChanged"  x:Name="özelfirmasecim">
             <dx:DXTabControl.View>
                 <dx:TabControlMultiLineView HeaderLocation="Top"/>
@@ -617,5 +617,5 @@
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
-    </dx:DXTabItem >
+    </dx:DXTabItem >-->
 </UserControl>

@@ -16,7 +16,7 @@ using System.Windows.Threading;
 using StarNote.Service;
 using StarNote.Utils;
 using StarNote.ViewModel;
-namespace StarNote.View
+namespace StarNote.View.Goal
 {
     /// <summary>
     /// Interaction logic for HedeflerUC.xaml

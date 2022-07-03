@@ -53,7 +53,8 @@ namespace StarNote.View.User
                 ,cmb_38,cmb_39,cmb_40,cmb_41,cmb_42,cmb_43,cmb_44,cmb_45,cmb_46,cmb_47,cmb_48,cmb_49,cmb_50,cmb_51,cmb_52
                 ,cmb_53,cmb_54,cmb_55,cmb_56,cmb_57,cmb_58,cmb_59,cmb_60,cmb_61,cmb_62
               };
-            string Yetkitext = grdmain.GetFocusedRowCellDisplayText("Yetki");
+            //string Yetkitext = grdmain.GetFocusedRowCellDisplayText("Yetki");
+            string Yetkitext = "";
             foreach (var item in checkEdits)
             {
                 item.IsChecked = false;
@@ -113,7 +114,7 @@ namespace StarNote.View.User
             {
                 Yetkitext = "All";
             }
-            usersVM.Currentdata.Yetki = Yetkitext;
+            //usersVM.Currentdata.Yetki = Yetkitext;
         }
 
      

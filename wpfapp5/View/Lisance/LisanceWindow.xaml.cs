@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using StarNote.Service;
 using StarNote.Utils;
 using StarNote.ViewModel;
-namespace StarNote.View.Analysis
+namespace StarNote.View.Analysis.Lisance
 {
     /// <summary>
     /// Interaction logic for LisanceWindow.xaml

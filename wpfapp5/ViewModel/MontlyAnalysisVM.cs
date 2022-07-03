@@ -13,6 +13,7 @@ using StarNote.View;
 using DevExpress.XtraPrinting;
 using System.Windows;
 using System.Drawing;
+using StarNote.View.Common;
 
 namespace StarNote.ViewModel
 {

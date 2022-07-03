@@ -12,7 +12,6 @@
              xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
              mc:Ignorable="d" Margin="0" Padding="0"  
-              LostFocus="UserControl_LostFocus" GotFocus="UserControl_GotFocus"
              Background="#FE9590AD"   
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:viewmodel="clr-namespace:StarNote.ViewModel" DataContext="{StaticResource stokvm}">
 
@@ -103,11 +102,6 @@
                         </Grid.RowDefinitions>
                         <Label VerticalAlignment="Top" Margin="10,0,10,10" FontSize="13" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Dil Satış Bilgileri</Label>
                         <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Margin="5,25,10,10" ></Separator>
-
-
-
-
-
                         <Label VerticalAlignment="Bottom" Margin="10,10,10,-4"  FontSize="11" HorizontalAlignment="left" Grid.Column="0" Grid.Row="0">ALIŞ FİYATI</Label>
                         <Label VerticalAlignment="Bottom" Margin="10,10,10,-4"  FontSize="11" HorizontalAlignment="left" Grid.Column="1" Grid.Row="0">SATIŞ FİYATI</Label>
                         <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="2">KDV</Label>

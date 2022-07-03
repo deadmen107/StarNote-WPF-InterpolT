@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="StarNote.View.RemindingUC"      
+﻿<UserControl x:Class="StarNote.View.Reminding.RemindingUC"      
               xmlns:local="clr-namespace:StarNote.View"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

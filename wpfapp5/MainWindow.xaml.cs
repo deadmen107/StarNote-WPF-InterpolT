@@ -30,6 +30,8 @@ using ToastNotifications.Messages;
 using System.Configuration;
 using System.IO;
 using System.Diagnostics;
+using StarNote.View.Common;
+
 
 namespace StarNote
 {
@@ -39,11 +41,10 @@ namespace StarNote
 
     public partial class MainWindow : ThemedWindow
     {
-        public static AppPages ActivePage = AppPages.MainWindow;
+        public static AppPages ActivePage = AppPages.MainGrid;
         private static MainWindowVM windowVM = new MainWindowVM();
         public MainWindow()
         {
-
             InitializeComponent();
             this.DataContext = windowVM;
             windowVM.Pagestatus = 0;
@@ -55,7 +56,6 @@ namespace StarNote
             txtversiyon.Text = "Version V" + GetPublishedVersion();
         }
         public static bool pagechanged;
-
         public static string GetPublishedVersion()
         {
             if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
@@ -67,9 +67,6 @@ namespace StarNote
                 return "1.0.0.1";
             }
         }
-
-       
-
         public static void ChangePage(AppPages page)
         {
             ActivePage = page;
@@ -109,179 +106,14 @@ namespace StarNote
             cfg.Dispatcher = Application.Current.Dispatcher;
         });
 
-        private void HamburgerMenuNavigationButton_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
         private void HamburgerSubMenuNavigationButton_Click(object sender, RoutedEventArgs e)
         {
-            RefreshViews.screenchanged = true;
             HamburgerSubMenuNavigationButton menu = sender as HamburgerSubMenuNavigationButton;
             DocumentPanel panel = null;           
             if (menu != null)
             {
-                RefreshViews.pagecount = Convert.ToInt16(menu.Tag);
-                if (menu.Tag.ToString() == "1" && UserUtils.Authority.Contains(UserUtils.Genel_Takip_Ekranı))
-                {
-                    panel = documentPanelANAMENU;
-                    menü.Text = "Genel Takip Ekranı";
-                }
-                else if (menu.Tag.ToString() == "26" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
-                {
-                    panel = documentPanelANAMENU;                   
-                    menü.Text = "Şirket Tercümesi Ekleme";
-
-                }
-                else if (menu.Tag.ToString() == "3" && UserUtils.Authority.Contains(UserUtils.Satış_görevli_görüntüle))
-                {
-                    panel = documentAddSalesman;
-                    menü.Text = "Satış Görevli Tanımlama";
-                }
-                else if (menu.Tag.ToString() == "4")
-                {
-                    panel = documenthatırlatma;
-                    menü.Text = "HATIRLATMALAR";
-                }
-                else if (menu.Tag.ToString() == "5")
-                {
-                    panel = documenthatırlatma;
-                    menü.Text = "ESKİ HATIRLATMALAR";
-
-                }
-                else if (menu.Tag.ToString() == "6" && UserUtils.Authority.Contains(UserUtils.Günlük_Satın_Alma))
-                {
-
-                    panel = documentPanelMUHASEBEALIS;
-                    menü.Text = "Günlük Satın Alma ";
-
-                }
-                else if (menu.Tag.ToString() == "7" && UserUtils.Authority.Contains(UserUtils.Günlük_Satış))
-                {
-                    panel = documentPanelMUHASEBESATIS;
-                    menü.Text = "Günlük Satış ";
-                }
-                else if (menu.Tag.ToString() == "8" && UserUtils.Authority.Contains(UserUtils.Stok_Takip_Ekranı))
-                {
-                    
-                    panel = documentPanelSTOK;
-                    menü.Text = "Stok Takip Ekranı";
-                }
-                else if (menu.Tag.ToString() == "9" && UserUtils.Authority.Contains(UserUtils.Aylık_Satın_Alma))
-                {
-                    panel = documentPanelGELİR;
-                    menü.Text = "Aylık Satın Alma ";
-
-                }
-                else if (menu.Tag.ToString() == "10" && UserUtils.Authority.Contains(UserUtils.Aylık_Satış))
-                {
-                    panel = documentPanelGİDER;
-                    menü.Text = "Aylık Satış Takip";
-                }
-                else if (menu.Tag.ToString() == "11" && UserUtils.Authority.Contains(UserUtils.Aylık_Analiz))
-                {
-                    panel = documentPanelAylıkANALIZ;
-                    menü.Text = "Aylık Analiz Ekranı ";
-                }
-                else if (menu.Tag.ToString() == "12" && UserUtils.Authority.Contains(UserUtils.Yıllık_Analiz))
-                {
-                    panel = documentPanelYıllıkANALIZ;
-                    menü.Text = "Yıllık Analiz Ekranı ";
-                }
-                else if (menu.Tag.ToString() == "14" && UserUtils.Authority.Contains(UserUtils.SatışGörevli_analiz))
-                {
-                    panel = documentPanelPERSONEL;
-                    menü.Text = "Personel Takip Ekranı ";
-                }
-                else if (menu.Tag.ToString() == "15" && UserUtils.Authority.Contains(UserUtils.Dosya_yolu_görüntüle))
-                {
-                    panel = documentPanelPrint;
-                    menü.Text = "Dosya Yolu Ayarları";
-                }
-                else if (menu.Tag.ToString() == "16" && UserUtils.Authority.Contains(UserUtils.İşlem_Kayıt_Görüntüle))
-                {
-                    panel = documentlog;
-                    menü.Text = "Kayıt Defteri";
-                }
-                else if (menu.Tag.ToString() == "17" && UserUtils.Authority.Contains(UserUtils.Kullanıcıları_Görüntül))
-                {
-                    panel = documentPanelUSERS;
-                    menü.Text = "Kullanıcı Ayarları ";
-                }
-                else if (menu.Tag.ToString() == "18" && UserUtils.Authority.Contains(UserUtils.Hedef_ekranı))
-                {
-                    panel = documentPanelHEDEFLER;
-                    menü.Text = "Hedefler ";
-                }
-                else if (menu.Tag.ToString() == "19" && UserUtils.Authority.Contains(UserUtils.Tür_görüntüle))
-                {
-                    panel = documentAddTür;
-                    menü.Text = "Tür Ekleme ";
-                }
-                else if (menu.Tag.ToString() == "20" && UserUtils.Authority.Contains(UserUtils.Dosya_Takip_Ekranı))
-                {
-                    panel = documentdosyatakip;
-                    menü.Text = "Dosya Takip Ekranı ";
-                }
-                else if (menu.Tag.ToString() == "21" && UserUtils.Authority.Contains(UserUtils.Firma_görüntüle))
-                {
-                    panel = documentfirmaekleme;
-                    menü.Text = "Firma Ekleme ";
-                }
-                else if (menu.Tag.ToString() == "22" && UserUtils.Authority.Contains(UserUtils.Müşteri_görüntüle))
-                {
-                    panel = documentmüsteriekle;
-                    menü.Text = "Müşteri Ekleme ";
-                }
-                else if (menu.Tag.ToString() == "23")
-                {
-                    panel = documentşifre;
-                    menü.Text = "Parola Değiştirme";
-                }
-                else if (menu.Tag.ToString() == "24" && UserUtils.Authority.Contains(UserUtils.Ürün_detay_ekranı))
-                {
-                    //panel = documentürünekle;
-                    ChangePage(AppPages.ProductUC);
-                    menü.Text = "Ürün Tanımlama";
-                }
-                else if (menu.Tag.ToString() == "25" && UserUtils.Authority.Contains(UserUtils.Tür_görüntüle))
-                {
-                    panel = documentürdetay;
-                    menü.Text = "Tür Detay Ekleme ";
-                }
-                else if (menu.Tag.ToString() == "2" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
-                {
-                    panel = documentPanelANAMENU;                    
-                    menü.Text = "Özel Müşteri Tercümesi Ekleme";
-                }
-                else if (menu.Tag.ToString() == "27" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
-                {
-                    panel = documentPanelANAMENU;
-                    menü.Text = "Mahkeme Tercümesi Ekleme";
-                }
-                else if (menu.Tag.ToString() == "28" )
-                {                    
-                    panel = documentlisans;
-                    menü.Text = "Lisans takip ekranı";
-
-                }
-                else if (menu.Tag.ToString() == "29" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
-                {
-                    panel = documentPanelANAMENU;
-                    menü.Text = "Harcama Ekleme";
-                }
-                else if (menu.Tag.ToString() == "30" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
-                {
-                    panel = documentPanelANAMENU;
-                    menü.Text = "Harici Gelir Ekleme";
-                }                
-                else
-                {
-                    MessageBox.Show("Kullanıcının bu sayfaya yetkisi yok");
-                    panel = documentPanelANAMENU;
-                    menü.Text = "Genel Takip Ekranı";
-                }
-
+                menü.Text = (string)menu.Content;
+                windowVM.Pagestatus = Convert.ToInt32(menu.Tag);
             }
             if (panel != null)
             {
@@ -349,16 +181,6 @@ namespace StarNote
             }
         }
 
-        private void Havadurumu_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void Havadurumu_MouseLeave(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void Txtversiyon_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             VersionUC versionUC = new VersionUC();
@@ -367,12 +189,41 @@ namespace StarNote
 
         public enum AppPages
         {
-            MainWindow = 0,
-
-            ProductUC = 1,
-
-            ProductAddUC = 2 
-          
+            DailyPurchase = 0,
+            DailySales = 1,
+            AnalysisScreen = 2,
+            MontlyPurchase = 3,
+            MontlySales = 4,
+            Log = 5,
+            Password = 6,
+            Printing = 7,
+            Company = 8,
+            CompanyEdit = 9,
+            Costumer = 10,
+            CostumerEdit = 11,
+            Filemanagement = 12,
+            FilemanagementEdit = 13,
+            Goals = 14,
+            Lisance = 15,
+            MainCompanyEdit = 16,
+            MainGrid = 17,
+            MainLawEdit = 18,
+            MainPrivateEdit = 19,
+            MainPurchaseEdit = 20,
+            MainSalesEdit = 21,
+            Product = 22,
+            ProductEdit = 23,
+            Salesman = 24,
+            SalesmanEdit = 25,
+            Stok = 26,
+            StokEdit = 27,
+            Type = 28,
+            TypeEdit = 29,
+            TypeDetail = 30,
+            TypeDetailEdit = 31,
+            Users = 32,
+            UsersEdit = 33,
+            Reminding = 34
         }
     }
 

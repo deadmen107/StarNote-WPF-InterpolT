@@ -1,12 +1,18 @@
 ﻿<UserControl x:Class="StarNote.View.MainScreen.MainPrivateEditUC"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:StarNote.View.MainScreen"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <ScrollViewer Margin="-12" Background="#FE9590AD" x:Name="özelscrollbar"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"  >
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+             mc:Ignorable="d" Margin="0" Padding="0"    
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:viewmodel="clr-namespace:StarNote.ViewModel" DataContext="{StaticResource mainvm}">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/StarNote;component/Resources/ButtonResources.xaml">
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <!--<ScrollViewer Margin="-12" Background="#FE9590AD" x:Name="özelscrollbar"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"  >
         <ScrollViewer.Resources>
             <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                 <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
@@ -425,7 +431,7 @@
                         <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="1" Grid.Row="0">TALEP EDİLEN TUTAR</Label>
                         <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="2" Grid.Row="0">ALINAN NET TUTAR</Label>
                         <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="3" Grid.Row="0">VERGİ ORANI</Label>
-                        <!--<Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="2">GELİR/GİDER *</Label>-->
+                        --><!--<Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="2">GELİR/GİDER *</Label>--><!--
                         <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="1" Grid.Row="2">ÖDEME ŞEKLİ *</Label>
                         <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="2" Grid.Row="2">DURUM *</Label>
                         <Label VerticalAlignment="Bottom" Margin="10,10,10,-4" FontSize="11"  HorizontalAlignment="left" Grid.Column="0" Grid.Row="4">AÇIKLAMA</Label>
@@ -446,7 +452,7 @@
                             <dxe:ComboBoxEdit  IsTextEditable="False" ShowBorder="False" CharacterCasing="Upper"  ItemsSource="{Binding Path=Kdvsourcelist}"  Text="{Binding Path=Currentdata.Costumerorder.Kdv}"></dxe:ComboBoxEdit>
                         </Border>
 
-                        <!--<Border  Grid.Column="0" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
+                        --><!--<Border  Grid.Column="0" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:ComboBoxEdit  IsTextEditable="False" ShowBorder="False"  ItemsSource="{Binding Path=Metodsourcelist}"  Text="{Binding Path=Currentdata.Costumerorder.Satışyöntemi}"></dxe:ComboBoxEdit>
                                     </Border>-->
                         <!--<Border  Grid.Column="1" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
@@ -457,7 +463,7 @@
                                     </Border>
                                     <Border  Grid.Column="3" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                         <dxe:TextEdit    ShowBorder="False" TextWrapping="Wrap" Text="{Binding Path=Currentdata.Costumerorder.Acıklama}"></dxe:TextEdit>
-                                    </Border>-->
+                                    </Border>--><!--
                         <Border  Grid.Column="1" Grid.Row="3" Background="White"  Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                             <dxe:ComboBoxEdit  IsTextEditable="False" CharacterCasing="Upper" ShowBorder="False"  ItemsSource="{Binding Path=Ödemesourcelist}"  Text="{Binding Path=Currentdata.Costumerorder.Ödemeyöntemi}"></dxe:ComboBoxEdit>
                         </Border>
@@ -540,5 +546,5 @@
 
             </Grid>
         </Grid>
-    </ScrollViewer>
+    </ScrollViewer>-->
 </UserControl>

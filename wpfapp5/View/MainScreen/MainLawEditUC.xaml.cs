@@ -18,9 +18,9 @@ namespace StarNote.View.MainScreen
     /// <summary>
     /// Interaction logic for MainScreenEditLawUC.xaml
     /// </summary>
-    public partial class MainScreenEditLawUC : UserControl
+    public partial class MainLawEditUC : UserControl
     {
-        public MainScreenEditLawUC()
+        public MainLawEditUC()
         {
             InitializeComponent();
         }

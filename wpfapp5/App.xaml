@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:StarNote"
              xmlns:viewmodels ="clr-namespace:StarNote.ViewModel"  
              
-             StartupUri="View/LoadingScreen.xaml">
+             StartupUri="View/Common/LoadingScreen.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <viewmodels:ProductVM x:Key="productvm" />

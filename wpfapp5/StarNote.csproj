@@ -693,9 +693,6 @@
     <Compile Include="View\Common\PasswordUC.xaml.cs">
       <DependentUpon>PasswordUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Common\PopupAnalysisUC.xaml.cs">
-      <DependentUpon>PopupAnalysisUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\MainScreen\MainCompanyEditUC.xaml.cs">
       <DependentUpon>MainCompanyEditUC.xaml</DependentUpon>
     </Compile>
@@ -848,10 +845,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Common\PasswordUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Common\PopupAnalysisUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

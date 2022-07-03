@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\obj\Debug\
+C:\MyFiles\C#Devs\Interpol_T_WPF - Yeni Deneme\wpfapp5\obj\Debug\
 StarNote
 none
 false
 DEBUG;TRACE
-C:\MyFiles\C#Devs\Interpol_T_WPF\wpfapp5\App.xaml
-34-857611133
+C:\MyFiles\C#Devs\Interpol_T_WPF - Yeni Deneme\wpfapp5\App.xaml
+43-1250356488
 
-133-652206936
-134-568670991
-DXSplashScreen\LoadingSplashScreen.xaml;DXSplashScreen\SplashScreenView.xaml;MainWindow.xaml;Resources\ButtonResources.xaml;View\Company\CompanyEditUC.xaml;View\Company\CompanyUC.xaml;View\Customer\CostumerUC.xaml;View\Customer\CustomerEditUC.xaml;View\Analysis\DailyPurchaseUC.xaml;View\Analysis\DailySalesUC.xaml;View\FileManagement\FilemanagementUC.xaml;View\Lisance\LisanceUC.xaml;View\Lisance\LisanceWindow.xaml;View\LogUC.xaml;View\Analysis\MontlyAnalysisUC.xaml;View\PasswordUC.xaml;View\PopupAnalysisUC.xaml;View\Product\ProductAddUC.xaml;View\Product\ProductUC.xaml;View\Reminding\RemindingUC.xaml;View\ReportUC.xaml;View\Stok\StokEditUC.xaml;View\Type\TypeAddUC.xaml;View\Salesman\SalesmanAdd.xaml;View\Goals\HedeflerUC.xaml;View\LoadingScreen.xaml;View\MainScreen\MainGridUC.xaml;View\Analysis\MontlyPurchaseUC.xaml;View\Analysis\MontlySalesUC.xaml;View\PrintingUC.xaml;View\Stok\StokUC.xaml;View\TypeDetail\TypeDetailUC.xaml;View\User\UsersUC.xaml;View\VersionUC.xaml;
+1311972981086
+1341039228804
+DXSplashScreen\LoadingSplashScreen.xaml;DXSplashScreen\SplashScreenView.xaml;MainWindow.xaml;Resources\ButtonResources.xaml;View\Company\CompanyEditUC.xaml;View\Company\CompanyUC.xaml;View\Customer\CostumerUC.xaml;View\Customer\CustomerEditUC.xaml;View\Analysis\DailyPurchaseUC.xaml;View\Analysis\DailySalesUC.xaml;View\FileManagement\FilemanagementEditUC.xaml;View\FileManagement\FilemanagementUC.xaml;View\Lisance\LisanceUC.xaml;View\Lisance\LisanceWindow.xaml;View\Common\LogUC.xaml;View\Analysis\MontlyAnalysisUC.xaml;View\Common\PasswordUC.xaml;View\MainScreen\MainCompanyEditUC.xaml;View\MainScreen\MainLawEditUC.xaml;View\MainScreen\MainPrivateEditUC.xaml;View\MainScreen\MainPurchaseEditUC.xaml;View\MainScreen\MainSalesEditUC.xaml;View\Product\ProductEditUC.xaml;View\Product\ProductUC.xaml;View\Reminding\RemindingUC.xaml;View\Common\ReportUC.xaml;View\Salesman\SalesmansEditUC.xaml;View\Stok\StokEditUC.xaml;View\TypeDetail\TypeDetailEditUC.xaml;View\Type\TypeEditUC.xaml;View\Type\TypeUC.xaml;View\Salesman\SalesmansUC.xaml;View\Goals\HedeflerUC.xaml;View\Common\LoadingScreen.xaml;View\MainScreen\MainGridUC.xaml;View\Analysis\MontlyPurchaseUC.xaml;View\Analysis\MontlySalesUC.xaml;View\Common\PrintingUC.xaml;View\Stok\StokUC.xaml;View\TypeDetail\TypeDetailUC.xaml;View\User\UsersEditUC.xaml;View\User\UsersUC.xaml;View\Common\VersionUC.xaml;
 
 True
 

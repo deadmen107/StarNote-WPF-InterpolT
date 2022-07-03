@@ -18,7 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StarNote.View.Analysis
+namespace StarNote.View.Analysis.Lisance
 {
     /// <summary>
     /// Interaction logic for LisanceUC.xaml
