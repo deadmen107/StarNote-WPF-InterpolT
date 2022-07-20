@@ -35,7 +35,7 @@ namespace StarNote.ViewModel
             Selectionchangedtabindex = new RelayCommand(datechanged);
             Languagechange = new RelayCommand(filllanguagechart);
             Documentchange = new RelayCommand(fillDocumentchart);
-            Startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month-1, 1);
+            Startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             Enddate = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
             Titleindex = 0;
             Subtitleindex = 0;
@@ -440,7 +440,7 @@ namespace StarNote.ViewModel
 
         private void Changetitle()
         {
-            string[] titlenames = { "Genel Analiz", "Adliye Analiz", "Özel Analiz", "Firma Analiz", "Diğer Analiz" };
+            string[] titlenames = { "Genel Analiz", "Adliye Analiz", "Özel Analiz", "Kurum Analiz", "Diğer Analiz" };
             string[] subtitlenames = {"Net İşlemler Raporu", "Gelir İşlemler Raporu", "Gider İşlemler Raporu"};
             Titlename = titlenames[Titleindex] + " " + subtitlenames[Subtitleindex];
         }

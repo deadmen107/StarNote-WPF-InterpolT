@@ -257,5 +257,19 @@ namespace StarNote.Model
             get { return notergideri; }
             set { notergideri = value; RaisePropertyChanged("Notergideri"); }
         }
+
+        private string producthistory;
+        public string Producthistory
+        {
+            get { return producthistory; }
+            set { producthistory = value; RaisePropertyChanged("Producthistory"); }
+        }
+
+        private string specialid;
+        public string Specialid
+        {
+            get { return specialid; }
+            set { specialid = value; RaisePropertyChanged("Specialid"); }
+        }
     }
 }

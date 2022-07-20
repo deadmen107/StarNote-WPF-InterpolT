@@ -16,6 +16,7 @@ using System.Net;
 using DevExpress.Xpf.WindowsUI;
 using System.Windows;
 using System.IO;
+using DevExpress.XtraPrinting;
 
 namespace StarNote.ViewModel
 {
@@ -323,10 +324,11 @@ namespace StarNote.ViewModel
             bool isok = false;
             try
             {
-                //currentdata.Beklenentutar =(Convert.ToDouble(currentdata.Önerilentutar) - currentdata.Ücret).ToString();               
-                //currentdata.Kullanıcı = UserUtils.ActiveUser;
-                //if (Currentdata.Joborder == null)
-                //    Currentdata.Joborder = "";
+                currentdata.Costumerorder.Producthistory = "";
+                foreach (var subdata in currentdata.Joborder)
+                {
+                    currentdata.Costumerorder.Producthistory = $"{subdata.Miktar} {subdata.Birim} {subdata.Ürün2detay}, ";
+                }
                 isok = ObjMainService.Add(currentdata);
                 if (isok)
                 {
@@ -410,6 +412,11 @@ namespace StarNote.ViewModel
             bool isok = false;
             try
             {
+                currentdata.Costumerorder.Producthistory = "";
+                foreach (var subdata in currentdata.Joborder)
+                {
+                    currentdata.Costumerorder.Producthistory = $"{subdata.Miktar} {subdata.Birim} {subdata.Ürün2detay}, ";
+                }
                 //currentdata.Beklenentutar = (Convert.ToDouble(currentdata.Önerilentutar) - currentdata.Ücret).ToString();
                 isok = ObjMainService.Update(currentdata);
                 uploadfiles(false);
@@ -705,6 +712,64 @@ namespace StarNote.ViewModel
                 }
             }
             return isok;
+        }
+
+        public bool Downloadfile(LocalfileModel Localmodel)
+        {
+            bool isok = false;
+            try
+            {
+                FilemanagementModel model = new FilemanagementModel
+                {
+                    Mainid = Localmodel.Mainid,
+                    Dosyaadı = Localmodel.Dosya,
+                    Klasörno = Localmodel.Klasöradı
+                };
+                FileUtils fileUtils = new FileUtils();
+                fileUtils.DownloadFile(model);
+                isok = true;
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "Dosya İndirme Tamamlandı", "");
+            }
+            catch (Exception ex)
+            {
+                LogVM.Addlog(this.GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "ERROR", "Dosya İndirme Hatası", ex.Message);
+            }
+            return isok;
+        }
+
+        public void DoAdliyeReport()
+        {
+            List<AnalysisreportModel> Reportdata = new List<AnalysisreportModel>();
+            foreach (var item in Mainlist.Where(u=>u.Costumerorder.Durum != "TAMAMLANDI" || u.Costumerorder.Ücret < 2).OrderBy(u=>u.Costumerorder.Tür).ToList())
+            {
+                string tür = "";
+                if(item.Costumerorder.Talimatadliye!="" && item.Costumerorder.Talimatadliye != null)
+                {
+                    tür = "Talimat";
+                }
+                else
+                {
+                    tür = "Esas";
+                }
+                Reportdata.Add(new AnalysisreportModel
+                {
+                    Id = item.Costumerorder.Id,
+                    Customername = $"{item.Costumerorder.Talimatadliye} {item.Costumerorder.Talimatmahkeme} { item.Costumerorder.Talimatkararno }",
+                    Processtype =  item.Costumerorder.Producthistory,
+                    Price = item.Costumerorder.Beklenentutar-item.Costumerorder.Ücret,
+                    Dateregister = item.Costumerorder.Kayıttarihi,
+                    Status = $"{item.Costumerorder.Tür} {item.Costumerorder.Türdetay} { item.Costumerorder.Kayıtdetay }"
+                });
+            }
+
+            AdliyeReport reportAnalysis2 = new AdliyeReport();
+            reportAnalysis2.ExportOptions.PrintPreview.SaveMode = DevExpress.XtraPrinting.SaveMode.UsingDefaultPath;
+            reportAnalysis2.ExportOptions.PrintPreview.ShowOptionsBeforeExport = false;
+            reportAnalysis2.DataSource = Reportdata;
+            reportAnalysis2.ExportToPdf("adliyeraporu.pdf");
+            reportAnalysis2.ExportOptions.PrintPreview.ActionAfterExport = ActionAfterExport.None;
+            ReportUC report2 = new ReportUC(reportAnalysis2, new OrderModel(), "Repor2");
+            report2.Show();
         }
         #endregion
 

@@ -55,7 +55,7 @@ namespace StarNote.Utils
                         Report1 tercümerapor = new Report1();
                         tercümerapor.Parameters["dosyano"].Value = model.Costumerorder.Kayıtdetay + " esas";
                         tercümerapor.Parameters["talimatno"].Value = model.Costumerorder.Türdetay + "..............." + " talimat numaralı dosyası";
-                        tercümerapor.Parameters["tarih"].Value = Convert.ToDateTime(model.Costumerorder.Randevutarihi).ToShortDateString();
+                        tercümerapor.Parameters["tarih"].Value = DateTime.Now.ToShortDateString();
                         tercümerapor.Parameters["tür"].Value = model.Costumerorder.Türdetay + " HAKİMLİĞİ'NE";
                         tercümerapor.Parameters["şehir"].Value = model.Costumerorder.Şehir;
 
@@ -67,13 +67,13 @@ namespace StarNote.Utils
                             tercümerapor.Parameters[satırno].Value = " : " + item.Satırsayı + "  satır";
                             tercümerapor.Parameters[karakterno].Value = " : " + item.Karaktersayı + "  karakter";
                             tercümerapor.Parameters[sayfano].Value = " ( " + item.Hesaplananadet +" SAYFA"+ " )";
-                            tercümerapor.Parameters[ürünno].Value = item.Ürün;
+                            tercümerapor.Parameters[ürünno].Value = item.Ürün2detay;
                             
                                 toplamsayfa += item.Hesaplananadet;
                             
                         }
-                        toplampara = 90 * toplamsayfa;
-                        tercümerapor.Parameters["toplampara"].Value = toplamsayfa.ToString() + " SAYFA " + " X " + "90" + " TL = " + toplampara.ToString() + " TL";
+                        toplampara = 122 * toplamsayfa;
+                        tercümerapor.Parameters["toplampara"].Value = toplamsayfa.ToString() + " SAYFA " + " X " + "122" + " TL = " + toplampara.ToString() + " TL";
                         tercümerapor.Parameters["toplamsayfa"].Value = toplamsayfa.ToString() + " Sayfa";
                         //reportirsaliye.ExportOptions.PrintPreview.DefaultDirectory = System.Environment.CurrentDirectory;
                         tercümerapor.ExportOptions.PrintPreview.DefaultDirectory = directory;
@@ -95,9 +95,13 @@ namespace StarNote.Utils
                         foreach (var item in model.Joborder)
                         {
                             count++;
+                            if (count > 5)
+                            {
+                                break;
+                            }
                             string dosyano = "dosyano" + count.ToString(), hizmetno = "hizmet" + count.ToString(), sayfano = "sayfa" + count.ToString(), tutar = "tutar" + count.ToString();
                             bildiriücret.Parameters[dosyano].Value = item.Joborder;
-                            bildiriücret.Parameters[hizmetno].Value = item.Ürün;
+                            bildiriücret.Parameters[hizmetno].Value = item.Ürün2;
                             bildiriücret.Parameters[sayfano].Value = item.Miktar + " Adet";
                             bildiriücret.Parameters[tutar].Value = item.Ücret + " TL";
 

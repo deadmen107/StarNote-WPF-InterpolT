@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Report1));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine5 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine4 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
@@ -142,7 +143,6 @@
             this.tarih = new DevExpress.XtraReports.Parameters.Parameter();
             this.şehir = new DevExpress.XtraReports.Parameters.Parameter();
             this.talimatno = new DevExpress.XtraReports.Parameters.Parameter();
-            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -235,6 +235,19 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel11
+            // 
+            this.xrLabel11.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[şehir]")});
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(261.3293F, 127.3334F);
+            this.xrLabel11.Multiline = true;
+            this.xrLabel11.Name = "xrLabel11";
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(288.8889F, 23.00001F);
+            this.xrLabel11.StylePriority.UseTextAlignment = false;
+            this.xrLabel11.Text = "xrLabel11";
+            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLine5
             // 
@@ -337,7 +350,7 @@
             this.xrLabel72.SizeF = new System.Drawing.SizeF(282.9953F, 13.02777F);
             this.xrLabel72.StylePriority.UseFont = false;
             this.xrLabel72.StylePriority.UseTextAlignment = false;
-            this.xrLabel72.Text = "adresinde belirtilen 95 TL ücret, Emek Zaman ve Sarf ";
+            this.xrLabel72.Text = "adresinde belirtilen 180 TL ücret, Emek Zaman ve Sarf ";
             this.xrLabel72.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrLabel71
@@ -365,7 +378,7 @@
             this.xrLabel70.SizeF = new System.Drawing.SizeF(332.9019F, 13.02777F);
             this.xrLabel70.StylePriority.UseFont = false;
             this.xrLabel70.StylePriority.UseTextAlignment = false;
-            this.xrLabel70.Text = "Sayılar gözetmeksizin Direkt Sayfa başı ücret ödenmesi durumunda ise 2020 yılı ";
+            this.xrLabel70.Text = "Sayılar gözetmeksizin Direkt Sayfa başı ücret ödenmesi durumunda ise 2022 yılı ";
             this.xrLabel70.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrLabel69
@@ -379,7 +392,7 @@
             this.xrLabel69.SizeF = new System.Drawing.SizeF(313.904F, 13.02777F);
             this.xrLabel69.StylePriority.UseFont = false;
             this.xrLabel69.StylePriority.UseTextAlignment = false;
-            this.xrLabel69.Text = "1 sayfa olarak kabul edilip ücret  90  TL olarak hesaplandığını;";
+            this.xrLabel69.Text = "1 sayfa olarak kabul edilip ücret  122  TL olarak hesaplandığını;";
             this.xrLabel69.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrLabel68
@@ -695,8 +708,8 @@
             this.xrLabel47.SizeF = new System.Drawing.SizeF(432F, 13.02783F);
             this.xrLabel47.StylePriority.UseFont = false;
             this.xrLabel47.StylePriority.UseTextAlignment = false;
-            this.xrLabel47.Text = "Adalet Bakanlığı Hukuk İşleri Genel Müdürlüğü’nün 05 Mart 2020 tarihli, 31059 say" +
-    "ılı resmi gazete";
+            this.xrLabel47.Text = "Adalet Bakanlığı Hukuk İşleri Genel Müdürlüğü’nün 24 Aralık 2021 tarihli, 31059 s" +
+    "ayılı resmi gazete";
             this.xrLabel47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrLabel46
@@ -1284,7 +1297,7 @@
             // 
             // xrLabel13
             // 
-            this.xrLabel13.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.xrLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.xrLabel13.ForeColor = System.Drawing.Color.MediumBlue;
             this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(523.8513F, 64.25001F);
             this.xrLabel13.Multiline = true;
@@ -1507,19 +1520,6 @@
             // 
             this.talimatno.Description = "talimatno";
             this.talimatno.Name = "talimatno";
-            // 
-            // xrLabel11
-            // 
-            this.xrLabel11.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[şehir]")});
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(261.3293F, 127.3334F);
-            this.xrLabel11.Multiline = true;
-            this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(288.8889F, 23.00001F);
-            this.xrLabel11.StylePriority.UseTextAlignment = false;
-            this.xrLabel11.Text = "xrLabel11";
-            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // Report1
             // 

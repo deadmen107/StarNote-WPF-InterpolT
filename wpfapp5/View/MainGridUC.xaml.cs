@@ -31,6 +31,7 @@ using StarNote.Settings;
 using DevExpress.Xpf.Core.Serialization;
 using DevExpress.Utils;
 using System.IO;
+using DevExpress.Xpf.Bars;
 
 namespace StarNote.View
 {
@@ -1077,6 +1078,48 @@ namespace StarNote.View
         }
 
         #endregion
+
+        private void btnindir_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            if (UserUtils.Authority.Contains(UserUtils.Dosya_İndir))
+            {
+                BarButtonItem baritem = sender as BarButtonItem;
+                GridControl grd = new GridControl();
+
+                if (baritem.Tag.ToString() == "0")
+                {
+                    grd = grdlocalfile;
+                }
+                if (baritem.Tag.ToString() == "1")
+                {
+                    grd = özelgrdlocalfile;
+                }
+                if (baritem.Tag.ToString() == "2")
+                {
+                    grd = firmagrdlocalfile;
+                }
+                try
+                {
+                    int ID = Convert.ToInt32(grd.GetFocusedRowCellDisplayText("1"));
+                    var model = ViewModel.Localfilelist.Single(r => r.Id == ID);
+                    ViewModel.Downloadfile(model);
+                }
+                catch (Exception ex)
+                {
+
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Kullanıcının bu işleme yetkisi yok");
+            }
+        }
+
+        private void btnadliyerapor_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ViewModel.DoAdliyeReport();
+        }
     }
 
 }
