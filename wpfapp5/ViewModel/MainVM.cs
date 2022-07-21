@@ -739,8 +739,8 @@ namespace StarNote.ViewModel
 
         public void DoAdliyeReport()
         {
-            List<AnalysisreportModel> Reportdata = new List<AnalysisreportModel>();
-            foreach (var item in Mainlist.Where(u=>u.Costumerorder.Durum != "TAMAMLANDI" || u.Costumerorder.Ücret < 2).OrderBy(u=>u.Costumerorder.Tür).ToList())
+            List<AdliyereportModel> Reportdata = new List<AdliyereportModel>();
+            foreach (var item in Mainlist.Where(u=>u.Costumerorder.Durum != "TAMAMLANDI" || u.Costumerorder.Ücret < 1).OrderBy(u=>u.Costumerorder.Tür).ToList())
             {
                 string tür = "";
                 if(item.Costumerorder.Talimatadliye!="" && item.Costumerorder.Talimatadliye != null)
@@ -751,14 +751,16 @@ namespace StarNote.ViewModel
                 {
                     tür = "Esas";
                 }
-                Reportdata.Add(new AnalysisreportModel
+                Reportdata.Add(new AdliyereportModel
                 {
                     Id = item.Costumerorder.Id,
-                    Customername = $"{item.Costumerorder.Talimatadliye} {item.Costumerorder.Talimatmahkeme} { item.Costumerorder.Talimatkararno }",
-                    Processtype =  item.Costumerorder.Producthistory,
-                    Price = item.Costumerorder.Beklenentutar-item.Costumerorder.Ücret,
-                    Dateregister = item.Costumerorder.Kayıttarihi,
-                    Status = $"{item.Costumerorder.Tür} {item.Costumerorder.Türdetay} { item.Costumerorder.Kayıtdetay }"
+                    Talimat = $"{item.Costumerorder.Talimatadliye} {item.Costumerorder.Talimatmahkeme} { item.Costumerorder.Talimatkararno }",
+                    Priceincome = "",
+                    Pricetotal = item.Costumerorder.Beklenentutar,
+                    Tarih = item.Costumerorder.Kayıttarihi,
+                    Esas = $"{item.Costumerorder.Tür} {item.Costumerorder.Türdetay} { item.Costumerorder.Kayıtdetay }",
+                    Davalı = $"{item.Costumerorder.İsim}",
+                    Info =""
                 });
             }
 

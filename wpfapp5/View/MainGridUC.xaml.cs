@@ -980,30 +980,30 @@ namespace StarNote.View
 
         private void Anasiparişdurum_EditValueChanged(object sender, EditValueChangedEventArgs e)
         {
-            if (RefreshViews.pagecount == 30 || RefreshViews.pagecount==29)
-                return;
-            if (e.NewValue == null)
-                return;
-            try
-            {
-                if (pagestatus!=3 && pagestatus!=4)
-                {
-                    if (e.NewValue.ToString() == "TAMAMLANDI")
-                    {
-                        if (!ViewModel.anasiparişdurumuhesaplama())
-                        {
-                            ViewModel.Currentdata.Costumerorder.Durum = e.OldValue.ToString();
-                            LogVM.displaypopup("ERROR", "Sipariş tamamlanamaz, açık alt işler var");
-                        }
-                    }
-                }
+            //if (RefreshViews.pagecount == 30 || RefreshViews.pagecount==29)
+            //    return;
+            //if (e.NewValue == null)
+            //    return;
+            //try
+            //{
+            //    if (pagestatus!=3 && pagestatus!=4)
+            //    {
+            //        if (e.NewValue.ToString() == "TAMAMLANDI")
+            //        {
+            //            if (!ViewModel.anasiparişdurumuhesaplama())
+            //            {
+            //                ViewModel.Currentdata.Costumerorder.Durum = e.OldValue.ToString();
+            //                LogVM.displaypopup("ERROR", "Sipariş tamamlanamaz, açık alt işler var");
+            //            }
+            //        }
+            //    }
                
-            }
-            catch (Exception ex)
-            {
+            //}
+            //catch (Exception ex)
+            //{
 
               
-            }
+            //}
          
         }
 

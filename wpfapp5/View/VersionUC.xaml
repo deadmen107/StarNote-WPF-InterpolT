@@ -42,6 +42,14 @@
                 </Style>
             </ScrollViewer.Resources>
             <TextBlock >
+                    Versiyon 1.1.0.36 <LineBreak/>
+          * Adliye Raporu Güncellendi.<LineBreak/>
+          * Fiyatlar 230tl yapıldı. <LineBreak/>
+          * kolon sıralamaları güncellendi.  <LineBreak/>                
+          * UYARI /////// <LineBreak/>        
+          * C dizininde bulunana starnode dosyasındaki template klasöründeki dosyaları temizleyin. <LineBreak/>
+                
+          --------------------------------------------------- <LineBreak/>   
                  Versiyon 1.1.0.35 <LineBreak/>
           * İsimlendirmeler Kurum olarak Güncellendi.<LineBreak/>
           * KDV'ler vergi oranı olarak değiştirildi. <LineBreak/>
