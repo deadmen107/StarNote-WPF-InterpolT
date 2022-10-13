@@ -44,7 +44,17 @@ namespace StarNote.Jobs
                 RemindingVM remindingVM = new RemindingVM();
                 remindingVM.Remindingcontrol();
                 LogVM.Addlog("IJOBS", System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "HATIRLATMA KONTROL TAMAMLANDI", "");
-            }          
+            }
+
+
+            if (RefreshViews.appstatus)
+            {
+                LogVM.Addlog("IJOBS", System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "RAPOR KONTROL BAŞLADI", "");
+                ReportCheck reportCheck = new ReportCheck();
+                reportCheck.CreateReport();
+                LogVM.Addlog("IJOBS", System.Reflection.MethodBase.GetCurrentMethod().Name, "INFO", "RAPOR KONTROL TAMAMLANDI", "");
+
+            }
         }
     }
 }

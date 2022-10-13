@@ -71,7 +71,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>amblem.ico</ApplicationIcon>
@@ -580,6 +580,8 @@
     <Compile Include="Model\PrintingModel.cs" />
     <Compile Include="Model\RemindingModel.cs" />
     <Compile Include="Model\RemindingpropertyModel.cs" />
+    <Compile Include="Model\ReportsettingComboboxModel.cs" />
+    <Compile Include="Model\ReportsettingModel.cs" />
     <Compile Include="Model\SalesmanAnalysisModel.cs" />
     <Compile Include="Model\SettingModel.cs" />
     <Compile Include="Model\SourceModel.cs" />
@@ -595,34 +597,35 @@
     </Compile>
     <Compile Include="Service\GlobalStore.cs" />
     <Compile Include="Service\RefreshViews.cs" />
+    <Compile Include="Service\ReportCheck.cs" />
     <Compile Include="Service\VisualTreeHelperExt.cs" />
     <Compile Include="Settings\WeatherSetting.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>WeatherSetting.settings</DependentUpon>
     </Compile>
-    <Compile Include="Utils\AdliyeReport.cs">
+    <Compile Include="Utils\Reports\AdliyeReport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\AdliyeReport.Designer.cs">
+    <Compile Include="Utils\Reports\AdliyeReport.Designer.cs">
       <DependentUpon>AdliyeReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\AnalysisReport3.cs">
+    <Compile Include="Utils\Reports\AnalysisReport3.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\AnalysisReport3.Designer.cs">
+    <Compile Include="Utils\Reports\AnalysisReport3.Designer.cs">
       <DependentUpon>AnalysisReport3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\AnalysisReport2.cs">
+    <Compile Include="Utils\Reports\AnalysisReport2.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\AnalysisReport2.Designer.cs">
+    <Compile Include="Utils\Reports\AnalysisReport2.Designer.cs">
       <DependentUpon>AnalysisReport2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\AnalysisReport.cs">
+    <Compile Include="Utils\Reports\AnalysisReport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\AnalysisReport.Designer.cs">
+    <Compile Include="Utils\Reports\AnalysisReport.Designer.cs">
       <DependentUpon>AnalysisReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\FileUtils.cs" />
@@ -638,18 +641,18 @@
       <DependentUpon>PrintingRoute.settings</DependentUpon>
     </Compile>
     <Compile Include="Utils\PrintUtils.cs" />
-    <Compile Include="Utils\Report1.cs">
+    <Compile Include="Utils\Reports\Report1.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\Report1.Designer.cs">
+    <Compile Include="Utils\Reports\Report1.Designer.cs">
       <DependentUpon>Report1.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\UserUtils.cs" />
     <Compile Include="Utils\WebapiUtils.cs" />
-    <Compile Include="Utils\Report2.cs">
+    <Compile Include="Utils\Reports\Report2.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\Report2.Designer.cs">
+    <Compile Include="Utils\Reports\Report2.Designer.cs">
       <DependentUpon>Report2.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AnalysisMontlyVM.cs" />
@@ -669,6 +672,7 @@
     <Compile Include="ViewModel\PrintingVM.cs" />
     <Compile Include="ViewModel\ProductVM.cs" />
     <Compile Include="ViewModel\RemindingVM.cs" />
+    <Compile Include="ViewModel\ReportsettingsVM.cs" />
     <Compile Include="ViewModel\TypeAddVM.cs" />
     <Compile Include="ViewModel\SalesmanAddVM.cs" />
     <Compile Include="ViewModel\SalesmanAnalysisVM.cs" />
@@ -722,6 +726,9 @@
     </Compile>
     <Compile Include="View\RemindingUC.xaml.cs">
       <DependentUpon>RemindingUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportSettingsUC.xaml.cs">
+      <DependentUpon>ReportSettingsUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ReportUC.xaml.cs">
       <DependentUpon>ReportUC.xaml</DependentUpon>
@@ -854,6 +861,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ReportSettingsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ReportUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -934,22 +945,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utils\AdliyeReport.resx">
+    <EmbeddedResource Include="Utils\Reports\AdliyeReport.resx">
       <DependentUpon>AdliyeReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utils\AnalysisReport3.resx">
+    <EmbeddedResource Include="Utils\Reports\AnalysisReport3.resx">
       <DependentUpon>AnalysisReport3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utils\AnalysisReport2.resx">
+    <EmbeddedResource Include="Utils\Reports\AnalysisReport2.resx">
       <DependentUpon>AnalysisReport2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utils\AnalysisReport.resx">
+    <EmbeddedResource Include="Utils\Reports\AnalysisReport.resx">
       <DependentUpon>AnalysisReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utils\Report1.resx">
+    <EmbeddedResource Include="Utils\Reports\Report1.resx">
       <DependentUpon>Report1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utils\Report2.resx">
+    <EmbeddedResource Include="Utils\Reports\Report2.resx">
       <DependentUpon>Report2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

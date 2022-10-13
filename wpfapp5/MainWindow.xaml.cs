@@ -50,6 +50,8 @@ namespace StarNote
             createxmlfolder();
             //notifier.ShowInformation("Star Note Veri Takip Uygulaması Versiyon 2.0");
             txtversiyon.Text = "Version V" + GetPublishedVersion();
+
+            
         }
         public static bool pagechanged;
 
@@ -260,7 +262,12 @@ namespace StarNote
                 {
                     panel = documentPanelANAMENU;
                     menü.Text = "Harici Gelir Ekleme";
-                }                
+                }
+                else if (menu.Tag.ToString() == "31" && UserUtils.Authority.Contains(UserUtils.Yeni_Kayıt_Ekleme))
+                {
+                    panel = documentRerportSettings;
+                    menü.Text = "Rapor Ayarları";
+                }
                 else
                 {
                     MessageBox.Show("Kullanıcının bu sayfaya yetkisi yok");

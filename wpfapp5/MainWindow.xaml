@@ -53,6 +53,7 @@
         <dxwui:HamburgerMenuItemSeparator/>
         <dxwui:HamburgerSubMenu  FontSize="16" Glyph="/Content/alarm.png" Content="HATIRLATMA" MoreButtonVisibilityMode="Hidden" FlyoutPaneWidth="50" FlyoutHeaderHeight="50"  >
             <dxwui:HamburgerSubMenu.Items >
+                <dxwui:HamburgerSubMenuNavigationButton Tag="31" Content="Mail Raporları"  Click="HamburgerSubMenuNavigationButton_Click" SelectOnClick="False"/>
                 <dxwui:HamburgerSubMenuNavigationButton Tag="4" Content="Hatırlatmar" Click="HamburgerSubMenuNavigationButton_Click"   />
                 <dxwui:HamburgerSubMenuNavigationButton Tag="5" Content="Eski Hatırlatmar" Click="HamburgerSubMenuNavigationButton_Click"/>
             </dxwui:HamburgerSubMenu.Items>
@@ -213,6 +214,9 @@
                             </dxdo:DocumentPanel>
                             <dxdo:DocumentPanel x:Name="documentürdetay" AllowClose="False">
                                 <view:TypeDetailUC/>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel x:Name="documentRerportSettings" AllowClose="False">
+                                <view:ReportSettingsUC/>
                             </dxdo:DocumentPanel>
                             <dxdo:DocumentPanel x:Name="documentlisans" AllowClose="False">
                                 <view:LisanceUC/>

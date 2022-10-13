@@ -118,24 +118,18 @@
                             <ColumnDefinition Width="300"/>
                         </Grid.ColumnDefinitions>
                         <TextBox x:Name="kayıtekrantext" Background="Transparent" BorderBrush="Transparent" Text="Ürünler > Güncelle"  VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
-
-
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100"/>
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="50"/>
-
-
                             <RowDefinition Height="30" />
                         </Grid.RowDefinitions>
                         <Border Background="#FFFAFAFA" Grid.Row="0"   CornerRadius="19" Padding="0">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
-
-
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="47"/>
@@ -148,11 +142,8 @@
                                 <Border  Grid.Column="0" Grid.Row="1" Background="White" Margin="10,10,10,11"  BorderBrush="Black" BorderThickness="1" CornerRadius="7" Padding="5">
                                     <dxe:TextEdit Name="txtürünadı" ShowBorder="False"    NullText="Belge Adı"  Text="{Binding Path=Currentdata.Parameter}"></dxe:TextEdit>
                                 </Border>
-
-
                             </Grid>
                         </Border>
-
                         <Border Background="#FFFAFAFA"  Grid.Row="2" Grid.Column="1" CornerRadius="19" Padding="0">
                             <Grid>
                                 <Grid.ColumnDefinitions>
